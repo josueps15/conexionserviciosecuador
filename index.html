@@ -5,31 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Conexion Servicios - La primera plataforma de servicios en Ecuador. Conectamos expertos con clientes de forma segura.">
-    <title>Conexion Servicios | La Primera App de Servicios de Ecuador</title>
+        content="Conexion Servicios - Plataforma profesional para conectar expertos verificados con clientes en todo Ecuador.">
+    <title>Conexion Servicios | Plataforma Profesional de Servicios</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
+    <!-- Icons (Lucide) usage via standard SVGs or a lightweight icon font if preferred. For simplicity, we use emojis or simple SVG paths in CSS/HTML -->
 </head>
 
 <body>
-    <!-- Background Effects -->
-    <div class="bg-blobs">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
-    </div>
+    <div class="bg-grid"></div>
 
     <!-- Header -->
     <header id="main-header">
         <div class="logo">
-            CONEXIÓN <span class="gradient-text">SERVICIOS</span>
+            <div class="logo-icon">CS</div>
+            Conexión <span style="font-weight: 500; color: var(--text-muted); margin-left: 4px;">Servicios</span>
         </div>
         <nav>
-            <a href="#inicio">Inicio</a>
+            <a href="#inicio" class="active">Inicio</a>
+            <a href="#como-funciona">Cómo funciona</a>
             <a href="#servicios">Servicios</a>
-            <a href="#negocios">Para Negocios</a>
-            <a href="#contacto">Contacto</a>
+            <a href="#negocios">Empresas</a>
+            <div class="nav-actions">
+                <a href="#" class="btn btn-outline" style="padding: 0.5rem 1rem;">Iniciar Sesión</a>
+                <a href="#" class="btn btn-primary" style="padding: 0.5rem 1rem;">Registrarse</a>
+            </div>
         </nav>
     </header>
 
@@ -37,27 +38,48 @@
         <!-- Hero Section -->
         <section id="inicio" class="hero">
             <div class="hero-content">
-                <div class="badge">
-                    <span></span> La #1 en Ecuador 🇪🇨
+                <div class="trust-badge">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        <polyline points="9 12 11 14 15 10"></polyline>
+                    </svg>
+                    Expertos 100% Verificados
                 </div>
                 <h1>
-                    La Primera App de <br>
-                    <span class="gradient-text">Servicios del País</span>
+                    La red de servicios <br>
+                    <span class="text-gradient">más confiable</span> del país.
                 </h1>
-                <p>Conectamos a todo el Ecuador. Encuentra expertos confiables o haz crecer tu negocio en la plataforma
-                    más grande y segura del mercado.</p>
+                <p>Encuentra al profesional ideal para cualquier tarea, desde reparaciones del hogar hasta consultoría
+                    corporativa. Rápido, seguro y garantizado.</p>
 
-                <div class="hero-btns">
-                    <a href="#servicios" class="btn btn-primary">
-                        Buscar Servicio
+                <div style="display: flex; gap: 1rem;">
+                    <a href="#servicios" class="btn btn-primary btn-large">
+                        Encontrar Experto
                     </a>
-                    <a href="#negocios" class="btn btn-secondary">
-                        Publicar Negocio
+                    <a href="#negocios" class="btn btn-outline btn-large">
+                        Soy Profesional
                     </a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h4>+10,000</h4>
+                        <p>Usuarios Activos</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>4.9/5</h4>
+                        <p>Calificación Promedio</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>24/7</h4>
+                        <p>Soporte Técnico</p>
+                    </div>
                 </div>
             </div>
 
             <div class="mockup-container">
+                <div class="mockup-glow"></div>
                 <div class="phone-mockup">
                     <div class="phone-screen">
                         <img src="assets/screenshots/home_services.png" alt="App Home" style="animation-delay: 0s;">
@@ -73,12 +95,41 @@
             </div>
         </section>
 
+        <!-- Trust & Features Section -->
+        <section id="como-funciona" class="section reveal">
+            <div class="section-header">
+                <h2>Por qué elegir Conexión Servicios</h2>
+                <p>Nuestra plataforma está diseñada con estándares corporativos para garantizar tu seguridad y
+                    satisfacción.</p>
+            </div>
+
+            <div class="grid-3">
+                <div class="card">
+                    <div class="icon-box">🛡️</div>
+                    <h3>Seguridad Garantizada</h3>
+                    <p>Todos los profesionales pasan por un estricto proceso de verificación de identidad y antecedentes
+                        antes de ofrecer sus servicios.</p>
+                </div>
+                <div class="card">
+                    <div class="icon-box">⚡</div>
+                    <h3>Conexión Inmediata</h3>
+                    <p>Nuestra tecnología impulsada por IA te conecta con el experto más adecuado para tu necesidad en
+                        cuestión de minutos.</p>
+                </div>
+                <div class="card">
+                    <div class="icon-box">💎</div>
+                    <h3>Calidad Premium</h3>
+                    <p>Sistema de calificaciones estructurado. Solo los mejores profesionales se mantienen activos en
+                        nuestra plataforma.</p>
+                </div>
+            </div>
+        </section>
+
         <!-- App Showcase Slider -->
         <section class="screenshot-slider reveal">
-            <div style="text-align: center; margin-bottom: 40px;">
-                <h2 style="font-size: 2.5rem; margin-bottom: 0.5rem;">Explora nuestra <span
-                        class="gradient-text">Interfaz</span></h2>
-                <p style="color: var(--text-muted);">Una experiencia diseñada para ser intuitiva y rápida.</p>
+            <div class="section-header" style="margin-bottom: 40px;">
+                <h2>Interfaz <span class="text-gradient">Intuitiva</span></h2>
+                <p>Diseñada para que encuentres lo que necesitas sin complicaciones.</p>
             </div>
             <div class="slider-track no-scrollbar">
                 <div class="screenshot-item">
@@ -99,83 +150,99 @@
             </div>
         </section>
 
-        <!-- Services Section -->
-        <section id="servicios" class="section reveal">
-            <div style="text-align: center; margin-bottom: 60px;">
-                <h2 style="font-size: 3rem; margin-bottom: 1rem;">Servicios <span
-                        class="gradient-text">Destacados</span></h2>
-                <p style="color: var(--text-muted);">Todo lo que necesitas, a un solo clic de distancia.</p>
-            </div>
-
-            <div class="grid-3">
-                <div class="card">
-                    <img src="assets/web-dev.png" alt="Desarrollo Web"
-                        style="width: 100%; border-radius: 20px; margin-bottom: 20px;">
-                    <h3>Hogar y Reparaciones</h3>
-                    <p style="color: var(--text-muted); margin-top: 10px;">Gasfitería, electricidad, limpieza y más para
-                        tu hogar.</p>
-                </div>
-                <div class="card">
-                    <img src="assets/ui-ux.png" alt="Diseño UI/UX"
-                        style="width: 100%; border-radius: 20px; margin-bottom: 20px;">
-                    <h3>Tecnología y Soporte</h3>
-                    <p style="color: var(--text-muted); margin-top: 10px;">Reparación de celulares, laptops y desarrollo
-                        de software.</p>
-                </div>
-                <div class="card">
-                    <img src="assets/marketing.png" alt="Marketing"
-                        style="width: 100%; border-radius: 20px; margin-bottom: 20px;">
-                    <h3>Clases y Tutorías</h3>
-                    <p style="color: var(--text-muted); margin-top: 10px;">Encuentra los mejores profesores para
-                        cualquier materia.</p>
-                </div>
-            </div>
-        </section>
-
         <!-- Business Section -->
-        <section id="negocios" class="section reveal" style="background: rgba(255,255,255,0.02); border-radius: 50px;">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+        <section id="negocios" class="section reveal">
+            <div
+                style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; background: var(--bg-card); padding: 4rem; border-radius: 24px; border: 1px solid var(--border);">
                 <div>
-                    <div class="badge">Para Profesionales</div>
-                    <h2 style="font-size: 3.5rem; margin-bottom: 1.5rem;">Impulsa tu marca al <span
-                            style="color: var(--accent);">siguiente nivel</span></h2>
-                    <p style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 2.5rem;">Únete a la red de
-                        servicios más grande del país. Publica tu negocio y deja que miles de clientes potenciales te
-                        encuentren fácilmente.</p>
-                    <a href="#" class="btn btn-primary" style="background: var(--accent);">Registrar mi Negocio</a>
+                    <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Potencia tu negocio con <span
+                            class="text-gradient-green">herramientas corporativas</span></h2>
+                    <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 2rem;">Accede a un panel de
+                        control avanzado, gestiona clientes, recibe pagos seguros y aumenta tu visibilidad en el mercado
+                        nacional.</p>
+
+                    <div class="step-list" style="margin-bottom: 3rem;">
+                        <div class="step-item">
+                            <div class="step-number">1</div>
+                            <div>
+                                <h4 style="font-family: 'Inter'; font-size: 1.05rem;">Crea tu perfil profesional</h4>
+                                <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 4px;">Sube tus
+                                    credenciales y portafolio.</p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">2</div>
+                            <div>
+                                <h4 style="font-family: 'Inter'; font-size: 1.05rem;">Aprobación y Verificación</h4>
+                                <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 4px;">Nuestro equipo
+                                    valida tu información.</p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">3</div>
+                            <div>
+                                <h4 style="font-family: 'Inter'; font-size: 1.05rem;">Empieza a recibir clientes</h4>
+                                <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 4px;">Obtén
+                                    solicitudes de servicio directamente.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#" class="btn btn-primary" style="background: var(--secondary); color: #0b1120;">Solicitar
+                        Acceso para Empresas</a>
                 </div>
-                <div class="grid-3" style="grid-template-columns: 1fr; gap: 1rem;">
-                    <div class="card" style="padding: 1.5rem; display: flex; align-items: center; gap: 20px;">
-                        <div style="font-size: 2rem;">🚀</div>
-                        <div>
-                            <h4 style="font-weight: 800;">Visibilidad Total</h4>
-                            <p style="font-size: 0.9rem; color: var(--text-muted);">Aparece en las búsquedas locales.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="card" style="padding: 1.5rem; display: flex; align-items: center; gap: 20px;">
-                        <div style="font-size: 2rem;">💼</div>
-                        <div>
-                            <h4 style="font-weight: 800;">Perfil Profesional</h4>
-                            <p style="font-size: 0.9rem; color: var(--text-muted);">Muestra tu trabajo de forma
-                                estética.</p>
-                        </div>
-                    </div>
+                <div>
+                    <!-- Reusing an asset as a corporate generic image placeholder -->
+                    <img src="assets/marketing.png" alt="Dashboard Corporativo"
+                        style="width: 100%; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.4);">
                 </div>
             </div>
         </section>
     </main>
 
-    <footer id="contacto" style="padding: 80px 5%; text-align: center; border-top: 1px solid var(--glass-border);">
-        <div class="logo" style="margin-bottom: 2rem;">
-            CONEXIÓN <span class="gradient-text">SERVICIOS</span>
+    <!-- Professional Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom: 1rem;">
+                    <div class="logo-icon">CS</div>
+                    Conexión Servicios
+                </div>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem; max-width: 250px;">
+                    La plataforma líder en Ecuador para la conexión segura y eficiente entre profesionales acreditados y
+                    clientes.
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>Compañía</h4>
+                <ul>
+                    <li><a href="#">Sobre Nosotros</a></li>
+                    <li><a href="#">Carreras</a></li>
+                    <li><a href="#">Prensa y Medios</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Recursos</h4>
+                <ul>
+                    <li><a href="#">Centro de Ayuda</a></li>
+                    <li><a href="#">Guías para Profesionales</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Estado del Sistema</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Términos de Servicio</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#">Política de Cookies</a></li>
+                    <li><a href="#">Garantía de Calidad</a></li>
+                </ul>
+            </div>
         </div>
-        <p style="color: var(--text-muted); margin-bottom: 2rem;">&copy; 2024 Conexion Servicios Ecuador. Innovando para
-            ti.</p>
-        <div style="display: flex; justify-content: center; gap: 2rem;">
-            <a href="#" style="color: white; text-decoration: none;">Instagram</a>
-            <a href="#" style="color: white; text-decoration: none;">Facebook</a>
-            <a href="#" style="color: white; text-decoration: none;">WhatsApp</a>
+        <div class="footer-bottom">
+            &copy; 2024 Conexión Servicios S.A. Todos los derechos reservados.
         </div>
     </footer>
 
