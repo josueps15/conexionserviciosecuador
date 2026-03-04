@@ -4,362 +4,332 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conexion Servicios | Tu Asistente Personal</title>
+    <meta name="description" content="Conexion Servicios - La red de profesionales más confiable y avanzada del país.">
+    <title>Conexion Servicios | Red Profesional</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <div class="ambient-bg"></div>
+    <div class="grid-overlay"></div>
+
     <!-- Header -->
     <header id="main-header">
         <a href="#" class="logo">
-            <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2L2 22h20L12 2z" />
-            </svg>
-            Conexión
+            <div class="logo-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                        d="M13.22 2.41l5.47 5.47a1.5 1.5 0 0 1 0 2.12l-8.3 8.3a2 2 0 0 1-1.42.59H4v-4.96a2 2 0 0 1 .59-1.41l8.3-8.3a1.5 1.5 0 0 1 2.12 0z">
+                    </path>
+                    <path d="M14.5 4L20 9.5"></path>
+                </svg>
+            </div>
+            Conexión Servicios
         </a>
         <nav>
-            <a href="#about">Acerca</a>
-            <a href="#features">Características</a>
-            <a href="#testimonials">Testimonios</a>
-            <a href="#pricing">Precios</a>
+            <a href="#inicio" class="active">Inicio</a>
+            <a href="#objetivo">Nuestro Objetivo</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#descarga" class="btn btn-outline"
+                style="padding: 0.5rem 1.2rem; color: #fff; border-radius: 50px;">Descargar App</a>
         </nav>
-        <a href="#download" class="btn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                <polyline points="7 10 12 15 17 10"></polyline>
-                <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-            Obtener App Gratis
-        </a>
     </header>
 
     <main>
-        <!-- Hero -->
-        <section class="hero">
-            <div class="hero-glow"></div>
-            <div class="laser-beam laser-1"></div>
-            <div class="laser-beam laser-2"></div>
+        <!-- Hero Section -->
+        <section id="inicio" class="hero section">
+            <div class="hero-content reveal">
+                <div class="pill">
+                    <div class="dot"></div> Plataforma Lista Para Lanzamiento
+                </div>
+                <h1>
+                    Conecta con los mejores <span class="text-gradient">profesionales</span> en segundos.
+                </h1>
+                <p>Nuestra misión es revolucionar la forma en que contratas y ofreces servicios. Un ecosistema 100%
+                    verificado, seguro y diseñado para la excelencia.</p>
 
-            <div class="hero-content">
-                <h1>Servicios Profesionales de <span class="text-neon">alta calidad</span> y confianza</h1>
-                <p>Comunícate a tu manera. Conexión Servicios entiende lo que necesitas y te conecta con los mejores
-                    expertos de Ecuador.</p>
-                <div style="display: flex; gap: 1rem; justify-content: center; margin-bottom: 2rem;">
-                    <a href="#download" class="btn btn-neon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                <div class="hero-cta">
+                    <a href="#descarga" class="btn btn-primary btn-large">
+                        Descargar la App
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <polyline points="19 12 12 19 5 12"></polyline>
                         </svg>
-                        Descargar App Gratis
+                    </a>
+                    <a href="#servicios" class="btn btn-outline btn-large">
+                        Explorar Servicios
                     </a>
                 </div>
             </div>
 
-            <div class="mockup-wrapper">
-                <div class="phone">
-                    <img src="assets/screenshots/ai_support.png" alt="App Screen">
+            <div class="mockup-wrapper reveal" style="transition-delay: 0.2s;">
+                <div class="floating-mockup">
+                    <div class="mockup-screen">
+                        <img src="assets/screenshots/splash_screen.png" alt="Splash">
+                        <img src="assets/screenshots/home_services.png" alt="Home">
+                        <img src="assets/screenshots/region_select.png" alt="Region">
+                        <img src="assets/screenshots/ai_support.png" alt="AI Support">
+                        <img src="assets/screenshots/register_business.png" alt="Business">
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Main Feature Highlight -->
-        <section class="section" id="about">
-            <div class="section-icon-glow">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 2L2 22h20L12 2z" />
-                </svg>
+        <!-- Stats Ribbon -->
+        <div class="stats-ribbon reveal">
+            <div class="stat">
+                <h4>100%</h4>
+                <p>Verificados</p>
             </div>
+            <div class="stat">
+                <h4>Zero</h4>
+                <p>Costos Ocultos</p>
+            </div>
+            <div class="stat">
+                <h4>24/7</h4>
+                <p>Soporte Activo</p>
+            </div>
+            <div class="stat">
+                <h4>IA</h4>
+                <p>Match Perfecto</p>
+            </div>
+        </div>
+
+        <!-- Objective / Workflow -->
+        <section id="objetivo" class="section reveal">
+            <div class="process-wrapper">
+                <div>
+                    <h2 style="font-size: 3rem; margin-bottom: 1.5rem;">Nuestro Objetivo: <br><span
+                            class="text-gradient-blue">Simplicidad y Seguridad</span></h2>
+                    <p style="color: var(--text-medium); font-size: 1.15rem; margin-bottom: 2rem;">
+                        Hemos diseñado la plataforma definitiva. Nuestro objetivo central es eliminar la fricción entre
+                        la necesidad de un cliente y el talento de un profesional, garantizando calidad en cada paso.
+                    </p>
+                    <a href="#descarga" class="btn btn-outline">Únete Hoy Mismo</a>
+                </div>
+
+                <div class="step-container">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Busca o Solicita AI</h3>
+                            <p>Utiliza nuestra búsqueda avanzada o pregúntale a nuestro asistente de Inteligencia
+                                Artificial qué necesitas exactamente.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Match Verificado</h3>
+                            <p>Te mostramos exclusivamente perfiles que han pasado nuestras rigurosas auditorías de
+                                identidad y calidad.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Trabajo Realizado</h3>
+                            <p>Conecta, chatea y califica el servicio. Todo de forma segura dentro de nuestro ecosistema
+                                acorazado.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bento Grid Services -->
+        <section id="servicios" class="section reveal">
             <div class="section-header">
-                <h2>Conexión rápida que <span class="text-neon">aprende y mejora</span></h2>
-                <p>Nuestra plataforma basada en reseñas e inteligencia artificial adapta sus recomendaciones para
-                    conectarte siempre con el mejor talento.</p>
-
-                <a href="#download" class="btn" style="margin-top: 2rem;">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                        <polyline points="7 10 12 15 17 10"></polyline>
-                        <line x1="12" y1="15" x2="12" y2="3"></line>
-                    </svg>
-                    Obtener Template Gratis
-                </a>
-            </div>
-        </section>
-
-        <!-- Feature Grid (List) -->
-        <section class="section" id="features">
-            <div class="feat-grid-mini">
-                <div class="item">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path
-                            d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
-                        </path>
-                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                        <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                    </svg>
-                    <h4>Búsqueda Inteligente</h4>
-                    <p>Encuentra a tu experto ideal en segundos. Perfecto para hogares y empresas.</p>
-                </div>
-                <div class="item">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <path d="M2 12h20"></path>
-                        <path
-                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
-                        </path>
-                    </svg>
-                    <h4>Soporte Multiregión</h4>
-                    <p>Filtros avanzados por provincias para encontrar talento en tu ciudad exactamentente.</p>
-                </div>
-                <div class="item">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                        <polyline points="14 2 14 8 20 8"></polyline>
-                        <line x1="16" y1="13" x2="8" y2="13"></line>
-                        <line x1="16" y1="17" x2="8" y2="17"></line>
-                        <polyline points="10 9 9 9 8 9"></polyline>
-                    </svg>
-                    <h4>Control de Pagos</h4>
-                    <p>Mantente organizado con un sistema integral de facturación y cotizaciones seguras.</p>
-                </div>
-                <div class="item">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
-                        <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
-                        <line x1="12" y1="19" x2="12" y2="23"></line>
-                        <line x1="8" y1="23" x2="16" y2="23"></line>
-                    </svg>
-                    <h4>Respuestas en Tiempo Real</h4>
-                    <p>Aprovecha nuestro chat en vivo y notificaciones al instante para que no pierdas detalles.</p>
-                </div>
+                <h2>El <span class="text-gradient">Ecosistema</span> de Servicios</h2>
+                <p>Categorías optimizadas para cubrir todas las necesidades del mercado actual.</p>
             </div>
 
-            <div class="feature-grid" style="margin-top: 1.5rem;">
-                <!-- Feature Card 1 -->
-                <div class="feat-card" style="flex-direction: column; align-items: flex-start; text-align: left;">
-                    <div class="phone"
-                        style="width: 100%; height: 250px; border-radius: 20px 20px 0 0; margin-bottom: 2rem; border-width: 4px; border-bottom: 0;">
-                        <img src="assets/screenshots/region_select.png" alt="Feature 1">
-                    </div>
-                    <div>
-                        <h3 style="font-size: 2rem; margin-bottom: 1rem;">Potencia tu Productividad</h3>
-                        <p style="color: var(--text-muted);">Delega tareas, encuentra soluciones y enfócate en lo
-                            verdaderamente importante en tu día a día.</p>
-                    </div>
-                </div>
-
-                <!-- Feature Card 2 -->
-                <div class="feat-card">
-                    <div style="flex: 1;">
-                        <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">Entendimiento de Contexto</h3>
-                        <p style="color: var(--text-muted); margin-bottom: 2rem;">Nuestra plataforma aprende de lo que
-                            necesitas habitualmente y te recomienda a los mejores expertos.</p>
-
-                        <div style="display: flex; gap: 2rem;">
-                            <div>
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" style="margin-bottom: 0.5rem; color: var(--text-muted)">
-                                    <path
-                                        d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
-                                    </path>
-                                </svg>
-                                <h4>Respuestas Inteligentes</h4>
-                                <p style="font-size: 0.85rem; color: var(--text-muted);">Cierre de tratos más rápido a
-                                    través de presupuestos integrados.</p>
-                            </div>
-                            <div>
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" style="margin-bottom: 0.5rem; color: var(--text-muted)">
-                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                                </svg>
-                                <h4>Perfiles Verificados</h4>
-                                <p style="font-size: 0.85rem; color: var(--text-muted);">Seguridad garantizada antes de
-                                    dejar entrar a un contratista.</p>
-                            </div>
+            <div class="bento-grid">
+                <!-- Large Feature -->
+                <div class="bento-item bento-large">
+                    <div class="bento-content">
+                        <div class="bento-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                            </svg>
                         </div>
+                        <h3>Hogar y Mantenimiento</h3>
+                        <p>Infraestructura, reparaciones profundas y servicios generales con absoluta garantía de
+                            calidad.</p>
                     </div>
+                    <!-- Assuming you still have assets/web-dev.png as a placeholder -->
+                    <img src="assets/web-dev.png" alt="Bg Shape">
                 </div>
-            </div>
-        </section>
 
-        <!-- Testimonials -->
-        <section class="section" id="testimonials">
-            <div class="testi-grid">
-                <div class="testi-card">
-                    <div class="stars">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                            <polygon
-                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                            </polygon>
-                        </svg>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                            <polygon
-                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                            </polygon>
-                        </svg>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                            <polygon
-                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                            </polygon>
-                        </svg>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                            <polygon
-                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                            </polygon>
-                        </svg>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                            <polygon
-                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                            </polygon>
-                        </svg>
-                    </div>
-                    <h4>"Conexión Servicios lo hace como tener a un asistente personal a mi lado."</h4>
-                    <p>Usar este sistema de calificaciones reales y perfiles detallados me ahorró incontables horas
-                        filtrando técnicos malos.</p>
-                    <div class="user-info">
-                        <img src="https://i.pravatar.cc/100?img=1" alt="Emma">
-                        <div>
-                            <div class="user-name">Emma Johnson</div>
-                            <div class="user-title">Project Manager</div>
+                <!-- Standard Feature -->
+                <div class="bento-item">
+                    <div class="bento-content">
+                        <div class="bento-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
                         </div>
+                        <h3>Soporte IT</h3>
+                        <p>Desarrollo, redes y reparación de hardware.</p>
                     </div>
                 </div>
 
-                <div class="testi-card">
-                    <div class="stars">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                            <polygon
-                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                            </polygon>
-                        </svg>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                            <polygon
-                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                            </polygon>
-                        </svg>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                            <polygon
-                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                            </polygon>
-                        </svg>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                            <polygon
-                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                            </polygon>
-                        </svg>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                            <polygon
-                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                            </polygon>
-                        </svg>
-                    </div>
-                    <h4>"He intentado buscar plomeros y electricistas antes, pero es la plataforma más intuitiva."</h4>
-                    <p>Desde pedir una cotización hasta ver el seguimiento, esto ha optimizado mi trabajo de
-                        mantenimiento con mis oficinas.</p>
-                    <div class="user-info">
-                        <img src="https://i.pravatar.cc/100?img=11" alt="Tommy">
-                        <div>
-                            <div class="user-name">Tommy Vercetti</div>
-                            <div class="user-title">Dueño de Local</div>
+                <!-- Tall Feature -->
+                <div class="bento-item bento-tall">
+                    <div class="bento-content">
+                        <div class="bento-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
                         </div>
+                        <h3>Para Empresas</h3>
+                        <p style="margin-bottom: 2rem;">Un portal exclusivo para que las empresas gestionen solicitudes
+                            corporativas, B2B y obtengan métricas de rendimiento en tiempo real.</p>
+                        <a href="#descarga"
+                            style="color: var(--secondary); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 5px;">Unirse
+                            como Partner <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg></a>
+                    </div>
+                    <img src="assets/marketing.png" alt="Bg Shape">
+                </div>
+
+                <!-- Standard Feature -->
+                <div class="bento-item bento-large">
+                    <div class="bento-content">
+                        <div class="bento-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                            </svg>
+                        </div>
+                        <h3>Salud y Bienestar</h3>
+                        <p>Atención médica a domicilio, fisioterapia especializada y entrenadores personales
+                            certificados.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Pricing -->
-        <section class="section" id="pricing">
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <div class="price-icon free">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
-                            <line x1="4" y1="22" x2="4" y2="15"></line>
+        <!-- Huge Download CTA -->
+        <section id="descarga" class="section reveal" style="padding-top: 50px; padding-bottom: 120px;">
+            <div class="cta-box">
+                <h2>El futuro de los servicios, <br><span class="text-gradient">a un toque de distancia.</span></h2>
+                <p>Conexión Servicios ya está lista para transformar Ecuador. Descarga la aplicación gratuita y únete a
+                    la red más segura y profesional del país.</p>
+
+                <div class="store-buttons">
+                    <a href="#" class="btn btn-outline btn-large">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 12px;">
+                            <path
+                                d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.08-.46-2.07-.48-3.2 0-1.04.45-2.1.58-3.04-.36-4.52-4.5-5.36-11.23-1.42-13.47 1.48-.84 2.82-.77 4.02-.04 1.1.66 1.7.66 2.8 0 1.53-.9 3.06-.7 4.22.18 1.05.8 1.34 2.3.62 3.12-2.1 2.37-1.45 5.56 1.14 6.64.1.04.05.18-.06.32-1.03 1.35-1.5 2.15-2.01 3.26zm-2.43-15.5c.5-1.14.36-2.4-.4-3.32-1.08-.1-2.42.35-3.1 1.3-.64.9-.7 2.1-.1 3.2 1.25.17 2.5-.27 3.6-1.18z" />
                         </svg>
-                    </div>
-                    <h3>0$</h3>
-                    <div class="subtitle">Básico (Clientes)</div>
-                    <p>Perfecto para uso personal y solicitudes esporádicas.</p>
-
-                    <ul class="pricing-list">
-                        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg> Búsquedas ilimitadas</li>
-                        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg> Chat interno básico</li>
-                        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg> Notificaciones por correo</li>
-                    </ul>
-
-                    <a href="#download" class="btn" style="width: 100%;">Obtener App Gratis</a>
-                </div>
-
-                <div class="pricing-card pro">
-                    <div class="price-icon pro">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <polygon
-                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                            </polygon>
+                        App Store
+                    </a>
+                    <a href="#" class="btn btn-primary btn-large">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 12px;">
+                            <path
+                                d="M17.523 15.341l3.52 1.838a1.282 1.282 0 010 2.273l-8.682 4.545a1.282 1.282 0 01-1.196 0l-8.682-4.545a1.282 1.282 0 010-2.273l3.52-1.838m15.021-3.693l-8.435-4.417a1.282 1.282 0 00-1.196 0L1.75 9.175a1.282 1.282 0 000 2.273l8.435 4.417a1.282 1.282 0 001.196 0l8.435-4.417a1.282 1.282 0 000-2.273z" />
                         </svg>
-                    </div>
-                    <h3>35$</h3>
-                    <div class="subtitle">Pro (Profesionales)</div>
-                    <p>Ideal para individuos que buscan visibilidad y crecimiento continuo.</p>
-
-                    <ul class="pricing-list">
-                        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--neon-green)"
-                                stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg> <strong>Aparición prioritaria en búsquedas</strong></li>
-                        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--neon-green)"
-                                stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg> Panel de finanzas y gráficas</li>
-                        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--neon-green)"
-                                stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg> Citas y agenda automatizadas</li>
-                        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--neon-green)"
-                                stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg> Notificaciones en tiempo real SMS</li>
-                    </ul>
-
-                    <a href="#download" class="btn btn-neon" style="width: 100%;">Registrar mi Negocio</a>
+                        Google Play
+                    </a>
                 </div>
             </div>
         </section>
-
     </main>
 
     <!-- Footer -->
     <footer>
-        <div class="logo">
-            <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 2L2 22h20L12 2z" />
-            </svg>
-            Conexión
-        </div>
+        <div class="footer-content" style="max-width: 1400px; margin: 0 auto;">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M13.22 2.41l5.47 5.47a1.5 1.5 0 0 1 0 2.12l-8.3 8.3a2 2 0 0 1-1.42.59H4v-4.96a2 2 0 0 1 .59-1.41l8.3-8.3a1.5 1.5 0 0 1 2.12 0z">
+                            </path>
+                        </svg>
+                    </div>
+                    Conexión Servicios
+                </a>
+                <p>Evolucionando el ecosistema de servicios profesionales en todo el Ecuador con tecnología de punta.
+                </p>
+                <div class="social-links">
+                    <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg></a>
+                    <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg></a>
+                    <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+                            </path>
+                        </svg></a>
+                </div>
+            </div>
 
-        <div class="footer-links">
-            <a href="#">Privacidad</a>
-            <a href="#">Términos</a>
-            <a href="#">Soporte</a>
+            <div style="color: var(--text-medium); text-align: right;">
+                <p style="margin-bottom: 0.5rem;"><a href="#" style="color: inherit; text-decoration: none;">Términos
+                        Legales</a> | <a href="#" style="color: inherit; text-decoration: none;">Privacidad</a></p>
+                <p>&copy; 2024 Conexión Servicios S.A. Ecuador.</p>
+                <div
+                    style="margin-top: 1rem; display: inline-block; padding: 4px 12px; border: 1px solid var(--border-light); border-radius: 50px; font-size: 0.8rem; background: rgba(255,255,255,0.02);">
+                    <span style="color: var(--secondary);">●</span> Sistemas Operativos</div>
+            </div>
         </div>
-
-        <div class="copyright">&copy; 2024 Conexión Servicios. Todos los derechos reservados.</div>
     </footer>
 
+    <script>
+        // Smoother Intersection Observer logic
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach((el) => {
+            observer.observe(el);
+        });
+
+        // Dynamic Header
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
 
 </html>
