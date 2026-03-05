@@ -13,18 +13,22 @@ export const IPhoneMockup: React.FC<IPhoneMockupProps> = ({
     return (
         <div
             className={cn(
-                "relative mx-auto h-[641px] w-[310px] rounded-[3.5rem] border-[8px] border-slate-800 bg-slate-900 shadow-xl",
+                "relative mx-auto h-[641px] w-[310px] rounded-[3.2rem] border-[10px] border-slate-900 bg-slate-950 shadow-2xl ring-1 ring-white/10",
                 className,
             )}
         >
-            <div className="absolute left-1/2 top-0 h-6 w-32 -translate-x-1/2 rounded-b-2xl bg-slate-800 z-20"></div>
-            <div className="absolute inset-0 overflow-hidden rounded-[2.8rem] bg-black">
+            {/* Dynamic Island style notch */}
+            <div className="absolute left-1/2 top-3 h-5 w-24 -translate-x-1/2 rounded-full bg-black z-20 border border-white/5 shadow-inner"></div>
+
+            <div className="absolute inset-[1px] overflow-hidden rounded-[2.6rem] bg-black">
                 {children}
             </div>
-            <div className="absolute -left-2 top-24 h-12 w-1.5 rounded-l-lg bg-slate-800"></div>
-            <div className="absolute -left-2 top-40 h-10 w-1.5 rounded-l-lg bg-slate-800"></div>
-            <div className="absolute -left-2 top-52 h-10 w-1.5 rounded-l-lg bg-slate-800"></div>
-            <div className="absolute -right-2 top-32 h-20 w-1.5 rounded-r-lg bg-slate-800"></div>
+
+            {/* Realistic buttons */}
+            <div className="absolute -left-2.5 top-24 h-12 w-1 rounded-l-md bg-slate-800 border-r border-white/5"></div>
+            <div className="absolute -left-2.5 top-40 h-10 w-1 rounded-l-md bg-slate-800 border-r border-white/5"></div>
+            <div className="absolute -left-2.5 top-52 h-10 w-1 rounded-l-md bg-slate-800 border-r border-white/5"></div>
+            <div className="absolute -right-2.5 top-32 h-20 w-1 rounded-r-md bg-slate-800 border-l border-white/5"></div>
         </div>
     );
 };

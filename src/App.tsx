@@ -15,13 +15,12 @@ import {
 } from 'lucide-react';
 
 import { InteractiveHoverButton } from './components/ui/InteractiveHoverButton';
-import { Android } from './components/ui/AndroidMockup';
+import { IPhoneMockup } from './components/ui/IPhoneMockup';
 import { BentoGrid, BentoGridItem } from './components/ui/BentoGrid';
 import { ContainerScroll } from './components/ui/ContainerScroll';
 import { ThemeToggler } from './components/ui/ThemeToggler';
 import { InteractiveGridPattern } from './components/ui/InteractiveGridPattern';
 import { AnimatedCursor } from './components/ui/AnimatedCursor';
-import { ScrollProgress } from './components/ui/ScrollProgress';
 import { cn } from './lib/utils';
 
 const App: React.FC = () => {
@@ -67,12 +66,9 @@ const App: React.FC = () => {
                 <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-secondary/15 blur-[150px] rounded-full opacity-30" />
             </div>
 
-            {/* Scroll Progress Bar */}
-            <ScrollProgress />
-
             {/* Magic Animated Cursor */}
             <AnimatedCursor />
-
+            <ThemeToggler className="fixed bottom-6 right-6 z-50 sm:hidden" />
 
             {/* Header */}
             <header className={cn(
@@ -156,10 +152,13 @@ const App: React.FC = () => {
                             className="relative hidden lg:block"
                         >
                             <div className="relative z-10">
-                                <Android
-                                    src="/assets/screenshots/splash_screen.png"
-                                    className="w-[380px] h-auto drop-shadow-2xl"
-                                />
+                                <IPhoneMockup className="w-[310px] h-[641px] drop-shadow-2xl translate-x-10 rotate-3">
+                                    <img
+                                        src="/assets/screenshots/splash_screen.png"
+                                        alt="App Preview"
+                                        className="w-full h-full object-cover"
+                                    />
+                                </IPhoneMockup>
 
                                 {/* Decorative elements */}
                                 <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/20 blur-[80px] rounded-full z-0" />
@@ -205,7 +204,7 @@ const App: React.FC = () => {
                                 </div>
                             </div>
                             <div className="relative bg-slate-800/50 flex items-center justify-center p-10">
-                                <Android>
+                                <IPhoneMockup>
                                     <div className="w-full h-full relative">
                                         {appScreens.map((src, i) => (
                                             <motion.img
@@ -224,7 +223,7 @@ const App: React.FC = () => {
                                             />
                                         ))}
                                     </div>
-                                </Android>
+                                </IPhoneMockup>
                             </div>
                         </div>
                     </ContainerScroll>

@@ -1,9 +1,9 @@
-"use client";
 import React from "react";
 import { motion } from "framer-motion";
 import { Sun, Moon } from "lucide-react";
+import { cn } from "../../lib/utils";
 
-export const ThemeToggler = () => {
+export const ThemeToggler = ({ className }: { className?: string }) => {
     // Initial state from localStorage or default
     const [theme, setTheme] = React.useState<"light" | "dark">("dark");
 
@@ -40,7 +40,10 @@ export const ThemeToggler = () => {
         <button
             id="theme-toggle-btn"
             onClick={toggleTheme}
-            className="relative h-10 w-10 rounded-xl bg-slate-800/10 dark:bg-slate-200/10 border border-slate-800/10 dark:border-slate-200/10 flex items-center justify-center overflow-hidden hover:bg-slate-800/20 dark:hover:bg-slate-200/20 transition-all"
+            className={cn(
+                "relative h-10 w-10 rounded-xl bg-slate-800/10 dark:bg-slate-200/10 border border-slate-800/10 dark:border-slate-200/10 flex items-center justify-center overflow-hidden hover:bg-slate-800/20 dark:hover:bg-slate-200/20 transition-all",
+                className
+            )}
             aria-label="Toggle Theme"
         >
             <motion.div
