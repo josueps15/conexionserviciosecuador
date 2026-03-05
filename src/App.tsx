@@ -143,9 +143,7 @@ const App: React.FC = () => {
                 <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
                     <motion.a href="#" initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}
                         className="flex items-center gap-3 font-outfit font-extrabold text-2xl tracking-tight">
-                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg shadow-primary/20">
-                            <Layers size={22} className="text-white" />
-                        </div>
+                        <img src="/assets/logo-cs.png" alt="Conexión Servicios" className="h-10 w-10 object-contain drop-shadow-md" />
                         <span>Conexión <span className="text-primary">Servicios</span></span>
                     </motion.a>
 
@@ -648,9 +646,7 @@ const App: React.FC = () => {
                 <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
                     <div className="col-span-2 md:col-span-1">
                         <a href="#inicio" className="flex items-center gap-2 font-outfit font-extrabold text-xl tracking-tight mb-4">
-                            <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white">
-                                <Layers size={15} />
-                            </div>
+                            <img src="/assets/logo-cs.png" alt="Conexión Servicios" className="h-8 w-8 object-contain drop-shadow-md" />
                             <span>Conexión <span className="text-primary">Servicios</span></span>
                         </a>
                         <p className="text-slate-500 text-sm leading-relaxed mb-5">
