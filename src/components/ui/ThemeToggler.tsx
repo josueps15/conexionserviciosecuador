@@ -4,16 +4,32 @@ import { motion } from "framer-motion";
 import { Sun, Moon } from "lucide-react";
 
 export const ThemeToggler = () => {
-    const [theme, setTheme] = React.useState("dark");
+    const [theme, setTheme] = React.useState(() => {
+        if (typeof window !== "undefined") {
+            return localStorage.getItem("theme") || "dark";
+        }
+        return "dark";
+    });
+
+    React.useEffect(() => {
+        const root = window.document.documentElement;
+        if (theme === "light") {
+            root.classList.add("light");
+        } else {
+            root.classList.remove("light");
+        }
+        localStorage.setItem("theme", theme);
+    }, [theme]);
 
     const toggleTheme = () => {
-        setTheme(theme === "dark" ? "light" : "dark");
+        setTheme((prev) => (prev === "dark" ? "light" : "dark"));
     };
 
     return (
         <button
             onClick={toggleTheme}
-            className="relative h-10 w-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden hover:bg-white/10 transition-colors"
+            className="relative h-10 w-10 rounded-xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 flex items-center justify-center overflow-hidden hover:bg-black/10 dark:hover:bg-white/10 transition-colors"
+            aria-label="Toggle Theme"
         >
             <motion.div
                 animate={{

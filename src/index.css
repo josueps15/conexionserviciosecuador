@@ -114,6 +114,12 @@ body {
     background: radial-gradient(circle at 15% 50%, rgba(0, 102, 255, 0.08) 0%, transparent 50%),
         radial-gradient(circle at 85% 30%, rgba(0, 229, 255, 0.05) 0%, transparent 50%);
     pointer-events: none;
+    transition: background 0.5s ease;
+}
+
+:root.light .ambient-bg {
+    background: radial-gradient(circle at 15% 50%, rgba(0, 102, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 85% 30%, rgba(0, 229, 255, 0.03) 0%, transparent 50%);
 }
 
 .grid-overlay {
@@ -130,4 +136,41 @@ body {
     mask-image: linear-gradient(to bottom, black 20%, transparent 80%);
     -webkit-mask-image: linear-gradient(to bottom, black 20%, transparent 80%);
     pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+:root.light .grid-overlay {
+    background-image:
+        linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+}
+
+:root.light {
+    --color-slate-950: #f8fafc;
+    --color-slate-900: #f1f5f9;
+    --color-slate-850: #e2e8f0;
+}
+
+:root.light body {
+    color: #0f172a;
+}
+
+:root.light .text-slate-50 {
+    color: #0f172a;
+}
+
+:root.light .text-slate-400 {
+    color: #475569;
+}
+
+:root.light .bg-slate-950 {
+    background-color: #f8fafc;
+}
+
+:root.light .border-white\/10 {
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+:root.light .bg-white\/5 {
+    background-color: rgba(0, 0, 0, 0.05);
 }
