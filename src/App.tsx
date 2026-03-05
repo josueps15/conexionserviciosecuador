@@ -220,18 +220,20 @@ const App: React.FC = () => {
 
                         <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1, delay: 0.2 }} className="relative hidden lg:flex justify-center">
                             <div className="relative z-10">
-                                {/* Category chips floating */}
+                                {/* Cuenca chip - far left */}
                                 <motion.div animate={{ y: [-8, 8, -8] }} transition={{ duration: 4, repeat: Infinity }}
-                                    className="absolute -left-16 top-20 flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-800/80 border border-white/10 backdrop-blur-md text-sm font-medium z-20">
+                                    className="absolute -left-36 top-24 flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-800/90 border border-white/10 backdrop-blur-md text-sm font-medium z-20 shadow-xl whitespace-nowrap">
                                     <MapPin size={14} className="text-cyan-400" /> Cuenca, Ecuador
                                 </motion.div>
+                                {/* Verificado chip - far right top */}
                                 <motion.div animate={{ y: [8, -8, 8] }} transition={{ duration: 3.5, repeat: Infinity }}
-                                    className="absolute -right-10 bottom-32 flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-800/80 border border-white/10 backdrop-blur-md text-sm font-medium z-20">
-                                    <Star size={14} className="text-amber-400 fill-amber-400" /> 4.9 ★ Calificación
-                                </motion.div>
-                                <motion.div animate={{ y: [-5, 10, -5] }} transition={{ duration: 5, repeat: Infinity }}
-                                    className="absolute -right-8 top-16 flex items-center gap-2 px-3 py-2 rounded-xl bg-emerald-500/10 border border-emerald-500/20 backdrop-blur-md text-sm font-medium text-emerald-400 z-20">
+                                    className="absolute -right-28 top-20 flex items-center gap-2 px-3 py-2 rounded-xl bg-emerald-500/10 border border-emerald-500/20 backdrop-blur-md text-sm font-medium text-emerald-400 z-20 shadow-xl whitespace-nowrap">
                                     <BadgeCheck size={14} /> Verificado
+                                </motion.div>
+                                {/* Calificacion chip - far right bottom */}
+                                <motion.div animate={{ y: [-5, 10, -5] }} transition={{ duration: 5, repeat: Infinity }}
+                                    className="absolute -right-32 bottom-36 flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-800/90 border border-white/10 backdrop-blur-md text-sm font-medium z-20 shadow-xl whitespace-nowrap">
+                                    <Star size={14} className="text-amber-400 fill-amber-400" /> 4.9 &#9733; Calificación
                                 </motion.div>
 
                                 <IPhoneMockup className="drop-shadow-[0_40px_80px_rgba(0,102,255,0.3)] rotate-3">
