@@ -548,61 +548,65 @@ const App: React.FC = () => {
             </main>
 
             {/* ── FOOTER ── */}
-            <footer className="bg-[#01030B] border-t border-white/5 py-20 px-6">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
-                    <div className="lg:col-span-2">
-                        <a href="#" className="flex items-center gap-3 font-outfit font-extrabold text-2xl tracking-tight mb-6">
-                            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white">
-                                <Layers size={18} />
+            <footer className="bg-[#01030B] border-t border-white/5 py-10 px-6">
+                <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
+                    <div className="col-span-2 md:col-span-1">
+                        <a href="#inicio" className="flex items-center gap-2 font-outfit font-extrabold text-xl tracking-tight mb-4">
+                            <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white">
+                                <Layers size={15} />
                             </div>
                             <span>Conexión <span className="text-primary">Servicios</span></span>
                         </a>
-                        <p className="text-slate-400 max-w-sm leading-relaxed mb-8">
-                            Redefiniendo el estándar de los servicios profesionales en Ecuador a través de la innovación y la confianza mutua.
+                        <p className="text-slate-500 text-sm leading-relaxed mb-5">
+                            Redefiniendo los servicios profesionales en Ecuador.
                         </p>
-                        <div className="flex gap-4">
+                        <div className="flex gap-3">
                             <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer"
-                                className="w-12 h-12 rounded-full border border-white/5 flex items-center justify-center text-slate-400 hover:bg-gradient-to-br hover:from-pink-500 hover:to-purple-600 hover:text-white hover:border-transparent transition-all" aria-label="Instagram">
-                                <Instagram size={20} />
+                                className="w-9 h-9 rounded-full border border-white/5 flex items-center justify-center text-slate-400 hover:bg-gradient-to-br hover:from-pink-500 hover:to-purple-600 hover:text-white hover:border-transparent transition-all" aria-label="Instagram">
+                                <Instagram size={16} />
                             </a>
                             <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer"
-                                className="w-12 h-12 rounded-full border border-white/5 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white hover:border-transparent transition-all" aria-label="Facebook">
-                                <Facebook size={20} />
+                                className="w-9 h-9 rounded-full border border-white/5 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white hover:border-transparent transition-all" aria-label="Facebook">
+                                <Facebook size={16} />
                             </a>
                         </div>
                     </div>
                     <div>
-                        <h4 className="font-outfit font-bold text-white mb-6 uppercase tracking-widest text-sm">Explora</h4>
-                        <ul className="space-y-4 text-slate-400">
-                            <li><a href="#servicios" className="hover:text-primary transition-colors">Servicios de la App</a></li>
+                        <h4 className="font-outfit font-bold text-white mb-4 uppercase tracking-widest text-xs">Explora</h4>
+                        <ul className="space-y-3 text-slate-400 text-sm">
+                            <li><a href="#servicios" className="hover:text-primary transition-colors">Servicios</a></li>
                             <li><a href="#usuarios" className="hover:text-primary transition-colors">Para Usuarios</a></li>
                             <li><a href="#negocios" className="hover:text-primary transition-colors">Para Negocios</a></li>
-                            <li><a href="#" className="hover:text-primary transition-colors">Soporte IA</a></li>
+                            <li><a href="#inicio" className="hover:text-primary transition-colors">Inicio</a></li>
                         </ul>
                     </div>
-                    <div>
-                        <h4 className="font-outfit font-bold text-white mb-6 uppercase tracking-widest text-sm">Contacto</h4>
-                        <ul className="space-y-4 text-slate-400">
-                            <li className="flex items-center gap-3"><Globe size={18} className="text-slate-600" /> Ecuador</li>
-                            <li className="flex items-center gap-3"><Mail size={18} className="text-slate-600" /> hola@conexionservicios.ec</li>
+                    <div className="col-span-2 md:col-span-2">
+                        <h4 className="font-outfit font-bold text-white mb-4 uppercase tracking-widest text-xs">Contacto</h4>
+                        <ul className="space-y-3 text-slate-400 text-sm">
+                            <li className="flex items-center gap-2"><Globe size={14} className="text-slate-600 flex-shrink-0" /> Ecuador</li>
+                            <li>
+                                <a href="mailto:conexionserviciosec@gmail.com" className="flex items-center gap-2 hover:text-primary transition-colors">
+                                    <Mail size={14} className="text-slate-600 flex-shrink-0" /> conexionserviciosec@gmail.com
+                                </a>
+                            </li>
                             <li>
                                 <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer"
-                                    className="flex items-center gap-3 hover:text-pink-400 transition-colors">
-                                    <Instagram size={18} className="text-slate-600" /> @conexionservicios_ecuador
+                                    className="flex items-center gap-2 hover:text-pink-400 transition-colors">
+                                    <Instagram size={14} className="text-slate-600 flex-shrink-0" /> @conexionservicios_ecuador
                                 </a>
                             </li>
                             <li>
                                 <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer"
-                                    className="flex items-center gap-3 hover:text-blue-400 transition-colors">
-                                    <Facebook size={18} className="text-slate-600" /> Conexión Servicios
+                                    className="flex items-center gap-2 hover:text-blue-400 transition-colors">
+                                    <Facebook size={14} className="text-slate-600 flex-shrink-0" /> Conexión Servicios Ecuador
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div className="max-w-7xl mx-auto pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-slate-500 text-sm">
-                    <p>&copy; 2025 Conexión Servicios. Todos los derechos reservados.</p>
-                    <div className="flex gap-8">
+                <div className="max-w-7xl mx-auto pt-6 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4 text-slate-600 text-xs">
+                    <p>&copy; 2026 Conexión Servicios. Todos los derechos reservados.</p>
+                    <div className="flex gap-6">
                         <a href="#" className="hover:text-white transition-colors">Términos</a>
                         <a href="#" className="hover:text-white transition-colors">Privacidad</a>
                         <a href="#" className="hover:text-white transition-colors">Cookies</a>
