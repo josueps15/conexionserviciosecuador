@@ -14,7 +14,7 @@ import {
 } from 'lucide-react';
 
 import { InteractiveHoverButton } from './components/ui/InteractiveHoverButton';
-import { IPhoneMockup } from './components/ui/IPhoneMockup';
+import { Android } from './components/ui/AndroidMockup';
 import { BentoGrid, BentoGridItem } from './components/ui/BentoGrid';
 import { ContainerScroll } from './components/ui/ContainerScroll';
 import { ThemeToggler } from './components/ui/ThemeToggler';
@@ -139,19 +139,20 @@ const App: React.FC = () => {
                         </motion.div>
 
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 1.2, delay: 0.2 }}
-                            className="relative h-[600px] w-full hidden lg:block"
+                            initial={{ opacity: 0, x: 50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 1, delay: 0.2 }}
+                            className="relative hidden lg:block"
                         >
-                            <div className="w-full h-full flex items-center justify-center font-outfit text-slate-500 italic text-center px-10">
-                                <div className="p-8 border border-white/10 rounded-3xl bg-white/5">
-                                    <img
-                                        src="/assets/screenshots/splash_screen.png"
-                                        alt="App Preview"
-                                        className="w-full h-full object-contain rounded-2xl shadow-2xl"
-                                    />
-                                </div>
+                            <div className="relative z-10">
+                                <Android
+                                    src="/assets/screenshots/splash_screen.png"
+                                    className="w-[380px] h-auto drop-shadow-2xl"
+                                />
+
+                                {/* Decorative elements */}
+                                <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/20 blur-[80px] rounded-full z-0" />
+                                <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-secondary/20 blur-[80px] rounded-full z-0" />
                             </div>
                         </motion.div>
                     </div>
@@ -193,7 +194,7 @@ const App: React.FC = () => {
                                 </div>
                             </div>
                             <div className="relative bg-slate-800/50 flex items-center justify-center p-10">
-                                <IPhoneMockup>
+                                <Android>
                                     <div className="w-full h-full relative">
                                         {appScreens.map((src, i) => (
                                             <motion.img
@@ -212,7 +213,7 @@ const App: React.FC = () => {
                                             />
                                         ))}
                                     </div>
-                                </IPhoneMockup>
+                                </Android>
                             </div>
                         </div>
                     </ContainerScroll>
