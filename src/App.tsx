@@ -315,9 +315,9 @@ const App: React.FC = () => {
                                 {SERVICE_CATEGORIES.map((cat, i) => (
                                     <motion.div
                                         key={cat.label}
-                                        initial={{ opacity: 0, y: 20 }}
+                                        initial={{ opacity: 0, y: 24 }}
                                         whileInView={{ opacity: 1, y: 0 }}
-                                        viewport={{ once: true }}
+                                        viewport={{ once: false, amount: 0.1 }}
                                         transition={{ duration: 0.4, delay: i * 0.04 }}
                                         whileHover={{ y: -5, scale: 1.03 }}
                                         className={`group relative flex flex-col items-center justify-center gap-3 p-5 rounded-2xl bg-gradient-to-br ${cat.bg} border ${cat.border} backdrop-blur-sm cursor-default transition-all duration-300 hover:shadow-xl text-center`}
