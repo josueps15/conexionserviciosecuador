@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Suspense } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
     ShieldCheck,
@@ -146,7 +146,7 @@ const App: React.FC = () => {
                             transition={{ duration: 1.2, delay: 0.2 }}
                             className="relative h-[600px] w-full hidden lg:block"
                         >
-                            <Suspense fallback={<div className="w-full h-full flex items-center justify-center font-outfit text-slate-500 italic text-center px-10">
+                            <div className="w-full h-full flex items-center justify-center font-outfit text-slate-500 italic text-center px-10">
                                 <div className="p-8 border border-white/10 rounded-3xl bg-white/5">
                                     <img
                                         src="/assets/screenshots/splash_screen.png"
@@ -154,7 +154,7 @@ const App: React.FC = () => {
                                         className="w-full h-full object-contain rounded-2xl shadow-2xl"
                                     />
                                 </div>
-                            </Suspense>
+                            </div>
                         </motion.div>
                     </div>
                 </section>
