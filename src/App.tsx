@@ -13,15 +13,13 @@ import {
     Twitter
 } from 'lucide-react';
 
-import { TextReveal } from './components/ui/TextReveal';
 import { InteractiveHoverButton } from './components/ui/InteractiveHoverButton';
 import { IPhoneMockup } from './components/ui/IPhoneMockup';
 import { BentoGrid, BentoGridItem } from './components/ui/BentoGrid';
 import { ImageTrailCursor } from './components/ui/ImageTrailCursor';
 import { ContainerScroll } from './components/ui/ContainerScroll';
 import { ThemeToggler } from './components/ui/ThemeToggler';
-import { DotPattern } from './components/ui/DotPattern';
-import { Ripple } from './components/ui/Ripple';
+import { InteractiveGridPattern } from './components/ui/InteractiveGridPattern';
 import { AnimatedCursor } from './components/ui/AnimatedCursor';
 import { ScrollProgress } from './components/ui/ScrollProgress';
 import { cn } from './lib/utils';
@@ -52,14 +50,17 @@ const App: React.FC = () => {
 
     return (
         <div id="root-app" className="relative min-h-screen bg-slate-950 text-slate-50 selection:bg-primary selection:text-white overflow-hidden" style={{ opacity: 1 }}>
-            {/* Dynamic Background Patterns */}
+            {/* Dynamic Background Pattern */}
             <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-                <DotPattern
+                <InteractiveGridPattern
                     className={cn(
                         "[mask-image:radial-gradient(1000px_circle_at_center,white,transparent)]",
                     )}
+                    width={40}
+                    height={40}
+                    squares={[30, 30]}
+                    squaresClassName="hover:fill-primary/30"
                 />
-                <Ripple mainCircleSize={210} mainCircleOpacity={0.15} numCircles={8} />
 
                 {/* Ambient Glows */}
                 <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-primary/20 blur-[150px] rounded-full opacity-50" />
@@ -67,7 +68,7 @@ const App: React.FC = () => {
             </div>
 
             {/* Scroll Progress Bar */}
-            <ScrollProgress className="top-0" />
+            <ScrollProgress />
 
             {/* Magic Animated Cursor */}
             <AnimatedCursor />
@@ -159,10 +160,6 @@ const App: React.FC = () => {
                     </div>
                 </section>
 
-                {/* Text Reveal Section */}
-                <section id="objetivo" className="relative">
-                    <TextReveal text="Magic UI will change the way you design. Conexión Servicios evoluciona contigo hacia el futuro profesional." />
-                </section>
 
                 {/* Container Scroll Showcase */}
                 <section className="py-20 bg-slate-950">

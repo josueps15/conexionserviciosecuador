@@ -5,10 +5,10 @@ export const AnimatedCursor: React.FC = () => {
     const [isVisible, setIsVisible] = useState(false);
     const [isClicking, setIsClicking] = useState(false);
 
-    const mouseX = useMotionValue(0);
-    const mouseY = useMotionValue(0);
+    const mouseX = useMotionValue(-100);
+    const mouseY = useMotionValue(-100);
 
-    const springConfig = { damping: 20, stiffness: 300, mass: 0.5 };
+    const springConfig = { damping: 25, stiffness: 250, mass: 0.5 };
     const cursorX = useSpring(mouseX, springConfig);
     const cursorY = useSpring(mouseY, springConfig);
 
@@ -37,9 +37,9 @@ export const AnimatedCursor: React.FC = () => {
 
     return (
         <div className="fixed inset-0 pointer-events-none z-[9999]">
-            {/* Outer Circle - Trail */}
+            {/* The Flare - Large blurred primary glow */}
             <motion.div
-                className="absolute w-8 h-8 rounded-full border border-primary/50 mix-blend-screen"
+                className="absolute w-40 h-40 rounded-full bg-primary/10 blur-[60px]"
                 style={{
                     x: cursorX,
                     y: cursorY,
@@ -47,13 +47,28 @@ export const AnimatedCursor: React.FC = () => {
                     translateY: "-50%",
                 }}
                 animate={{
-                    scale: isClicking ? 0.8 : 1,
+                    scale: isClicking ? 1.5 : 1,
+                    opacity: isClicking ? 0.8 : 0.5,
                 }}
             />
 
-            {/* Inner Dot - Precise Pointer */}
+            {/* The Trail - Sharp but subtle outer ring */}
             <motion.div
-                className="absolute w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_10px_white]"
+                className="absolute w-6 h-6 rounded-full border border-white/20"
+                style={{
+                    x: cursorX,
+                    y: cursorY,
+                    translateX: "-50%",
+                    translateY: "-50%",
+                }}
+                animate={{
+                    scale: isClicking ? 0.5 : 1,
+                }}
+            />
+
+            {/* The Core - High precision white dot */}
+            <motion.div
+                className="absolute w-1 h-1 rounded-full bg-white shadow-[0_0_15px_rgba(255,255,255,0.8)]"
                 style={{
                     x: mouseX,
                     y: mouseY,
@@ -61,18 +76,7 @@ export const AnimatedCursor: React.FC = () => {
                     translateY: "-50%",
                 }}
                 animate={{
-                    scale: isClicking ? 1.5 : 1,
-                }}
-            />
-
-            {/* Dynamic Glow Spotlight */}
-            <motion.div
-                className="absolute w-64 h-64 rounded-full bg-primary/20 blur-[80px]"
-                style={{
-                    x: cursorX,
-                    y: cursorY,
-                    translateX: "-50%",
-                    translateY: "-50%",
+                    scale: isClicking ? 2 : 1,
                 }}
             />
         </div>
