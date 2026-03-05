@@ -16,7 +16,6 @@ import {
 import { InteractiveHoverButton } from './components/ui/InteractiveHoverButton';
 import { IPhoneMockup } from './components/ui/IPhoneMockup';
 import { BentoGrid, BentoGridItem } from './components/ui/BentoGrid';
-import { ImageTrailCursor } from './components/ui/ImageTrailCursor';
 import { ContainerScroll } from './components/ui/ContainerScroll';
 import { ThemeToggler } from './components/ui/ThemeToggler';
 import { InteractiveGridPattern } from './components/ui/InteractiveGridPattern';
@@ -73,8 +72,6 @@ const App: React.FC = () => {
             {/* Magic Animated Cursor */}
             <AnimatedCursor />
 
-            {/* Interactive Cursor Trail */}
-            <ImageTrailCursor images={appScreens} />
 
             {/* Header */}
             <header className={cn(
