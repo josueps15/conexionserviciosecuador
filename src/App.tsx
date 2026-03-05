@@ -309,7 +309,7 @@ const App: React.FC = () => {
                                     Todas las categorías
                                 </span>
                                 <h2 className="text-3xl md:text-4xl font-outfit font-black text-white mb-3">
-                                    Encuentra el servicio que
+                                    Encuentra el servicio que{' '}
                                     <span className="text-gradient">necesitas</span>
                                 </h2>
                                 <p className="text-slate-400 max-w-xl mx-auto text-base">
