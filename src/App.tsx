@@ -12,7 +12,6 @@ import {
     Facebook,
     Twitter
 } from 'lucide-react';
-import Spline from '@splinetool/react-spline';
 
 import { TextReveal } from './components/ui/TextReveal';
 import { InteractiveHoverButton } from './components/ui/InteractiveHoverButton';
@@ -148,11 +147,13 @@ const App: React.FC = () => {
                             className="relative h-[600px] w-full hidden lg:block"
                         >
                             <Suspense fallback={<div className="w-full h-full flex items-center justify-center font-outfit text-slate-500 italic text-center px-10">
-                                <div className="p-8 border border-white/10 rounded-3xl bg-white/5 animate-pulse">
-                                    Conectando con el motor 3D...
+                                <div className="p-8 border border-white/10 rounded-3xl bg-white/5">
+                                    <img
+                                        src="/assets/screenshots/splash_screen.png"
+                                        alt="App Preview"
+                                        className="w-full h-full object-contain rounded-2xl shadow-2xl"
+                                    />
                                 </div>
-                            </div>}>
-                                <Spline scene="https://prod.spline.design/JpX98NlE8C6u8S-K/scene.splinecode" />
                             </Suspense>
                         </motion.div>
                     </div>
