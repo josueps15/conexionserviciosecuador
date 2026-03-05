@@ -32,14 +32,21 @@ import {
 import { InteractiveHoverButton } from './components/ui/InteractiveHoverButton';
 import { IPhoneMockup } from './components/ui/IPhoneMockup';
 import { ContainerScroll } from './components/ui/ContainerScroll';
-import { ThemeToggler } from './components/ui/ThemeToggler';
 import { InteractiveGridPattern } from './components/ui/InteractiveGridPattern';
+
+// TikTok SVG Icon (not in lucide-react)
+const TikTokIcon = ({ size = 20 }: { size?: number }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.75a8.2 8.2 0 0 0 4.79 1.53V6.84a4.85 4.85 0 0 1-1.02-.15z" />
+    </svg>
+);
 import { AnimatedCursor } from './components/ui/AnimatedCursor';
 import { cn } from './lib/utils';
 
 const SOCIAL_LINKS = {
     facebook: 'https://www.facebook.com/share/17dGTfCQBY/',
     instagram: 'https://www.instagram.com/conexionservicios_ecuador?igsh=ODdlZGhtaGNmcHc4',
+    tiktok: 'https://www.tiktok.com/@conexinservicios1',
 };
 
 const appScreens = [
@@ -132,7 +139,6 @@ const App: React.FC = () => {
             </div>
 
             <AnimatedCursor />
-            <ThemeToggler className="fixed bottom-6 right-6 z-50 sm:hidden" />
 
             {/* ── Header ── */}
             <header className={cn(
@@ -155,15 +161,18 @@ const App: React.FC = () => {
                                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all group-hover:w-full" />
                             </a>
                         ))}
-                        <div className="flex items-center gap-3">
-                            <ThemeToggler />
+                        <div className="flex items-center gap-2">
                             <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer"
-                                className="w-9 h-9 rounded-xl border border-white/10 bg-white/5 flex items-center justify-center text-slate-400 hover:text-pink-400 hover:border-pink-400/30 transition-all">
+                                className="w-9 h-9 rounded-xl border border-white/10 bg-white/5 flex items-center justify-center text-slate-400 hover:text-pink-400 hover:border-pink-400/30 transition-all" aria-label="Instagram">
                                 <Instagram size={16} />
                             </a>
                             <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer"
-                                className="w-9 h-9 rounded-xl border border-white/10 bg-white/5 flex items-center justify-center text-slate-400 hover:text-blue-400 hover:border-blue-400/30 transition-all">
+                                className="w-9 h-9 rounded-xl border border-white/10 bg-white/5 flex items-center justify-center text-slate-400 hover:text-blue-400 hover:border-blue-400/30 transition-all" aria-label="Facebook">
                                 <Facebook size={16} />
+                            </a>
+                            <a href={SOCIAL_LINKS.tiktok} target="_blank" rel="noopener noreferrer"
+                                className="w-9 h-9 rounded-xl border border-white/10 bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:border-white/30 transition-all" aria-label="TikTok">
+                                <TikTokIcon size={15} />
                             </a>
                             <InteractiveHoverButton text="Descargar App" className="bg-white/5 border-white/10 text-white hover:text-black text-sm" />
                         </div>
@@ -535,7 +544,7 @@ const App: React.FC = () => {
                                 Google Play <Download size={20} />
                             </button>
                         </div>
-                        <div className="flex justify-center gap-6 mt-10 relative z-10">
+                        <div className="flex flex-wrap justify-center gap-6 mt-10 relative z-10">
                             <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer"
                                 className="flex items-center gap-2 text-slate-400 hover:text-pink-400 transition-colors text-sm">
                                 <Instagram size={16} /> @conexionservicios_ecuador
@@ -543,6 +552,10 @@ const App: React.FC = () => {
                             <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer"
                                 className="flex items-center gap-2 text-slate-400 hover:text-blue-400 transition-colors text-sm">
                                 <Facebook size={16} /> Conexión Servicios Ecuador
+                            </a>
+                            <a href={SOCIAL_LINKS.tiktok} target="_blank" rel="noopener noreferrer"
+                                className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors text-sm">
+                                <TikTokIcon size={16} /> @conexinservicios1
                             </a>
                         </div>
                     </motion.div>
@@ -570,6 +583,10 @@ const App: React.FC = () => {
                             <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer"
                                 className="w-9 h-9 rounded-full border border-white/5 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white hover:border-transparent transition-all" aria-label="Facebook">
                                 <Facebook size={16} />
+                            </a>
+                            <a href={SOCIAL_LINKS.tiktok} target="_blank" rel="noopener noreferrer"
+                                className="w-9 h-9 rounded-full border border-white/5 flex items-center justify-center text-slate-400 hover:bg-slate-700 hover:text-white hover:border-transparent transition-all" aria-label="TikTok">
+                                <TikTokIcon size={15} />
                             </a>
                         </div>
                     </div>
