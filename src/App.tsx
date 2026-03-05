@@ -5,7 +5,6 @@ import {
     Zap,
     Star,
     MapPin,
-    MessageCircle,
     CreditCard,
     Bot,
     BadgeCheck,
@@ -67,11 +66,11 @@ const fadeIn = {
 // ─── App Features ──────────────────────────────────────────────────────────────
 const APP_FEATURES = [
     { icon: MapPin, label: 'Búsqueda Regional', desc: 'Encuentra profesionales en tu ciudad o cantón.', color: 'text-cyan-400', bg: 'bg-cyan-500/10 border-cyan-500/20' },
-    { icon: MessageCircle, label: 'Chat en Tiempo Real', desc: 'Comunícate directo con el proveedor antes de contratar.', color: 'text-violet-400', bg: 'bg-violet-500/10 border-violet-500/20' },
-    { icon: CreditCard, label: 'Pagos Seguros', desc: 'Pagos integrados con garantía de devolución.', color: 'text-emerald-400', bg: 'bg-emerald-500/10 border-emerald-500/20' },
     { icon: Bot, label: 'Asistente IA 24/7', desc: 'IA que te ayuda a encontrar el servicio ideal.', color: 'text-blue-400', bg: 'bg-blue-500/10 border-blue-500/20' },
     { icon: BadgeCheck, label: 'Identidad Verificada', desc: 'Todos los proveedores son verificados con documentos.', color: 'text-amber-400', bg: 'bg-amber-500/10 border-amber-500/20' },
     { icon: Star, label: 'Reseñas Reales', desc: 'Calificaciones reales de clientes reales.', color: 'text-pink-400', bg: 'bg-pink-500/10 border-pink-500/20' },
+    { icon: Users, label: 'Directorio Completo', desc: 'Cientos de profesionales listados por especialidad y zona.', color: 'text-violet-400', bg: 'bg-violet-500/10 border-violet-500/20' },
+    { icon: Layers, label: 'Multi-Categoría', desc: 'Desde plomería hasta tecnología, todo en un solo lugar.', color: 'text-emerald-400', bg: 'bg-emerald-500/10 border-emerald-500/20' },
 ];
 
 // ─── User Benefits ─────────────────────────────────────────────────────────────
@@ -79,9 +78,8 @@ const USER_BENEFITS = [
     { icon: Zap, title: 'Encuentra en segundos', desc: 'Busca por categoría, nombre o ubicación y obtén resultados inmediatos.' },
     { icon: BadgeCheck, title: '100% verificados', desc: 'Cada profesional pasa por un proceso de verificación de identidad y antecedentes.' },
     { icon: Bot, title: 'Soporte IA 24/7', desc: 'Nuestro asistente inteligente te guía en cada paso de la contratación.' },
-    { icon: ShieldCheck, title: 'Pagos con garantía', desc: 'Tu dinero está protegido hasta que confirmes que el trabajo fue completado.' },
     { icon: Star, title: 'Reseñas auténticas', desc: 'Consulta opiniones reales de otros clientes antes de contratar.' },
-    { icon: MessageCircle, 'title': 'Chat directo', desc: 'Habla con el proveedor, discute detalles y coordina sin salir de la app.' },
+    { icon: MapPin, title: 'Búsqueda por región', desc: 'Filtra profesionales por ciudad, cantón o provincia para encontrar al más cercano.' },
 ];
 
 // ─── Business Benefits ──────────────────────────────────────────────────────────
