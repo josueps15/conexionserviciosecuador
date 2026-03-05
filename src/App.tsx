@@ -335,6 +335,28 @@ const App: React.FC = () => {
                                     </motion.div>
                                 ))}
                             </div>
+
+                            {/* +100 Especialidades banner */}
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.7, delay: 0.3 }}
+                                className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
+                            >
+                                <div className="relative px-10 py-6 rounded-3xl bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 border border-white/10 backdrop-blur-md text-center overflow-hidden">
+                                    {/* Shimmer line */}
+                                    <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary to-transparent" />
+                                    <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-secondary to-transparent" />
+                                    <p className="text-slate-400 text-sm font-medium tracking-widest uppercase mb-1">y muchas más dentro de la app</p>
+                                    <p className="font-outfit font-black text-5xl md:text-7xl bg-gradient-to-r from-primary via-secondary to-cyan-400 bg-clip-text text-transparent leading-none">
+                                        +100
+                                    </p>
+                                    <p className="font-outfit font-bold text-xl md:text-3xl text-white mt-1">
+                                        Especialidades
+                                    </p>
+                                </div>
+                            </motion.div>
                         </motion.div>
                     </div>
                 </section>
