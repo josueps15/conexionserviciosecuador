@@ -24,6 +24,7 @@ const TikTokIcon = ({ size = 20 }: { size?: number }) => (
     </svg>
 );
 import { AnimatedCursor } from './components/ui/AnimatedCursor';
+import { RegistrationModal } from './components/RegistrationModal';
 import { cn } from './lib/utils';
 
 const SOCIAL_LINKS = {
@@ -103,6 +104,7 @@ const SERVICE_CATEGORIES = [
 ];
 
 const App: React.FC = () => {
+    const [isRegistrationModalOpen, setIsRegistrationModalOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const [activeScreen, setActiveScreen] = useState(0);
 
@@ -597,9 +599,11 @@ const App: React.FC = () => {
                                     ))}
                                 </div>
 
-                                <a href="#" className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-emerald-600 font-bold text-white hover:bg-emerald-700 transition-all shadow-[0_10px_20px_-10px_rgba(16,185,129,0.5)] active:scale-95">
+                                <button
+                                    onClick={() => setIsRegistrationModalOpen(true)}
+                                    className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-emerald-600 font-bold text-white hover:bg-emerald-700 transition-all shadow-[0_10px_20px_-10px_rgba(16,185,129,0.5)] active:scale-95">
                                     Registra tu Negocio <ArrowRight size={18} />
-                                </a>
+                                </button>
                             </motion.div>
 
                             {/* Right: Benefit Cards */}
@@ -734,6 +738,10 @@ const App: React.FC = () => {
                     </div>
                 </div>
             </footer>
+            <RegistrationModal
+                isOpen={isRegistrationModalOpen}
+                onClose={() => setIsRegistrationModalOpen(false)}
+            />
         </div>
     );
 };
