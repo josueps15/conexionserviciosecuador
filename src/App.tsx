@@ -1,31 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
-    ShieldCheck,
-    Zap,
-    Star,
-    MapPin,
-    CreditCard,
-    Bot,
-    BadgeCheck,
-    BarChart3,
-    Users,
-    TrendingUp,
-    CalendarCheck,
-    Layers,
-    Globe,
-    Mail,
-    Instagram,
-    Facebook,
-    Download,
-    ArrowRight,
-    CheckCircle2,
-    Wrench,
-    Car,
-    Paintbrush,
-    Cpu,
-    Home,
-    Scissors
+    ShieldCheck, Zap, Star, MapPin, CreditCard, Bot, BadgeCheck,
+    BarChart3, Users, TrendingUp, CalendarCheck, Layers, Globe, Mail,
+    Instagram, Facebook, Download, ArrowRight, CheckCircle2,
+    Car, Cpu, Home, Scissors,
+    Sparkles, Shirt, Package, Truck, Dumbbell, UtensilsCrossed,
+    Plane, Building2, Landmark, Factory, GraduationCap, Scale,
+    Megaphone, WashingMachine, HeartPulse, Crown,
+    CalendarRange
 } from 'lucide-react';
 
 import { InteractiveHoverButton } from './components/ui/InteractiveHoverButton';
@@ -94,14 +77,28 @@ const BUSINESS_BENEFITS = [
 
 // ─── Service Categories ─────────────────────────────────────────────────────────
 const SERVICE_CATEGORIES = [
-    { icon: Wrench, label: 'Plomería', color: '#3B82F6' },
-    { icon: Zap, label: 'Electricidad', color: '#F59E0B' },
-    { icon: Car, label: 'Automotriz', color: '#EF4444' },
-    { icon: Paintbrush, label: 'Pintura', color: '#8B5CF6' },
-    { icon: Cpu, label: 'Tecnología', color: '#06B6D4' },
-    { icon: Home, label: 'Hogar', color: '#10B981' },
-    { icon: Scissors, label: 'Belleza', color: '#EC4899' },
-    { icon: ShieldCheck, label: 'Seguridad', color: '#6366F1' },
+    { icon: Sparkles, label: 'Limpieza', color: '#06B6D4', bg: 'from-cyan-500/15 to-cyan-500/5', border: 'border-cyan-500/20' },
+    { icon: Crown, label: 'Pastelería', color: '#EC4899', bg: 'from-pink-500/15 to-pink-500/5', border: 'border-pink-500/20' },
+    { icon: Scissors, label: 'Belleza', color: '#A855F7', bg: 'from-purple-500/15 to-purple-500/5', border: 'border-purple-500/20' },
+    { icon: Shirt, label: 'Ropa', color: '#F97316', bg: 'from-orange-500/15 to-orange-500/5', border: 'border-orange-500/20' },
+    { icon: Building2, label: 'Construcción', color: '#EF4444', bg: 'from-red-500/15 to-red-500/5', border: 'border-red-500/20' },
+    { icon: Truck, label: 'Courier', color: '#F59E0B', bg: 'from-amber-500/15 to-amber-500/5', border: 'border-amber-500/20' },
+    { icon: WashingMachine, label: 'Lavandería', color: '#3B82F6', bg: 'from-blue-500/15 to-blue-500/5', border: 'border-blue-500/20' },
+    { icon: Dumbbell, label: 'Deportes', color: '#10B981', bg: 'from-emerald-500/15 to-emerald-500/5', border: 'border-emerald-500/20' },
+    { icon: UtensilsCrossed, label: 'Restaurant', color: '#F97316', bg: 'from-orange-400/15 to-orange-400/5', border: 'border-orange-400/20' },
+    { icon: Plane, label: 'Turismo', color: '#38BDF8', bg: 'from-sky-500/15 to-sky-500/5', border: 'border-sky-500/20' },
+    { icon: Landmark, label: 'Bancarios y Financieros', color: '#6366F1', bg: 'from-indigo-500/15 to-indigo-500/5', border: 'border-indigo-500/20' },
+    { icon: Cpu, label: 'Tecnología', color: '#22D3EE', bg: 'from-cyan-600/15 to-cyan-600/5', border: 'border-cyan-600/20' },
+    { icon: Factory, label: 'Fábricas', color: '#78716C', bg: 'from-stone-500/15 to-stone-500/5', border: 'border-stone-500/20' },
+    { icon: GraduationCap, label: 'Centros Educativos', color: '#8B5CF6', bg: 'from-violet-500/15 to-violet-500/5', border: 'border-violet-500/20' },
+    { icon: Scale, label: 'Asesoría y Jurídico', color: '#F59E0B', bg: 'from-yellow-500/15 to-yellow-500/5', border: 'border-yellow-500/20' },
+    { icon: ShieldCheck, label: 'Seguridad', color: '#10B981', bg: 'from-emerald-600/15 to-emerald-600/5', border: 'border-emerald-600/20' },
+    { icon: CalendarRange, label: 'Sala de Eventos y Reuniones', color: '#E879F9', bg: 'from-fuchsia-500/15 to-fuchsia-500/5', border: 'border-fuchsia-500/20' },
+    { icon: Megaphone, label: 'Publicidad', color: '#EF4444', bg: 'from-rose-500/15 to-rose-500/5', border: 'border-rose-500/20' },
+    { icon: Package, label: 'Línea Blanca', color: '#94A3B8', bg: 'from-slate-500/15 to-slate-500/5', border: 'border-slate-500/20' },
+    { icon: HeartPulse, label: 'Salud', color: '#F43F5E', bg: 'from-red-400/15 to-red-400/5', border: 'border-red-400/20' },
+    { icon: Car, label: 'Automotriz', color: '#3B82F6', bg: 'from-blue-600/15 to-blue-600/5', border: 'border-blue-600/20' },
+    { icon: Home, label: 'Hogar', color: '#22C55E', bg: 'from-green-500/15 to-green-500/5', border: 'border-green-500/20' },
 ];
 
 const App: React.FC = () => {
@@ -299,33 +296,44 @@ const App: React.FC = () => {
                             ))}
                         </div>
 
-                        {/* Service Categories */}
-                        <motion.div {...fadeIn} className="mt-24">
-                            <p className="text-center text-slate-500 text-sm font-medium tracking-widest uppercase mb-10">Categorías disponibles en el lanzamiento</p>
-                            <div className="flex flex-wrap justify-center gap-4">
+                        {/* ── DEDICATED CATEGORIES SECTION ── */}
+                        <motion.div {...fadeIn} className="mt-28">
+                            <div className="text-center mb-12">
+                                <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase bg-secondary/10 border border-secondary/20 text-secondary mb-5">
+                                    Todas las categorías
+                                </span>
+                                <h2 className="text-3xl md:text-4xl font-outfit font-black text-white mb-3">
+                                    Encuentra el servicio que
+                                    <span className="text-gradient">necesitas</span>
+                                </h2>
+                                <p className="text-slate-400 max-w-xl mx-auto text-base">
+                                    Explora nuestra amplia red de profesionales verificados en todas las áreas.
+                                </p>
+                            </div>
+
+                            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-4">
                                 {SERVICE_CATEGORIES.map((cat, i) => (
                                     <motion.div
                                         key={cat.label}
-                                        initial={{ opacity: 0, scale: 0.8 }}
-                                        whileInView={{ opacity: 1, scale: 1 }}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
                                         viewport={{ once: true }}
-                                        transition={{ delay: i * 0.07 }}
-                                        whileHover={{ scale: 1.08 }}
-                                        className="flex items-center gap-3 px-5 py-3 rounded-2xl bg-slate-900/80 border border-white/5 hover:border-white/20 transition-all cursor-default"
+                                        transition={{ duration: 0.4, delay: i * 0.04 }}
+                                        whileHover={{ y: -5, scale: 1.03 }}
+                                        className={`group relative flex flex-col items-center justify-center gap-3 p-5 rounded-2xl bg-gradient-to-br ${cat.bg} border ${cat.border} backdrop-blur-sm cursor-default transition-all duration-300 hover:shadow-xl text-center`}
                                     >
-                                        <cat.icon size={18} style={{ color: cat.color }} />
-                                        <span className="font-medium text-sm text-slate-300">{cat.label}</span>
+                                        {/* Glow on hover */}
+                                        <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"
+                                            style={{ boxShadow: `0 0 30px ${cat.color}25` }} />
+                                        <div className="w-12 h-12 rounded-2xl flex items-center justify-center relative z-10"
+                                            style={{ background: `${cat.color}20`, border: `1px solid ${cat.color}30` }}>
+                                            <cat.icon size={22} style={{ color: cat.color }} />
+                                        </div>
+                                        <span className="font-semibold text-sm text-slate-200 leading-tight relative z-10">
+                                            {cat.label}
+                                        </span>
                                     </motion.div>
                                 ))}
-                                <motion.div
-                                    initial={{ opacity: 0, scale: 0.8 }}
-                                    whileInView={{ opacity: 1, scale: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: 0.6 }}
-                                    className="flex items-center gap-2 px-5 py-3 rounded-2xl bg-primary/10 border border-primary/20 text-primary font-medium text-sm"
-                                >
-                                    + 40 categorías más
-                                </motion.div>
                             </div>
                         </motion.div>
                     </div>
