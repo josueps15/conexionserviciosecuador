@@ -152,7 +152,7 @@ const App: React.FC = () => {
                             whileTap={{ scale: 0.9, rotate: 6 }}
                             transition={{ type: 'spring', stiffness: 380, damping: 18 }}
                         />
-                        <span>Conexión <span className="text-primary">Servicios</span></span>
+                        <span>Conexión <span className="text-secondary">Servicios</span></span>
                     </motion.a>
 
                     <nav className="hidden md:flex items-center gap-8 font-medium text-slate-400">
