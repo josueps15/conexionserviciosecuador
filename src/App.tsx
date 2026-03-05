@@ -672,7 +672,7 @@ const App: React.FC = () => {
                     <div className="col-span-2 md:col-span-1">
                         <a href="#inicio" className="flex items-center gap-2 font-outfit font-extrabold text-xl tracking-tight mb-4">
                             <img src={logoCS} alt="Conexión Servicios" className="h-8 w-8 object-contain drop-shadow-md" />
-                            <span>Conexión <span className="text-primary">Servicios</span></span>
+                            <span>Conexión <span className="text-secondary">Servicios</span></span>
                         </a>
                         <p className="text-slate-500 text-sm leading-relaxed mb-5">
                             Redefiniendo los servicios profesionales en Ecuador.
