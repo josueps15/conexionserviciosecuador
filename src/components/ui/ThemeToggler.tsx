@@ -4,21 +4,32 @@ import { motion } from "framer-motion";
 import { Sun, Moon } from "lucide-react";
 
 export const ThemeToggler = () => {
-    const [theme, setTheme] = React.useState(() => {
-        if (typeof window !== "undefined") {
-            return localStorage.getItem("theme") || "dark";
-        }
-        return "dark";
-    });
+    // Initial state from localStorage or default
+    const [theme, setTheme] = React.useState<"light" | "dark">("dark");
 
+    // Initialize theme on mount
+    React.useEffect(() => {
+        const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
+        if (savedTheme) {
+            setTheme(savedTheme);
+        } else if (window.matchMedia("(prefers-color-scheme: light)").matches) {
+            // Uncomment if you want to follow system preference
+            // setTheme("light");
+        }
+    }, []);
+
+    // Apply theme changes
     React.useEffect(() => {
         const root = window.document.documentElement;
         if (theme === "light") {
             root.classList.add("light");
+            root.style.colorScheme = "light";
         } else {
             root.classList.remove("light");
+            root.style.colorScheme = "dark";
         }
         localStorage.setItem("theme", theme);
+        console.log("Theme updated to:", theme, "Classes:", root.className);
     }, [theme]);
 
     const toggleTheme = () => {
@@ -27,8 +38,9 @@ export const ThemeToggler = () => {
 
     return (
         <button
+            id="theme-toggle-btn"
             onClick={toggleTheme}
-            className="relative h-10 w-10 rounded-xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 flex items-center justify-center overflow-hidden hover:bg-black/10 dark:hover:bg-white/10 transition-colors"
+            className="relative h-10 w-10 rounded-xl bg-slate-800/10 dark:bg-slate-200/10 border border-slate-800/10 dark:border-slate-200/10 flex items-center justify-center overflow-hidden hover:bg-slate-800/20 dark:hover:bg-slate-200/20 transition-all"
             aria-label="Toggle Theme"
         >
             <motion.div

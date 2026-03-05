@@ -152,25 +152,47 @@ body {
 }
 
 :root.light body {
+    background-color: #f8fafc;
     color: #0f172a;
 }
 
-:root.light .text-slate-50 {
-    color: #0f172a;
+:root.light .text-slate-50,
+:root.light .text-white {
+    color: #0f172a !important;
 }
 
 :root.light .text-slate-400 {
-    color: #475569;
+    color: #475569 !important;
 }
 
 :root.light .bg-slate-950 {
-    background-color: #f8fafc;
+    background-color: #f8fafc !important;
 }
 
-:root.light .border-white\/10 {
-    border-color: rgba(0, 0, 0, 0.1);
+:root.light .bg-slate-900 {
+    background-color: #f1f5f9 !important;
 }
 
-:root.light .bg-white\/5 {
-    background-color: rgba(0, 0, 0, 0.05);
+:root.light .border-white\/10,
+:root.light .border-white\/5 {
+    border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+:root.light .bg-white\/5,
+:root.light .bg-white\/10 {
+    background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Specific component fixes for light mode */
+:root.light header.bg-slate-950\/80 {
+    background-color: rgba(248, 250, 252, 0.8) !important;
+}
+
+:root.light .text-gradient {
+    background-image: linear-gradient(to bottom right, #0f172a, var(--color-primary));
+}
+
+:root.light footer {
+    background-color: #f1f5f9;
+    border-top-color: rgba(0, 0, 0, 0.05);
 }
