@@ -405,51 +405,104 @@ const App: React.FC = () => {
                     <ContainerScroll
                         titleComponent={
                             <div className="flex flex-col items-center">
-                                <h2 className="text-4xl md:text-5xl font-outfit font-semibold text-white mb-4">
-                                    Experiencia Nativa <br />
-                                    <span className="text-gradient text-5xl md:text-[6rem] font-black leading-none mt-4 block">
-                                        iOS & Android
-                                    </span>
+                                <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase bg-primary/10 border border-primary/20 text-primary mb-5">
+                                    Disponible Pronto
+                                </span>
+                                <h2 className="text-4xl md:text-5xl font-outfit font-semibold text-white mb-2">
+                                    Experiencia Nativa
                                 </h2>
+                                <span className="text-gradient text-5xl md:text-[6rem] font-black leading-none mt-2 block">
+                                    iOS &amp; Android
+                                </span>
                             </div>
                         }
                     >
-                        <div className="grid grid-cols-1 md:grid-cols-2 h-full w-full bg-slate-900 overflow-hidden">
-                            <div className="p-10 flex flex-col justify-center">
-                                <h3 className="text-3xl font-bold mb-6">Diseñada para ti</h3>
-                                <p className="text-slate-400 text-lg mb-8 leading-relaxed">
-                                    Nuestra App nativa redefine la gestión de servicios. Rapidez, seguridad y una interfaz que amarás usar desde el primer día.
-                                </p>
-                                <div className="grid grid-cols-2 gap-6">
-                                    {[
-                                        { title: 'IA Integrada', desc: 'Asistente 24/7' },
-                                        { title: 'Pagos Seguros', desc: 'Encriptación' },
-                                        { title: 'Verificación', desc: 'Filtros Pro' },
-                                        { title: 'Soporte VIP', desc: 'Prioridad' },
-                                    ].map((item) => (
-                                        <div key={item.title}>
-                                            <h4 className="font-bold text-white mb-1">{item.title}</h4>
-                                            <p className="text-slate-500 text-xs">{item.desc}</p>
+                        {/* Premium redesigned dashboard */}
+                        <div className="relative h-full w-full overflow-hidden"
+                            style={{ background: 'linear-gradient(135deg, #080d1a 0%, #0d1528 60%, #080d1a 100%)' }}>
+
+                            {/* Ambient glows */}
+                            <div className="absolute top-0 left-1/4 w-80 h-80 bg-blue-600/10 blur-[100px] rounded-full pointer-events-none" />
+                            <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-violet-600/10 blur-[100px] rounded-full pointer-events-none" />
+                            <div className="absolute top-1/2 left-0 w-40 h-40 bg-cyan-500/8 blur-[60px] rounded-full pointer-events-none" />
+
+                            <div className="relative z-10 grid grid-cols-1 md:grid-cols-5 h-full p-1">
+
+                                {/* Left panel */}
+                                <div className="md:col-span-3 flex flex-col justify-center p-8 lg:p-12 gap-7">
+
+                                    <div>
+                                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold tracking-widest uppercase mb-4">
+                                            <span className="relative flex h-1.5 w-1.5"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span><span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-primary"></span></span>
+                                            App Móvil Nativa
                                         </div>
-                                    ))}
-                                </div>
-                            </div>
-                            <div className="relative bg-slate-800/50 flex items-center justify-center p-10">
-                                <IPhoneMockup>
-                                    <div className="w-full h-full relative">
-                                        {appScreens.map((src, i) => (
-                                            <motion.img
-                                                key={src}
-                                                src={src}
-                                                alt="App Interface"
-                                                className="absolute inset-0 w-full h-full object-cover"
-                                                initial={{ opacity: 0 }}
-                                                animate={{ opacity: [0, 1, 1, 0] }}
-                                                transition={{ duration: 5, delay: i * 5, repeat: Infinity, times: [0, 0.1, 0.9, 1] }}
-                                            />
+                                        <h3 className="text-2xl lg:text-3xl font-outfit font-black text-white mb-3">
+                                            Todo lo que necesitas,<br />
+                                            <span className="text-gradient">en tu bolsillo</span>
+                                        </h3>
+                                        <p className="text-slate-400 text-sm leading-relaxed max-w-sm">
+                                            Encuentra profesionales verificados, consulta reseñas reales y contrata con total confianza desde cualquier lugar del Ecuador.
+                                        </p>
+                                    </div>
+
+                                    {/* Stat cards */}
+                                    <div className="grid grid-cols-3 gap-3">
+                                        {[
+                                            { value: '50+', label: 'Categorías', color: 'from-cyan-500/20 to-blue-500/10', border: 'border-cyan-500/20', num: 'text-cyan-400' },
+                                            { value: '24', label: 'Provincias', color: 'from-violet-500/20 to-indigo-500/10', border: 'border-violet-500/20', num: 'text-violet-400' },
+                                            { value: '100%', label: 'Verificados', color: 'from-emerald-500/20 to-teal-500/10', border: 'border-emerald-500/20', num: 'text-emerald-400' },
+                                        ].map(s => (
+                                            <div key={s.label} className={`rounded-2xl bg-gradient-to-br ${s.color} border ${s.border} p-4 text-center backdrop-blur-sm`}>
+                                                <p className={`text-xl font-outfit font-black ${s.num}`}>{s.value}</p>
+                                                <p className="text-slate-400 text-[10px] mt-1 font-medium">{s.label}</p>
+                                            </div>
                                         ))}
                                     </div>
-                                </IPhoneMockup>
+
+                                    {/* Feature grid */}
+                                    <div className="grid grid-cols-2 gap-3">
+                                        {[
+                                            { icon: Bot, label: 'Asistente IA', sub: 'Soporte inteligente 24/7', color: 'text-blue-400', bg: 'bg-blue-500/10 border-blue-500/20' },
+                                            { icon: BadgeCheck, label: 'Verificado', sub: 'Identidad comprobada', color: 'text-amber-400', bg: 'bg-amber-500/10 border-amber-500/20' },
+                                            { icon: Star, label: 'Reseñas Reales', sub: 'Calificaciones auténticas', color: 'text-pink-400', bg: 'bg-pink-500/10 border-pink-500/20' },
+                                            { icon: MapPin, label: 'Búsqueda Local', sub: 'Por ciudad y cantón', color: 'text-cyan-400', bg: 'bg-cyan-500/10 border-cyan-500/20' },
+                                        ].map(f => (
+                                            <div key={f.label} className="flex items-center gap-3 p-3 rounded-xl bg-white/[0.03] border border-white/5 hover:border-white/10 transition-all">
+                                                <div className={`w-8 h-8 rounded-xl border flex items-center justify-center flex-shrink-0 ${f.bg}`}>
+                                                    <f.icon size={14} className={f.color} />
+                                                </div>
+                                                <div>
+                                                    <p className="text-white text-xs font-bold leading-tight">{f.label}</p>
+                                                    <p className="text-slate-500 text-[10px] leading-tight mt-0.5">{f.sub}</p>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Right panel: iPhone */}
+                                <div className="md:col-span-2 relative flex items-center justify-center p-6">
+                                    <div className="absolute inset-0 bg-gradient-to-l from-primary/8 to-transparent" />
+                                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-56 h-56 bg-primary/20 blur-[80px] rounded-full" />
+                                    <div className="relative z-10 drop-shadow-[0_30px_60px_rgba(0,102,255,0.4)]">
+                                        <IPhoneMockup>
+                                            <div className="w-full h-full relative">
+                                                {appScreens.map((src, i) => (
+                                                    <motion.img
+                                                        key={src}
+                                                        src={src}
+                                                        alt="App Interface"
+                                                        className="absolute inset-0 w-full h-full object-cover"
+                                                        initial={{ opacity: 0 }}
+                                                        animate={{ opacity: [0, 1, 1, 0] }}
+                                                        transition={{ duration: 5, delay: i * 5, repeat: Infinity, times: [0, 0.1, 0.9, 1] }}
+                                                    />
+                                                ))}
+                                            </div>
+                                        </IPhoneMockup>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </ContainerScroll>
