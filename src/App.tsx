@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
-    ShieldCheck, Zap, Star, MapPin, CreditCard, Bot, BadgeCheck,
-    BarChart3, Users, TrendingUp, CalendarCheck, Layers, Globe, Mail,
+    ShieldCheck, Zap, Star, MapPin, Bot, BadgeCheck,
+    Users, TrendingUp, Layers, Globe, Mail,
     Instagram, Facebook, Download, ArrowRight, CheckCircle2,
     Car, Cpu, Home, Scissors,
     Sparkles, Shirt, Package, Truck, Dumbbell, UtensilsCrossed,
@@ -67,12 +67,12 @@ const USER_BENEFITS = [
 
 // ─── Business Benefits ──────────────────────────────────────────────────────────
 const BUSINESS_BENEFITS = [
-    { icon: TrendingUp, title: 'Más Visibilidad', desc: 'Aparece en búsquedas locales y llega a miles de clientes potenciales en tu ciudad.' },
-    { icon: Users, title: 'Clientes Verificados', desc: 'Recibe solicitudes de clientes reales con perfiles verificados, sin spam.' },
-    { icon: CalendarCheck, title: 'Gestiona tu Agenda', desc: 'Acepta o rechaza solicitudes, gestiona tu disponibilidad y horarios desde la app.' },
-    { icon: BarChart3, title: 'Panel de Estadísticas', desc: 'Monitorea tus vistas, reseñas, ingresos y desempeño en tiempo real.' },
-    { icon: CreditCard, title: 'Cobro Seguro', desc: 'Recibe pagos de forma segura directamente a tu cuenta sin intermediarios.' },
-    { icon: BadgeCheck, title: 'Perfil Profesional', desc: 'Crea un perfil con tu portafolio, certificaciones y calificaciones.' },
+    { icon: TrendingUp, title: 'Más Visibilidad', desc: 'Aparece en búsquedas locales y llega a miles de clientes potenciales en tu ciudad y provincia.' },
+    { icon: Users, title: 'Llega a Más Clientes', desc: 'Amplía tu alcance y conecta con personas que ya están buscando activamente tus servicios.' },
+    { icon: BadgeCheck, title: 'Garantiza tu Calidad', desc: 'Muestra tus credenciales, verificaciones y reseñas reales para generar confianza desde el primer momento.' },
+    { icon: Globe, title: 'Atención Directa al Usuario', desc: 'Los clientes pueden encontrar tu perfil, ver tus servicios y contactarte de forma directa desde la app.' },
+    { icon: Star, title: 'Contacto con Usuarios Registrados', desc: 'Interactúa con usuarios verificados que ya tienen cuenta en la plataforma y están listos para contratar.' },
+    { icon: Layers, title: 'Perfil Profesional Completo', desc: 'Crea un perfil con tu portafolio, especialidades, zona de trabajo, descripción y calificaciones.' },
 ];
 
 // ─── Service Categories ─────────────────────────────────────────────────────────
