@@ -10,7 +10,8 @@ import {
     Mail,
     Instagram,
     Facebook,
-    Twitter
+    Twitter,
+    Download
 } from 'lucide-react';
 
 import { InteractiveHoverButton } from './components/ui/InteractiveHoverButton';
@@ -116,24 +117,34 @@ const App: React.FC = () => {
                             transition={{ duration: 1 }}
                             className="z-10"
                         >
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold mb-6 tracking-widest uppercase">
+                            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[10px] sm:text-xs font-bold mb-8 tracking-wider uppercase backdrop-blur-sm shadow-[0_0_15px_rgba(34,211,238,0.1)]">
                                 <span className="relative flex h-2 w-2">
-                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
                                 </span>
-                                Sistemas Verificados 2024
+                                PLATAFORMA LISTA PARA LANZAMIENTO
                             </div>
-                            <h1 className="text-6xl lg:text-7xl font-outfit font-black mb-8 leading-[1.1] tracking-tighter">
-                                Evoluciona tu <br />
-                                <span className="text-gradient">Ecosistema Profesional</span>
+                            <h1 className="text-5xl md:text-6xl lg:text-7xl font-outfit font-black mb-8 leading-[1.05] tracking-tighter text-white">
+                                Conecta con los mejores <br />
+                                <span className="text-gradient">profesionales</span> en segundos.
                             </h1>
-                            <p className="text-xl text-slate-400 mb-10 max-w-xl leading-relaxed">
-                                La plataforma definitiva que fusiona Inteligencia Artificial y expertos verificados para ofrecer resultados excepcionales en tiempo récord.
+                            <p className="text-lg md:text-xl text-slate-400 mb-12 max-w-xl leading-relaxed">
+                                Nuestra misión es revolucionar la forma en que contratas y ofreces servicios. Un ecosistema 100% verificado, seguro y diseñado para la excelencia.
                             </p>
-                            <div className="flex flex-wrap gap-6">
-                                <InteractiveHoverButton text="Comenzar Ahora" />
-                                <button className="px-8 py-3 rounded-full border border-white/10 bg-white/5 font-bold hover:bg-white/10 transition-all backdrop-blur-md">
-                                    Saber Más
+                            <div className="flex flex-wrap gap-5">
+                                <button className="group relative px-8 py-4 rounded-2xl bg-blue-600 font-bold text-white flex items-center gap-3 hover:bg-blue-700 transition-all shadow-[0_10px_20px_-10px_rgba(37,99,235,0.5)] active:scale-95 overflow-hidden">
+                                    <span className="relative z-10 font-outfit">Descargar la App</span>
+                                    <motion.span
+                                        animate={{ y: [0, 4, 0] }}
+                                        transition={{ duration: 1.5, repeat: Infinity }}
+                                        className="relative z-10"
+                                    >
+                                        <Download size={20} className="text-blue-100" />
+                                    </motion.span>
+                                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                                </button>
+                                <button className="px-8 py-4 rounded-2xl border border-white/5 bg-slate-900/50 font-bold text-slate-300 hover:text-white hover:bg-slate-800 transition-all backdrop-blur-md font-outfit">
+                                    Explorar Servicios
                                 </button>
                             </div>
                         </motion.div>
