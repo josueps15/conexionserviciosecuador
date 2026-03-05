@@ -26,9 +26,9 @@ export const InteractiveHoverButton = React.forwardRef<
                     {text}
                 </span>
             </div>
-            <div className="absolute top-0 z-10 flex h-full w-full translate-x-12 items-center justify-center gap-2 text-white opacity-0 transition-all duration-300 group-hover:-translate-x-1 group-hover:opacity-100">
+            <div className="absolute inset-0 z-10 flex h-full w-full items-center justify-center gap-2 text-white opacity-0 transition-all duration-300 translate-x-10 group-hover:translate-x-0 group-hover:opacity-100">
                 <span>{text}</span>
-                <ArrowRight />
+                <ArrowRight size={16} />
             </div>
         </button>
     );
