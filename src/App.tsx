@@ -379,6 +379,23 @@ const App: React.FC = () => {
                             className="relative hidden lg:flex justify-center order-2 lg:order-1"
                         >
                             <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 blur-[100px] rounded-full" />
+
+                            {/* Floating Notifications */}
+                            <motion.div animate={{ y: [-5, 5, -5] }} transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
+                                className="absolute -left-12 top-20 flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-800/90 border border-white/10 backdrop-blur-md text-xs font-medium z-20 shadow-xl whitespace-nowrap">
+                                <Bot size={14} className="text-violet-400" /> Asistente Digital
+                            </motion.div>
+
+                            <motion.div animate={{ y: [5, -5, 5] }} transition={{ duration: 3.8, repeat: Infinity, ease: 'easeInOut' }}
+                                className="absolute -right-16 top-32 flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-800/90 border border-white/10 backdrop-blur-md text-xs font-medium z-20 shadow-xl whitespace-nowrap">
+                                <Zap size={14} className="text-yellow-400" /> Cotizaciones Rápidas
+                            </motion.div>
+
+                            <motion.div animate={{ y: [-4, 6, -4] }} transition={{ duration: 5.2, repeat: Infinity, ease: 'easeInOut' }}
+                                className="absolute -right-10 bottom-32 flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-800/90 border border-white/10 backdrop-blur-md text-xs font-medium z-20 shadow-xl whitespace-nowrap">
+                                <ShieldCheck size={14} className="text-emerald-400" /> 100% Garantizado
+                            </motion.div>
+
                             <IPhoneMockup className="-rotate-3 drop-shadow-[0_40px_80px_rgba(139,92,246,0.3)] relative z-10">
                                 {appScreens.map((src, i) => (
                                     <motion.img
