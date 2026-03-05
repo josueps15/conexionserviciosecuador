@@ -275,7 +275,7 @@ const App: React.FC = () => {
                                 Todo lo que necesitas <br /><span className="text-gradient">en un solo lugar</span>
                             </h2>
                             <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-                                Conexión Servicios reúne las herramientas más poderosas para que contratar y ofrecer servicios sea simple, seguro e inteligente.
+                                Conexión Servicios reúne las herramientas necesarias para que contratar y ofrecer servicios sea simple, seguro e inteligente.
                             </p>
                         </motion.div>
 
