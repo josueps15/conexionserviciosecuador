@@ -91,6 +91,8 @@
 body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
 }
 
 /* Hide Scrollbar */
@@ -195,4 +197,45 @@ body {
 :root.light footer {
     background-color: #f1f5f9;
     border-top-color: rgba(0, 0, 0, 0.05);
+}
+
+/* ── Performance: GPU acceleration for animated elements ─────────────────── */
+[data-framer-component-type],
+.motion-element {
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* Promote fixed/sticky elements to their own compositor layer */
+header,
+footer,
+#root-app>.fixed {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* Contain layout for major section blocks to prevent reflow cascade */
+section {
+    contain: layout style;
+}
+
+/* Prevent blurry text during transforms */
+* {
+    -webkit-backface-visibility: hidden;
+}
+
+/* GPU layer for animated blobs/glows */
+.blur-\[100px\],
+.blur-\[120px\],
+.blur-\[150px\],
+.blur-\[80px\],
+.blur-\[60px\] {
+    will-change: opacity;
+    transform: translateZ(0);
+}
+
+/* Optimize image rendering */
+img {
+    content-visibility: auto;
 }

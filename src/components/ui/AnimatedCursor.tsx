@@ -22,9 +22,9 @@ export const AnimatedCursor: React.FC = () => {
     const handleMouseUp = () => setIsClicking(false);
 
     useEffect(() => {
-        window.addEventListener("mousemove", handleMouseMove);
-        window.addEventListener("mousedown", handleMouseDown);
-        window.addEventListener("mouseup", handleMouseUp);
+        window.addEventListener("mousemove", handleMouseMove, { passive: true });
+        window.addEventListener("mousedown", handleMouseDown, { passive: true });
+        window.addEventListener("mouseup", handleMouseUp, { passive: true });
 
         return () => {
             window.removeEventListener("mousemove", handleMouseMove);

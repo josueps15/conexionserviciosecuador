@@ -41,10 +41,10 @@ const appScreens = [
 ];
 
 const fadeIn = {
-    initial: { opacity: 0, y: 20 },
+    initial: { opacity: 0, y: 18 },
     whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true },
-    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const }
+    viewport: { once: true, amount: 0.12 },
+    transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] as const }
 };
 
 // ─── App Features ──────────────────────────────────────────────────────────────
