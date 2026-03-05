@@ -340,29 +340,29 @@ const App: React.FC = () => {
                                         </span>
                                     </motion.div>
                                 ))}
-                            </div>
 
-                            {/* +100 Especialidades banner */}
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.7, delay: 0.3 }}
-                                className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
-                            >
-                                <div className="relative px-10 py-6 rounded-3xl bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 border border-white/10 backdrop-blur-md text-center overflow-hidden">
-                                    {/* Shimmer line */}
-                                    <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary to-transparent" />
-                                    <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-secondary to-transparent" />
-                                    <p className="text-slate-400 text-sm font-medium tracking-widest uppercase mb-1">y muchas más dentro de la app</p>
-                                    <p className="font-outfit font-black text-5xl md:text-7xl bg-gradient-to-r from-primary via-secondary to-cyan-400 bg-clip-text text-transparent leading-none">
-                                        +100
-                                    </p>
-                                    <p className="font-outfit font-bold text-xl md:text-3xl text-white mt-1">
-                                        Especialidades
-                                    </p>
-                                </div>
-                            </motion.div>
+                                {/* +100 Especialidades banner (Moved inside grid) */}
+                                <motion.div
+                                    initial={{ opacity: 0, y: 24 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.5, delay: 0.2 }}
+                                    className="col-span-2 sm:col-span-2 md:col-span-2 xl:col-span-3 flex"
+                                >
+                                    <div className="w-full relative px-6 py-6 rounded-2xl bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 border border-white/10 backdrop-blur-md text-center overflow-hidden flex flex-col justify-center items-center group hover:bg-white/[0.03] transition-colors">
+                                        {/* Shimmer lines */}
+                                        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary to-transparent opacity-50 group-hover:opacity-100 transition-opacity" />
+                                        <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-secondary to-transparent opacity-50 group-hover:opacity-100 transition-opacity" />
+                                        <p className="text-slate-400 text-[10px] sm:text-xs font-medium tracking-widest uppercase mb-1">y muchas más dentro de la app</p>
+                                        <p className="font-outfit font-black text-4xl sm:text-5xl md:text-6xl bg-gradient-to-r from-primary via-secondary to-cyan-400 bg-clip-text text-transparent leading-none my-1">
+                                            +100
+                                        </p>
+                                        <p className="font-outfit font-bold text-lg sm:text-xl md:text-2xl text-white">
+                                            Especialidades
+                                        </p>
+                                    </div>
+                                </motion.div>
+                            </div>
                         </motion.div>
                     </div>
                 </section>
