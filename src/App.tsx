@@ -615,8 +615,8 @@ const App: React.FC = () => {
                         {...fadeIn}
                         className="max-w-7xl mx-auto rounded-[3rem] bg-gradient-to-br from-slate-900 to-slate-950 border border-white/10 p-12 lg:p-24 text-center relative overflow-hidden"
                     >
-                        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,rgba(0,102,255,0.12)_0%,transparent_70%)]" />
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 blur-[120px] rounded-full" />
+                        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,rgba(0,102,255,0.12)_0%,transparent_70%)] pointer-events-none" />
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
                         <h2 className="text-5xl lg:text-7xl font-outfit font-black mb-8 relative z-10 leading-tight">
                             ¿Listo para dar el <br /><span className="text-gradient">Siguiente Gran Paso?</span>
                         </h2>
@@ -711,9 +711,9 @@ const App: React.FC = () => {
                 <div className="max-w-7xl mx-auto pt-6 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4 text-slate-600 text-xs">
                     <p>&copy; 2026 Conexión Servicios. Todos los derechos reservados.</p>
                     <div className="flex gap-6">
-                        <a href="#" className="hover:text-white transition-colors">Términos</a>
-                        <a href="#" className="hover:text-white transition-colors">Privacidad</a>
-                        <a href="#" className="hover:text-white transition-colors">Cookies</a>
+                        <a href="https://conexionserviciosec.blogspot.com/p/terminos-y-condiciones-de-uso-de-la.html" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Términos</a>
+                        <a href="https://conexionserviciosec.blogspot.com/p/terminos-y-condiciones-de-uso-de-la.html" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Privacidad</a>
+                        <a href="https://conexionserviciosec.blogspot.com/p/terminos-y-condiciones-de-uso-de-la.html" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Cookies</a>
                     </div>
                 </div>
             </footer>
