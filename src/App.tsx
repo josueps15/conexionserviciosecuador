@@ -348,13 +348,17 @@ const App: React.FC = () => {
                                     initial={{ opacity: 0, y: 24 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: false, amount: 0.1 }}
-                                    transition={{ duration: 0.4, delay: 0.2 }}
+                                    transition={{ duration: 0.4, delay: SERVICE_CATEGORIES.length * 0.04 }}
                                     whileHover={{ y: -5, scale: 1.03 }}
-                                    className="group relative col-span-2 sm:col-span-2 md:col-span-2 xl:col-span-3 flex flex-col justify-center items-center px-6 py-6 rounded-2xl bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 border border-white/10 backdrop-blur-md text-center overflow-hidden cursor-default transition-shadow duration-300 hover:shadow-xl"
+                                    className="group relative col-span-2 sm:col-span-2 md:col-span-2 xl:col-span-3 flex flex-col justify-center items-center px-6 py-6 rounded-2xl bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 border border-white/10 backdrop-blur-md text-center cursor-default transition-all duration-300 hover:shadow-xl"
                                 >
+                                    {/* Glow on hover */}
+                                    <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity z-0"
+                                        style={{ boxShadow: `0 0 30px rgba(34,211,238,0.2)` }} />
+
                                     {/* Shimmer lines */}
-                                    <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary to-transparent opacity-50 group-hover:opacity-100 transition-opacity" />
-                                    <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-secondary to-transparent opacity-50 group-hover:opacity-100 transition-opacity" />
+                                    <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary to-transparent opacity-50 group-hover:opacity-100 transition-opacity rounded-t-2xl" />
+                                    <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-secondary to-transparent opacity-50 group-hover:opacity-100 transition-opacity rounded-b-2xl" />
                                     <p className="text-slate-400 text-[10px] sm:text-xs font-medium tracking-widest uppercase mb-1 relative z-10">y muchas más dentro de la app</p>
                                     <p className="font-outfit font-black text-4xl sm:text-5xl md:text-6xl bg-gradient-to-r from-primary via-secondary to-cyan-400 bg-clip-text text-transparent leading-none my-1 relative z-10">
                                         +100
