@@ -458,6 +458,73 @@ const App: React.FC = () => {
                     </div>
                 </section>
 
+                {/* ── BENEFICIOS PARA NEGOCIOS ── */}
+                <section id="negocios" className="py-32 px-6 relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-emerald-500/5 to-transparent pointer-events-none" />
+                    <div className="max-w-7xl mx-auto">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+                            {/* Left: Text */}
+                            <motion.div
+                                initial={{ opacity: 0, x: -50 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 1 }}
+                            >
+                                <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 mb-6">
+                                    Para Negocios y Profesionales
+                                </span>
+                                <h2 className="text-4xl md:text-5xl font-outfit font-black mb-6 leading-tight">
+                                    Haz crecer tu <span className="text-gradient">negocio</span> con tecnología
+                                </h2>
+                                <p className="text-slate-400 text-lg mb-10 leading-relaxed">
+                                    Únete a la plataforma que conecta a los mejores profesionales de Ecuador con miles de clientes listos para contratar. Sin complicaciones, solo resultados.
+                                </p>
+
+                                {/* Stats */}
+                                <div className="grid grid-cols-3 gap-6 mb-10">
+                                    {[
+                                        { value: '+500', label: 'Profesionales' },
+                                        { value: '+100k', label: 'Vistas/mes' },
+                                        { value: '≥4.8★', label: 'Satisfacción' },
+                                    ].map(s => (
+                                        <div key={s.label} className="text-center p-4 rounded-2xl bg-slate-900/60 border border-white/5">
+                                            <p className="text-2xl font-outfit font-black text-white">{s.value}</p>
+                                            <p className="text-xs text-slate-500 mt-1">{s.label}</p>
+                                        </div>
+                                    ))}
+                                </div>
+
+                                <button
+                                    onClick={() => setIsRegistrationModalOpen(true)}
+                                    className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-emerald-600 font-bold text-white hover:bg-emerald-700 transition-all shadow-[0_10px_20px_-10px_rgba(16,185,129,0.5)] active:scale-95">
+                                    Registra tu Negocio <ArrowRight size={18} />
+                                </button>
+                            </motion.div>
+
+                            {/* Right: Benefit Cards */}
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                {BUSINESS_BENEFITS.map((b, i) => (
+                                    <motion.div
+                                        key={b.title}
+                                        initial={{ opacity: 0, y: 30 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.6, delay: i * 0.1 }}
+                                        whileHover={{ y: -4 }}
+                                        className="p-6 rounded-3xl bg-slate-900/60 border border-white/5 hover:border-emerald-500/20 transition-all group"
+                                    >
+                                        <div className="w-11 h-11 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                                            <b.icon size={20} className="text-emerald-400" />
+                                        </div>
+                                        <h3 className="font-outfit font-bold text-white mb-2">{b.title}</h3>
+                                        <p className="text-slate-400 text-sm leading-relaxed">{b.desc}</p>
+                                    </motion.div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
                 {/* ── APP SHOWCASE (ContainerScroll) ── */}
                 <section className="py-20 relative bg-transparent">
                     <ContainerScroll
@@ -564,73 +631,6 @@ const App: React.FC = () => {
                             </div>
                         </div>
                     </ContainerScroll>
-                </section>
-
-                {/* ── BENEFICIOS PARA NEGOCIOS ── */}
-                <section id="negocios" className="py-32 px-6 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-emerald-500/5 to-transparent pointer-events-none" />
-                    <div className="max-w-7xl mx-auto">
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
-                            {/* Left: Text */}
-                            <motion.div
-                                initial={{ opacity: 0, x: -50 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 1 }}
-                            >
-                                <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 mb-6">
-                                    Para Negocios y Profesionales
-                                </span>
-                                <h2 className="text-4xl md:text-5xl font-outfit font-black mb-6 leading-tight">
-                                    Haz crecer tu <span className="text-gradient">negocio</span> con tecnología
-                                </h2>
-                                <p className="text-slate-400 text-lg mb-10 leading-relaxed">
-                                    Únete a la plataforma que conecta a los mejores profesionales de Ecuador con miles de clientes listos para contratar. Sin complicaciones, solo resultados.
-                                </p>
-
-                                {/* Stats */}
-                                <div className="grid grid-cols-3 gap-6 mb-10">
-                                    {[
-                                        { value: '+500', label: 'Profesionales' },
-                                        { value: '+100k', label: 'Vistas/mes' },
-                                        { value: '≥4.8★', label: 'Satisfacción' },
-                                    ].map(s => (
-                                        <div key={s.label} className="text-center p-4 rounded-2xl bg-slate-900/60 border border-white/5">
-                                            <p className="text-2xl font-outfit font-black text-white">{s.value}</p>
-                                            <p className="text-xs text-slate-500 mt-1">{s.label}</p>
-                                        </div>
-                                    ))}
-                                </div>
-
-                                <button
-                                    onClick={() => setIsRegistrationModalOpen(true)}
-                                    className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-emerald-600 font-bold text-white hover:bg-emerald-700 transition-all shadow-[0_10px_20px_-10px_rgba(16,185,129,0.5)] active:scale-95">
-                                    Registra tu Negocio <ArrowRight size={18} />
-                                </button>
-                            </motion.div>
-
-                            {/* Right: Benefit Cards */}
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                                {BUSINESS_BENEFITS.map((b, i) => (
-                                    <motion.div
-                                        key={b.title}
-                                        initial={{ opacity: 0, y: 30 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ duration: 0.6, delay: i * 0.1 }}
-                                        whileHover={{ y: -4 }}
-                                        className="p-6 rounded-3xl bg-slate-900/60 border border-white/5 hover:border-emerald-500/20 transition-all group"
-                                    >
-                                        <div className="w-11 h-11 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                                            <b.icon size={20} className="text-emerald-400" />
-                                        </div>
-                                        <h3 className="font-outfit font-bold text-white mb-2">{b.title}</h3>
-                                        <p className="text-slate-400 text-sm leading-relaxed">{b.desc}</p>
-                                    </motion.div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
                 </section>
 
                 {/* ── CTA ── */}
