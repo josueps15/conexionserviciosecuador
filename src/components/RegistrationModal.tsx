@@ -133,7 +133,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, on
                                 </h3>
 
                                 <p className="text-slate-400 mb-10 text-lg">
-                                    Regístrate hoy y expón tu talento ante miles de clientes potenciales verificados.
+                                    Regístrate hoy y expón tu servicio ante miles de clientes potenciales verificados.
                                 </p>
 
                                 <div className="space-y-6 flex-1">
