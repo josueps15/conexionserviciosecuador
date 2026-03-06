@@ -634,13 +634,18 @@ const App: React.FC = () => {
                 </section>
 
                 {/* ── CTA ── */}
-                <section className="py-32 px-6">
+                <section className="pt-8 pb-32 px-6">
                     <motion.div
                         {...fadeIn}
                         className="max-w-7xl mx-auto rounded-[3rem] bg-gradient-to-br from-slate-900 to-slate-950 border border-white/10 p-12 lg:p-24 text-center relative overflow-hidden"
                     >
                         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,rgba(0,102,255,0.12)_0%,transparent_70%)] pointer-events-none" />
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
+
+                        <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase bg-primary/10 border border-primary/20 text-primary mb-6 relative z-10">
+                            TU FUTURO EMPIEZA AQUÍ
+                        </span>
+
                         <h2 className="text-5xl lg:text-7xl font-outfit font-black mb-8 relative z-10 leading-tight">
                             ¿Listo para dar el <br /><span className="text-gradient">Siguiente Gran Paso?</span>
                         </h2>
