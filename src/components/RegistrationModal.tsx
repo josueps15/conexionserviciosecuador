@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, X, Send, Loader2, Info, Building2, Phone, AlignLeft, User, CheckCircle2 } from 'lucide-react';
-import { cn } from '../lib/utils';
+
 
 interface RegistrationModalProps {
     isOpen: boolean;
