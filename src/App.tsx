@@ -350,20 +350,18 @@ const App: React.FC = () => {
                                     viewport={{ once: false, amount: 0.1 }}
                                     transition={{ duration: 0.4, delay: 0.2 }}
                                     whileHover={{ y: -5, scale: 1.03 }}
-                                    className="col-span-2 sm:col-span-2 md:col-span-2 xl:col-span-3 flex"
+                                    className="group relative col-span-2 sm:col-span-2 md:col-span-2 xl:col-span-3 flex flex-col justify-center items-center px-6 py-6 rounded-2xl bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 border border-white/10 backdrop-blur-md text-center overflow-hidden cursor-default transition-shadow duration-300 hover:shadow-xl"
                                 >
-                                    <div className="w-full relative px-6 py-6 rounded-2xl bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 border border-white/10 backdrop-blur-md text-center overflow-hidden flex flex-col justify-center items-center group transition-colors">
-                                        {/* Shimmer lines */}
-                                        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary to-transparent opacity-50 group-hover:opacity-100 transition-opacity" />
-                                        <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-secondary to-transparent opacity-50 group-hover:opacity-100 transition-opacity" />
-                                        <p className="text-slate-400 text-[10px] sm:text-xs font-medium tracking-widest uppercase mb-1">y muchas más dentro de la app</p>
-                                        <p className="font-outfit font-black text-4xl sm:text-5xl md:text-6xl bg-gradient-to-r from-primary via-secondary to-cyan-400 bg-clip-text text-transparent leading-none my-1">
-                                            +100
-                                        </p>
-                                        <p className="font-outfit font-bold text-lg sm:text-xl md:text-2xl text-white">
-                                            Especialidades
-                                        </p>
-                                    </div>
+                                    {/* Shimmer lines */}
+                                    <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary to-transparent opacity-50 group-hover:opacity-100 transition-opacity" />
+                                    <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-secondary to-transparent opacity-50 group-hover:opacity-100 transition-opacity" />
+                                    <p className="text-slate-400 text-[10px] sm:text-xs font-medium tracking-widest uppercase mb-1 relative z-10">y muchas más dentro de la app</p>
+                                    <p className="font-outfit font-black text-4xl sm:text-5xl md:text-6xl bg-gradient-to-r from-primary via-secondary to-cyan-400 bg-clip-text text-transparent leading-none my-1 relative z-10">
+                                        +100
+                                    </p>
+                                    <p className="font-outfit font-bold text-lg sm:text-xl md:text-2xl text-white relative z-10">
+                                        Especialidades
+                                    </p>
                                 </motion.div>
                             </div>
                         </motion.div>
