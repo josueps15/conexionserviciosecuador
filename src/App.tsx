@@ -347,11 +347,12 @@ const App: React.FC = () => {
                                 <motion.div
                                     initial={{ opacity: 0, y: 24 }}
                                     whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.5, delay: 0.2 }}
+                                    viewport={{ once: false, amount: 0.1 }}
+                                    transition={{ duration: 0.4, delay: 0.2 }}
+                                    whileHover={{ y: -5, scale: 1.03 }}
                                     className="col-span-2 sm:col-span-2 md:col-span-2 xl:col-span-3 flex"
                                 >
-                                    <div className="w-full relative px-6 py-6 rounded-2xl bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 border border-white/10 backdrop-blur-md text-center overflow-hidden flex flex-col justify-center items-center group hover:bg-white/[0.03] transition-colors">
+                                    <div className="w-full relative px-6 py-6 rounded-2xl bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 border border-white/10 backdrop-blur-md text-center overflow-hidden flex flex-col justify-center items-center group transition-colors">
                                         {/* Shimmer lines */}
                                         <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary to-transparent opacity-50 group-hover:opacity-100 transition-opacity" />
                                         <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-secondary to-transparent opacity-50 group-hover:opacity-100 transition-opacity" />
