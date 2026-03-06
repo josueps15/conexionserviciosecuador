@@ -267,7 +267,7 @@ const App: React.FC = () => {
                 </section>
 
                 {/* ── SERVICIOS QUE OFRECE LA APP ── */}
-                <section id="servicios" className="py-32 px-6 relative overflow-hidden">
+                <section id="servicios" className="pt-32 pb-16 px-6 relative overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none" />
                     <div className="max-w-7xl mx-auto">
                         <motion.div {...fadeIn} className="text-center mb-20">
@@ -373,7 +373,7 @@ const App: React.FC = () => {
                 </section>
 
                 {/* ── BENEFICIOS PARA USUARIOS ── */}
-                <section id="usuarios" className="py-32 px-6 relative">
+                <section id="usuarios" className="pt-16 pb-32 px-6 relative">
                     <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                         {/* Left: Phone mockup */}
                         <motion.div
