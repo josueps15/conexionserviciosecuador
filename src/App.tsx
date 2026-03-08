@@ -527,7 +527,7 @@ const App: React.FC = () => {
                 </section>
 
                 {/* ── APP SHOWCASE (ContainerScroll) ── */}
-                <section className="pt-0 pb-12 relative bg-transparent overflow-hidden">
+                <section className="pt-0 pb-0 relative bg-transparent overflow-hidden">
                     <ContainerScroll
                         titleComponent={
                             <div className="flex flex-col items-center">
