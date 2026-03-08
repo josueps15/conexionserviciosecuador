@@ -554,51 +554,51 @@ const App: React.FC = () => {
                             <div className="relative z-10 grid grid-cols-1 md:grid-cols-5 h-full p-1">
 
                                 {/* Left panel */}
-                                <div className="md:col-span-3 flex flex-col justify-center p-8 lg:p-12 gap-7">
+                                <div className="md:col-span-3 flex flex-col justify-center p-4 lg:p-6 gap-4">
 
                                     <div>
-                                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold tracking-widest uppercase mb-4">
+                                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold tracking-widest uppercase mb-3">
                                             <span className="relative flex h-1.5 w-1.5"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span><span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-primary"></span></span>
                                             App Móvil Nativa
                                         </div>
-                                        <h3 className="text-2xl lg:text-3xl font-outfit font-black text-white mb-3">
+                                        <h3 className="text-xl lg:text-2xl font-outfit font-black text-white mb-2">
                                             Todo lo que necesitas,<br />
                                             <span className="text-gradient">en tu bolsillo</span>
                                         </h3>
-                                        <p className="text-slate-400 text-sm leading-relaxed max-w-sm">
+                                        <p className="text-slate-400 text-xs leading-relaxed max-w-sm">
                                             Encuentra profesionales verificados, consulta reseñas reales y contrata con total confianza desde cualquier lugar del Ecuador.
                                         </p>
                                     </div>
 
                                     {/* Stat cards */}
-                                    <div className="grid grid-cols-3 gap-3">
+                                    <div className="grid grid-cols-3 gap-2">
                                         {[
                                             { value: '50+', label: 'Categorías', color: 'from-cyan-500/20 to-blue-500/10', border: 'border-cyan-500/20', num: 'text-cyan-400' },
                                             { value: '24', label: 'Provincias', color: 'from-violet-500/20 to-indigo-500/10', border: 'border-violet-500/20', num: 'text-violet-400' },
                                             { value: '100%', label: 'Verificados', color: 'from-emerald-500/20 to-teal-500/10', border: 'border-emerald-500/20', num: 'text-emerald-400' },
                                         ].map(s => (
-                                            <div key={s.label} className={`rounded-2xl bg-gradient-to-br ${s.color} border ${s.border} p-4 text-center backdrop-blur-sm`}>
-                                                <p className={`text-xl font-outfit font-black ${s.num}`}>{s.value}</p>
-                                                <p className="text-slate-400 text-[10px] mt-1 font-medium">{s.label}</p>
+                                            <div key={s.label} className={`rounded-xl bg-gradient-to-br ${s.color} border ${s.border} p-2 text-center backdrop-blur-sm`}>
+                                                <p className={`text-lg font-outfit font-black ${s.num}`}>{s.value}</p>
+                                                <p className="text-slate-400 text-[9px] mt-0.5 font-medium">{s.label}</p>
                                             </div>
                                         ))}
                                     </div>
 
                                     {/* Feature grid */}
-                                    <div className="grid grid-cols-2 gap-3">
+                                    <div className="grid grid-cols-2 gap-2">
                                         {[
                                             { icon: Bot, label: 'Asistente IA', sub: 'Soporte inteligente 24/7', color: 'text-blue-400', bg: 'bg-blue-500/10 border-blue-500/20' },
                                             { icon: BadgeCheck, label: 'Verificado', sub: 'Identidad comprobada', color: 'text-amber-400', bg: 'bg-amber-500/10 border-amber-500/20' },
                                             { icon: Star, label: 'Reseñas Reales', sub: 'Calificaciones auténticas', color: 'text-pink-400', bg: 'bg-pink-500/10 border-pink-500/20' },
                                             { icon: MapPin, label: 'Búsqueda Local', sub: 'Por ciudad y cantón', color: 'text-cyan-400', bg: 'bg-cyan-500/10 border-cyan-500/20' },
                                         ].map(f => (
-                                            <div key={f.label} className="flex items-center gap-3 p-3 rounded-xl bg-white/[0.03] border border-white/5 hover:border-white/10 transition-all">
-                                                <div className={`w-8 h-8 rounded-xl border flex items-center justify-center flex-shrink-0 ${f.bg}`}>
-                                                    <f.icon size={14} className={f.color} />
+                                            <div key={f.label} className="flex items-center gap-2 p-2 rounded-xl bg-white/[0.03] border border-white/5 hover:border-white/10 transition-all">
+                                                <div className={`w-6 h-6 rounded-lg border flex items-center justify-center flex-shrink-0 ${f.bg}`}>
+                                                    <f.icon size={12} className={f.color} />
                                                 </div>
                                                 <div>
-                                                    <p className="text-white text-xs font-bold leading-tight">{f.label}</p>
-                                                    <p className="text-slate-500 text-[10px] leading-tight mt-0.5">{f.sub}</p>
+                                                    <p className="text-white text-[10px] font-bold leading-tight">{f.label}</p>
+                                                    <p className="text-slate-500 text-[8px] leading-tight mt-0.5">{f.sub}</p>
                                                 </div>
                                             </div>
                                         ))}
@@ -606,10 +606,10 @@ const App: React.FC = () => {
                                 </div>
 
                                 {/* Right panel: iPhone */}
-                                <div className="md:col-span-2 relative flex items-center justify-center p-6">
+                                <div className="md:col-span-2 relative flex items-center justify-center p-2 lg:p-4">
                                     <div className="absolute inset-0 bg-gradient-to-l from-primary/8 to-transparent" />
                                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-56 h-56 bg-primary/20 blur-[80px] rounded-full" />
-                                    <div className="relative z-10 drop-shadow-[0_30px_60px_rgba(0,102,255,0.4)]">
+                                    <div className="relative z-10 drop-shadow-[0_30px_60px_rgba(0,102,255,0.4)] scale-75 lg:scale-[0.85] origin-center">
                                         <IPhoneMockup>
                                             <div className="w-full h-full relative">
                                                 {appScreens.map((src, i) => (
