@@ -25,6 +25,7 @@ const TikTokIcon = ({ size = 20 }: { size?: number }) => (
 );
 import { AnimatedCursor } from './components/ui/AnimatedCursor';
 import { RegistrationModal } from './components/RegistrationModal';
+import { FloatingWhatsApp } from './components/ui/FloatingWhatsApp';
 import { cn } from './lib/utils';
 
 const SOCIAL_LINKS = {
@@ -750,6 +751,7 @@ const App: React.FC = () => {
                 isOpen={isRegistrationModalOpen}
                 onClose={() => setIsRegistrationModalOpen(false)}
             />
+            <FloatingWhatsApp />
         </div>
     );
 };

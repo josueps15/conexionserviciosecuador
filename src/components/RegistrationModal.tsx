@@ -72,26 +72,23 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, on
             `*Ubicación:* ${formData.location}%0A` +
             `*Detalles:* ${formData.details}`;
 
-        // Send silently via CallMeBot API (WhatsApp) using no-cors to prevent browser blocks
-        // The user must configure their apikey with CallMeBot for the target number: 0593960945828 (593960945828 in intl format)
         const targetPhone = "593960945828";
-        const apiKey = "123456"; // REPLACE WITH ACTUAL API KEY FROM CALLMEBOT
-        const url = `https://api.callmebot.com/whatsapp.php?phone=${targetPhone}&text=${message}&apikey=${apiKey}`;
+        const url = `https://wa.me/${targetPhone}?text=${message}`;
 
         try {
-            await fetch(url, { mode: 'no-cors' });
+            // Open WhatsApp in a new tab/window
+            window.open(url, '_blank');
 
-            // Artificial delay to show the nice loading state, then success
+            // Show success message immediately after opening
             setTimeout(() => {
                 setIsSubmitting(false);
                 setIsSuccess(true);
-            }, 1500);
+            }, 500);
 
         } catch (error) {
-            console.error("Error sending registration:", error);
-            // Even if it fails (e.g. adblocker), show success to the user so they are not blocked
+            console.error("Error opening WhatsApp:", error);
             setIsSubmitting(false);
-            setIsSuccess(true);
+            alert("No se pudo abrir WhatsApp. Por favor, intenta de nuevo o escríbenos directamente al +593960945828.");
         }
     };
 
