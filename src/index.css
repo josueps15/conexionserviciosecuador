@@ -88,11 +88,17 @@
     background-image: linear-gradient(to bottom right, #60a5fa, var(--color-primary));
 }
 
+html {
+    overflow-x: hidden;
+}
+
 body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
     text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    max-width: 100%;
 }
 
 /* Hide Scrollbar */

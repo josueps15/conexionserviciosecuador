@@ -268,7 +268,7 @@ const App: React.FC = () => {
                 </section>
 
                 {/* ── SERVICIOS QUE OFRECE LA APP ── */}
-                <section id="servicios" className="pt-32 pb-16 px-6 relative overflow-hidden">
+                <section id="servicios" className="py-24 px-6 relative overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none" />
                     <div className="max-w-7xl mx-auto">
                         <motion.div {...fadeIn} className="text-center mb-20">
@@ -374,7 +374,7 @@ const App: React.FC = () => {
                 </section>
 
                 {/* ── BENEFICIOS PARA USUARIOS ── */}
-                <section id="usuarios" className="pt-16 pb-32 px-6 relative">
+                <section id="usuarios" className="py-24 px-6 relative overflow-hidden">
                     <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                         {/* Left: Phone mockup */}
                         <motion.div
@@ -460,7 +460,7 @@ const App: React.FC = () => {
                 </section>
 
                 {/* ── BENEFICIOS PARA NEGOCIOS ── */}
-                <section id="negocios" className="pt-32 pb-10 px-6 relative overflow-hidden">
+                <section id="negocios" className="py-24 px-6 relative overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent via-emerald-500/5 to-transparent pointer-events-none" />
                     <div className="max-w-7xl mx-auto">
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
@@ -527,7 +527,7 @@ const App: React.FC = () => {
                 </section>
 
                 {/* ── APP SHOWCASE (ContainerScroll) ── */}
-                <section className="pt-10 pb-32 relative bg-transparent">
+                <section className="py-24 relative bg-transparent overflow-hidden">
                     <ContainerScroll
                         titleComponent={
                             <div className="flex flex-col items-center">
@@ -635,7 +635,7 @@ const App: React.FC = () => {
                 </section>
 
                 {/* ── CTA ── */}
-                <section className="pt-8 pb-32 px-6">
+                <section className="py-24 px-6 relative overflow-hidden">
                     <motion.div
                         {...fadeIn}
                         className="max-w-7xl mx-auto rounded-[3rem] bg-gradient-to-br from-slate-900 to-slate-950 border border-white/10 p-12 lg:p-24 text-center relative overflow-hidden"
