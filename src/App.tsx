@@ -609,7 +609,7 @@ const App: React.FC = () => {
                                 <div className="md:col-span-2 relative flex items-center justify-center p-2 lg:p-4">
                                     <div className="absolute inset-0 bg-gradient-to-l from-primary/8 to-transparent" />
                                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-56 h-56 bg-primary/20 blur-[80px] rounded-full" />
-                                    <div className="relative z-10 drop-shadow-[0_30px_60px_rgba(0,102,255,0.4)] scale-75 lg:scale-[0.85] origin-center">
+                                    <div className="relative z-10 drop-shadow-[0_30px_60px_rgba(0,102,255,0.4)] scale-90 lg:scale-[0.95] origin-center">
                                         <IPhoneMockup>
                                             <div className="w-full h-full relative">
                                                 {appScreens.map((src, i) => (
@@ -617,7 +617,7 @@ const App: React.FC = () => {
                                                         key={src}
                                                         src={src}
                                                         alt="App Interface"
-                                                        className="absolute inset-0 w-full h-full object-cover"
+                                                        className="absolute inset-0 w-full h-full object-cover object-top"
                                                         initial={{ opacity: 0 }}
                                                         animate={{ opacity: [0, 1, 1, 0] }}
                                                         transition={{ duration: 5, delay: i * 5, repeat: Infinity, times: [0, 0.1, 0.9, 1] }}
