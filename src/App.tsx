@@ -460,7 +460,7 @@ const App: React.FC = () => {
                 </section>
 
                 {/* ── BENEFICIOS PARA NEGOCIOS ── */}
-                <section id="negocios" className="py-24 px-6 relative overflow-hidden">
+                <section id="negocios" className="pt-24 pb-0 px-6 relative overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent via-emerald-500/5 to-transparent pointer-events-none" />
                     <div className="max-w-7xl mx-auto">
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
@@ -527,7 +527,7 @@ const App: React.FC = () => {
                 </section>
 
                 {/* ── APP SHOWCASE (ContainerScroll) ── */}
-                <section className="py-12 relative bg-transparent overflow-hidden">
+                <section className="pt-0 pb-12 relative bg-transparent overflow-hidden">
                     <ContainerScroll
                         titleComponent={
                             <div className="flex flex-col items-center">
