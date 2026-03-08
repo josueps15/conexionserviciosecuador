@@ -460,7 +460,7 @@ const App: React.FC = () => {
                 </section>
 
                 {/* ── BENEFICIOS PARA NEGOCIOS ── */}
-                <section id="negocios" className="pt-24 pb-0 px-6 relative overflow-hidden">
+                <section id="negocios" className="pt-24 pb-12 px-6 relative overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent via-emerald-500/5 to-transparent pointer-events-none" />
                     <div className="max-w-7xl mx-auto">
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
@@ -527,7 +527,7 @@ const App: React.FC = () => {
                 </section>
 
                 {/* ── APP SHOWCASE (ContainerScroll) ── */}
-                <section className="pt-0 pb-0 relative bg-transparent overflow-hidden">
+                <section className="py-12 relative bg-transparent overflow-hidden">
                     <ContainerScroll
                         titleComponent={
                             <div className="flex flex-col items-center">
@@ -635,7 +635,7 @@ const App: React.FC = () => {
                 </section>
 
                 {/* ── CTA ── */}
-                <section className="pt-0 pb-12 px-6 relative overflow-hidden">
+                <section className="py-12 px-6 relative overflow-hidden">
                     <div className="max-w-7xl mx-auto text-center mb-10">
                         <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase bg-primary/10 border border-primary/20 text-primary mb-4 relative z-10">
                             TU FUTURO EMPIEZA AQUÍ
