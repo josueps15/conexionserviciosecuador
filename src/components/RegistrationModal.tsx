@@ -72,7 +72,8 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, on
             `*Ubicación:* ${formData.location}%0A` +
             `*Detalles:* ${formData.details}`;
 
-        const targetPhone = "593960945828";
+        // The user must configure their apikey with CallMeBot for the target number: 593979783184
+        const targetPhone = "593979783184";
         const url = `https://wa.me/${targetPhone}?text=${message}`;
 
         try {
