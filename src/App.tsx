@@ -635,7 +635,7 @@ const App: React.FC = () => {
                 </section>
 
                 {/* ── CTA ── */}
-                <section className="py-12 px-6 relative overflow-hidden">
+                <section className="pt-12 pb-32 px-6 relative overflow-hidden">
                     <div className="max-w-7xl mx-auto text-center mb-10">
                         <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase bg-primary/10 border border-primary/20 text-primary mb-4 relative z-10">
                             TU FUTURO EMPIEZA AQUÍ
