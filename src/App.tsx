@@ -530,9 +530,9 @@ const App: React.FC = () => {
                     <ContainerScroll
                         titleComponent={
                             <div className="flex flex-col items-center">
-                                <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase bg-primary/10 border border-primary/20 text-primary mb-5">
-                                    Disponible Pronto
-                                </span>
+                                <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase bg-blue-500/10 border border-blue-500/20 text-blue-400 mb-5 backdrop-blur-sm">
+    Disponible Pronto
+</span>
                                 <h2 className="text-4xl md:text-5xl font-outfit font-semibold text-white mb-2">
                                     Experiencia Nativa
                                 </h2>
