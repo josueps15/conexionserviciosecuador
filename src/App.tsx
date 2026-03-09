@@ -656,22 +656,21 @@ const App: React.FC = () => {
                         <p className="text-xl md:text-2xl text-slate-300 font-medium mb-10 max-w-3xl mx-auto relative z-10">
                             Únete hoy a la comunidad de profesionales y clientes más exclusiva de Ecuador. Descarga la App y comienza tu evolución.
                         </p>
-                        <div className="flex flex-wrap justify-center gap-6 relative z-10">
-                            <button className="group px-8 py-4 rounded-2xl bg-slate-900 border border-white/10 text-white font-bold text-lg hover:bg-slate-800 transition-all shadow-2xl active:scale-95 flex items-center gap-3">
-                                <svg viewBox="0 0 384 512" className="w-6 h-6 fill-white">
-                                    <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 21.8-88.5 21.8-11.4 0-53.8-22-87.9-21.3-44.4 1-86.4 25.4-109 64.6-43.7 75.8-11.3 187.8 30.1 247.6 21 30.6 45.6 64.6 78.4 63.4 31.5-1.1 43.3-20.5 82.1-20.5 38.8 0 49.3 20.5 82.3 20.5 33.5 0 54.9-30 75.9-61.2 24.1-35.1 33.9-69 34.3-70.8-.8-.3-65.9-25.3-66-101.3zM286 102.1c11.9-14.4 20-34.4 17.8-54.3-17.1.7-37.7 11.4-50 25.8-10.9 12.6-20.4 33.3-17.8 52.4 19.1 1.5 38.1-9.5 50-23.9z"/>
-                                </svg>
-                                App Store
-                            </button>
-                            <button className="group px-8 py-4 rounded-2xl bg-slate-900 border border-white/10 text-white font-bold text-lg hover:bg-slate-800 transition-all shadow-2xl active:scale-95 flex items-center gap-3">
-                                <svg viewBox="0 0 512 512" className="w-7 h-7">
-                                    <path fill="#008DFF" d="M47 0C34 0 24 10 24 23v466c0 13 10 23 23 23 4.5 0 9-1.3 12.8-3.7L304.4 256 36.8 3.7C33 1.3 28.5 0 24 0z"/>
-                                    <path fill="#00E676" d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1z"/>
-                                    <path fill="#FFD400" d="M385.4 174.2l-54 31-54 31 54 31 54 31L483 268.4c18.5-10.6 18.5-34.1 0-44.7L385.4 174.2z"/>
-                                    <path fill="#FF3333" d="M104.6 499l220.7-126.7-60.1-60.1-160.6 186.8z"/>
-                                </svg>
-                                Google Play
-                            </button>
+                        <div className="flex flex-wrap justify-center gap-8 relative z-10">
+                            <a href="#" className="transform transition-transform hover:scale-105 active:scale-95 duration-300">
+                                <img 
+                                    src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" 
+                                    alt="Descargar en App Store" 
+                                    className="h-[52px] w-auto"
+                                />
+                            </a>
+                            <a href="#" className="transform transition-transform hover:scale-105 active:scale-95 duration-300">
+                                <img 
+                                    src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" 
+                                    alt="Disponible en Google Play" 
+                                    className="h-[52px] w-auto"
+                                />
+                            </a>
                         </div>
                         <div className="flex flex-wrap justify-center gap-6 mt-10 relative z-10">
                             <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer"
