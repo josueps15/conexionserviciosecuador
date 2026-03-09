@@ -185,7 +185,7 @@ const App: React.FC = () => {
 
             <main>
                 {/* ── HERO ── */}
-                <section id="inicio" className="relative min-h-screen flex items-center pt-28 pb-20">
+                <section id="inicio" className="relative min-h-screen flex items-center pt-32 pb-24">
                     <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="z-10">
                             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[10px] sm:text-xs font-bold mb-8 tracking-wider uppercase backdrop-blur-sm shadow-[0_0_15px_rgba(34,211,238,0.1)]">
@@ -459,7 +459,7 @@ const App: React.FC = () => {
                 </section>
 
                 {/* ── BENEFICIOS PARA NEGOCIOS ── */}
-                <section id="negocios" className="pt-24 pb-12 px-6 relative overflow-hidden">
+                <section id="negocios" className="py-24 px-6 relative overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent via-emerald-500/5 to-transparent pointer-events-none" />
                     <div className="max-w-7xl mx-auto">
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
@@ -526,7 +526,7 @@ const App: React.FC = () => {
                 </section>
 
                 {/* ── APP SHOWCASE (ContainerScroll) ── */}
-                <section className="pt-32 pb-12 relative bg-transparent overflow-hidden">
+                <section className="py-24 relative bg-transparent overflow-hidden">
                     <ContainerScroll
                         titleComponent={
                             <div className="flex flex-col items-center">
@@ -554,51 +554,51 @@ const App: React.FC = () => {
                             <div className="relative z-10 grid grid-cols-1 md:grid-cols-5 h-full p-1">
 
                                 {/* Left panel */}
-                                <div className="md:col-span-3 flex flex-col justify-center p-4 lg:p-6 gap-4">
+                                <div className="md:col-span-3 flex flex-col justify-center p-4 lg:p-8 gap-8">
 
                                     <div>
-                                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold tracking-widest uppercase mb-3">
-                                            <span className="relative flex h-1.5 w-1.5"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span><span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-primary"></span></span>
+                                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold tracking-widest uppercase mb-4">
+                                            <span className="relative flex h-2 w-2"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span><span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span></span>
                                             App Móvil Nativa
                                         </div>
-                                        <h3 className="text-xl lg:text-2xl font-outfit font-black text-white mb-2">
+                                        <h3 className="text-3xl lg:text-4xl font-outfit font-black text-white mb-3 tracking-tight">
                                             Todo lo que necesitas,<br />
                                             <span className="text-gradient">en tu bolsillo</span>
                                         </h3>
-                                        <p className="text-slate-400 text-xs leading-relaxed max-w-sm">
+                                        <p className="text-slate-400 text-sm leading-relaxed max-w-sm mt-4">
                                             Encuentra profesionales verificados, consulta reseñas reales y contrata con total confianza desde cualquier lugar del Ecuador.
                                         </p>
                                     </div>
 
                                     {/* Stat cards */}
-                                    <div className="grid grid-cols-3 gap-2">
+                                    <div className="grid grid-cols-3 gap-4">
                                         {[
                                             { value: '50+', label: 'Categorías', color: 'from-cyan-500/20 to-blue-500/10', border: 'border-cyan-500/20', num: 'text-cyan-400' },
                                             { value: '24', label: 'Provincias', color: 'from-violet-500/20 to-indigo-500/10', border: 'border-violet-500/20', num: 'text-violet-400' },
                                             { value: '100%', label: 'Verificados', color: 'from-emerald-500/20 to-teal-500/10', border: 'border-emerald-500/20', num: 'text-emerald-400' },
                                         ].map(s => (
-                                            <div key={s.label} className={`rounded-xl bg-gradient-to-br ${s.color} border ${s.border} p-2 text-center backdrop-blur-sm`}>
-                                                <p className={`text-lg font-outfit font-black ${s.num}`}>{s.value}</p>
-                                                <p className="text-slate-400 text-[9px] mt-0.5 font-medium">{s.label}</p>
+                                            <div key={s.label} className={`rounded-2xl bg-gradient-to-br ${s.color} border ${s.border} p-4 text-center backdrop-blur-sm`}>
+                                                <p className={`text-2xl font-outfit font-black ${s.num}`}>{s.value}</p>
+                                                <p className="text-slate-400 text-xs mt-1 font-medium">{s.label}</p>
                                             </div>
                                         ))}
                                     </div>
 
                                     {/* Feature grid */}
-                                    <div className="grid grid-cols-2 gap-2">
+                                    <div className="grid grid-cols-2 gap-4">
                                         {[
                                             { icon: Bot, label: 'Asistente IA', sub: 'Soporte inteligente 24/7', color: 'text-blue-400', bg: 'bg-blue-500/10 border-blue-500/20' },
                                             { icon: BadgeCheck, label: 'Verificado', sub: 'Identidad comprobada', color: 'text-amber-400', bg: 'bg-amber-500/10 border-amber-500/20' },
                                             { icon: Star, label: 'Reseñas Reales', sub: 'Calificaciones auténticas', color: 'text-pink-400', bg: 'bg-pink-500/10 border-pink-500/20' },
                                             { icon: MapPin, label: 'Búsqueda Local', sub: 'Por ciudad y cantón', color: 'text-cyan-400', bg: 'bg-cyan-500/10 border-cyan-500/20' },
                                         ].map(f => (
-                                            <div key={f.label} className="flex items-center gap-2 p-2 rounded-xl bg-white/[0.03] border border-white/5 hover:border-white/10 transition-all">
-                                                <div className={`w-6 h-6 rounded-lg border flex items-center justify-center flex-shrink-0 ${f.bg}`}>
-                                                    <f.icon size={12} className={f.color} />
+                                            <div key={f.label} className="flex items-center gap-3 p-3 rounded-xl bg-white/[0.03] border border-white/5 hover:border-white/10 transition-all">
+                                                <div className={`w-10 h-10 rounded-xl border flex items-center justify-center flex-shrink-0 ${f.bg}`}>
+                                                    <f.icon size={18} className={f.color} />
                                                 </div>
                                                 <div>
-                                                    <p className="text-white text-[10px] font-bold leading-tight">{f.label}</p>
-                                                    <p className="text-slate-500 text-[8px] leading-tight mt-0.5">{f.sub}</p>
+                                                    <p className="text-white text-sm font-bold leading-tight">{f.label}</p>
+                                                    <p className="text-slate-500 text-xs leading-tight mt-0.5">{f.sub}</p>
                                                 </div>
                                             </div>
                                         ))}
@@ -609,7 +609,7 @@ const App: React.FC = () => {
                                 <div className="md:col-span-2 relative flex items-center justify-center p-2 lg:p-4">
                                     <div className="absolute inset-0 bg-gradient-to-l from-primary/8 to-transparent" />
                                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-56 h-56 bg-primary/20 blur-[80px] rounded-full" />
-                                    <div className="relative z-10 drop-shadow-[0_30px_60px_rgba(0,102,255,0.4)] scale-90 lg:scale-[0.95] origin-center">
+                                    <div className="relative z-10 drop-shadow-[0_30px_60px_rgba(0,102,255,0.4)]">
                                         <IPhoneMockup>
                                             <div className="w-full h-full relative">
                                                 {appScreens.map((src, i) => (
@@ -634,7 +634,7 @@ const App: React.FC = () => {
                 </section>
 
                 {/* ── CTA ── */}
-                <section className="pt-12 pb-32 px-6 relative overflow-hidden">
+                <section className="py-24 px-6 relative overflow-hidden">
                     <div className="max-w-7xl mx-auto text-center mb-10">
                         <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase bg-primary/10 border border-primary/20 text-primary mb-4 relative z-10">
                             TU FUTURO EMPIEZA AQUÍ
