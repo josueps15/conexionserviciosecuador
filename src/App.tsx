@@ -177,7 +177,9 @@ const App: React.FC = () => {
                                 className="w-9 h-9 rounded-xl border border-white/10 bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:border-white/30 transition-all" aria-label="TikTok">
                                 <TikTokIcon size={15} />
                             </a>
-                            <InteractiveHoverButton text="Descargar App" className="bg-white/5 border-white/10 text-white hover:text-black text-sm" />
+                            <a href="#descargar">
+                                <InteractiveHoverButton text="Descargar App" className="bg-white/5 border-white/10 text-white hover:text-black text-sm" />
+                            </a>
                         </div>
                     </nav>
                 </div>
@@ -203,13 +205,13 @@ const App: React.FC = () => {
                                 Nuestra misión es revolucionar la forma en que contratas y ofreces servicios. Un ecosistema 100% verificado, seguro y diseñado para la excelencia.
                             </p>
                             <div className="flex flex-wrap gap-5">
-                                <button className="group relative px-8 py-4 rounded-2xl bg-blue-600 font-bold text-white flex items-center gap-3 hover:bg-blue-700 transition-all shadow-[0_10px_20px_-10px_rgba(37,99,235,0.5)] active:scale-95 overflow-hidden">
+                                <a href="#descargar" className="group relative px-8 py-4 rounded-2xl bg-blue-600 font-bold text-white flex items-center gap-3 hover:bg-blue-700 transition-all shadow-[0_10px_20px_-10px_rgba(37,99,235,0.5)] active:scale-95 overflow-hidden">
                                     <span className="relative z-10 font-outfit">Descargar la App</span>
                                     <motion.span animate={{ y: [0, 4, 0] }} transition={{ duration: 1.5, repeat: Infinity }} className="relative z-10">
                                         <Download size={20} className="text-blue-100" />
                                     </motion.span>
                                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-                                </button>
+                                </a>
                                 <a href="#servicios" className="px-8 py-4 rounded-2xl border border-white/5 bg-slate-900/50 font-bold text-slate-300 hover:text-white hover:bg-slate-800 transition-all backdrop-blur-md font-outfit flex items-center gap-2">
                                     Explorar Servicios <ArrowRight size={16} />
                                 </a>
@@ -634,7 +636,7 @@ const App: React.FC = () => {
                 </section>
 
                 {/* ── CTA ── */}
-                <section className="py-24 px-6 relative overflow-hidden">
+                <section id="descargar" className="py-24 px-6 relative overflow-hidden">
                     <div className="max-w-7xl mx-auto text-center mb-10">
                         <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase bg-primary/10 border border-primary/20 text-primary mb-4 relative z-10">
                             TU FUTURO EMPIEZA AQUÍ
@@ -655,11 +657,17 @@ const App: React.FC = () => {
                             Únete hoy a la comunidad de profesionales y clientes más exclusiva de Ecuador. Descarga la App y comienza tu evolución.
                         </p>
                         <div className="flex flex-wrap justify-center gap-6 relative z-10">
-                            <button className="group px-10 py-5 rounded-2xl bg-white text-slate-950 font-black text-lg hover:bg-slate-100 transition-all shadow-xl active:scale-95 flex items-center gap-3">
-                                App Store <Download size={20} />
+                            <button className="group px-8 py-4 rounded-2xl bg-white text-slate-950 font-black text-lg hover:bg-slate-100 transition-all shadow-xl active:scale-95 flex items-center gap-3">
+                                <svg viewBox="0 0 384 512" className="w-6 h-6 fill-current">
+                                    <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 21.8-88.5 21.8-11.4 0-53.8-22-87.9-21.3-44.4 1-86.4 25.4-109 64.6-43.7 75.8-11.3 187.8 30.1 247.6 21 30.6 45.6 64.6 78.4 63.4 31.5-1.1 43.3-20.5 82.1-20.5 38.8 0 49.3 20.5 82.3 20.5 33.5 0 54.9-30 75.9-61.2 24.1-35.1 33.9-69 34.3-70.8-.8-.3-65.9-25.3-66-101.3zM286 102.1c11.9-14.4 20-34.4 17.8-54.3-17.1.7-37.7 11.4-50 25.8-10.9 12.6-20.4 33.3-17.8 52.4 19.1 1.5 38.1-9.5 50-23.9z"/>
+                                </svg>
+                                App Store
                             </button>
-                            <button className="px-10 py-5 rounded-2xl bg-primary text-white font-black text-lg shadow-xl shadow-primary/30 hover:bg-primary/90 transition-all active:scale-95 flex items-center gap-3">
-                                Google Play <Download size={20} />
+                            <button className="group px-8 py-4 rounded-2xl bg-[#0052FF] text-white font-black text-lg shadow-xl shadow-blue-500/20 hover:bg-[#0047E5] transition-all active:scale-95 flex items-center gap-3">
+                                <svg viewBox="0 0 512 512" className="w-6 h-6 fill-current">
+                                    <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 0 24 10 24 23v466c0 13 10 23 23 23 4.5 0 9-1.3 12.8-3.7L304.4 256 36.8 3.7C33 1.3 28.5 0 24 0zM385.4 174.2l-54 31-54 31 54 31 54 31L483 268.4c18.5-10.6 18.5-34.1 0-44.7L385.4 174.2zM104.6 499l220.7-126.7-60.1-60.1-160.6 186.8z"/>
+                                </svg>
+                                Google Play
                             </button>
                         </div>
                         <div className="flex flex-wrap justify-center gap-6 mt-10 relative z-10">
