@@ -140,7 +140,7 @@ const App: React.FC = () => {
                     </motion.a>
 
                     <nav className="hidden md:flex items-center gap-8 font-medium text-slate-400">
-                        {[['Inicio', '#inicio'], ['Usuarios', '#usuarios'], ['Negocios', '#negocios']].map(([label, href]) => (
+                        {[['Inicio', '#inicio'], ['Usuarios', '#usuarios'], ['Negocios', '#negocios'], ['Contacto', '#contacto']].map(([label, href]) => (
                             <a key={label} href={href} className="hover:text-white transition-colors relative group text-sm">
                                 {label}
                                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all group-hover:w-full" />
@@ -449,7 +449,7 @@ const App: React.FC = () => {
             </main>
 
             {/* ── FOOTER ── */}
-            <footer className="bg-[#01030B] border-t border-white/5 py-10 px-6">
+            <footer id="contacto" className="bg-[#01030B] border-t border-white/5 py-10 px-6">
                 <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
                     <div className="col-span-2 md:col-span-1">
                         <a href="#inicio" className="flex items-center gap-2 font-outfit font-extrabold text-xl tracking-tight mb-4">
