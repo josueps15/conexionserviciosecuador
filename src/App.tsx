@@ -180,8 +180,8 @@ const App: React.FC = () => {
                                 PLATAFORMA LISTA PARA LANZAMIENTO
                             </div>
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-outfit font-black mb-8 leading-[1.05] tracking-tighter text-white">
-                                ¿Buscas un Mecánico, <br />
-                                un Electricista, una Grúa <br />
+                                ¿Buscas un Mecánico, <br className="hidden sm:block" />
+                                un Electricista, <span className="whitespace-nowrap">una Grúa</span> <br className="hidden sm:block" />
                                 o un <span className="text-gradient">Centro Educativo</span>?
                             </h1>
                             <p className="text-xl md:text-2xl text-slate-300 mb-12 max-w-xl leading-relaxed font-medium">
@@ -215,38 +215,68 @@ const App: React.FC = () => {
                             </div>
                         </motion.div>
 
-                        <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1, delay: 0.2 }} className="relative hidden lg:flex justify-center">
-                            <div className="relative z-10">
-                                {/* Cuenca chip - far left */}
-                                <motion.div animate={{ y: [-8, 8, -8] }} transition={{ duration: 4, repeat: Infinity }}
-                                    className="absolute -left-36 top-24 flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-800/90 border border-white/10 backdrop-blur-md text-sm font-medium z-20 shadow-xl whitespace-nowrap">
-                                    <MapPin size={14} className="text-cyan-400" /> Cuenca, Ecuador
-                                </motion.div>
-                                {/* Verificado chip - far right top */}
-                                <motion.div animate={{ y: [8, -8, 8] }} transition={{ duration: 3.5, repeat: Infinity }}
-                                    className="absolute -right-28 top-20 flex items-center gap-2 px-3 py-2 rounded-xl bg-emerald-500/10 border border-emerald-500/20 backdrop-blur-md text-sm font-medium text-emerald-400 z-20 shadow-xl whitespace-nowrap">
-                                    <BadgeCheck size={14} /> Verificado
-                                </motion.div>
-                                {/* Calificacion chip - far right bottom */}
-                                <motion.div animate={{ y: [-5, 10, -5] }} transition={{ duration: 5, repeat: Infinity }}
-                                    className="absolute -right-32 bottom-36 flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-800/90 border border-white/10 backdrop-blur-md text-sm font-medium z-20 shadow-xl whitespace-nowrap">
-                                    <Star size={14} className="text-amber-400 fill-amber-400" /> 4.9 &#9733; Calificación
+                        <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1, delay: 0.2 }} className="relative hidden lg:flex justify-center items-center h-[550px] w-full">
+                            <div className="relative w-full h-full max-w-[500px] z-10 flex items-center justify-center">
+                                
+                                {/* Central huge image (Architecture/Construction) */}
+                                <motion.div 
+                                    whileHover={{ scale: 1.03, zIndex: 50 }}
+                                    className="absolute w-64 h-80 rounded-[2rem] overflow-hidden border-[6px] border-slate-900 shadow-2xl z-20 transition-all duration-300"
+                                >
+                                    <img src="https://images.unsplash.com/photo-1541888081696-6d60156fc201?w=600&q=80" alt="Construcción" className="w-full h-full object-cover" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/10 to-transparent flex flex-col justify-end p-5">
+                                        <span className="bg-primary/20 text-primary text-xs font-bold px-2.5 py-1 rounded-full w-fit mb-2 backdrop-blur-md">Construcción</span>
+                                        <span className="text-white font-bold flex items-center gap-1.5"><Star size={16} className="text-amber-400 fill-amber-400"/> 4.9 <span className="font-normal text-slate-300 text-sm ml-1">(120 reseñas)</span></span>
+                                    </div>
                                 </motion.div>
 
-                                <IPhoneMockup className="drop-shadow-[0_40px_80px_rgba(0,102,255,0.3)] rotate-3">
-                                    <motion.img
-                                        key={activeScreen}
-                                        src={appScreens[activeScreen]}
-                                        alt="App Preview"
-                                        className="w-full h-full object-cover"
-                                        initial={{ opacity: 0, scale: 1.05 }}
-                                        animate={{ opacity: 1, scale: 1 }}
-                                        transition={{ duration: 0.6 }}
-                                    />
-                                </IPhoneMockup>
+                                {/* Top left tilted image (Mechanic) */}
+                                <motion.div 
+                                    whileHover={{ scale: 1.05, zIndex: 50 }}
+                                    className="absolute top-4 left-0 w-48 h-56 rounded-[2rem] overflow-hidden border-[6px] border-slate-900 shadow-xl z-10 -rotate-6 transition-all duration-300"
+                                >
+                                    <img src="https://images.unsplash.com/photo-1619642751034-765f0119f9bb?w=500&q=80" alt="Mecánico" className="w-full h-full object-cover" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/10 to-transparent flex flex-col justify-end p-4">
+                                        <span className="bg-cyan-500/20 text-cyan-400 text-xs font-bold px-2.5 py-1 rounded-full w-fit backdrop-blur-md">Mecánica</span>
+                                    </div>
+                                </motion.div>
+
+                                {/* Bottom right tilted image (Beauty) */}
+                                <motion.div 
+                                    whileHover={{ scale: 1.05, zIndex: 50 }}
+                                    className="absolute bottom-4 right-0 w-52 h-52 rounded-[2rem] overflow-hidden border-[6px] border-slate-900 shadow-xl z-30 rotate-6 transition-all duration-300"
+                                >
+                                    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=500&q=80" alt="Belleza" className="w-full h-full object-cover" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/10 to-transparent flex flex-col justify-end p-4">
+                                        <span className="bg-pink-500/20 text-pink-400 text-xs font-bold px-2.5 py-1 rounded-full w-fit backdrop-blur-md">Belleza</span>
+                                    </div>
+                                </motion.div>
+
+                                {/* Top right small image (Cleaning) */}
+                                <motion.div 
+                                    whileHover={{ scale: 1.05, zIndex: 50 }}
+                                    className="absolute top-10 right-4 w-40 h-40 rounded-[1.5rem] overflow-hidden border-[6px] border-slate-900 shadow-xl z-10 rotate-[12deg] transition-all duration-300"
+                                >
+                                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=500&q=80" alt="Limpieza" className="w-full h-full object-cover" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent flex flex-col justify-end p-3">
+                                        <span className="bg-emerald-500/20 text-emerald-400 text-[10px] font-bold px-2 py-1 rounded-full w-fit backdrop-blur-md">Limpieza</span>
+                                    </div>
+                                </motion.div>
+
+                                {/* Floating Badges */}
+                                <motion.div animate={{ y: [-5, 5, -5] }} transition={{ duration: 4, repeat: Infinity }}
+                                    className="absolute -left-12 top-1/2 flex items-center gap-2.5 px-4 py-3 rounded-2xl bg-slate-800/90 border border-white/10 backdrop-blur-xl text-sm font-medium z-40 shadow-2xl whitespace-nowrap">
+                                    <BadgeCheck size={18} className="text-emerald-400" /> Profesionales Verificados
+                                </motion.div>
+
+                                <motion.div animate={{ y: [5, -5, 5] }} transition={{ duration: 3.5, repeat: Infinity }}
+                                    className="absolute -right-8 top-1/3 flex items-center gap-2.5 px-4 py-3 rounded-2xl bg-slate-800/90 border border-white/10 backdrop-blur-xl text-sm font-medium z-40 shadow-2xl whitespace-nowrap">
+                                    <MapPin size={18} className="text-cyan-400" /> Disponible en todo el país
+                                </motion.div>
+                                
                             </div>
-                            <div className="absolute -top-10 -right-10 w-60 h-60 bg-primary/20 blur-[100px] rounded-full z-0" />
-                            <div className="absolute -bottom-10 -left-10 w-60 h-60 bg-secondary/20 blur-[100px] rounded-full z-0" />
+                            <div className="absolute -top-10 -right-10 w-72 h-72 bg-primary/20 blur-[120px] rounded-full z-0" />
+                            <div className="absolute -bottom-10 -left-10 w-72 h-72 bg-secondary/20 blur-[120px] rounded-full z-0" />
                         </motion.div>
                     </div>
                 </section>
