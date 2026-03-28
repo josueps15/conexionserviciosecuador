@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import logoCS from './assets/logo-cs.png';
 import { motion } from 'framer-motion';
 import {
-    ShieldCheck, Zap, Star, MapPin, Bot, BadgeCheck,
+    ShieldCheck, Star, MapPin, BadgeCheck,
     Users, TrendingUp, Layers, Globe, Mail,
-    Instagram, Facebook, Download, ArrowRight, CheckCircle2,
+    Instagram, Facebook, Download, ArrowRight,
     Car, Cpu, Home, Scissors,
     Sparkles, Shirt, Package, Truck, Dumbbell, UtensilsCrossed,
     Plane, Building2, Landmark, Factory, GraduationCap, Scale,
@@ -14,7 +14,6 @@ import {
 
 import { InteractiveHoverButton } from './components/ui/InteractiveHoverButton';
 import { IPhoneMockup } from './components/ui/IPhoneMockup';
-import { ContainerScroll } from './components/ui/ContainerScroll';
 import { InteractiveGridPattern } from './components/ui/InteractiveGridPattern';
 
 // TikTok SVG Icon (not in lucide-react)
@@ -48,24 +47,7 @@ const fadeIn = {
     transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] as const }
 };
 
-// ─── App Features ──────────────────────────────────────────────────────────────
-const APP_FEATURES = [
-    { icon: MapPin, label: 'Búsqueda Regional', desc: 'Encuentra profesionales en tu ciudad o cantón.', color: 'text-cyan-400', bg: 'bg-cyan-500/10 border-cyan-500/20' },
-    { icon: Bot, label: 'Asistente IA 24/7', desc: 'IA que te ayuda a encontrar el servicio ideal.', color: 'text-blue-400', bg: 'bg-blue-500/10 border-blue-500/20' },
-    { icon: BadgeCheck, label: 'Identidad Verificada', desc: 'Todos los proveedores son verificados con documentos.', color: 'text-amber-400', bg: 'bg-amber-500/10 border-amber-500/20' },
-    { icon: Star, label: 'Reseñas Reales', desc: 'Calificaciones reales de clientes reales.', color: 'text-pink-400', bg: 'bg-pink-500/10 border-pink-500/20' },
-    { icon: Users, label: 'Directorio Completo', desc: 'Cientos de profesionales listados por especialidad y zona.', color: 'text-violet-400', bg: 'bg-violet-500/10 border-violet-500/20' },
-    { icon: Layers, label: 'Multi-Categoría', desc: 'Desde plomería hasta tecnología, todo en un solo lugar.', color: 'text-emerald-400', bg: 'bg-emerald-500/10 border-emerald-500/20' },
-];
 
-// ─── User Benefits ─────────────────────────────────────────────────────────────
-const USER_BENEFITS = [
-    { icon: Zap, title: 'Encuentra en segundos', desc: 'Busca por categoría, nombre o ubicación y obtén resultados inmediatos.' },
-    { icon: BadgeCheck, title: '100% verificados', desc: 'Cada profesional pasa por un proceso de verificación de identidad y antecedentes.' },
-    { icon: Bot, title: 'Soporte IA 24/7', desc: 'Nuestro asistente inteligente te guía en cada paso de la contratación.' },
-    { icon: Star, title: 'Reseñas auténticas', desc: 'Consulta opiniones reales de otros clientes antes de contratar.' },
-    { icon: MapPin, title: 'Búsqueda por región', desc: 'Filtra profesionales por ciudad, cantón o provincia para encontrar al más cercano.' },
-];
 
 // ─── Business Benefits ──────────────────────────────────────────────────────────
 const BUSINESS_BENEFITS = [
@@ -158,7 +140,7 @@ const App: React.FC = () => {
                     </motion.a>
 
                     <nav className="hidden md:flex items-center gap-8 font-medium text-slate-400">
-                        {[['Inicio', '#inicio'], ['Servicios', '#servicios'], ['Usuarios', '#usuarios'], ['Negocios', '#negocios']].map(([label, href]) => (
+                        {[['Inicio', '#inicio'], ['Usuarios', '#usuarios'], ['Negocios', '#negocios']].map(([label, href]) => (
                             <a key={label} href={href} className="hover:text-white transition-colors relative group text-sm">
                                 {label}
                                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all group-hover:w-full" />
@@ -197,12 +179,13 @@ const App: React.FC = () => {
                                 </span>
                                 PLATAFORMA LISTA PARA LANZAMIENTO
                             </div>
-                            <h1 className="text-5xl md:text-6xl lg:text-7xl font-outfit font-black mb-8 leading-[1.05] tracking-tighter text-white">
-                                Conecta con los mejores <br />
-                                <span className="text-gradient">profesionales</span> en segundos.
+                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-outfit font-black mb-8 leading-[1.05] tracking-tighter text-white">
+                                ¿Buscas un Mecánico, <br />
+                                un Electricista, una Grúa <br />
+                                o un <span className="text-gradient">Centro Educativo</span>?
                             </h1>
-                            <p className="text-lg md:text-xl text-slate-400 mb-12 max-w-xl leading-relaxed">
-                                Nuestra misión es revolucionar la forma en que contratas y ofreces servicios. Un ecosistema 100% verificado, seguro y diseñado para la excelencia.
+                            <p className="text-xl md:text-2xl text-slate-300 mb-12 max-w-xl leading-relaxed font-medium">
+                                En la <strong>APP Conexión Servicios</strong> encontrarás los mejores servicios profesionales.
                             </p>
                             <div className="flex flex-wrap gap-5">
                                 <a href="#descargar" className="group relative px-8 py-4 rounded-2xl bg-blue-600 font-bold text-white flex items-center gap-3 hover:bg-blue-700 transition-all shadow-[0_10px_20px_-10px_rgba(37,99,235,0.5)] active:scale-95 overflow-hidden">
@@ -268,56 +251,21 @@ const App: React.FC = () => {
                     </div>
                 </section>
 
-                {/* ── SERVICIOS QUE OFRECE LA APP ── */}
-                <section id="servicios" className="py-24 px-6 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none" />
+                {/* ── PARA USUARIOS (Visual Category Grid) ── */}
+                <section id="usuarios" className="py-24 px-6 relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-violet-500/5 to-transparent pointer-events-none" />
                     <div className="max-w-7xl mx-auto">
-                        <motion.div {...fadeIn} className="text-center mb-20">
-                            <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase bg-primary/10 border border-primary/20 text-primary mb-6">
-                                ¿Qué Ofrece la App?
-                            </span>
-                            <h2 className="text-4xl md:text-6xl font-outfit font-black mb-6 leading-tight">
-                                Todo lo que necesitas <br /><span className="text-gradient">en un solo lugar</span>
-                            </h2>
-                            <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-                                Conexión Servicios reúne las herramientas necesarias para que contratar y ofrecer servicios sea simple, seguro e inteligente.
-                            </p>
-                        </motion.div>
-
-                        {/* Feature Cards Grid */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            {APP_FEATURES.map((feat, i) => (
-                                <motion.div
-                                    key={feat.label}
-                                    initial={{ opacity: 0, y: 30 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.6, delay: i * 0.1 }}
-                                    whileHover={{ y: -6, scale: 1.02 }}
-                                    className={`group relative p-7 rounded-3xl border ${feat.bg} bg-slate-900/50 backdrop-blur-md cursor-default transition-all duration-300 hover:shadow-2xl hover:shadow-${feat.color}/10`}
-                                >
-                                    <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-5 ${feat.bg}`}>
-                                        <feat.icon size={24} className={feat.color} />
-                                    </div>
-                                    <h3 className="text-xl font-outfit font-bold text-white mb-3">{feat.label}</h3>
-                                    <p className="text-slate-400 text-sm leading-relaxed">{feat.desc}</p>
-                                    <div className={`absolute bottom-0 left-0 right-0 h-0.5 rounded-b-3xl bg-gradient-to-r from-transparent via-current to-transparent opacity-0 group-hover:opacity-100 transition-opacity ${feat.color}`} />
-                                </motion.div>
-                            ))}
-                        </div>
-
-                        {/* ── DEDICATED CATEGORIES SECTION ── */}
-                        <motion.div {...fadeIn} className="mt-28">
+                        <motion.div {...fadeIn} className="mb-10 text-center">
                             <div className="text-center mb-12">
-                                <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase bg-secondary/10 border border-secondary/20 text-secondary mb-5">
-                                    Todas las categorías
+                                <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase bg-violet-500/10 border border-violet-500/20 text-violet-400 mb-5">
+                                    Para Usuarios
                                 </span>
-                                <h2 className="text-3xl md:text-4xl font-outfit font-black text-white mb-3">
-                                    Encuentra el servicio que{' '}
-                                    <span className="text-gradient">necesitas</span>
+                                <h2 className="text-4xl md:text-5xl lg:text-6xl font-outfit font-black text-white mb-4">
+                                    Encuentra fácilmente el <br className="hidden md:block" />
+                                    <span className="text-gradient">servicio que necesitas</span>
                                 </h2>
-                                <p className="text-slate-400 max-w-xl mx-auto text-base">
-                                    Explora nuestra amplia red de profesionales verificados en todas las áreas.
+                                <p className="text-slate-300 max-w-xl mx-auto text-lg md:text-xl font-medium">
+                                    Explora nuestra red con más de 50 categorías profesionales, 100% visual y rápido.
                                 </p>
                             </div>
 
@@ -374,91 +322,7 @@ const App: React.FC = () => {
                     </div>
                 </section>
 
-                {/* ── BENEFICIOS PARA USUARIOS ── */}
-                <section id="usuarios" className="py-24 px-6 relative overflow-hidden">
-                    <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-                        {/* Left: Phone mockup */}
-                        <motion.div
-                            initial={{ opacity: 0, x: -50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 1 }}
-                            className="relative hidden lg:flex justify-center order-2 lg:order-1"
-                        >
-                            <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 blur-[100px] rounded-full" />
 
-                            {/* Floating Notifications */}
-                            <motion.div animate={{ y: [-5, 5, -5] }} transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
-                                className="absolute -left-12 top-20 flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-800/90 border border-white/10 backdrop-blur-md text-xs font-medium z-20 shadow-xl whitespace-nowrap">
-                                <Bot size={14} className="text-violet-400" /> Asistente Digital
-                            </motion.div>
-
-                            <motion.div animate={{ y: [5, -5, 5] }} transition={{ duration: 3.8, repeat: Infinity, ease: 'easeInOut' }}
-                                className="absolute -right-16 top-32 flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-800/90 border border-white/10 backdrop-blur-md text-xs font-medium z-20 shadow-xl whitespace-nowrap">
-                                <Zap size={14} className="text-yellow-400" /> Cotizaciones Rápidas
-                            </motion.div>
-
-                            <motion.div animate={{ y: [-4, 6, -4] }} transition={{ duration: 5.2, repeat: Infinity, ease: 'easeInOut' }}
-                                className="absolute -right-10 bottom-32 flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-800/90 border border-white/10 backdrop-blur-md text-xs font-medium z-20 shadow-xl whitespace-nowrap">
-                                <ShieldCheck size={14} className="text-emerald-400" /> 100% Garantizado
-                            </motion.div>
-
-                            <IPhoneMockup className="-rotate-3 drop-shadow-[0_40px_80px_rgba(139,92,246,0.3)] relative z-10">
-                                {appScreens.map((src, i) => (
-                                    <motion.img
-                                        key={src}
-                                        src={src}
-                                        alt="App para Usuarios"
-                                        className="absolute inset-0 w-full h-full object-cover"
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: activeScreen === i ? 1 : 0 }}
-                                        transition={{ duration: 0.7 }}
-                                    />
-                                ))}
-                            </IPhoneMockup>
-                        </motion.div>
-
-                        {/* Right: Text */}
-                        <motion.div
-                            initial={{ opacity: 0, x: 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 1 }}
-                            className="order-1 lg:order-2"
-                        >
-                            <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase bg-violet-500/10 border border-violet-500/20 text-violet-400 mb-6">
-                                Para Usuarios
-                            </span>
-                            <h2 className="text-4xl md:text-5xl font-outfit font-black mb-6 leading-tight">
-                                La forma más <span className="text-gradient">inteligente</span> de contratar
-                            </h2>
-                            <p className="text-slate-400 text-lg mb-10 leading-relaxed">
-                                Olvídate de buscar por recomendaciones o arriesgarte con desconocidos. Con Conexión Servicios, cada contratación es rápida, segura y exitosa.
-                            </p>
-                            <div className="space-y-5">
-                                {USER_BENEFITS.map((b, i) => (
-                                    <motion.div
-                                        key={b.title}
-                                        initial={{ opacity: 0, x: 20 }}
-                                        whileInView={{ opacity: 1, x: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ delay: i * 0.1 }}
-                                        className="flex items-start gap-4 p-4 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-violet-500/20 hover:bg-slate-900/70 transition-all"
-                                    >
-                                        <div className="w-10 h-10 rounded-xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center flex-shrink-0">
-                                            <b.icon size={18} className="text-violet-400" />
-                                        </div>
-                                        <div>
-                                            <p className="font-bold text-white text-sm mb-1">{b.title}</p>
-                                            <p className="text-slate-400 text-sm leading-relaxed">{b.desc}</p>
-                                        </div>
-                                        <CheckCircle2 size={16} className="text-emerald-500 flex-shrink-0 mt-1" />
-                                    </motion.div>
-                                ))}
-                            </div>
-                        </motion.div>
-                    </div>
-                </section>
 
                 {/* ── BENEFICIOS PARA NEGOCIOS ── */}
                 <section id="negocios" className="py-24 px-6 relative overflow-hidden">
@@ -476,10 +340,10 @@ const App: React.FC = () => {
                                     Para Negocios y Profesionales
                                 </span>
                                 <h2 className="text-4xl md:text-5xl font-outfit font-black mb-6 leading-tight">
-                                    Haz crecer tu <span className="text-gradient">negocio</span> con tecnología
+                                    ¿Tienes un <span className="text-gradient">negocio</span> en crecimiento?
                                 </h2>
-                                <p className="text-slate-400 text-lg mb-10 leading-relaxed">
-                                    Únete a la plataforma que conecta a los mejores profesionales de Ecuador con miles de clientes listos para contratar. Sin complicaciones, solo resultados.
+                                <p className="text-xl md:text-2xl text-slate-200 font-medium mb-10 leading-relaxed text-gradient">
+                                    ¡Publícalo GRATIS en la APP de Conexión Servicios!
                                 </p>
 
                                 {/* Stats */}
@@ -527,122 +391,16 @@ const App: React.FC = () => {
                     </div>
                 </section>
 
-                {/* ── APP SHOWCASE (ContainerScroll) ── */}
-                <section className="py-24 relative bg-transparent overflow-hidden">
-                    <ContainerScroll
-                        titleComponent={
-                            <div className="flex flex-col items-center">
-                                <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase bg-blue-500/10 border border-blue-500/20 text-blue-400 mb-5 backdrop-blur-sm">
-    Disponible Pronto
-</span>
-                                <h2 className="text-4xl md:text-5xl font-outfit font-semibold text-white mb-2">
-                                    Experiencia Nativa
-                                </h2>
-                                <span className="text-gradient text-5xl md:text-[6rem] font-black leading-none mt-2 block">
-                                    iOS &amp; Android
-                                </span>
-                            </div>
-                        }
-                    >
-                        {/* Premium redesigned dashboard */}
-                        <div className="relative h-full w-full overflow-hidden"
-                            style={{ background: 'linear-gradient(135deg, #080d1a 0%, #0d1528 60%, #080d1a 100%)' }}>
 
-                            {/* Ambient glows */}
-                            <div className="absolute top-0 left-1/4 w-80 h-80 bg-blue-600/10 blur-[100px] rounded-full pointer-events-none" />
-                            <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-violet-600/10 blur-[100px] rounded-full pointer-events-none" />
-                            <div className="absolute top-1/2 left-0 w-40 h-40 bg-cyan-500/8 blur-[60px] rounded-full pointer-events-none" />
-
-                            <div className="relative z-10 grid grid-cols-1 md:grid-cols-5 h-full p-1">
-
-                                {/* Left panel */}
-                                <div className="md:col-span-3 flex flex-col justify-center p-4 lg:p-8 gap-8">
-
-                                    <div>
-                                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold tracking-widest uppercase mb-4">
-                                            <span className="relative flex h-2 w-2"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span><span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span></span>
-                                            App Móvil Nativa
-                                        </div>
-                                        <h3 className="text-3xl lg:text-4xl font-outfit font-black text-white mb-3 tracking-tight">
-                                            Todo lo que necesitas,<br />
-                                            <span className="text-gradient">en tu bolsillo</span>
-                                        </h3>
-                                        <p className="text-slate-400 text-sm leading-relaxed max-w-sm mt-4">
-                                            Encuentra profesionales verificados, consulta reseñas reales y contrata con total confianza desde cualquier lugar del Ecuador.
-                                        </p>
-                                    </div>
-
-                                    {/* Stat cards */}
-                                    <div className="grid grid-cols-3 gap-4">
-                                        {[
-                                            { value: '50+', label: 'Categorías', color: 'from-cyan-500/20 to-blue-500/10', border: 'border-cyan-500/20', num: 'text-cyan-400' },
-                                            { value: '24', label: 'Provincias', color: 'from-violet-500/20 to-indigo-500/10', border: 'border-violet-500/20', num: 'text-violet-400' },
-                                            { value: '100%', label: 'Verificados', color: 'from-emerald-500/20 to-teal-500/10', border: 'border-emerald-500/20', num: 'text-emerald-400' },
-                                        ].map(s => (
-                                            <div key={s.label} className={`rounded-2xl bg-gradient-to-br ${s.color} border ${s.border} p-4 text-center backdrop-blur-sm`}>
-                                                <p className={`text-2xl font-outfit font-black ${s.num}`}>{s.value}</p>
-                                                <p className="text-slate-400 text-xs mt-1 font-medium">{s.label}</p>
-                                            </div>
-                                        ))}
-                                    </div>
-
-                                    {/* Feature grid */}
-                                    <div className="grid grid-cols-2 gap-4">
-                                        {[
-                                            { icon: Bot, label: 'Asistente IA', sub: 'Soporte inteligente 24/7', color: 'text-blue-400', bg: 'bg-blue-500/10 border-blue-500/20' },
-                                            { icon: BadgeCheck, label: 'Verificado', sub: 'Identidad comprobada', color: 'text-amber-400', bg: 'bg-amber-500/10 border-amber-500/20' },
-                                            { icon: Star, label: 'Reseñas Reales', sub: 'Calificaciones auténticas', color: 'text-pink-400', bg: 'bg-pink-500/10 border-pink-500/20' },
-                                            { icon: MapPin, label: 'Búsqueda Local', sub: 'Por ciudad y cantón', color: 'text-cyan-400', bg: 'bg-cyan-500/10 border-cyan-500/20' },
-                                        ].map(f => (
-                                            <div key={f.label} className="flex items-center gap-3 p-3 rounded-xl bg-white/[0.03] border border-white/5 hover:border-white/10 transition-all">
-                                                <div className={`w-10 h-10 rounded-xl border flex items-center justify-center flex-shrink-0 ${f.bg}`}>
-                                                    <f.icon size={18} className={f.color} />
-                                                </div>
-                                                <div>
-                                                    <p className="text-white text-sm font-bold leading-tight">{f.label}</p>
-                                                    <p className="text-slate-500 text-xs leading-tight mt-0.5">{f.sub}</p>
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-
-                                {/* Right panel: iPhone */}
-                                <div className="md:col-span-2 relative flex items-center justify-center p-2 lg:p-4">
-                                    <div className="absolute inset-0 bg-gradient-to-l from-primary/8 to-transparent" />
-                                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-56 h-56 bg-primary/20 blur-[80px] rounded-full" />
-                                    <div className="relative z-10 drop-shadow-[0_30px_60px_rgba(0,102,255,0.4)]">
-                                        <IPhoneMockup>
-                                            <div className="w-full h-full relative">
-                                                {appScreens.map((src, i) => (
-                                                    <motion.img
-                                                        key={src}
-                                                        src={src}
-                                                        alt="App Interface"
-                                                        className="absolute inset-0 w-full h-full object-cover object-top"
-                                                        initial={{ opacity: 0 }}
-                                                        animate={{ opacity: [0, 1, 1, 0] }}
-                                                        transition={{ duration: 5, delay: i * 5, repeat: Infinity, times: [0, 0.1, 0.9, 1] }}
-                                                    />
-                                                ))}
-                                            </div>
-                                        </IPhoneMockup>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </ContainerScroll>
-                </section>
 
                 {/* ── CTA ── */}
                 <section id="descargar" className="py-24 px-6 relative overflow-hidden">
                     <div className="max-w-7xl mx-auto text-center mb-10">
                         <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase bg-primary/10 border border-primary/20 text-primary mb-4 relative z-10">
-                            TU FUTURO EMPIEZA AQUÍ
+                            DESCÁRGALA AHORA
                         </span>
-                        <h2 className="text-5xl lg:text-7xl font-outfit font-black relative z-10 leading-tight">
-                            ¿Listo para dar el <br className="hidden md:block" /><span className="text-gradient">Siguiente Gran Paso?</span>
+                        <h2 className="text-5xl lg:text-7xl font-outfit font-black relative z-10 leading-tight text-white">
+                            Obtén la <span className="text-gradient">Aplicación</span>
                         </h2>
                     </div>
 
@@ -654,7 +412,7 @@ const App: React.FC = () => {
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
 
                         <p className="text-xl md:text-2xl text-slate-300 font-medium mb-10 max-w-3xl mx-auto relative z-10">
-                            Únete hoy a la comunidad de profesionales y clientes más exclusiva de Ecuador. Descarga la App y comienza tu evolución.
+                            Lleva el directorio de profesionales más completo contigo en todo momento.
                         </p>
                         <div className="flex flex-wrap justify-center gap-8 relative z-10">
                             <a href="#" className="transform transition-transform hover:scale-105 active:scale-95 duration-300">

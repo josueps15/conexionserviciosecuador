@@ -127,11 +127,12 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, on
 
                             <div className="relative z-10 flex flex-col h-full">
                                 <h3 className="text-3xl lg:text-4xl font-outfit font-black text-white mb-6 leading-tight">
-                                    Únete a la evolución de los <span className="text-gradient">Servicios en Ecuador</span>
+                                    ¡Publícalo <span className="text-emerald-400">GRATIS</span> en la APP de
+                                    <br/> <span className="text-gradient">Conexión Servicios!</span>
                                 </h3>
 
-                                <p className="text-slate-400 mb-10 text-lg">
-                                    Regístrate hoy y expón tu servicio ante miles de clientes potenciales verificados.
+                                <p className="text-slate-200 mb-10 text-lg font-medium">
+                                    ¿Tienes un negocio en crecimiento? Regístrate hoy y llega a miles de clientes activos de manera instantánea.
                                 </p>
 
                                 <div className="space-y-6 flex-1">
@@ -191,10 +192,10 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, on
                                 <>
                                     <div className="mb-8">
                                         <h2 className="text-2xl sm:text-3xl font-outfit font-black text-white mb-2">
-                                            Registra tu Negocio
+                                            Crear Perfil Gratis
                                         </h2>
-                                        <p className="text-slate-400 text-sm">
-                                            Completa los datos y comienza a crecer.
+                                        <p className="text-emerald-400 text-sm font-bold">
+                                            ¡Publica tu negocio sin costo alguno!
                                         </p>
                                     </div>
 
