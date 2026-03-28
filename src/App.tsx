@@ -13,7 +13,7 @@ import {
 } from 'lucide-react';
 
 import { InteractiveHoverButton } from './components/ui/InteractiveHoverButton';
-import { IPhoneMockup } from './components/ui/IPhoneMockup';
+// IPhoneMockup removed to focus on images
 import { InteractiveGridPattern } from './components/ui/InteractiveGridPattern';
 
 // TikTok SVG Icon (not in lucide-react)
@@ -32,13 +32,7 @@ const SOCIAL_LINKS = {
     tiktok: 'https://www.tiktok.com/@conexinservicios1',
 };
 
-const appScreens = [
-    '/assets/screenshots/splash_screen.png',
-    '/assets/screenshots/home_services.png',
-    '/assets/screenshots/region_select.png',
-    '/assets/screenshots/ai_support.png',
-    '/assets/screenshots/register_business.png'
-];
+// appScreens removed as the mockup was removed
 
 const fadeIn = {
     initial: { opacity: 0, y: 18 },
@@ -88,19 +82,10 @@ const SERVICE_CATEGORIES = [
 const App: React.FC = () => {
     const [isRegistrationModalOpen, setIsRegistrationModalOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
-    const [activeScreen, setActiveScreen] = useState(0);
-
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 50);
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setActiveScreen(prev => (prev + 1) % appScreens.length);
-        }, 3500);
-        return () => clearInterval(timer);
     }, []);
 
     return (
@@ -170,8 +155,63 @@ const App: React.FC = () => {
             <main>
                 {/* ── HERO ── */}
                 <section id="inicio" className="relative min-h-screen flex items-center pt-32 pb-24">
-                    <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="z-10">
+                    {/* Floating Side Images Collage (Hidden on mobile to prioritize main text) */}
+                    <div className="absolute inset-0 max-w-[1400px] mx-auto w-full h-full pointer-events-none hidden lg:block z-10 overflow-hidden">
+                        {/* Left Side Collage */}
+                        <motion.div initial={{ opacity: 0, x: -50, y: 0 }} animate={{ opacity: 1, x: 0, y: [0, -10, 0] }} transition={{ duration: 1, delay: 0.2, y: { duration: 6, repeat: Infinity, ease: 'easeInOut' } }}
+                            className="absolute top-[20%] left-[2%] w-60 h-72 rounded-3xl overflow-hidden border-[6px] border-slate-950 shadow-2xl -rotate-6 z-20 pointer-events-auto"
+                        >
+                            <img src="https://images.unsplash.com/photo-1619642751034-765f0119f9bb?w=600&q=80" alt="Mecánico" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent flex flex-col justify-end p-4">
+                                <span className="bg-cyan-500/20 text-cyan-400 text-xs font-bold px-3 py-1 rounded-full w-fit backdrop-blur-md">Mecánica</span>
+                            </div>
+                        </motion.div>
+
+                        <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0, y: [0, 8, 0] }} transition={{ duration: 1, delay: 0.4, y: { duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 } }}
+                            className="absolute top-[55%] left-[8%] w-52 h-48 rounded-[2rem] overflow-hidden border-[6px] border-slate-950 shadow-2xl rotate-6 z-10 pointer-events-auto"
+                        >
+                            <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=500&q=80" alt="Electricista" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent flex flex-col justify-end p-4">
+                                <span className="bg-yellow-500/20 text-yellow-400 text-xs font-bold px-3 py-1 rounded-full w-fit backdrop-blur-md">Electricista</span>
+                            </div>
+                        </motion.div>
+
+                        {/* Right Side Collage */}
+                        <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0, y: [0, -8, 0] }} transition={{ duration: 1, delay: 0.3, y: { duration: 5.5, repeat: Infinity, ease: 'easeInOut' } }}
+                            className="absolute top-[15%] right-[2%] w-64 h-80 rounded-3xl overflow-hidden border-[6px] border-slate-950 shadow-2xl rotate-3 z-20 pointer-events-auto"
+                        >
+                            <img src="https://images.unsplash.com/photo-1543465077-db45d34b88a5?w=600&q=80" alt="Grúa" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent flex flex-col justify-end p-4">
+                                <span className="bg-orange-500/20 text-orange-400 text-xs font-bold px-3 py-1 rounded-full w-fit backdrop-blur-md">Grúas y Auxilio</span>
+                            </div>
+                        </motion.div>
+
+                        <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0, y: [0, 10, 0] }} transition={{ duration: 1, delay: 0.5, y: { duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 0.5 } }}
+                            className="absolute top-[60%] right-[8%] w-56 h-56 rounded-[2rem] overflow-hidden border-[6px] border-slate-950 shadow-2xl -rotate-6 z-10 pointer-events-auto"
+                        >
+                            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=500&q=80" alt="Centro Educativo" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent flex flex-col justify-end p-4">
+                                <span className="bg-violet-500/20 text-violet-400 text-xs font-bold px-3 py-1 rounded-full w-fit backdrop-blur-md">Educación</span>
+                            </div>
+                        </motion.div>
+
+                        {/* Badges scattered on the sides */}
+                        <motion.div animate={{ y: [-5, 5, -5] }} transition={{ duration: 4, repeat: Infinity }}
+                            className="absolute left-[20%] top-[40%] flex items-center gap-2.5 px-4 py-3 rounded-2xl bg-slate-800/90 border border-white/10 backdrop-blur-xl text-sm font-medium z-40 shadow-2xl whitespace-nowrap">
+                            <BadgeCheck size={18} className="text-emerald-400" /> Profesionales Verificados
+                        </motion.div>
+                        <motion.div animate={{ y: [5, -5, 5] }} transition={{ duration: 3.5, repeat: Infinity }}
+                            className="absolute right-[22%] top-[35%] flex items-center gap-2.5 px-4 py-3 rounded-2xl bg-slate-800/90 border border-white/10 backdrop-blur-xl text-sm font-medium z-40 shadow-2xl whitespace-nowrap">
+                            <MapPin size={18} className="text-cyan-400" /> Disponible en todo el país
+                        </motion.div>
+
+                        <div className="absolute top-[20%] right-[10%] w-72 h-72 bg-primary/20 blur-[120px] rounded-full z-0" />
+                        <div className="absolute bottom-[20%] left-[10%] w-72 h-72 bg-secondary/20 blur-[120px] rounded-full z-0" />
+                    </div>
+
+                    {/* Center Content */}
+                    <div className="relative z-20 max-w-4xl mx-auto px-6 flex flex-col items-center text-center mt-10">
+                        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="flex flex-col items-center">
                             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[10px] sm:text-xs font-bold mb-8 tracking-wider uppercase backdrop-blur-sm shadow-[0_0_15px_rgba(34,211,238,0.1)]">
                                 <span className="relative flex h-2 w-2">
                                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
@@ -179,118 +219,40 @@ const App: React.FC = () => {
                                 </span>
                                 PLATAFORMA LISTA PARA LANZAMIENTO
                             </div>
-                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-outfit font-black mb-8 leading-[1.05] tracking-tighter text-white">
+                            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-outfit font-black mb-8 leading-[1.05] tracking-tighter text-white">
                                 ¿Buscas un Mecánico, <br className="hidden sm:block" />
                                 un Electricista, <span className="whitespace-nowrap">una Grúa</span> <br className="hidden sm:block" />
                                 o un <span className="text-gradient">Centro Educativo</span>?
                             </h1>
-                            <p className="text-xl md:text-2xl text-slate-300 mb-12 max-w-xl leading-relaxed font-medium">
-                                En la <strong>APP Conexión Servicios</strong> encontrarás los mejores servicios profesionales.
+                            <p className="text-xl md:text-2xl text-slate-300 mb-12 max-w-2xl leading-relaxed font-medium">
+                                En la <strong className="text-white">APP Conexión Servicios</strong> encontrarás los mejores servicios profesionales.
                             </p>
-                            <div className="flex flex-wrap gap-5">
-                                <a href="#descargar" className="group relative px-8 py-4 rounded-2xl bg-blue-600 font-bold text-white flex items-center gap-3 hover:bg-blue-700 transition-all shadow-[0_10px_20px_-10px_rgba(37,99,235,0.5)] active:scale-95 overflow-hidden">
+                            <div className="flex flex-wrap justify-center gap-5">
+                                <a href="#descargar" className="group relative px-8 py-4 rounded-2xl bg-blue-600 font-bold text-white flex items-center justify-center gap接3 hover:bg-blue-700 transition-all shadow-[0_10px_20px_-10px_rgba(37,99,235,0.5)] active:scale-95 overflow-hidden w-full sm:w-auto">
                                     <span className="relative z-10 font-outfit">Descargar la App</span>
                                     <motion.span animate={{ y: [0, 4, 0] }} transition={{ duration: 1.5, repeat: Infinity }} className="relative z-10">
                                         <Download size={20} className="text-blue-100" />
                                     </motion.span>
                                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                                 </a>
-                                <a href="#servicios" className="px-8 py-4 rounded-2xl border border-white/5 bg-slate-900/50 font-bold text-slate-300 hover:text-white hover:bg-slate-800 transition-all backdrop-blur-md font-outfit flex items-center gap-2">
+                                <a href="#servicios" className="px-8 py-4 rounded-2xl border border-white/5 bg-slate-900/50 font-bold text-slate-300 hover:text-white hover:bg-slate-800 transition-all backdrop-blur-md font-outfit flex items-center justify-center gap-2 w-full sm:w-auto">
                                     Explorar Servicios <ArrowRight size={16} />
                                 </a>
                             </div>
 
                             {/* Stats row */}
-                            <div className="flex gap-8 mt-14 pt-8 border-t border-white/5">
+                            <div className="flex justify-center gap-8 sm:gap-14 mt-16 pt-8 border-t border-white/10 w-full max-w-3xl">
                                 {[
                                     { value: '50+', label: 'Categorías' },
                                     { value: '100%', label: 'Verificados' },
                                     { value: 'IA', label: 'Soporte 24/7' },
                                 ].map(s => (
                                     <div key={s.label}>
-                                        <p className="text-3xl font-outfit font-black text-white">{s.value}</p>
-                                        <p className="text-sm text-slate-500 mt-1">{s.label}</p>
+                                        <p className="text-3xl md:text-4xl font-outfit font-black text-white">{s.value}</p>
+                                        <p className="text-xs md:text-sm text-slate-500 mt-1">{s.label}</p>
                                     </div>
                                 ))}
                             </div>
-                        </motion.div>
-
-                        <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1, delay: 0.2 }} className="relative hidden lg:flex justify-center items-center h-[550px] w-full">
-                            <div className="relative w-full h-full max-w-[550px] z-10 flex items-center justify-center">
-                                
-                                {/* Top left tilted image (Electricista) */}
-                                <motion.div 
-                                    whileHover={{ scale: 1.05, zIndex: 50 }}
-                                    className="absolute top-4 left-0 w-40 h-48 rounded-[1.5rem] overflow-hidden border-[4px] border-slate-900 shadow-xl z-20 -rotate-12 transition-all duration-300"
-                                >
-                                    <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=500&q=80" alt="Electricista" className="w-full h-full object-cover" />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent flex flex-col justify-end p-3">
-                                        <span className="bg-yellow-500/20 text-yellow-400 text-[10px] font-bold px-2 py-1 rounded-full w-fit backdrop-blur-md">Electricista</span>
-                                    </div>
-                                </motion.div>
-
-                                {/* Top right small image (Mecánico) */}
-                                <motion.div 
-                                    whileHover={{ scale: 1.05, zIndex: 50 }}
-                                    className="absolute top-10 right-4 w-44 h-44 rounded-[1.5rem] overflow-hidden border-[4px] border-slate-900 shadow-xl z-10 rotate-[12deg] transition-all duration-300"
-                                >
-                                    <img src="https://images.unsplash.com/photo-1619642751034-765f0119f9bb?w=500&q=80" alt="Mecánico" className="w-full h-full object-cover" />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent flex flex-col justify-end p-3">
-                                        <span className="bg-cyan-500/20 text-cyan-400 text-[10px] font-bold px-2 py-1 rounded-full w-fit backdrop-blur-md">Mecánico</span>
-                                    </div>
-                                </motion.div>
-
-                                {/* Bottom left tilted image (Educación) */}
-                                <motion.div 
-                                    whileHover={{ scale: 1.05, zIndex: 50 }}
-                                    className="absolute bottom-10 left-4 w-44 h-44 rounded-[1.5rem] overflow-hidden border-[4px] border-slate-900 shadow-xl z-30 rotate-6 transition-all duration-300"
-                                >
-                                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=500&q=80" alt="Centro Educativo" className="w-full h-full object-cover" />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/10 to-transparent flex flex-col justify-end p-3">
-                                        <span className="bg-violet-500/20 text-violet-400 text-[10px] font-bold px-2 py-1 rounded-full w-fit backdrop-blur-md">Centro Educativo</span>
-                                    </div>
-                                </motion.div>
-
-                                {/* Bottom right tilted image (Grúa) */}
-                                <motion.div 
-                                    whileHover={{ scale: 1.05, zIndex: 50 }}
-                                    className="absolute bottom-4 right-0 w-48 h-52 rounded-[1.5rem] overflow-hidden border-[4px] border-slate-900 shadow-xl z-30 -rotate-6 transition-all duration-300"
-                                >
-                                    <img src="https://images.unsplash.com/photo-1543465077-db45d34b88a5?w=500&q=80" alt="Grúa" className="w-full h-full object-cover" />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/10 to-transparent flex flex-col justify-end p-3">
-                                        <span className="bg-orange-500/20 text-orange-400 text-[10px] font-bold px-2 py-1 rounded-full w-fit backdrop-blur-md">Grúa y Auxilio</span>
-                                    </div>
-                                </motion.div>
-
-                                {/* Center: IPhone Mockup */}
-                                <div className="relative z-40 transform scale-90 drop-shadow-[0_20px_50px_rgba(0,102,255,0.4)]">
-                                    <IPhoneMockup className="rotate-2">
-                                        <motion.img
-                                            key={activeScreen}
-                                            src={appScreens[activeScreen]}
-                                            alt="App Preview"
-                                            className="w-full h-full object-cover"
-                                            initial={{ opacity: 0, scale: 1.05 }}
-                                            animate={{ opacity: 1, scale: 1 }}
-                                            transition={{ duration: 0.6 }}
-                                        />
-                                    </IPhoneMockup>
-                                </div>
-
-                                {/* Floating Badges */}
-                                <motion.div animate={{ y: [-5, 5, -5] }} transition={{ duration: 4, repeat: Infinity }}
-                                    className="absolute -left-12 top-1/2 flex items-center gap-2.5 px-4 py-3 rounded-2xl bg-slate-800/90 border border-white/10 backdrop-blur-xl text-sm font-medium z-40 shadow-2xl whitespace-nowrap">
-                                    <BadgeCheck size={18} className="text-emerald-400" /> Profesionales Verificados
-                                </motion.div>
-
-                                <motion.div animate={{ y: [5, -5, 5] }} transition={{ duration: 3.5, repeat: Infinity }}
-                                    className="absolute -right-8 top-1/3 flex items-center gap-2.5 px-4 py-3 rounded-2xl bg-slate-800/90 border border-white/10 backdrop-blur-xl text-sm font-medium z-40 shadow-2xl whitespace-nowrap">
-                                    <MapPin size={18} className="text-cyan-400" /> Disponible en todo el país
-                                </motion.div>
-                                
-                            </div>
-                            <div className="absolute -top-10 -right-10 w-72 h-72 bg-primary/20 blur-[120px] rounded-full z-0" />
-                            <div className="absolute -bottom-10 -left-10 w-72 h-72 bg-secondary/20 blur-[120px] rounded-full z-0" />
                         </motion.div>
                     </div>
                 </section>
