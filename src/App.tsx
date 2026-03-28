@@ -216,52 +216,66 @@ const App: React.FC = () => {
                         </motion.div>
 
                         <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1, delay: 0.2 }} className="relative hidden lg:flex justify-center items-center h-[550px] w-full">
-                            <div className="relative w-full h-full max-w-[500px] z-10 flex items-center justify-center">
+                            <div className="relative w-full h-full max-w-[550px] z-10 flex items-center justify-center">
                                 
-                                {/* Central huge image (Architecture/Construction) */}
+                                {/* Top left tilted image (Electricista) */}
                                 <motion.div 
-                                    whileHover={{ scale: 1.03, zIndex: 50 }}
-                                    className="absolute w-64 h-80 rounded-[2rem] overflow-hidden border-[6px] border-slate-900 shadow-2xl z-20 transition-all duration-300"
+                                    whileHover={{ scale: 1.05, zIndex: 50 }}
+                                    className="absolute top-4 left-0 w-40 h-48 rounded-[1.5rem] overflow-hidden border-[4px] border-slate-900 shadow-xl z-20 -rotate-12 transition-all duration-300"
                                 >
-                                    <img src="https://images.unsplash.com/photo-1541888081696-6d60156fc201?w=600&q=80" alt="Construcción" className="w-full h-full object-cover" />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/10 to-transparent flex flex-col justify-end p-5">
-                                        <span className="bg-primary/20 text-primary text-xs font-bold px-2.5 py-1 rounded-full w-fit mb-2 backdrop-blur-md">Construcción</span>
-                                        <span className="text-white font-bold flex items-center gap-1.5"><Star size={16} className="text-amber-400 fill-amber-400"/> 4.9 <span className="font-normal text-slate-300 text-sm ml-1">(120 reseñas)</span></span>
+                                    <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=500&q=80" alt="Electricista" className="w-full h-full object-cover" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent flex flex-col justify-end p-3">
+                                        <span className="bg-yellow-500/20 text-yellow-400 text-[10px] font-bold px-2 py-1 rounded-full w-fit backdrop-blur-md">Electricista</span>
                                     </div>
                                 </motion.div>
 
-                                {/* Top left tilted image (Mechanic) */}
+                                {/* Top right small image (Mecánico) */}
                                 <motion.div 
                                     whileHover={{ scale: 1.05, zIndex: 50 }}
-                                    className="absolute top-4 left-0 w-48 h-56 rounded-[2rem] overflow-hidden border-[6px] border-slate-900 shadow-xl z-10 -rotate-6 transition-all duration-300"
+                                    className="absolute top-10 right-4 w-44 h-44 rounded-[1.5rem] overflow-hidden border-[4px] border-slate-900 shadow-xl z-10 rotate-[12deg] transition-all duration-300"
                                 >
                                     <img src="https://images.unsplash.com/photo-1619642751034-765f0119f9bb?w=500&q=80" alt="Mecánico" className="w-full h-full object-cover" />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/10 to-transparent flex flex-col justify-end p-4">
-                                        <span className="bg-cyan-500/20 text-cyan-400 text-xs font-bold px-2.5 py-1 rounded-full w-fit backdrop-blur-md">Mecánica</span>
-                                    </div>
-                                </motion.div>
-
-                                {/* Bottom right tilted image (Beauty) */}
-                                <motion.div 
-                                    whileHover={{ scale: 1.05, zIndex: 50 }}
-                                    className="absolute bottom-4 right-0 w-52 h-52 rounded-[2rem] overflow-hidden border-[6px] border-slate-900 shadow-xl z-30 rotate-6 transition-all duration-300"
-                                >
-                                    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=500&q=80" alt="Belleza" className="w-full h-full object-cover" />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/10 to-transparent flex flex-col justify-end p-4">
-                                        <span className="bg-pink-500/20 text-pink-400 text-xs font-bold px-2.5 py-1 rounded-full w-fit backdrop-blur-md">Belleza</span>
-                                    </div>
-                                </motion.div>
-
-                                {/* Top right small image (Cleaning) */}
-                                <motion.div 
-                                    whileHover={{ scale: 1.05, zIndex: 50 }}
-                                    className="absolute top-10 right-4 w-40 h-40 rounded-[1.5rem] overflow-hidden border-[6px] border-slate-900 shadow-xl z-10 rotate-[12deg] transition-all duration-300"
-                                >
-                                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=500&q=80" alt="Limpieza" className="w-full h-full object-cover" />
                                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent flex flex-col justify-end p-3">
-                                        <span className="bg-emerald-500/20 text-emerald-400 text-[10px] font-bold px-2 py-1 rounded-full w-fit backdrop-blur-md">Limpieza</span>
+                                        <span className="bg-cyan-500/20 text-cyan-400 text-[10px] font-bold px-2 py-1 rounded-full w-fit backdrop-blur-md">Mecánico</span>
                                     </div>
                                 </motion.div>
+
+                                {/* Bottom left tilted image (Educación) */}
+                                <motion.div 
+                                    whileHover={{ scale: 1.05, zIndex: 50 }}
+                                    className="absolute bottom-10 left-4 w-44 h-44 rounded-[1.5rem] overflow-hidden border-[4px] border-slate-900 shadow-xl z-30 rotate-6 transition-all duration-300"
+                                >
+                                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=500&q=80" alt="Centro Educativo" className="w-full h-full object-cover" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/10 to-transparent flex flex-col justify-end p-3">
+                                        <span className="bg-violet-500/20 text-violet-400 text-[10px] font-bold px-2 py-1 rounded-full w-fit backdrop-blur-md">Centro Educativo</span>
+                                    </div>
+                                </motion.div>
+
+                                {/* Bottom right tilted image (Grúa) */}
+                                <motion.div 
+                                    whileHover={{ scale: 1.05, zIndex: 50 }}
+                                    className="absolute bottom-4 right-0 w-48 h-52 rounded-[1.5rem] overflow-hidden border-[4px] border-slate-900 shadow-xl z-30 -rotate-6 transition-all duration-300"
+                                >
+                                    <img src="https://images.unsplash.com/photo-1543465077-db45d34b88a5?w=500&q=80" alt="Grúa" className="w-full h-full object-cover" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/10 to-transparent flex flex-col justify-end p-3">
+                                        <span className="bg-orange-500/20 text-orange-400 text-[10px] font-bold px-2 py-1 rounded-full w-fit backdrop-blur-md">Grúa y Auxilio</span>
+                                    </div>
+                                </motion.div>
+
+                                {/* Center: IPhone Mockup */}
+                                <div className="relative z-40 transform scale-90 drop-shadow-[0_20px_50px_rgba(0,102,255,0.4)]">
+                                    <IPhoneMockup className="rotate-2">
+                                        <motion.img
+                                            key={activeScreen}
+                                            src={appScreens[activeScreen]}
+                                            alt="App Preview"
+                                            className="w-full h-full object-cover"
+                                            initial={{ opacity: 0, scale: 1.05 }}
+                                            animate={{ opacity: 1, scale: 1 }}
+                                            transition={{ duration: 0.6 }}
+                                        />
+                                    </IPhoneMockup>
+                                </div>
 
                                 {/* Floating Badges */}
                                 <motion.div animate={{ y: [-5, 5, -5] }} transition={{ duration: 4, repeat: Infinity }}
