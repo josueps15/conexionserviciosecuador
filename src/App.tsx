@@ -98,7 +98,7 @@ const SERVICE_CATEGORIES = [
     },
     { 
         icon: GraduationCap, label: 'Educación', color: '#8B5CF6', 
-        img: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=500&q=80',
+        img: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?w=500&q=80',
         slogan: '¡Descubre nuevos conocimientos con los mejores tutores online!',
         specialties: ['Clases dirigidas', 'Idiomas', 'Cursos técnicos', 'Asesoría académica'],
         bg: 'from-violet-500/15 to-violet-500/5', border: 'border-violet-500/20' 
@@ -457,7 +457,7 @@ const App: React.FC = () => {
                         {/* Left Side Collage */}
                         {/* Plomero (Outer Top) */}
                         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, y: [0, 8, 0] }} transition={{ duration: 0.5, y: { duration: 5.5, repeat: Infinity, ease: 'easeInOut' } }}
-                            className="absolute top-[12%] left-[3.5%] w-44 h-56 lg:w-52 lg:h-64 rounded-[1.5rem] lg:rounded-[2rem] border-[2px] border-sky-500/30 shadow-[0_0_30px_rgba(14,165,233,0.15)] hover:border-sky-500/60 hover:shadow-[0_0_40px_rgba(14,165,233,0.3)] transition-all duration-500 -rotate-6 z-10 pointer-events-auto group overflow-hidden scale-[0.42] sm:scale-75 lg:scale-100 origin-top-left"
+                            className="absolute top-[8%] -left-2 w-44 h-56 lg:w-52 lg:h-64 rounded-[1.5rem] lg:rounded-[2rem] border-[2px] border-sky-500/30 shadow-[0_0_30px_rgba(14,165,233,0.15)] hover:border-sky-500/60 hover:shadow-[0_0_40px_rgba(14,165,233,0.3)] transition-all duration-500 -rotate-6 z-10 pointer-events-auto group overflow-hidden scale-50 sm:scale-[0.65] lg:scale-[0.75] origin-top-left"
                         >
                             <div className="w-full h-full rounded-[1.3rem] lg:rounded-[1.8rem] overflow-hidden relative" style={{ isolation: 'isolate', transform: 'translateZ(0)' }}>
                                 <img src="/plomeria_img.png" alt="Plomero" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 rounded-[1.3rem] lg:rounded-[1.8rem]" />
@@ -469,7 +469,7 @@ const App: React.FC = () => {
 
                         {/* Médico (Inner High) */}
                         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, y: [0, -10, 0] }} transition={{ duration: 0.5, delay: 0.1, y: { duration: 6, repeat: Infinity, ease: 'easeInOut' } }}
-                            className="absolute top-[21%] left-[15%] w-48 h-60 lg:w-60 lg:h-[18rem] rounded-[1.5rem] lg:rounded-[2.5rem] border-[2px] border-rose-500/30 shadow-[0_0_30px_rgba(244,63,94,0.15)] hover:border-rose-500/60 hover:shadow-[0_0_40px_rgba(244,63,94,0.3)] transition-all duration-500 rotate-3 z-30 pointer-events-auto group overflow-hidden scale-[0.45] sm:scale-75 lg:scale-[0.95] origin-top-left"
+                            className="absolute top-[26%] left-[22%] w-48 h-60 lg:w-60 lg:h-[18rem] rounded-[1.5rem] lg:rounded-[2.5rem] border-[2px] border-rose-500/30 shadow-[0_0_30px_rgba(244,63,94,0.15)] hover:border-rose-500/60 hover:shadow-[0_0_40px_rgba(244,63,94,0.3)] transition-all duration-500 rotate-3 z-30 pointer-events-auto group overflow-hidden scale-50 sm:scale-[0.65] lg:scale-[0.75] origin-top-left"
                         >
                             <div className="w-full h-full rounded-[1.3rem] lg:rounded-[2.3rem] overflow-hidden relative" style={{ isolation: 'isolate', transform: 'translateZ(0)' }}>
                                 <img src="/medicos_img.png" alt="Médico" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 rounded-[1.3rem] lg:rounded-[2.3rem]" />
@@ -506,7 +506,7 @@ const App: React.FC = () => {
                         {/* Right Side Collage */}
                         {/* Grúa (Outer Top) */}
                         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, y: [0, 8, 0] }} transition={{ duration: 0.5, delay: 0.15, y: { duration: 5.5, repeat: Infinity, ease: 'easeInOut' } }}
-                            className="absolute top-[12%] right-[3.5%] w-44 h-56 lg:w-52 lg:h-64 rounded-[1.5rem] lg:rounded-[2rem] border-[2px] border-orange-500/30 shadow-[0_0_30px_rgba(249,115,22,0.15)] hover:border-orange-500/60 hover:shadow-[0_0_40px_rgba(249,115,22,0.3)] transition-all duration-500 rotate-6 z-10 pointer-events-auto group overflow-hidden scale-[0.42] sm:scale-75 lg:scale-100 origin-top-right"
+                            className="absolute top-[8%] -right-2 w-44 h-56 lg:w-52 lg:h-64 rounded-[1.5rem] lg:rounded-[2rem] border-[2px] border-orange-500/30 shadow-[0_0_30px_rgba(249,115,22,0.15)] hover:border-orange-500/60 hover:shadow-[0_0_40px_rgba(249,115,22,0.3)] transition-all duration-500 rotate-6 z-10 pointer-events-auto group overflow-hidden scale-50 sm:scale-[0.65] lg:scale-[0.75] origin-top-right"
                         >
                             <div className="w-full h-full rounded-[1.3rem] lg:rounded-[1.8rem] overflow-hidden relative" style={{ isolation: 'isolate', transform: 'translateZ(0)' }}>
                                 <img src="/grua_camion.png" alt="Grúa" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 rounded-[1.3rem] lg:rounded-[1.8rem]" />
@@ -518,7 +518,7 @@ const App: React.FC = () => {
 
                         {/* Limpieza (Inner High) */}
                         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, y: [0, -10, 0] }} transition={{ duration: 0.5, delay: 0.25, y: { duration: 6, repeat: Infinity, ease: 'easeInOut' } }}
-                            className="absolute top-[21%] right-[15%] w-48 h-60 lg:w-60 lg:h-[18rem] rounded-[1.5rem] lg:rounded-[2.5rem] border-[2px] border-emerald-500/30 shadow-[0_0_30px_rgba(16,185,129,0.15)] hover:border-emerald-500/60 hover:shadow-[0_0_40px_rgba(16,185,129,0.3)] transition-all duration-500 -rotate-3 z-30 pointer-events-auto group overflow-hidden scale-[0.45] sm:scale-75 lg:scale-[0.95] origin-top-right"
+                            className="absolute top-[26%] right-[22%] w-48 h-60 lg:w-60 lg:h-[18rem] rounded-[1.5rem] lg:rounded-[2.5rem] border-[2px] border-emerald-500/30 shadow-[0_0_30px_rgba(16,185,129,0.15)] hover:border-emerald-500/60 hover:shadow-[0_0_40px_rgba(16,185,129,0.3)] transition-all duration-500 -rotate-3 z-30 pointer-events-auto group overflow-hidden scale-50 sm:scale-[0.65] lg:scale-[0.75] origin-top-right"
                         >
                             <div className="w-full h-full rounded-[1.3rem] lg:rounded-[2.3rem] overflow-hidden relative" style={{ isolation: 'isolate', transform: 'translateZ(0)' }}>
                                 <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=500&q=80" alt="Limpieza" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 rounded-[1.3rem] lg:rounded-[2.3rem]" />
@@ -533,7 +533,7 @@ const App: React.FC = () => {
                             className="absolute bottom-[22%] right-[4%] w-44 h-56 lg:w-52 lg:h-64 rounded-[1.5rem] lg:rounded-[2rem] border-[2px] border-violet-500/30 shadow-[0_0_30px_rgba(139,92,246,0.15)] hover:border-violet-500/60 hover:shadow-[0_0_40px_rgba(139,92,246,0.3)] transition-all duration-500 rotate-3 z-10 pointer-events-auto group overflow-hidden scale-[0.42] sm:scale-75 lg:scale-100 origin-bottom-right"
                         >
                             <div className="w-full h-full rounded-[1.3rem] lg:rounded-[1.8rem] overflow-hidden relative" style={{ isolation: 'isolate', transform: 'translateZ(0)' }}>
-                                <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=500&q=80" alt="Educación" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 rounded-[1.3rem] lg:rounded-[1.8rem]" />
+                                <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=500&q=80" alt="Educación" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 rounded-[1.3rem] lg:rounded-[1.8rem]" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent flex flex-col justify-end items-center pb-6">
                                     <span className="bg-violet-500/20 text-violet-400 border border-violet-500/30 text-[10px] sm:text-xs font-bold px-3 py-1 rounded-full w-fit backdrop-blur-md">Educación</span>
                                 </div>
