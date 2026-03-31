@@ -756,7 +756,7 @@ const App: React.FC = () => {
                                             whileHover={{ scale: 1.02, zIndex: 20 }}
                                             className="relative h-[220px] md:h-[280px] rounded-[2rem] lg:rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl group cursor-pointer"
                                         >
-                                            <img src="/beneficio1_3d.png" alt="Visibilidad" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                                            <img src="https://images.unsplash.com/photo-1556761175-597219aa3c4d?w=800&q=80" alt="Visibilidad" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                                             <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4">
                                                 <div className="backdrop-blur-md bg-[#0a0f1c]/60 border border-white/10 rounded-[1.5rem] p-4 transform translate-y-2 group-hover:translate-y-0 transition-all duration-500 group-hover:bg-[#0a0f1c]/80 shadow-2xl">
                                                     <div className="flex items-center gap-2 mb-1">
@@ -773,7 +773,7 @@ const App: React.FC = () => {
                                             whileHover={{ scale: 1.02, zIndex: 20 }}
                                             className="relative h-[280px] md:h-[340px] rounded-[2rem] lg:rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl group cursor-pointer"
                                         >
-                                            <img src="/beneficio3_3d.png" alt="Impacto" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80" alt="Impacto" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                                             <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4">
                                                 <div className="backdrop-blur-md bg-[#0a0f1c]/60 border border-white/10 rounded-[1.5rem] p-4 transform translate-y-2 group-hover:translate-y-0 transition-all duration-500 group-hover:bg-[#0a0f1c]/80 shadow-2xl">
                                                     <div className="flex items-center gap-2 mb-1">
@@ -793,7 +793,7 @@ const App: React.FC = () => {
                                             whileHover={{ scale: 1.02, zIndex: 20 }}
                                             className="relative h-[280px] md:h-[360px] rounded-[2rem] lg:rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl group cursor-pointer"
                                         >
-                                            <img src="/beneficio2_3d.png" alt="Conexión" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                                            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80" alt="Conexión" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                                             <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4">
                                                 <div className="backdrop-blur-md bg-[#0a0f1c]/60 border border-white/10 rounded-[1.5rem] p-4 transform translate-y-2 group-hover:translate-y-0 transition-all duration-500 group-hover:bg-[#0a0f1c]/80 shadow-2xl">
                                                     <div className="flex items-center gap-2 mb-1">
@@ -810,7 +810,7 @@ const App: React.FC = () => {
                                             whileHover={{ scale: 1.02, zIndex: 20 }}
                                             className="relative h-[220px] md:h-[260px] rounded-[2rem] lg:rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl group cursor-pointer"
                                         >
-                                            <img src="/beneficio4_3d.png" alt="Crecimiento" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="Crecimiento" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                                             <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4">
                                                 <div className="backdrop-blur-md bg-[#0a0f1c]/60 border border-white/10 rounded-[1.5rem] p-4 transform translate-y-2 group-hover:translate-y-0 transition-all duration-500 group-hover:bg-[#0a0f1c]/80 shadow-2xl">
                                                     <div className="flex items-center gap-2 mb-1">
