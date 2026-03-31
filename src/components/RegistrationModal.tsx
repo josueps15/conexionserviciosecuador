@@ -127,8 +127,8 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, on
 
                             <div className="relative z-10 flex flex-col h-full">
                                 <h3 className="text-3xl lg:text-4xl font-outfit font-black text-white mb-6 leading-tight">
-                                    ¡Publícalo <span className="text-emerald-400">GRATIS</span> en la APP de
-                                    <br/> <span className="text-gradient">Conexión Servicios!</span>
+                                    ¡Publícalo <span className="text-emerald-400">GRATIS</span> en la
+                                    <br/> APP de <span className="text-gradient">Conexión Servicios!</span>
                                 </h3>
 
                                 <p className="text-slate-200 mb-10 text-lg font-medium">
@@ -137,9 +137,9 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, on
 
                                 <div className="space-y-6 flex-1">
                                     {[
-                                        { title: "Mayor visibilidad", desc: "Aparece en los primeros resultados de tu ciudad y categoría." },
-                                        { title: "Clientes confiables", desc: "Nuestra plataforma filtra y verifica solicitudes para tu seguridad." },
-                                        { title: "Gestión digital", desc: "Recibe cotizaciones y mensajes directamente en la plataforma." }
+                                        { title: "Visibilidad Total", desc: "¡Tu perfil ante miles de clientes! Aparece en los primeros resultados." },
+                                        { title: "Contacto Directo", desc: "Trato directo, resultados inmediatos. Conexión sin intermediarios ni comisiones ocultas." },
+                                        { title: "Crecimiento Digital", desc: "Escala tu negocio sin límites. Construye historias de éxito que inspiran confianza." }
                                     ].map((benefit, i) => (
                                         <div key={i} className="flex gap-4">
                                             <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 mt-1">
