@@ -457,7 +457,7 @@ const App: React.FC = () => {
                         {/* Left Side Collage */}
                         {/* Plomero (Outer Top) */}
                         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, y: [0, 8, 0] }} transition={{ duration: 0.5, y: { duration: 5.5, repeat: Infinity, ease: 'easeInOut' } }}
-                            className="absolute top-[8%] left-[1%] w-44 h-56 lg:w-52 lg:h-64 rounded-[1.5rem] lg:rounded-[2rem] border-[2px] border-sky-500/30 shadow-[0_0_30px_rgba(14,165,233,0.15)] hover:border-sky-500/60 hover:shadow-[0_0_40px_rgba(14,165,233,0.3)] transition-all duration-500 -rotate-6 z-10 pointer-events-auto group overflow-hidden scale-[0.42] sm:scale-75 lg:scale-[0.85] xl:scale-[0.90] origin-top-left"
+                            className="absolute top-[8%] left-[3%] w-44 h-56 lg:w-52 lg:h-64 rounded-[1.5rem] lg:rounded-[2rem] border-[2px] border-sky-500/30 shadow-[0_0_30px_rgba(14,165,233,0.15)] hover:border-sky-500/60 hover:shadow-[0_0_40px_rgba(14,165,233,0.3)] transition-all duration-500 -rotate-6 z-10 pointer-events-auto group overflow-hidden scale-[0.42] sm:scale-75 lg:scale-[0.90] origin-top-left"
                         >
                             <div className="w-full h-full rounded-[1.3rem] lg:rounded-[1.8rem] overflow-hidden relative" style={{ isolation: 'isolate', transform: 'translateZ(0)' }}>
                                 <img src="/plomeria_img.png" alt="Plomero" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 rounded-[1.3rem] lg:rounded-[1.8rem]" />
@@ -469,7 +469,7 @@ const App: React.FC = () => {
 
                         {/* Médico (Inner High) */}
                         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, y: [0, -10, 0] }} transition={{ duration: 0.5, delay: 0.1, y: { duration: 6, repeat: Infinity, ease: 'easeInOut' } }}
-                            className="absolute top-[25%] left-[18%] w-48 h-60 lg:w-60 lg:h-[18rem] rounded-[1.5rem] lg:rounded-[2.5rem] border-[2px] border-rose-500/30 shadow-[0_0_30px_rgba(244,63,94,0.15)] hover:border-rose-500/60 hover:shadow-[0_0_40px_rgba(244,63,94,0.3)] transition-all duration-500 rotate-3 z-30 pointer-events-auto group overflow-hidden scale-[0.45] sm:scale-75 lg:scale-[0.85] xl:scale-[0.90] origin-top-left"
+                            className="absolute top-[25%] left-[16%] w-48 h-60 lg:w-60 lg:h-[18rem] rounded-[1.5rem] lg:rounded-[2.5rem] border-[2px] border-rose-500/30 shadow-[0_0_30px_rgba(244,63,94,0.15)] hover:border-rose-500/60 hover:shadow-[0_0_40px_rgba(244,63,94,0.3)] transition-all duration-500 rotate-3 z-30 pointer-events-auto group overflow-hidden scale-[0.45] sm:scale-75 lg:scale-[0.90] origin-top-left"
                         >
                             <div className="w-full h-full rounded-[1.3rem] lg:rounded-[2.3rem] overflow-hidden relative" style={{ isolation: 'isolate', transform: 'translateZ(0)' }}>
                                 <img src="/medicos_img.png" alt="Médico" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 rounded-[1.3rem] lg:rounded-[2.3rem]" />
@@ -506,7 +506,7 @@ const App: React.FC = () => {
                         {/* Right Side Collage */}
                         {/* Grúa (Outer Top) */}
                         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, y: [0, 8, 0] }} transition={{ duration: 0.5, delay: 0.15, y: { duration: 5.5, repeat: Infinity, ease: 'easeInOut' } }}
-                            className="absolute top-[8%] right-[1%] w-44 h-56 lg:w-52 lg:h-64 rounded-[1.5rem] lg:rounded-[2rem] border-[2px] border-orange-500/30 shadow-[0_0_30px_rgba(249,115,22,0.15)] hover:border-orange-500/60 hover:shadow-[0_0_40px_rgba(249,115,22,0.3)] transition-all duration-500 rotate-6 z-10 pointer-events-auto group overflow-hidden scale-[0.42] sm:scale-75 lg:scale-[0.85] xl:scale-[0.90] origin-top-right"
+                            className="absolute top-[8%] right-[3%] w-44 h-56 lg:w-52 lg:h-64 rounded-[1.5rem] lg:rounded-[2rem] border-[2px] border-orange-500/30 shadow-[0_0_30px_rgba(249,115,22,0.15)] hover:border-orange-500/60 hover:shadow-[0_0_40px_rgba(249,115,22,0.3)] transition-all duration-500 rotate-6 z-10 pointer-events-auto group overflow-hidden scale-[0.42] sm:scale-75 lg:scale-[0.90] origin-top-right"
                         >
                             <div className="w-full h-full rounded-[1.3rem] lg:rounded-[1.8rem] overflow-hidden relative" style={{ isolation: 'isolate', transform: 'translateZ(0)' }}>
                                 <img src="/grua_camion.png" alt="Grúa" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 rounded-[1.3rem] lg:rounded-[1.8rem]" />
@@ -518,7 +518,7 @@ const App: React.FC = () => {
 
                         {/* Limpieza (Inner High) */}
                         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, y: [0, -10, 0] }} transition={{ duration: 0.5, delay: 0.25, y: { duration: 6, repeat: Infinity, ease: 'easeInOut' } }}
-                            className="absolute top-[25%] right-[18%] w-48 h-60 lg:w-60 lg:h-[18rem] rounded-[1.5rem] lg:rounded-[2.5rem] border-[2px] border-emerald-500/30 shadow-[0_0_30px_rgba(16,185,129,0.15)] hover:border-emerald-500/60 hover:shadow-[0_0_40px_rgba(16,185,129,0.3)] transition-all duration-500 -rotate-3 z-30 pointer-events-auto group overflow-hidden scale-[0.45] sm:scale-75 lg:scale-[0.85] xl:scale-[0.90] origin-top-right"
+                            className="absolute top-[25%] right-[16%] w-48 h-60 lg:w-60 lg:h-[18rem] rounded-[1.5rem] lg:rounded-[2.5rem] border-[2px] border-emerald-500/30 shadow-[0_0_30px_rgba(16,185,129,0.15)] hover:border-emerald-500/60 hover:shadow-[0_0_40px_rgba(16,185,129,0.3)] transition-all duration-500 -rotate-3 z-30 pointer-events-auto group overflow-hidden scale-[0.45] sm:scale-75 lg:scale-[0.90] origin-top-right"
                         >
                             <div className="w-full h-full rounded-[1.3rem] lg:rounded-[2.3rem] overflow-hidden relative" style={{ isolation: 'isolate', transform: 'translateZ(0)' }}>
                                 <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=500&q=80" alt="Limpieza" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 rounded-[1.3rem] lg:rounded-[2.3rem]" />
