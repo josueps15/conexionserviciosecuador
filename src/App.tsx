@@ -8,8 +8,7 @@ import {
     Sparkles, Shirt, Truck,
     Building2, GraduationCap,
     HeartPulse, Crown, WashingMachine,
-    Dumbbell, UtensilsCrossed, Plane, Cpu,
-    Menu, X
+    Dumbbell, UtensilsCrossed, Plane, Cpu
 } from 'lucide-react';
 
 import logoCS from './assets/logo-cs.png';
@@ -293,12 +292,6 @@ const App: React.FC = () => {
     const isDesktop = useMediaQuery('(min-width: 1024px)');
 
     // ─── HANDLERS ────────────────────────────────────────────────────────────
-    const scrollToSection = (id: string) => {
-        const element = document.querySelector(id);
-        if (element) element.scrollIntoView({ behavior: 'smooth' });
-    };
-
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const carouselRef = useRef<HTMLDivElement>(null);
     const [activeIndex, setActiveIndex] = useState(1);
@@ -334,8 +327,6 @@ const App: React.FC = () => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
-
-    const [activeTab, setActiveTab] = useState<'usuarios' | 'negocios'>('usuarios');
 
     if (!isDesktop) {
         return (
@@ -413,68 +404,7 @@ const App: React.FC = () => {
                             </a>
                         </div>
                     </nav>
-
-                    {/* Mobile Menu Toggle */}
-                    <motion.button
-                        initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                        className="lg:hidden relative z-50 p-2 rounded-xl bg-white/5 border border-white/10 text-white"
-                        aria-label="Abrir Menú"
-                    >
-                        {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                    </motion.button>
                 </div>
-
-                {/* Mobile Menu Overlay */}
-                <AnimatePresence>
-                    {isMobileMenuOpen && (
-                        <motion.div
-                            initial={{ opacity: 0, x: '100%' }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: '100%' }}
-                            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                            className="fixed inset-0 z-[100] lg:hidden bg-slate-950 flex flex-col pt-32 px-10"
-                        >
-                            <div className="absolute top-0 right-0 w-full h-full pointer-events-none overflow-hidden opacity-30">
-                                <div className="absolute top-[10%] right-[-20%] w-[300px] h-[300px] bg-primary/40 blur-[100px] rounded-full" />
-                                <div className="absolute bottom-[20%] left-[-10%] w-[250px] h-[250px] bg-secondary/30 blur-[100px] rounded-full" />
-                            </div>
-
-                            <nav className="flex flex-col gap-8 mb-12 relative z-10">
-                                {[['Inicio', '#inicio'], ['Usuarios', '#usuarios'], ['Negocios', '#negocios'], ['Contacto', '#contacto']].map(([label, href]) => (
-                                    <motion.a 
-                                        key={label}
-                                        href={href}
-                                        onClick={() => setIsMobileMenuOpen(false)}
-                                        initial={{ opacity: 0, x: 20 }}
-                                        animate={{ opacity: 1, x: 0 }}
-                                        className="text-4xl font-outfit font-black text-white hover:text-secondary transition-colors tracking-tight"
-                                    >
-                                        {label}
-                                    </motion.a>
-                                ))}
-                            </nav>
-
-                            <div className="flex flex-col gap-10 mt-auto pb-16 relative z-10">
-                                <div className="flex gap-6">
-                                    {[
-                                        { Icon: Instagram, href: SOCIAL_LINKS.instagram, label: 'Instagram' },
-                                        { Icon: Facebook, href: SOCIAL_LINKS.facebook, label: 'Facebook' },
-                                        { Icon: TikTokIcon, href: SOCIAL_LINKS.tiktok, label: 'TikTok' }
-                                    ].map(({ Icon, href, label }) => (
-                                        <a key={label} href={href} target="_blank" rel="noopener noreferrer" 
-                                            className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white transition-all">
-                                            <Icon size={24} />
-                                        </a>
-                                    ))}
-                                </div>
-                                <a href="#descargar" onClick={() => setIsMobileMenuOpen(false)} className="w-full">
-                                    <InteractiveHoverButton text="Descargar App" className="w-full h-16 text-lg bg-primary/20 border-primary/30" />
-                                </a>
-                            </div>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
             </header>
 
             <main>

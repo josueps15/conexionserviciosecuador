@@ -77,7 +77,7 @@ export const MobileHero: React.FC = () => {
                             >
                                 <img src={img.src} alt={img.label} className="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 transition-all duration-500" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent flex items-end p-4">
-                                    <span className="text-[11px] font-black uppercase tracking-widest text-white tracking-widest">
+                                    <span className="text-[11px] font-black uppercase tracking-widest text-white">
                                         {img.label}
                                     </span>
                                 </div>
@@ -92,7 +92,7 @@ export const MobileHero: React.FC = () => {
                         { value: '50+', label: 'Categorías' },
                         { value: '100%', label: 'Verificados' },
                         { value: '24', label: 'Provincias' },
-                    ].map((s, i) => (
+                    ].map((s) => (
                         <div key={s.label} className="text-center space-y-1">
                             <p className="text-2xl font-black font-outfit text-white">{s.value}</p>
                             <p className="text-[9px] font-black uppercase tracking-widest text-slate-500">{s.label}</p>

@@ -1,7 +1,6 @@
 import { 
     Sparkles, Crown, Scissors, Shirt, Building2, Truck, HeartPulse, 
-    GraduationCap, Car, Dumbbell, UtensilsCrossed, Plane, Cpu, 
-    Hammer, Shovel, Trees, Home, WashingMachine, Microscope
+    GraduationCap, Car, Dumbbell, UtensilsCrossed, Plane, Cpu
 } from 'lucide-react';
 
 export const SERVICE_CATEGORIES = [
