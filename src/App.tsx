@@ -193,9 +193,9 @@ const CategoryCard = ({ cat, isFocused, onSelect }: { cat: any, isFocused: boole
             onClick={onSelect}
             initial={false}
             animate={{ 
-                scale: isFocused ? 1.12 : 0.98,
+                scale: isFocused ? 1.08 : 0.96,
                 zIndex: isFocused ? 20 : 1,
-                filter: isFocused ? "brightness(1) contrast(1.1)" : "brightness(0.7) contrast(1)",
+                filter: isFocused ? "brightness(1) contrast(1.05)" : "brightness(0.6) contrast(1)",
             }}
             transition={{ type: "spring", stiffness: 350, damping: 25 }}
             className="min-w-[72vw] md:min-w-[29vw] snap-center flex-shrink-0 py-8"
@@ -275,13 +275,13 @@ const CategoryCard = ({ cat, isFocused, onSelect }: { cat: any, isFocused: boole
                             </div>
 
                             <div className={cn(
-                                "space-y-1.5 mb-5 transition-all duration-700 transform",
+                                "space-y-2 mb-6 transition-all duration-700 transform",
                                 isFocused ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                             )}>
                                 {cat.specialties.slice(0, 3).map((spec: string) => (
-                                    <div key={spec} className="flex items-center gap-3 text-[var(--app-text)] dark:text-slate-200 text-sm font-semibold">
-                                        <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: cat.color }} />
-                                        <span className="truncate">{spec}</span>
+                                    <div key={spec} className="flex items-center gap-3 text-white/90 text-sm font-semibold">
+                                        <div className="w-1.5 h-1.5 rounded-full shadow-[0_0_8px_rgba(255,255,255,0.5)]" style={{ backgroundColor: cat.color }} />
+                                        <span className="truncate drop-shadow-md">{spec}</span>
                                     </div>
                                 ))}
                             </div>
@@ -292,11 +292,15 @@ const CategoryCard = ({ cat, isFocused, onSelect }: { cat: any, isFocused: boole
                                     if (isFocused) e.stopPropagation();
                                 }}
                                 className={cn(
-                                    "mt-2 flex items-center gap-3 transition-all duration-500 font-bold uppercase tracking-widest",
-                                    isFocused ? "text-primary text-[11px]" : "text-white/40 text-[9px]"
+                                    "mt-2 flex items-center gap-3 transition-all duration-500 font-bold uppercase tracking-widest group/link",
+                                    isFocused ? "text-primary text-[12px] opacity-100" : "text-white/40 text-[10px] opacity-50"
                                 )}
                             >
-                                Ver Profesionales <ArrowRight size={isFocused ? 18 : 16} />
+                                <span className="relative">
+                                    Ver Profesionales
+                                    {isFocused && <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary/50" />}
+                                </span>
+                                <ArrowRight size={isFocused ? 20 : 16} className={cn(isFocused && "animate-pulse")} />
                             </a>
                         </div>
                     </>
@@ -448,7 +452,10 @@ const App: React.FC = () => {
                                 <TikTokIcon size={15} />
                             </a>
                             <a href="#descargar">
-                                <InteractiveHoverButton text="Descargar App" className="bg-white/5 border-white/10 text-white hover:text-black text-sm" />
+                                <InteractiveHoverButton 
+                                    text="Descargar App" 
+                                    className="bg-black/5 dark:bg-white/5 border-black/10 dark:border-white/10 text-[var(--app-text)] dark:text-white text-sm font-bold" 
+                                />
                             </a>
                         </div>
                     </nav>
