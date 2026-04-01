@@ -7,17 +7,17 @@ export const MobileBusinessBenefits: React.FC<{ onOpenModal: () => void }> = ({ 
     return (
         <section className="px-6 space-y-12">
             <div className="space-y-4">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400">
                     <CheckCircle2 size={12} />
                     <span className="text-[10px] font-black uppercase tracking-widest leading-none">Para Negocios</span>
                 </div>
-                <h2 className="text-3xl font-black font-outfit uppercase tracking-tight text-white leading-none">
+                <h2 className="text-3xl font-black font-outfit uppercase tracking-tight text-[var(--app-text)] leading-none transition-colors duration-500">
                     ¿Tienes un<br />
                     <span className="text-gradient">Negocio en</span><br />
                     crecimiento?
                 </h2>
-                <p className="text-slate-400 text-sm leading-relaxed">
-                    ¡Publícalo <span className="text-white font-bold uppercase">GRATIS</span> en la APP de Conexión Servicios!
+                <p className="text-[var(--app-text-muted)] text-sm leading-relaxed transition-colors duration-500">
+                    ¡Publícalo <span className="text-[var(--app-text)] dark:text-white font-bold uppercase">GRATIS</span> en la APP de Conexión Servicios!
                 </p>
             </div>
 
@@ -28,13 +28,13 @@ export const MobileBusinessBenefits: React.FC<{ onOpenModal: () => void }> = ({ 
                         initial={{ opacity: 0, x: i % 2 === 0 ? -20 : 20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        className="relative rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl group flex flex-col h-[320px]"
+                        className="relative rounded-[2.5rem] overflow-hidden border border-black/5 dark:border-white/10 shadow-2xl group flex flex-col h-[320px] transition-colors duration-500"
                     >
                         {/* Image Layer */}
                         <img 
                             src={benefit.img} 
                             alt={benefit.tag} 
-                            className="absolute inset-0 w-full h-full object-cover grayscale-[0.2] opacity-60 transition-all group-hover:grayscale-0 group-hover:opacity-100"
+                            className="absolute inset-0 w-full h-full object-cover grayscale-[0.2] opacity-60 dark:opacity-60 transition-all group-hover:grayscale-0 group-hover:opacity-100"
                         />
                         
                         {/* Content Layer Overlay */}
@@ -56,7 +56,7 @@ export const MobileBusinessBenefits: React.FC<{ onOpenModal: () => void }> = ({ 
             <div className="pt-4">
                 <button 
                     onClick={onOpenModal}
-                    className="w-full h-16 bg-emerald-500 text-white font-black rounded-2xl shadow-xl shadow-emerald-500/20 flex items-center justify-center gap-2 active:scale-95 transition-all text-lg uppercase tracking-wider group overflow-hidden relative"
+                    className="w-full h-16 bg-emerald-600 dark:bg-emerald-500 text-white font-black rounded-2xl shadow-xl shadow-emerald-500/20 flex items-center justify-center gap-2 active:scale-95 transition-all text-lg uppercase tracking-wider group overflow-hidden relative"
                 >
                     <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
                     Registra tu Negocio

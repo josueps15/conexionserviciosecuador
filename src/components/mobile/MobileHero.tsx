@@ -34,14 +34,14 @@ export const MobileHero: React.FC = () => {
                     transition={{ delay: 0.1 }}
                     className="text-center space-y-4"
                 >
-                    <h1 className="text-[2.4rem] leading-[1.1] font-black font-outfit uppercase tracking-tight text-white drop-shadow-lg">
+                    <h1 className="text-[2.4rem] leading-[1.1] font-black font-outfit uppercase tracking-tight text-[var(--app-text)] drop-shadow-lg">
                         ¿Buscas un <span className="text-primary italic">Mecánico</span>,<br />
                         un <span className="text-secondary text-gradient">Electricista</span>,<br />
                         una <span className="text-primary text-gradient">Grúa</span> o un <br />
                         <span className="text-secondary text-gradient underline decoration-secondary/30 underline-offset-4">Centro Educativo</span>?
                     </h1>
-                    <p className="text-slate-300 text-base leading-relaxed max-w-[300px] mx-auto font-medium">
-                        En la <strong className="text-white">APP Conexión Servicios</strong> encontrarás los mejores servicios profesionales.
+                    <p className="text-[var(--app-text-muted)] text-base leading-relaxed max-w-[300px] mx-auto font-medium transition-colors duration-500">
+                        En la <strong className="text-[var(--app-text)]">APP Conexión Servicios</strong> encontrarás los mejores servicios profesionales.
                     </p>
                 </motion.div>
 
@@ -55,10 +55,10 @@ export const MobileHero: React.FC = () => {
                     <button className="w-full h-16 bg-blue-600 text-white font-black rounded-2xl shadow-2xl shadow-blue-600/30 flex items-center justify-center gap-3 active:scale-95 transition-all text-lg uppercase tracking-wider group relative overflow-hidden">
                         <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
                         <Download size={22} className="relative z-10" />
-                        <span className="relative z-10 font-outfit">Descargar App</span>
+                        <span className="relative z-10 font-outfit text-white">Descargar App</span>
                     </button>
                     
-                    <button className="w-full h-16 bg-slate-900/50 border-2 border-white/10 text-white font-black rounded-2xl flex items-center justify-center gap-2 active:scale-95 transition-all text-lg uppercase tracking-wider backdrop-blur-md font-outfit">
+                    <button className="w-full h-16 bg-black/5 dark:bg-slate-900/50 border-2 border-black/5 dark:border-white/10 text-[var(--app-text)] font-black rounded-2xl flex items-center justify-center gap-2 active:scale-95 transition-all text-lg uppercase tracking-wider backdrop-blur-md font-outfit transition-colors duration-500">
                         Explorar Servicios
                         <ArrowRight size={20} className="opacity-50" />
                     </button>
@@ -73,7 +73,7 @@ export const MobileHero: React.FC = () => {
                                 initial={{ opacity: 0, scale: 0.9 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ delay: 0.3 + i * 0.1 }}
-                                className="flex-shrink-0 w-[180px] aspect-[4/5] relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl snap-center"
+                                className="flex-shrink-0 w-[180px] aspect-[4/5] relative rounded-3xl overflow-hidden border border-black/5 dark:border-white/10 shadow-2xl snap-center"
                             >
                                 <img src={img.src} alt={img.label} className="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 transition-all duration-500" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent flex items-end p-4">
@@ -87,15 +87,15 @@ export const MobileHero: React.FC = () => {
                 </div>
 
                 {/* Stats Row */}
-                <div className="grid grid-cols-3 gap-2 pt-4 border-t border-white/5 w-full">
+                <div className="grid grid-cols-3 gap-2 pt-4 border-t border-black/5 dark:border-white/5 w-full transition-colors duration-500">
                     {[
                         { value: '50+', label: 'Categorías' },
                         { value: '100%', label: 'Verificados' },
                         { value: '24', label: 'Provincias' },
                     ].map((s) => (
                         <div key={s.label} className="text-center space-y-1">
-                            <p className="text-2xl font-black font-outfit text-white">{s.value}</p>
-                            <p className="text-[9px] font-black uppercase tracking-widest text-slate-500">{s.label}</p>
+                            <p className="text-2xl font-black font-outfit text-[var(--app-text)]">{s.value}</p>
+                            <p className="text-[9px] font-black uppercase tracking-widest text-[var(--app-text-muted)]">{s.label}</p>
                         </div>
                     ))}
                 </div>

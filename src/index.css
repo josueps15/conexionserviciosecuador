@@ -111,7 +111,50 @@ body {
     scrollbar-width: none;
 }
 
-/* Ambient glow background */
+:root {
+  --app-bg: #ffffff;
+  --app-bg-soft: #f8fafc;
+  --app-bg-elevated: rgba(255, 255, 255, 0.8);
+  --app-text: #0f172a;
+  --app-text-muted: #475569;
+  --card-bg: rgba(255, 255, 255, 0.7);
+  --card-border: rgba(0, 0, 0, 0.05);
+  --nav-bg: rgba(255, 255, 255, 0.8);
+  --glow-opacity: 0.1;
+  --grid-opacity: 0.05;
+}
+
+.dark {
+  --app-bg: #030712;
+  --app-bg-soft: #0a0f1c;
+  --app-bg-elevated: rgba(10, 15, 28, 0.6);
+  --app-text: #ffffff;
+  --app-text-muted: #94a3b8;
+  --card-bg: rgba(15, 23, 42, 0.6);
+  --card-border: rgba(255, 255, 255, 0.1);
+  --nav-bg: rgba(3, 7, 18, 0.8);
+  --glow-opacity: 0.3;
+  --grid-opacity: 0.02;
+}
+
+html {
+    overflow-x: hidden;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+body {
+    background-color: var(--app-bg);
+    color: var(--app-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+/* ── Ambient & Background ───────────────────────────────────────────────── */
+
 .ambient-bg {
     position: fixed;
     top: 0;
@@ -119,15 +162,11 @@ body {
     width: 100vw;
     height: 100vh;
     z-index: -2;
-    background: radial-gradient(circle at 15% 50%, rgba(0, 102, 255, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 85% 30%, rgba(0, 229, 255, 0.05) 0%, transparent 50%);
+    background: 
+        radial-gradient(circle at 15% 50%, rgba(0, 102, 255, var(--glow-opacity)) 0%, transparent 50%),
+        radial-gradient(circle at 85% 30%, rgba(0, 229, 255, var(--glow-opacity)) 0%, transparent 50%);
     pointer-events: none;
     transition: background 0.5s ease;
-}
-
-:root.light .ambient-bg {
-    background: radial-gradient(circle at 15% 50%, rgba(0, 102, 255, 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 85% 30%, rgba(0, 229, 255, 0.03) 0%, transparent 50%);
 }
 
 .grid-overlay {
@@ -138,71 +177,13 @@ body {
     height: 100vh;
     z-index: -1;
     background-image:
-        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+        linear-gradient(to right, currentColor 1px, transparent 1px),
+        linear-gradient(to bottom, currentColor 1px, transparent 1px);
     background-size: 60px 60px;
+    opacity: var(--grid-opacity);
     mask-image: linear-gradient(to bottom, black 20%, transparent 80%);
     -webkit-mask-image: linear-gradient(to bottom, black 20%, transparent 80%);
     pointer-events: none;
-    transition: opacity 0.5s ease;
-}
-
-:root.light .grid-overlay {
-    background-image:
-        linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
-}
-
-:root.light {
-    --color-slate-950: #f8fafc;
-    --color-slate-900: #f1f5f9;
-    --color-slate-850: #e2e8f0;
-}
-
-:root.light body {
-    background-color: #f8fafc;
-    color: #0f172a;
-}
-
-:root.light .text-slate-50,
-:root.light .text-white {
-    color: #0f172a !important;
-}
-
-:root.light .text-slate-400 {
-    color: #475569 !important;
-}
-
-:root.light .bg-slate-950 {
-    background-color: #f8fafc !important;
-}
-
-:root.light .bg-slate-900 {
-    background-color: #f1f5f9 !important;
-}
-
-:root.light .border-white\/10,
-:root.light .border-white\/5 {
-    border-color: rgba(0, 0, 0, 0.1) !important;
-}
-
-:root.light .bg-white\/5,
-:root.light .bg-white\/10 {
-    background-color: rgba(0, 0, 0, 0.05) !important;
-}
-
-/* Specific component fixes for light mode */
-:root.light header.bg-slate-950\/80 {
-    background-color: rgba(248, 250, 252, 0.8) !important;
-}
-
-:root.light .text-gradient {
-    background-image: linear-gradient(to bottom right, #0f172a, var(--color-primary));
-}
-
-:root.light footer {
-    background-color: #f1f5f9;
-    border-top-color: rgba(0, 0, 0, 0.05);
 }
 
 /* ── Performance: GPU acceleration for animated elements ─────────────────── */

@@ -18,6 +18,7 @@ import { AnimatedCursor } from './components/ui/AnimatedCursor';
 import { RegistrationModal } from './components/RegistrationModal';
 import { cn } from './lib/utils';
 import { useMediaQuery } from './hooks/useMediaQuery';
+import { ThemeToggle } from './components/ThemeToggle';
 import { MobileView } from './components/mobile/MobileView';
 
 // TikTok SVG Icon (not in lucide-react)
@@ -206,9 +207,9 @@ const CategoryCard = ({ cat, isFocused, onSelect }: { cat: any, isFocused: boole
                         : "0 20px 40px -12px rgba(0,0,0,0.4)"
                 }}
                 className={cn(
-                    "group relative h-[400px] md:h-[420px] rounded-[3rem] overflow-hidden border cursor-pointer bg-slate-900 transition-all duration-700",
-                    cat.isMega && "bg-white/5 border-dashed border-2 border-white/20",
-                    isFocused ? "border-white/30" : "border-white/10"
+                    "group relative h-[400px] md:h-[420px] rounded-[3rem] overflow-hidden border cursor-pointer bg-[var(--card-bg)] transition-all duration-700",
+                    cat.isMega && "bg-white/5 border-dashed border-2 border-white/20 dark:bg-white/5",
+                    isFocused ? "border-primary/50 dark:border-white/30" : "border-[var(--card-border)]"
                 )}
             >
                 {cat.isMega ? (
@@ -270,7 +271,7 @@ const CategoryCard = ({ cat, isFocused, onSelect }: { cat: any, isFocused: boole
                                 >
                                     <cat.icon size={30} style={{ color: cat.color }} />
                                 </motion.div>
-                                <h3 className="text-2xl lg:text-3xl font-black text-white drop-shadow-lg leading-tight">{cat.label}</h3>
+                                <h3 className="text-2xl lg:text-3xl font-black text-white dark:text-white drop-shadow-lg leading-tight">{cat.label}</h3>
                             </div>
 
                             <div className={cn(
@@ -278,7 +279,7 @@ const CategoryCard = ({ cat, isFocused, onSelect }: { cat: any, isFocused: boole
                                 isFocused ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                             )}>
                                 {cat.specialties.slice(0, 3).map((spec: string) => (
-                                    <div key={spec} className="flex items-center gap-3 text-slate-200 text-sm font-semibold">
+                                    <div key={spec} className="flex items-center gap-3 text-[var(--app-text)] dark:text-slate-200 text-sm font-semibold">
                                         <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: cat.color }} />
                                         <span className="truncate">{spec}</span>
                                     </div>
@@ -312,9 +313,26 @@ const App: React.FC = () => {
     const isDesktop = useMediaQuery('(min-width: 1024px)');
 
     // ─── HANDLERS ────────────────────────────────────────────────────────────
-    const [scrolled, setScrolled] = useState(false);
     const carouselRef = useRef<HTMLDivElement>(null);
     const [activeIndex, setActiveIndex] = useState(1);
+    const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+        if (typeof window !== 'undefined') {
+            return (localStorage.getItem('theme') as 'light' | 'dark') || 'light';
+        }
+        return 'light';
+    });
+
+    useEffect(() => {
+        const root = window.document.documentElement;
+        if (theme === 'dark') {
+            root.classList.add('dark');
+        } else {
+            root.classList.remove('dark');
+        }
+        localStorage.setItem('theme', theme);
+    }, [theme]);
+
+    const toggleTheme = () => setTheme(prev => prev === 'light' ? 'dark' : 'light');
 
 
     const scrollToIndex = (i: number) => {
@@ -358,20 +376,14 @@ const App: React.FC = () => {
         }
     };
 
-    useEffect(() => {
-        const handleScroll = () => setScrolled(window.scrollY > 50);
-        window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
 
     if (!isDesktop) {
         return (
             <div className="font-outfit">
                 <MobileView 
                     onOpenModal={() => setIsRegistrationModalOpen(true)} 
+                    theme={theme}
+                    toggleTheme={toggleTheme}
                 />
                 <RegistrationModal
                     isOpen={isRegistrationModalOpen}
@@ -382,7 +394,7 @@ const App: React.FC = () => {
     }
 
     return (
-        <div className="min-h-screen bg-[#0a0f1c] font-outfit text-slate-200 selection:bg-primary/30 selection:text-white relative overflow-x-hidden" style={{ opacity: 1 }}>
+        <div className="relative min-h-screen bg-[var(--app-bg)] font-inter text-[var(--app-text)] selection:bg-primary/30 overflow-x-hidden transition-colors duration-500">
 
             {/* Dynamic Background */}
             <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
@@ -399,13 +411,10 @@ const App: React.FC = () => {
             <AnimatedCursor />
 
             {/* ── Header ── */}
-            <header className={cn(
-                "fixed top-0 w-full z-50 transition-all duration-500",
-                scrolled ? "py-4 bg-slate-950/80 backdrop-blur-xl border-b border-white/10" : "py-6 bg-transparent border-b border-transparent"
-            )}>
+            <header className="fixed top-0 left-0 right-0 z-50 bg-[var(--header-bg)] backdrop-blur-xl border-b border-black/5 dark:border-white/5 transition-colors duration-500">
                 <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
                     <motion.a href="#" initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}
-                        className="flex items-center gap-2 sm:gap-3 font-outfit font-extrabold text-xl sm:text-2xl tracking-tight relative z-50">
+                        className="flex items-center gap-2 sm:gap-3 font-outfit font-extrabold text-xl sm:text-2xl tracking-tight relative z-50 text-[var(--app-text)]">
                         <motion.img
                             src={logoCS}
                             alt="Conexión Servicios"
@@ -563,23 +572,23 @@ const App: React.FC = () => {
                                 </span>
                                 NUEVA PLATAFORMA DIGITAL
                             </div>
-                            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-outfit font-black mb-8 leading-[1.15] tracking-tight text-white">
+                            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-outfit font-black mb-8 leading-[1.15] tracking-tight text-[var(--app-text)]">
                                 ¿Buscas un Mecánico, <br className="hidden sm:block" />
                                 un Electricista, <span className="whitespace-nowrap">una Grúa</span> <br className="hidden sm:block" />
                                 o un <span className="text-gradient pb-1 pr-1">Centro Educativo</span>?
                             </h1>
-                            <p className="text-xl md:text-2xl text-slate-300 mb-12 max-w-2xl leading-relaxed font-medium">
-                                En la <strong className="text-white">APP Conexión Servicios</strong> encontrarás los mejores servicios profesionales.
+                            <p className="text-xl md:text-2xl text-[var(--app-text-muted)] mb-12 max-w-2xl leading-relaxed font-medium">
+                                En la <strong className="text-[var(--app-text)]">APP Conexión Servicios</strong> encontrarás los mejores servicios profesionales.
                             </p>
                             <div className="flex flex-wrap justify-center gap-5">
                                 <a href="#descargar" className="group relative px-8 py-4 rounded-2xl bg-blue-600 font-bold text-white flex items-center justify-center gap-3 hover:bg-blue-700 transition-all shadow-[0_10px_20px_-10px_rgba(37,99,235,0.5)] active:scale-95 overflow-hidden w-full sm:w-auto">
-                                    <span className="relative z-10 font-outfit">Descargar la App</span>
+                                    <span className="relative z-10 font-outfit text-white">Descargar la App</span>
                                     <motion.span animate={{ y: [0, 4, 0] }} transition={{ duration: 1.5, repeat: Infinity }} className="relative z-10">
                                         <Download size={20} className="text-blue-100" />
                                     </motion.span>
                                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                                 </a>
-                                <a href="#usuarios" className="px-8 py-4 rounded-2xl border border-white/5 bg-slate-900/50 font-bold text-slate-300 hover:text-white hover:bg-slate-800 transition-all backdrop-blur-md font-outfit flex items-center justify-center gap-2 w-full sm:w-auto">
+                                <a href="#usuarios" className="px-8 py-4 rounded-2xl border border-black/5 dark:border-white/5 bg-[var(--card-bg)] font-bold text-[var(--app-text-muted)] hover:text-[var(--app-text)] hover:bg-[var(--footer-bg)] transition-all backdrop-blur-md font-outfit flex items-center justify-center gap-2 w-full sm:w-auto">
                                     Explorar Servicios <ArrowRight size={16} />
                                 </a>
                             </div>
@@ -592,8 +601,8 @@ const App: React.FC = () => {
                                     { value: '24', label: 'Provincias Cobertura' },
                                 ].map(s => (
                                     <div key={s.label}>
-                                        <p className="text-3xl md:text-4xl font-outfit font-black text-white">{s.value}</p>
-                                        <p className="text-xs md:text-sm text-slate-500 mt-1">{s.label}</p>
+                                        <p className="text-3xl md:text-4xl font-outfit font-black text-[var(--app-text)]">{s.value}</p>
+                                        <p className="text-xs md:text-sm text-[var(--app-text-muted)] mt-1">{s.label}</p>
                                     </div>
                                 ))}
                             </div>
@@ -703,13 +712,13 @@ const App: React.FC = () => {
                                 viewport={{ once: true }}
                                 transition={{ duration: 1 }}
                             >
-                                <span className="inline-block px-4 py-1.5 rounded-full text-[13px] font-bold tracking-widest uppercase bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 mb-6">
+                                <span className="inline-block px-4 py-1.5 rounded-full text-[13px] font-bold tracking-widest uppercase bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 mb-6">
                                     Para Negocios y Profesionales
                                 </span>
-                                <h2 className="text-4xl md:text-5xl font-outfit font-black mb-6 leading-tight text-white">
+                                <h2 className="text-4xl md:text-5xl font-outfit font-black mb-6 leading-tight text-[var(--app-text)] transition-colors duration-500">
                                     ¿Tienes un <span className="text-gradient">negocio</span> en crecimiento?
                                 </h2>
-                                <p className="text-xl md:text-2xl text-slate-200 font-medium mb-10 leading-relaxed">
+                                <p className="text-xl md:text-2xl text-[var(--app-text-muted)] font-medium mb-10 leading-relaxed transition-colors duration-500">
                                     ¡Publícalo GRATIS en la APP de Conexión Servicios!
                                 </p>
 
@@ -727,10 +736,10 @@ const App: React.FC = () => {
                                             transition={{ delay: 0.2 + i * 0.1 }}
                                             className="flex items-center gap-4 group"
                                         >
-                                            <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white transition-all">
+                                            <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white transition-all">
                                                 <item.icon size={20} />
                                             </div>
-                                            <p className="text-slate-300 font-bold group-hover:text-white transition-colors">{item.text}</p>
+                                            <p className="text-[var(--app-text-muted)] group-hover:text-[var(--app-text)] font-bold transition-colors duration-500">{item.text}</p>
                                         </motion.div>
                                     ))}
                                 </div>
@@ -754,16 +763,16 @@ const App: React.FC = () => {
                                         {/* Box 1: Visibilidad */}
                                         <motion.div 
                                             whileHover={{ scale: 1.02, zIndex: 20 }}
-                                            className="relative h-[220px] md:h-[280px] rounded-[2rem] lg:rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl group cursor-pointer"
+                                            className="relative h-[220px] md:h-[280px] rounded-[2rem] lg:rounded-[2.5rem] overflow-hidden border border-black/5 dark:border-white/10 shadow-2xl group cursor-pointer transition-colors duration-500"
                                         >
                                             <img src="/beneficio_visibilidad.png" alt="Visibilidad" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                                             <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4">
-                                                <div className="backdrop-blur-md bg-[#0a0f1c]/60 border border-white/10 rounded-[1.5rem] p-4 transform translate-y-2 group-hover:translate-y-0 transition-all duration-500 group-hover:bg-[#0a0f1c]/80 shadow-2xl">
+                                                <div className="backdrop-blur-md bg-[var(--app-bg-elevated)] border border-black/5 dark:border-white/10 rounded-[1.5rem] p-4 transform translate-y-2 group-hover:translate-y-0 transition-all duration-500 group-hover:bg-[var(--app-bg)] shadow-2xl">
                                                     <div className="flex items-center gap-2 mb-1">
                                                         <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.8)]"></div>
-                                                        <p className="text-[11px] font-black tracking-widest text-emerald-400 uppercase">Visibilidad</p>
+                                                        <p className="text-[11px] font-black tracking-widest text-emerald-600 dark:text-emerald-400 uppercase transition-colors duration-500">Visibilidad</p>
                                                     </div>
-                                                    <p className="text-sm md:text-base font-bold text-white leading-tight drop-shadow-sm">¡Tu perfil ante miles de clientes!</p>
+                                                    <p className="text-sm md:text-base font-bold text-[var(--app-text)] leading-tight drop-shadow-sm transition-colors duration-500">¡Tu perfil ante miles de clientes!</p>
                                                 </div>
                                             </div>
                                         </motion.div>
@@ -771,16 +780,16 @@ const App: React.FC = () => {
                                         {/* Box 3: Impacto */}
                                         <motion.div 
                                             whileHover={{ scale: 1.02, zIndex: 20 }}
-                                            className="relative h-[280px] md:h-[340px] rounded-[2rem] lg:rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl group cursor-pointer"
+                                            className="relative h-[280px] md:h-[340px] rounded-[2rem] lg:rounded-[2.5rem] overflow-hidden border border-black/5 dark:border-white/10 shadow-2xl group cursor-pointer transition-colors duration-500"
                                         >
                                             <img src="/beneficio_clientes.png" alt="Más Clientes" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                                             <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4">
-                                                <div className="backdrop-blur-md bg-[#0a0f1c]/60 border border-white/10 rounded-[1.5rem] p-4 transform translate-y-2 group-hover:translate-y-0 transition-all duration-500 group-hover:bg-[#0a0f1c]/80 shadow-2xl">
+                                                <div className="backdrop-blur-md bg-[var(--app-bg-elevated)] border border-black/5 dark:border-white/10 rounded-[1.5rem] p-4 transform translate-y-2 group-hover:translate-y-0 transition-all duration-500 group-hover:bg-[var(--app-bg)] shadow-2xl">
                                                     <div className="flex items-center gap-2 mb-1">
                                                         <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.8)]"></div>
-                                                    <p className="text-[11px] font-black tracking-widest text-emerald-400 uppercase">Más Clientes</p>
+                                                    <p className="text-[11px] font-black tracking-widest text-emerald-600 dark:text-emerald-400 uppercase transition-colors duration-500">Más Clientes</p>
                                                     </div>
-                                                    <p className="text-sm md:text-base font-bold text-white leading-tight drop-shadow-sm">Llega a miles de clientes nuevos cada día.</p>
+                                                    <p className="text-sm md:text-base font-bold text-[var(--app-text)] leading-tight drop-shadow-sm transition-colors duration-500">Llega a miles de clientes nuevos cada día.</p>
                                                 </div>
                                             </div>
                                         </motion.div>
@@ -791,16 +800,16 @@ const App: React.FC = () => {
                                         {/* Box 2: Conexión */}
                                         <motion.div 
                                             whileHover={{ scale: 1.02, zIndex: 20 }}
-                                            className="relative h-[280px] md:h-[360px] rounded-[2rem] lg:rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl group cursor-pointer"
+                                            className="relative h-[280px] md:h-[360px] rounded-[2rem] lg:rounded-[2.5rem] overflow-hidden border border-black/5 dark:border-white/10 shadow-2xl group cursor-pointer transition-colors duration-500"
                                         >
                                             <img src="/beneficio_conexion.png" alt="Conexión" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                                             <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4">
-                                                <div className="backdrop-blur-md bg-[#0a0f1c]/60 border border-white/10 rounded-[1.5rem] p-4 transform translate-y-2 group-hover:translate-y-0 transition-all duration-500 group-hover:bg-[#0a0f1c]/80 shadow-2xl">
+                                                <div className="backdrop-blur-md bg-[var(--app-bg-elevated)] border border-black/5 dark:border-white/10 rounded-[1.5rem] p-4 transform translate-y-2 group-hover:translate-y-0 transition-all duration-500 group-hover:bg-[var(--app-bg)] shadow-2xl">
                                                     <div className="flex items-center gap-2 mb-1">
                                                         <div className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse shadow-[0_0_8px_rgba(96,165,250,0.8)]"></div>
-                                                        <p className="text-[11px] font-black tracking-widest text-blue-400 uppercase">Conexión</p>
+                                                        <p className="text-[11px] font-black tracking-widest text-blue-600 dark:text-blue-400 uppercase transition-colors duration-500">Conexión</p>
                                                     </div>
-                                                    <p className="text-sm md:text-base font-bold text-white leading-tight drop-shadow-sm">Trato directo, resultados inmediatos.</p>
+                                                    <p className="text-sm md:text-base font-bold text-[var(--app-text)] leading-tight drop-shadow-sm transition-colors duration-500">Trato directo, resultados inmediatos.</p>
                                                 </div>
                                             </div>
                                         </motion.div>
@@ -808,16 +817,16 @@ const App: React.FC = () => {
                                         {/* Box 4: Crecimiento */}
                                         <motion.div 
                                             whileHover={{ scale: 1.02, zIndex: 20 }}
-                                            className="relative h-[220px] md:h-[260px] rounded-[2rem] lg:rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl group cursor-pointer"
+                                            className="relative h-[220px] md:h-[260px] rounded-[2rem] lg:rounded-[2.5rem] overflow-hidden border border-black/5 dark:border-white/10 shadow-2xl group cursor-pointer transition-colors duration-500"
                                         >
                                             <img src="/beneficio_crecimiento.png" alt="Crecimiento" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                                             <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4">
-                                                <div className="backdrop-blur-md bg-[#0a0f1c]/60 border border-white/10 rounded-[1.5rem] p-4 transform translate-y-2 group-hover:translate-y-0 transition-all duration-500 group-hover:bg-[#0a0f1c]/80 shadow-2xl">
+                                                <div className="backdrop-blur-md bg-[var(--app-bg-elevated)] border border-black/5 dark:border-white/10 rounded-[1.5rem] p-4 transform translate-y-2 group-hover:translate-y-0 transition-all duration-500 group-hover:bg-[var(--app-bg)] shadow-2xl">
                                                     <div className="flex items-center gap-2 mb-1">
                                                         <div className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse shadow-[0_0_8px_rgba(96,165,250,0.8)]"></div>
-                                                        <p className="text-[11px] font-black tracking-widest text-blue-400 uppercase">Crecimiento</p>
+                                                        <p className="text-[11px] font-black tracking-widest text-blue-600 dark:text-blue-400 uppercase transition-colors duration-500">Crecimiento</p>
                                                     </div>
-                                                    <p className="text-sm md:text-base font-bold text-white leading-tight drop-shadow-sm">Escala tu negocio sin límites.</p>
+                                                    <p className="text-sm md:text-base font-bold text-[var(--app-text)] leading-tight drop-shadow-sm transition-colors duration-500">Escala tu negocio sin límites.</p>
                                                 </div>
                                             </div>
                                         </motion.div>
@@ -844,10 +853,10 @@ const App: React.FC = () => {
                             <span className="inline-block px-4 py-1.5 rounded-full text-[11px] md:text-[13px] font-bold tracking-widest uppercase bg-primary/10 border border-primary/20 text-primary mb-1 md:mb-2 shadow-[0_0_15px_rgba(14,165,233,0.3)]">
                                 DESCÁRGALA AHORA
                             </span>
-                            <h2 className="text-5xl md:text-6xl lg:text-7xl font-outfit font-black leading-tight text-white mb-1 md:mb-2">
+                            <h2 className="text-5xl md:text-6xl lg:text-7xl font-outfit font-black leading-tight text-[var(--app-text)] mb-1 md:mb-2 transition-colors duration-500">
                                 Obtén la <span className="text-gradient drop-shadow-sm">Aplicación</span>
                             </h2>
-                            <p className="text-lg md:text-xl text-slate-300 font-medium max-w-2xl mx-auto leading-relaxed">
+                            <p className="text-lg md:text-xl text-[var(--app-text-muted)] font-medium max-w-2xl mx-auto leading-relaxed transition-colors duration-500">
                                 Lleva el directorio de profesionales más completo contigo en todo momento. Disponible gratis para iOS y Android.
                             </p>
                         </div>
@@ -939,34 +948,34 @@ const App: React.FC = () => {
             </main>
 
             {/* ── FOOTER ── */}
-            <footer id="contacto" className="bg-[#01030B] border-t border-white/5 py-10 px-6">
+            <footer id="contacto" className="bg-[var(--app-bg-soft)] border-t border-black/5 dark:border-white/5 py-10 px-6 transition-colors duration-500">
                 <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
                     <div className="col-span-2 md:col-span-1">
-                        <a href="#inicio" className="flex items-center gap-2 font-outfit font-extrabold text-xl tracking-tight mb-4">
+                        <a href="#inicio" className="flex items-center gap-2 font-outfit font-extrabold text-xl tracking-tight mb-4 text-[var(--app-text)] transition-colors duration-500">
                             <img src={logoCS} alt="Conexión Servicios" className="h-8 w-8 object-contain drop-shadow-md" />
                             <span>Conexión <span className="text-secondary">Servicios</span></span>
                         </a>
-                        <p className="text-slate-500 text-sm leading-relaxed mb-5">
+                        <p className="text-[var(--app-text-muted)] text-sm leading-relaxed mb-5 transition-colors duration-500">
                             Redefiniendo los servicios profesionales en Ecuador.
                         </p>
                         <div className="flex gap-3">
                             <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer"
-                                className="w-9 h-9 rounded-full border border-white/5 flex items-center justify-center text-slate-400 hover:bg-gradient-to-br hover:from-pink-500 hover:to-purple-600 hover:text-white hover:border-transparent transition-all" aria-label="Instagram">
+                                className="w-9 h-9 rounded-full border border-black/5 dark:border-white/5 flex items-center justify-center text-[var(--app-text-muted)] hover:bg-gradient-to-br hover:from-pink-500 hover:to-purple-600 hover:text-white hover:border-transparent transition-all" aria-label="Instagram">
                                 <Instagram size={16} />
                             </a>
                             <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer"
-                                className="w-9 h-9 rounded-full border border-white/5 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white hover:border-transparent transition-all" aria-label="Facebook">
+                                className="w-9 h-9 rounded-full border border-black/5 dark:border-white/5 flex items-center justify-center text-[var(--app-text-muted)] hover:bg-blue-600 hover:text-white hover:border-transparent transition-all" aria-label="Facebook">
                                 <Facebook size={16} />
                             </a>
                             <a href={SOCIAL_LINKS.tiktok} target="_blank" rel="noopener noreferrer"
-                                className="w-9 h-9 rounded-full border border-white/5 flex items-center justify-center text-slate-400 hover:bg-slate-700 hover:text-white hover:border-transparent transition-all" aria-label="TikTok">
+                                className="w-9 h-9 rounded-full border border-black/5 dark:border-white/5 flex items-center justify-center text-[var(--app-text-muted)] hover:bg-slate-700 hover:text-white hover:border-transparent transition-all" aria-label="TikTok">
                                 <TikTokIcon size={15} />
                             </a>
                         </div>
                     </div>
                     <div>
-                        <h4 className="font-outfit font-bold text-white mb-4 uppercase tracking-widest text-xs">Explora</h4>
-                        <ul className="space-y-3 text-slate-400 text-sm">
+                        <h4 className="font-outfit font-bold text-[var(--app-text)] mb-4 uppercase tracking-widest text-xs transition-colors duration-500">Explora</h4>
+                        <ul className="space-y-3 text-[var(--app-text-muted)] text-sm transition-colors duration-500">
                             <li><a href="#servicios" className="hover:text-primary transition-colors">Servicios</a></li>
                             <li><a href="#usuarios" className="hover:text-primary transition-colors">Para Usuarios</a></li>
                             <li><a href="#negocios" className="hover:text-primary transition-colors">Para Negocios</a></li>
@@ -974,8 +983,8 @@ const App: React.FC = () => {
                         </ul>
                     </div>
                     <div className="col-span-2 md:col-span-2">
-                        <h4 className="font-outfit font-bold text-white mb-4 uppercase tracking-widest text-xs">Contacto</h4>
-                        <ul className="space-y-3 text-slate-400 text-sm">
+                        <h4 className="font-outfit font-bold text-[var(--app-text)] mb-4 uppercase tracking-widest text-xs transition-colors duration-500">Contacto</h4>
+                        <ul className="space-y-3 text-[var(--app-text-muted)] text-sm transition-colors duration-500">
                             <li className="flex items-center gap-2"><Globe size={14} className="text-slate-600 flex-shrink-0" /> Ecuador</li>
                             <li>
                                 <a href="mailto:conexionserviciosec@gmail.com" className="flex items-center gap-2 hover:text-primary transition-colors">
@@ -1017,12 +1026,17 @@ const App: React.FC = () => {
                     </div>
                 </div>
 
-                <div className="max-w-7xl mx-auto pt-6 mt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-slate-600 text-xs border-t border-white/5">
-                    <p>&copy; 2026 Conexión Servicios. Todos los derechos reservados.</p>
-                    <div className="flex gap-6">
-                        <a href="https://conexionserviciosec.blogspot.com/p/terminos-y-condiciones-de-uso-de-la.html" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Términos</a>
-                        <a href="https://conexionserviciosec.blogspot.com/p/terminos-y-condiciones-de-uso-de-la.html" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Privacidad</a>
-                        <a href="https://conexionserviciosec.blogspot.com/p/terminos-y-condiciones-de-uso-de-la.html" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Cookies</a>
+                <div className="max-w-7xl mx-auto pt-8 mt-8 flex flex-col md:flex-row justify-between items-center gap-8 border-t border-black/5 dark:border-white/5 transition-colors duration-500">
+                    <div className="flex flex-col items-center md:items-start gap-3">
+                        <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+                        <p className="text-[var(--app-text-muted)] text-[10px] uppercase tracking-widest font-bold opacity-60 mt-1">
+                            &copy; 2026 Conexión Servicios. Todos los derechos reservados.
+                        </p>
+                    </div>
+                    <div className="flex gap-8 text-[11px] uppercase tracking-widest font-black text-[var(--app-text-muted)] opacity-70">
+                        <a href="https://conexionserviciosec.blogspot.com/p/terminos-y-condiciones-de-uso-de-la.html" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Términos</a>
+                        <a href="https://conexionserviciosec.blogspot.com/p/terminos-y-condiciones-de-uso-de-la.html" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Privacidad</a>
+                        <a href="https://conexionserviciosec.blogspot.com/p/terminos-y-condiciones-de-uso-de-la.html" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Cookies</a>
                     </div>
                 </div>
             </footer>

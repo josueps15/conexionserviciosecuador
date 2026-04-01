@@ -18,9 +18,11 @@ import { MobileFooter } from './MobileFooter';
 
 interface MobileViewProps {
     onOpenModal: () => void;
+    theme: 'light' | 'dark';
+    toggleTheme: () => void;
 }
 
-export const MobileView: React.FC<MobileViewProps> = ({ onOpenModal }) => {
+export const MobileView: React.FC<MobileViewProps> = ({ onOpenModal, theme, toggleTheme }) => {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
     const heroRef = useRef<HTMLDivElement>(null);
     const categoriesRef = useRef<HTMLDivElement>(null);
@@ -32,22 +34,22 @@ export const MobileView: React.FC<MobileViewProps> = ({ onOpenModal }) => {
     };
 
     return (
-        <div className="min-h-screen bg-[#0a0f1c] text-white flex flex-col relative overflow-x-hidden">
+        <div className="min-h-screen bg-[var(--app-bg)] text-[var(--app-text)] flex flex-col relative overflow-x-hidden transition-colors duration-500">
             {/* Header / Mobile Bar */}
             <header className="fixed top-0 left-0 right-0 z-[100] px-4 py-4">
-                <div className="bg-[#0a0f1c]/80 backdrop-blur-xl border border-white/10 p-3 rounded-2xl flex justify-between items-center shadow-2xl">
+                <div className="bg-[var(--nav-bg)] backdrop-blur-xl border border-black/5 dark:border-white/10 p-3 rounded-2xl flex justify-between items-center shadow-2xl">
                     <div className="flex items-center gap-2">
                         <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center p-1.5 shadow-lg shadow-primary/20">
                             <img src="/logo-cs.png" alt="CS Logo" className="w-full h-full object-contain brightness-110" />
                         </div>
-                        <span className="font-outfit font-black text-lg tracking-tight uppercase text-white">
+                        <span className="font-outfit font-black text-lg tracking-tight uppercase text-[var(--app-text)]">
                             Conexión <span className="text-secondary">Servicios</span>
                         </span>
                     </div>
                     
                     <button 
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
-                        className="p-2 rounded-xl bg-white/5 border border-white/10 text-white active:scale-90 transition-all font-outfit"
+                        className="p-2 rounded-xl bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/10 text-[var(--app-text)] active:scale-90 transition-all font-outfit"
                     >
                         {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
                     </button>
@@ -62,12 +64,12 @@ export const MobileView: React.FC<MobileViewProps> = ({ onOpenModal }) => {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: '100%' }}
                         transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-                        className="fixed inset-0 z-[110] bg-[#0a0f1c] flex flex-col p-8 pt-24"
+                        className="fixed inset-0 z-[110] bg-[var(--app-bg)] flex flex-col p-8 pt-24"
                     >
                         {/* Close Button in Overlay */}
                         <button 
                             onClick={() => setIsMenuOpen(false)}
-                            className="absolute top-7 right-7 p-3 rounded-2xl bg-white/5 border border-white/10 text-white"
+                            className="absolute top-7 right-7 p-3 rounded-2xl bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/10 text-[var(--app-text)]"
                         >
                             <X size={28} />
                         </button>
@@ -81,22 +83,22 @@ export const MobileView: React.FC<MobileViewProps> = ({ onOpenModal }) => {
                                 <button
                                     key={item.label}
                                     onClick={() => scrollToRef(item.ref)}
-                                    className="flex items-center gap-4 p-5 rounded-3xl bg-white/5 border border-white/5 text-left active:bg-primary/20 transition-all"
+                                    className="flex items-center gap-4 p-5 rounded-3xl bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5 text-left active:bg-primary/20 transition-all"
                                 >
                                     <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
                                         <item.icon size={24} />
                                     </div>
-                                    <span className="text-xl font-bold font-outfit uppercase tracking-wider">{item.label}</span>
+                                    <span className="text-xl font-bold font-outfit uppercase tracking-wider text-[var(--app-text)]">{item.label}</span>
                                 </button>
                             ))}
                         </nav>
 
                         <div className="mt-auto space-y-6">
                             <div className="flex gap-4">
-                                <a href="#" className="flex-1 h-16 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-center text-slate-400">
+                                <a href="#" className="flex-1 h-16 rounded-2xl bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5 flex items-center justify-center text-[var(--app-text-muted)]">
                                     <Instagram size={24} />
                                 </a>
-                                <a href="#" className="flex-1 h-16 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-center text-slate-400">
+                                <a href="#" className="flex-1 h-16 rounded-2xl bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5 flex items-center justify-center text-[var(--app-text-muted)]">
                                     <Facebook size={24} />
                                 </a>
                             </div>
@@ -128,7 +130,7 @@ export const MobileView: React.FC<MobileViewProps> = ({ onOpenModal }) => {
                         className="flex items-center justify-between p-6 rounded-3xl bg-[#25D366]/10 border border-[#25D366]/30 group active:scale-95 transition-all"
                     >
                         <div className="space-y-1">
-                            <h3 className="text-lg font-black font-outfit uppercase tracking-tight text-white">¿Necesitas ayuda?</h3>
+                            <h3 className="text-lg font-black font-outfit uppercase tracking-tight text-[var(--app-text)]">¿Necesitas ayuda?</h3>
                             <p className="text-[#25D366] text-xs font-bold uppercase tracking-widest">Escríbenos por WhatsApp</p>
                         </div>
                         <div className="w-12 h-12 rounded-2xl bg-[#25D366] flex items-center justify-center shadow-lg shadow-[#25D366]/20">
@@ -137,11 +139,11 @@ export const MobileView: React.FC<MobileViewProps> = ({ onOpenModal }) => {
                     </a>
                 </section>
 
-                <MobileFooter />
+                <MobileFooter theme={theme} toggleTheme={toggleTheme} />
             </main>
 
             {/* Bottom App-like Navigation Bar */}
-            <nav className="fixed bottom-4 left-4 right-4 h-20 bg-slate-900/80 backdrop-blur-2xl border border-white/5 rounded-[2.5rem] z-[100] px-8 flex items-center justify-between shadow-2xl shadow-primary/10">
+            <nav className="fixed bottom-4 left-4 right-4 h-20 bg-[var(--nav-bg)] backdrop-blur-2xl border border-black/5 dark:border-white/5 rounded-[2.5rem] z-[100] px-8 flex items-center justify-between shadow-2xl shadow-primary/10 transition-colors duration-500">
                 <button 
                     onClick={() => scrollToRef(heroRef)}
                     className="flex flex-col items-center gap-1.5 text-primary active:scale-90 transition-all"
@@ -152,20 +154,20 @@ export const MobileView: React.FC<MobileViewProps> = ({ onOpenModal }) => {
                 </button>
                 <button 
                     onClick={() => scrollToRef(categoriesRef)}
-                    className="flex flex-col items-center gap-1.5 text-slate-500 active:scale-90 transition-all hover:text-primary/70"
+                    className="flex flex-col items-center gap-1.5 text-[var(--app-text-muted)] active:scale-90 transition-all hover:text-primary/70"
                 >
                     <LayoutGrid size={22} strokeWidth={2.5} />
                     <span className="text-[9px] font-black uppercase font-outfit tracking-widest">Servicios</span>
                 </button>
                 <button 
                     onClick={() => scrollToRef(businessRef)}
-                    className="flex flex-col items-center gap-1.5 text-slate-500 active:scale-90 transition-all hover:text-primary/70"
+                    className="flex flex-col items-center gap-1.5 text-[var(--app-text-muted)] active:scale-90 transition-all hover:text-primary/70"
                 >
                     <Building2 size={22} strokeWidth={2.5} />
                     <span className="text-[9px] font-black uppercase font-outfit tracking-widest">Negocios</span>
                 </button>
                 <button 
-                    className="flex flex-col items-center gap-1.5 text-slate-500 active:scale-90 transition-all hover:text-primary/70"
+                    className="flex flex-col items-center gap-1.5 text-[var(--app-text-muted)] active:scale-90 transition-all hover:text-primary/70"
                 >
                     <Users size={22} strokeWidth={2.5} />
                     <span className="text-[9px] font-black uppercase font-outfit tracking-widest">Usuarios</span>
