@@ -4,7 +4,11 @@ import {
     Home,
     LayoutGrid,
     Building2,
-    MessageCircle
+    MessageCircle,
+    Menu,
+    X,
+    Instagram,
+    Facebook
 } from 'lucide-react';
 import { MobileHero } from './MobileHero';
 import { MobileCategories } from './MobileCategories';
@@ -16,29 +20,95 @@ interface MobileViewProps {
 }
 
 export const MobileView: React.FC<MobileViewProps> = ({ onOpenModal }) => {
+    const [isMenuOpen, setIsMenuOpen] = React.useState(false);
     const heroRef = useRef<HTMLDivElement>(null);
     const categoriesRef = useRef<HTMLDivElement>(null);
     const businessRef = useRef<HTMLDivElement>(null);
 
     const scrollToRef = (ref: React.RefObject<HTMLDivElement | null>) => {
+        setIsMenuOpen(false);
         ref.current?.scrollIntoView({ behavior: 'smooth' });
     };
 
     return (
-        <div className="min-h-screen bg-[#0a0f1c] text-white flex flex-col relative">
+        <div className="min-h-screen bg-[#0a0f1c] text-white flex flex-col relative overflow-x-hidden">
             {/* Header / Mobile Bar */}
-            <header className="fixed top-4 left-4 right-4 z-[100]">
-                <div className="bg-slate-900/60 backdrop-blur-xl border border-white/5 p-4 rounded-2xl flex justify-between items-center shadow-2xl shadow-primary/10">
+            <header className="fixed top-0 left-0 right-0 z-[100] px-4 py-4">
+                <div className="bg-[#0a0f1c]/80 backdrop-blur-xl border border-white/10 p-3 rounded-2xl flex justify-between items-center shadow-2xl">
                     <div className="flex items-center gap-2">
                         <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center p-1.5 shadow-lg shadow-primary/20">
                             <img src="/logo-cs.png" alt="CS Logo" className="w-full h-full object-contain brightness-110" />
                         </div>
-                        <span className="font-outfit font-black text-lg tracking-tight uppercase bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-primary bg-[length:200%_auto] animate-gradient-flow drop-shadow-sm">
-                            Conexión
+                        <span className="font-outfit font-black text-lg tracking-tight uppercase text-white">
+                            Conexión <span className="text-secondary">Servicios</span>
                         </span>
                     </div>
+                    
+                    <button 
+                        onClick={() => setIsMenuOpen(!isMenuOpen)}
+                        className="p-2 rounded-xl bg-white/5 border border-white/10 text-white active:scale-90 transition-all font-outfit"
+                    >
+                        {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                    </button>
                 </div>
             </header>
+
+            {/* Full Screen Menu Overlay */}
+            <AnimatePresence>
+                {isMenuOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, x: '100%' }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: '100%' }}
+                        transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+                        className="fixed inset-0 z-[110] bg-[#0a0f1c] flex flex-col p-8 pt-24"
+                    >
+                        {/* Close Button in Overlay */}
+                        <button 
+                            onClick={() => setIsMenuOpen(false)}
+                            className="absolute top-7 right-7 p-3 rounded-2xl bg-white/5 border border-white/10 text-white"
+                        >
+                            <X size={28} />
+                        </button>
+
+                        <nav className="flex flex-col gap-6">
+                            {[
+                                { label: 'Inicio', icon: Home, ref: heroRef },
+                                { label: 'Servicios', icon: LayoutGrid, ref: categoriesRef },
+                                { label: 'Negocios', icon: Building2, ref: businessRef }
+                            ].map((item) => (
+                                <button
+                                    key={item.label}
+                                    onClick={() => scrollToRef(item.ref)}
+                                    className="flex items-center gap-4 p-5 rounded-3xl bg-white/5 border border-white/5 text-left active:bg-primary/20 transition-all"
+                                >
+                                    <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
+                                        <item.icon size={24} />
+                                    </div>
+                                    <span className="text-xl font-bold font-outfit uppercase tracking-wider">{item.label}</span>
+                                </button>
+                            ))}
+                        </nav>
+
+                        <div className="mt-auto space-y-6">
+                            <div className="flex gap-4">
+                                <a href="#" className="flex-1 h-16 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-center text-slate-400">
+                                    <Instagram size={24} />
+                                </a>
+                                <a href="#" className="flex-1 h-16 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-center text-slate-400">
+                                    <Facebook size={24} />
+                                </a>
+                            </div>
+                            <button 
+                                onClick={() => { setIsMenuOpen(false); onOpenModal(); }}
+                                className="w-full h-16 bg-gradient-to-r from-primary to-secondary text-white font-black rounded-2xl uppercase tracking-[0.2em] shadow-xl shadow-primary/20"
+                            >
+                                Registrar Negocio
+                            </button>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
 
             {/* Main Content Scrollable */}
             <main className="flex-1 pt-20 pb-8 space-y-20">
