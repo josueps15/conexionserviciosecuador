@@ -321,21 +321,39 @@ const App: React.FC = () => {
     const scrollToIndex = (i: number) => {
         if (!carouselRef.current) return;
         const container = carouselRef.current;
-        const cardElements = container.getElementsByClassName('snap-center');
-        if (cardElements[i]) {
-            cardElements[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        const cards = Array.from(container.children);
+        const targetCard = cards[i] as HTMLElement;
+        if (targetCard) {
+            targetCard.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+            setActiveIndex(i);
         }
     };
 
-    useMotionValueEvent(scrollX, "change", (latest: number) => {
+    useMotionValueEvent(scrollX, "change", () => {
         if (!carouselRef.current) return;
-        const isMobile = window.innerWidth < 1024;
-        const cardPct = isMobile ? 0.72 : 0.32; // match min-w-[72vw] vs md:min-w-[29vw] (approx 32 with gap)
-        const cardWidth = window.innerWidth * cardPct;
-        const index = Math.round(latest / cardWidth);
-        const centerIndex = Math.max(0, index + (isMobile ? 0 : 1)); 
-        if (centerIndex !== activeIndex) {
-            setActiveIndex(centerIndex);
+        const container = carouselRef.current;
+        const cards = Array.from(container.children);
+        
+        // El centro visual del contenedor relativo a su contenido scrollable
+        const containerCenter = container.scrollLeft + container.offsetWidth / 2;
+        
+        let closestIndex = activeIndex;
+        let minDistance = Infinity;
+        
+        cards.forEach((card, i) => {
+            const cardElement = card as HTMLElement;
+            // El centro de la tarjeta relativo al inicio del contenedor scrollable
+            const cardCenter = cardElement.offsetLeft + cardElement.offsetWidth / 2;
+            const distance = Math.abs(containerCenter - cardCenter);
+            
+            if (distance < minDistance) {
+                minDistance = distance;
+                closestIndex = i;
+            }
+        });
+        
+        if (closestIndex !== activeIndex) {
+            setActiveIndex(closestIndex);
         }
     });
 
