@@ -415,7 +415,7 @@ const App: React.FC = () => {
                         {/* Left Side Collage */}
                         {/* Plomero (Outer Top) */}
                         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, y: [0, 8, 0] }} transition={{ duration: 0.5, y: { duration: 5.5, repeat: Infinity, ease: 'easeInOut' } }}
-                            className="absolute top-[8%] left-[3%] w-44 h-56 lg:w-52 lg:h-64 rounded-[1.5rem] lg:rounded-[2rem] border-[2px] border-sky-500/30 shadow-[0_0_30px_rgba(14,165,233,0.15)] hover:border-sky-500/60 hover:shadow-[0_0_40px_rgba(14,165,233,0.3)] transition-all duration-500 -rotate-6 z-10 pointer-events-auto group overflow-hidden scale-[0.42] sm:scale-75 lg:scale-[0.90] origin-top-left"
+                            className="absolute top-[12%] left-[3%] w-44 h-56 lg:w-52 lg:h-64 rounded-[1.5rem] lg:rounded-[2rem] border-[2px] border-sky-500/30 shadow-[0_0_30px_rgba(14,165,233,0.15)] hover:border-sky-500/60 hover:shadow-[0_0_40px_rgba(14,165,233,0.3)] transition-all duration-500 -rotate-6 z-10 pointer-events-auto group overflow-hidden scale-[0.42] sm:scale-75 lg:scale-[0.90] origin-top-left"
                         >
                             <div className="w-full h-full rounded-[1.3rem] lg:rounded-[1.8rem] overflow-hidden relative" style={{ isolation: 'isolate', transform: 'translateZ(0)' }}>
                                 <img src="/plomeria_img.png" alt="Plomero" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 rounded-[1.3rem] lg:rounded-[1.8rem]" />
@@ -464,7 +464,7 @@ const App: React.FC = () => {
                         {/* Right Side Collage */}
                         {/* Grúa (Outer Top) */}
                         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, y: [0, 8, 0] }} transition={{ duration: 0.5, delay: 0.15, y: { duration: 5.5, repeat: Infinity, ease: 'easeInOut' } }}
-                            className="absolute top-[8%] right-[3%] w-44 h-56 lg:w-52 lg:h-64 rounded-[1.5rem] lg:rounded-[2rem] border-[2px] border-orange-500/30 shadow-[0_0_30px_rgba(249,115,22,0.15)] hover:border-orange-500/60 hover:shadow-[0_0_40px_rgba(249,115,22,0.3)] transition-all duration-500 rotate-6 z-10 pointer-events-auto group overflow-hidden scale-[0.42] sm:scale-75 lg:scale-[0.90] origin-top-right"
+                            className="absolute top-[12%] right-[3%] w-44 h-56 lg:w-52 lg:h-64 rounded-[1.5rem] lg:rounded-[2rem] border-[2px] border-orange-500/30 shadow-[0_0_30px_rgba(249,115,22,0.15)] hover:border-orange-500/60 hover:shadow-[0_0_40px_rgba(249,115,22,0.3)] transition-all duration-500 rotate-6 z-10 pointer-events-auto group overflow-hidden scale-[0.42] sm:scale-75 lg:scale-[0.90] origin-top-right"
                         >
                             <div className="w-full h-full rounded-[1.3rem] lg:rounded-[1.8rem] overflow-hidden relative" style={{ isolation: 'isolate', transform: 'translateZ(0)' }}>
                                 <img src="/grua_camion.png" alt="Grúa" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 rounded-[1.3rem] lg:rounded-[1.8rem]" />
@@ -522,7 +522,7 @@ const App: React.FC = () => {
                                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
                                     <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
                                 </span>
-                                PLATAFORMA LISTA PARA LANZAMIENTO
+                                NUEVA PLATAFORMA DIGITAL
                             </div>
                             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-outfit font-black mb-8 leading-[1.15] tracking-tight text-white">
                                 ¿Buscas un Mecánico, <br className="hidden sm:block" />
