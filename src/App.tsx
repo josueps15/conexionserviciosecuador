@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
     ShieldCheck, 
     Users, Globe, Mail,
@@ -316,7 +316,6 @@ const App: React.FC = () => {
     const carouselRef = useRef<HTMLDivElement>(null);
     const [activeIndex, setActiveIndex] = useState(1);
 
-    const { scrollX } = useScroll({ container: carouselRef });
 
     const scrollToIndex = (i: number) => {
         if (!carouselRef.current) return;
@@ -329,22 +328,24 @@ const App: React.FC = () => {
         }
     };
 
-    useMotionValueEvent(scrollX, "change", () => {
+    const handleCarouselScroll = () => {
         if (!carouselRef.current) return;
         const container = carouselRef.current;
         const cards = Array.from(container.children);
-        
-        // El centro visual del contenedor relativo a su contenido scrollable
-        const containerCenter = container.scrollLeft + container.offsetWidth / 2;
+        // El centro del viewport del contenedor
+        const viewportCenter = container.offsetWidth / 2;
+        // La posición del scroll actual
+        const scrollLeft = container.scrollLeft;
         
         let closestIndex = activeIndex;
         let minDistance = Infinity;
         
         cards.forEach((card, i) => {
             const cardElement = card as HTMLElement;
-            // El centro de la tarjeta relativo al inicio del contenedor scrollable
+            // Centro de la tarjeta relativo al inicio del contenedor
             const cardCenter = cardElement.offsetLeft + cardElement.offsetWidth / 2;
-            const distance = Math.abs(containerCenter - cardCenter);
+            // Distancia al centro actual del viewport
+            const distance = Math.abs((scrollLeft + viewportCenter) - cardCenter);
             
             if (distance < minDistance) {
                 minDistance = distance;
@@ -355,7 +356,7 @@ const App: React.FC = () => {
         if (closestIndex !== activeIndex) {
             setActiveIndex(closestIndex);
         }
-    });
+    };
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -636,20 +637,22 @@ const App: React.FC = () => {
                         {/* Navigation Buttons */}
                         <div className="hidden lg:block">
                             <button 
-                                onClick={() => {
-                                    const el = document.getElementById('category-scroll-v3');
-                                    if (el) el.scrollBy({ left: -window.innerWidth * 0.32, behavior: 'smooth' });
-                                }}
-                                className="absolute left-6 top-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-slate-900/40 border border-white/5 flex items-center justify-center text-white z-20 opacity-0 group-hover/carousel:opacity-100 transition-all hover:bg-primary/20 backdrop-blur-md"
+                                onClick={() => scrollToIndex(Math.max(0, activeIndex - 1))}
+                                className={cn(
+                                    "absolute left-6 top-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-slate-950/60 border border-white/10 flex items-center justify-center text-white z-40 transition-all hover:bg-primary/30 backdrop-blur-md shadow-2xl",
+                                    activeIndex === 0 ? "opacity-0 pointer-events-none" : "opacity-100"
+                                )}
+                                aria-label="Anterior"
                             >
                                 <ArrowRight size={30} className="rotate-180" />
                             </button>
                             <button 
-                                onClick={() => {
-                                    const el = document.getElementById('category-scroll-v3');
-                                    if (el) el.scrollBy({ left: window.innerWidth * 0.32, behavior: 'smooth' });
-                                }}
-                                className="absolute right-6 top-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-slate-900/40 border border-white/5 flex items-center justify-center text-white z-20 opacity-0 group-hover/carousel:opacity-100 transition-all hover:bg-primary/20 backdrop-blur-md"
+                                onClick={() => scrollToIndex(Math.min(SERVICE_CATEGORIES.length, activeIndex + 1))}
+                                className={cn(
+                                    "absolute right-6 top-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-slate-950/60 border border-white/10 flex items-center justify-center text-white z-40 transition-all hover:bg-primary/30 backdrop-blur-md shadow-2xl",
+                                    activeIndex === SERVICE_CATEGORIES.length ? "opacity-0 pointer-events-none" : "opacity-100"
+                                )}
+                                aria-label="Siguiente"
                             >
                                 <ArrowRight size={30} />
                             </button>
@@ -658,7 +661,8 @@ const App: React.FC = () => {
                         <div 
                             id="category-scroll-v3"
                             ref={carouselRef}
-                            className="flex gap-6 md:gap-10 overflow-x-auto overflow-y-visible pb-16 pt-4 px-[4vw] md:px-[5vw] scrollbar-none snap-x snap-mandatory scroll-smooth items-center h-[580px]"
+                            onScroll={handleCarouselScroll}
+                            className="flex gap-6 md:gap-10 overflow-x-auto overflow-y-visible pb-16 pt-4 px-[10vw] md:px-[36vw] scrollbar-none snap-x snap-mandatory scroll-smooth items-center h-[580px] relative"
                             style={{ 
                                 scrollbarWidth: 'none', 
                                 msOverflowStyle: 'none',
