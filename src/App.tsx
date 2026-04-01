@@ -18,6 +18,8 @@ import { InteractiveGridPattern } from './components/ui/InteractiveGridPattern';
 import { AnimatedCursor } from './components/ui/AnimatedCursor';
 import { RegistrationModal } from './components/RegistrationModal';
 import { cn } from './lib/utils';
+import { useMediaQuery } from './hooks/useMediaQuery';
+import { MobileView } from './components/mobile/MobileView';
 
 // TikTok SVG Icon (not in lucide-react)
 const TikTokIcon = ({ size = 20 }: { size?: number }) => (
@@ -286,6 +288,16 @@ const CategoryCard = ({ cat, isFocused, onSelect }: { cat: any, isFocused: boole
 
 const App: React.FC = () => {
     const [isRegistrationModalOpen, setIsRegistrationModalOpen] = useState(false);
+    
+    // Mobile Detection
+    const isDesktop = useMediaQuery('(min-width: 1024px)');
+
+    // ─── HANDLERS ────────────────────────────────────────────────────────────
+    const scrollToSection = (id: string) => {
+        const element = document.querySelector(id);
+        if (element) element.scrollIntoView({ behavior: 'smooth' });
+    };
+
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const carouselRef = useRef<HTMLDivElement>(null);
@@ -323,8 +335,24 @@ const App: React.FC = () => {
         };
     }, []);
 
+    const [activeTab, setActiveTab] = useState<'usuarios' | 'negocios'>('usuarios');
+
+    if (!isDesktop) {
+        return (
+            <div className="font-outfit">
+                <MobileView 
+                    onOpenModal={() => setIsRegistrationModalOpen(true)} 
+                />
+                <RegistrationModal
+                    isOpen={isRegistrationModalOpen}
+                    onClose={() => setIsRegistrationModalOpen(false)}
+                />
+            </div>
+        );
+    }
+
     return (
-        <div id="root-app" className="relative min-h-screen bg-slate-950 text-slate-50 selection:bg-primary selection:text-white overflow-x-hidden" style={{ opacity: 1 }}>
+        <div className="min-h-screen bg-[#0a0f1c] font-outfit text-slate-200 selection:bg-primary/30 selection:text-white relative overflow-x-hidden" style={{ opacity: 1 }}>
 
             {/* Dynamic Background */}
             <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
