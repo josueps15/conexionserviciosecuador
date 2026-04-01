@@ -352,32 +352,31 @@ const App: React.FC = () => {
 
     const handleCarouselScroll = () => {
         if (!carouselRef.current) return;
-        const container = carouselRef.current;
-        const cards = Array.from(container.children);
-        // El centro del viewport del contenedor
-        const viewportCenter = container.offsetWidth / 2;
-        // La posición del scroll actual
-        const scrollLeft = container.scrollLeft;
-        
-        let closestIndex = activeIndex;
-        let minDistance = Infinity;
-        
-        cards.forEach((card, i) => {
-            const cardElement = card as HTMLElement;
-            // Centro de la tarjeta relativo al inicio del contenedor
-            const cardCenter = cardElement.offsetLeft + cardElement.offsetWidth / 2;
-            // Distancia al centro actual del viewport
-            const distance = Math.abs((scrollLeft + viewportCenter) - cardCenter);
+        requestAnimationFrame(() => {
+            const container = carouselRef.current;
+            if (!container) return;
+            const cards = Array.from(container.children);
+            const containerRect = container.getBoundingClientRect();
+            const containerCenter = containerRect.left + containerRect.width / 2;
             
-            if (distance < minDistance) {
-                minDistance = distance;
-                closestIndex = i;
+            let closestIndex = activeIndex;
+            let minDistance = Infinity;
+            
+            cards.forEach((card, i) => {
+                const cardRect = card.getBoundingClientRect();
+                const cardCenter = cardRect.left + cardRect.width / 2;
+                const distance = Math.abs(containerCenter - cardCenter);
+                
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    closestIndex = i;
+                }
+            });
+            
+            if (closestIndex !== activeIndex) {
+                setActiveIndex(closestIndex);
             }
         });
-        
-        if (closestIndex !== activeIndex) {
-            setActiveIndex(closestIndex);
-        }
     };
 
 
@@ -440,21 +439,21 @@ const App: React.FC = () => {
                         ))}
                         <div className="flex items-center gap-2">
                             <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer"
-                                className="w-9 h-9 rounded-xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5 flex items-center justify-center text-[var(--app-text-muted)] hover:text-pink-500 hover:border-pink-500/30 transition-all font-bold" aria-label="Instagram">
+                                className="w-9 h-9 rounded-xl border border-black/15 dark:border-white/10 bg-black/10 dark:bg-white/5 flex items-center justify-center text-[var(--app-text-muted)] hover:text-pink-500 hover:border-pink-500/30 transition-all font-bold" aria-label="Instagram">
                                 <Instagram size={16} />
                             </a>
                             <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer"
-                                className="w-9 h-9 rounded-xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5 flex items-center justify-center text-[var(--app-text-muted)] hover:text-blue-500 hover:border-blue-500/30 transition-all font-bold" aria-label="Facebook">
+                                className="w-9 h-9 rounded-xl border border-black/15 dark:border-white/10 bg-black/10 dark:bg-white/5 flex items-center justify-center text-[var(--app-text-muted)] hover:text-blue-500 hover:border-blue-500/30 transition-all font-bold" aria-label="Facebook">
                                 <Facebook size={16} />
                             </a>
                             <a href={SOCIAL_LINKS.tiktok} target="_blank" rel="noopener noreferrer"
-                                className="w-9 h-9 rounded-xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5 flex items-center justify-center text-[var(--app-text-muted)] hover:text-[var(--app-text)] hover:border-black/30 dark:hover:border-white/30 transition-all font-bold" aria-label="TikTok">
+                                className="w-9 h-9 rounded-xl border border-black/15 dark:border-white/10 bg-black/10 dark:bg-white/5 flex items-center justify-center text-[var(--app-text-muted)] hover:text-[var(--app-text)] hover:border-black/30 dark:hover:border-white/30 transition-all font-bold" aria-label="TikTok">
                                 <TikTokIcon size={15} />
                             </a>
                             <a href="#descargar">
                                 <InteractiveHoverButton 
                                     text="Descargar App" 
-                                    className="bg-black/5 dark:bg-white/5 border-black/10 dark:border-white/10 text-[var(--app-text)] dark:text-white text-sm font-bold" 
+                                    className="bg-black/10 dark:bg-white/5 border-black/20 dark:border-white/10 text-[var(--app-text)] dark:text-white text-sm font-bold shadow-sm" 
                                 />
                             </a>
                         </div>

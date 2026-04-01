@@ -95,11 +95,13 @@ export const MobileView: React.FC<MobileViewProps> = ({ onOpenModal, theme, togg
 
                         <div className="mt-auto space-y-6">
                             <div className="flex gap-4">
-                                <a href="#" className="flex-1 h-16 rounded-2xl bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5 flex items-center justify-center text-[var(--app-text-muted)]">
-                                    <Instagram size={24} />
+                                <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" 
+                                   className="flex-1 h-16 rounded-2xl bg-black/10 dark:bg-white/5 border border-black/15 dark:border-white/10 flex items-center justify-center text-[var(--app-text-muted)] active:scale-95 transition-all">
+                                    <Instagram size={28} />
                                 </a>
-                                <a href="#" className="flex-1 h-16 rounded-2xl bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5 flex items-center justify-center text-[var(--app-text-muted)]">
-                                    <Facebook size={24} />
+                                <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer"
+                                   className="flex-1 h-16 rounded-2xl bg-black/10 dark:bg-white/5 border border-black/15 dark:border-white/10 flex items-center justify-center text-[var(--app-text-muted)] active:scale-95 transition-all">
+                                    <Facebook size={28} />
                                 </a>
                             </div>
                             <button 
