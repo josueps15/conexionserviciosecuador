@@ -22,6 +22,12 @@ interface MobileViewProps {
     toggleTheme: () => void;
 }
 
+const SOCIAL_LINKS = {
+    facebook: 'https://www.facebook.com/share/17dGTfCQBY/',
+    instagram: 'https://www.instagram.com/conexionservicios_ecuador?igsh=ODdlZGhtaGNmcHc4',
+    tiktok: 'https://www.tiktok.com/@conexinservicios1',
+};
+
 export const MobileView: React.FC<MobileViewProps> = ({ onOpenModal, theme, toggleTheme }) => {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
     const heroRef = useRef<HTMLDivElement>(null);

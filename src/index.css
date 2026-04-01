@@ -121,6 +121,8 @@ body {
   --card-border: rgba(0, 0, 0, 0.05);
   --nav-bg: rgba(255, 255, 255, 0.8);
   --header-bg: rgba(255, 255, 255, 0.8);
+  --footer-bg: #f8fafc;
+  --footer-text: #0f172a;
   --glow-opacity: 0.1;
   --grid-opacity: 0.05;
 }
@@ -135,6 +137,8 @@ body {
   --card-border: rgba(255, 255, 255, 0.1);
   --nav-bg: rgba(3, 7, 18, 0.8);
   --header-bg: rgba(3, 7, 18, 0.8);
+  --footer-bg: #0a0f1c;
+  --footer-text: #ffffff;
   --glow-opacity: 0.3;
   --grid-opacity: 0.02;
 }

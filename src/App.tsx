@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     ShieldCheck, 
-    Users, Globe, Mail,
+    Users, Globe, Mail, MessageCircle,
     Instagram, Facebook, Download, ArrowRight,
     Car, Home, Scissors,
     Sparkles, Shirt, Truck,
@@ -954,95 +954,112 @@ const App: React.FC = () => {
             </main>
 
             {/* ── FOOTER ── */}
-            <footer id="contacto" className="bg-[var(--app-bg-soft)] border-t border-black/5 dark:border-white/5 py-10 px-6 transition-colors duration-500">
-                <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
-                    <div className="col-span-2 md:col-span-1">
-                        <a href="#inicio" className="flex items-center gap-2 font-outfit font-extrabold text-xl tracking-tight mb-4 text-[var(--app-text)] transition-colors duration-500">
-                            <img src={logoCS} alt="Conexión Servicios" className="h-8 w-8 object-contain drop-shadow-md" />
-                            <span>Conexión <span className="text-secondary">Servicios</span></span>
-                        </a>
-                        <p className="text-[var(--app-text-muted)] text-sm leading-relaxed mb-5 transition-colors duration-500">
-                            Redefiniendo los servicios profesionales en Ecuador.
-                        </p>
-                        <div className="flex gap-3">
-                            <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer"
-                                className="w-9 h-9 rounded-full border border-black/5 dark:border-white/5 flex items-center justify-center text-[var(--app-text-muted)] hover:bg-gradient-to-br hover:from-pink-500 hover:to-purple-600 hover:text-white hover:border-transparent transition-all" aria-label="Instagram">
-                                <Instagram size={16} />
-                            </a>
-                            <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer"
-                                className="w-9 h-9 rounded-full border border-black/5 dark:border-white/5 flex items-center justify-center text-[var(--app-text-muted)] hover:bg-blue-600 hover:text-white hover:border-transparent transition-all" aria-label="Facebook">
-                                <Facebook size={16} />
-                            </a>
-                            <a href={SOCIAL_LINKS.tiktok} target="_blank" rel="noopener noreferrer"
-                                className="w-9 h-9 rounded-full border border-black/5 dark:border-white/5 flex items-center justify-center text-[var(--app-text-muted)] hover:bg-slate-700 hover:text-white hover:border-transparent transition-all" aria-label="TikTok">
-                                <TikTokIcon size={15} />
-                            </a>
-                        </div>
-                    </div>
-                    <div>
-                        <h4 className="font-outfit font-bold text-[var(--app-text)] mb-4 uppercase tracking-widest text-xs transition-colors duration-500">Explora</h4>
-                        <ul className="space-y-3 text-[var(--app-text-muted)] text-sm transition-colors duration-500">
-                            <li><a href="#servicios" className="hover:text-primary transition-colors">Servicios</a></li>
-                            <li><a href="#usuarios" className="hover:text-primary transition-colors">Para Usuarios</a></li>
-                            <li><a href="#negocios" className="hover:text-primary transition-colors">Para Negocios</a></li>
-                            <li><a href="#inicio" className="hover:text-primary transition-colors">Inicio</a></li>
-                        </ul>
-                    </div>
-                    <div className="col-span-2 md:col-span-2">
-                        <h4 className="font-outfit font-bold text-[var(--app-text)] mb-4 uppercase tracking-widest text-xs transition-colors duration-500">Contacto</h4>
-                        <ul className="space-y-3 text-[var(--app-text-muted)] text-sm transition-colors duration-500">
-                            <li className="flex items-center gap-2"><Globe size={14} className="text-slate-600 flex-shrink-0" /> Ecuador</li>
-                            <li>
-                                <a href="mailto:conexionserviciosec@gmail.com" className="flex items-center gap-2 hover:text-primary transition-colors">
-                                    <Mail size={14} className="text-slate-600 flex-shrink-0" /> conexionserviciosec@gmail.com
+            <footer id="contacto" className="bg-[var(--footer-bg)] border-t border-black/5 dark:border-white/10 pt-16 pb-12 transition-colors duration-500 text-[var(--footer-text)]">
+                <div className="max-w-7xl mx-auto px-6">
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                        <div className="col-span-1 md:col-span-1 space-y-6">
+                            <div className="flex items-center gap-3 font-outfit font-black text-2xl tracking-tighter text-[var(--app-text)]">
+                                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary p-2 shadow-lg shadow-primary/20 flex items-center justify-center">
+                                    <img src={logoCS} alt="CS Logo" className="w-full h-full object-contain brightness-110" />
+                                </div>
+                                <span>Conexión <span className="text-secondary">Servicios</span></span>
+                            </div>
+                            <p className="text-[var(--app-text-muted)] text-sm leading-relaxed max-w-xs font-medium">
+                                La plataforma líder en Ecuador para encontrar servicios profesionales verificados y de alta calidad. Conectamos expertos con soluciones reales.
+                            </p>
+                            <div className="flex items-center gap-4 pt-2">
+                                <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" 
+                                   className="w-10 h-10 rounded-xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 flex items-center justify-center text-[var(--app-text-muted)] hover:text-pink-500 hover:border-pink-500/30 transition-all active:scale-90" aria-label="Instagram">
+                                    <Instagram size={20} />
                                 </a>
-                            </li>
-                            <li>
-                                <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer"
-                                    className="flex items-center gap-2 hover:text-pink-400 transition-colors">
-                                    <Instagram size={14} className="text-slate-600 flex-shrink-0" /> @conexionservicios_ecuador
-                                </a>
-                            </li>
-                            <li>
                                 <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer"
-                                    className="flex items-center gap-2 hover:text-blue-400 transition-colors">
-                                    <Facebook size={14} className="text-slate-600 flex-shrink-0" /> Conexión Servicios Ecuador
+                                   className="w-10 h-10 rounded-xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 flex items-center justify-center text-[var(--app-text-muted)] hover:text-blue-500 hover:border-blue-500/30 transition-all active:scale-90" aria-label="Facebook">
+                                    <Facebook size={20} />
                                 </a>
-                            </li>
-                        </ul>
-                        {/* Mobile & Desktop WhatsApp Button inside the grid */}
-                        <div className="mt-8 flex justify-start">
-                            <a
-                                href="https://wa.me/593979783184?text=Hola,%20me%20gustaría%20recibir%20más%20información%20sobre%20Conexión%20Servicios."
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="group flex items-center justify-center gap-2.5 px-6 py-3 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-xl shadow-lg shadow-[#25D366]/20 transition-all hover:scale-105 active:scale-95 w-full sm:w-auto overflow-hidden relative"
-                            >
-                                <div className="absolute inset-0 bg-white/20 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out z-0" />
-                                <svg
-                                    viewBox="0 0 24 24"
-                                    fill="white"
-                                    className="w-5 h-5 relative z-10 drop-shadow-sm"
-                                >
-                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
-                                </svg>
-                                <span className="relative z-10 drop-shadow-sm tracking-wide text-sm whitespace-nowrap">Contáctanos por WhatsApp</span>
-                            </a>
+                                <a href={SOCIAL_LINKS.tiktok} target="_blank" rel="noopener noreferrer"
+                                   className="w-10 h-10 rounded-xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 flex items-center justify-center text-[var(--app-text-muted)] hover:text-[var(--app-text)] hover:border-black/30 dark:hover:border-white/30 transition-all active:scale-90" aria-label="TikTok">
+                                    <TikTokIcon size={18} />
+                                </a>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 className="font-outfit font-bold text-lg mb-6 uppercase tracking-widest text-[var(--app-text)]">Plataforma</h4>
+                            <ul className="space-y-4 text-[var(--app-text-muted)] text-sm font-semibold">
+                                <li><a href="#inicio" className="hover:text-primary transition-all">Inicio</a></li>
+                                <li><a href="#usuarios" className="hover:text-primary transition-all">Para Usuarios</a></li>
+                                <li><a href="#negocios" className="hover:text-primary transition-all">Para Negocios</a></li>
+                                <li><a href="#descargar" className="hover:text-primary transition-all">Descargar App</a></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 className="font-outfit font-bold text-lg mb-6 uppercase tracking-widest text-[var(--app-text)]">Contacto</h4>
+                            <ul className="space-y-4 text-[var(--app-text-muted)] text-sm font-semibold">
+                                <li className="flex items-center gap-3">
+                                    <Globe size={18} className="text-secondary" />
+                                    <span>Ecuador</span>
+                                </li>
+                                <li className="flex items-center gap-3">
+                                    <Mail size={18} className="text-secondary" />
+                                    <a href="mailto:conexionserviciosec@gmail.com" className="hover:text-primary transition-all truncate">conexionserviciosec@gmail.com</a>
+                                </li>
+                                <li className="pt-2">
+                                    <a
+                                        href="https://wa.me/593979783184?text=Hola,%20me%20gustaría%20recibir%20más%20información%20sobre%20Conexión%20Servicios."
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#25D366] text-white rounded-xl shadow-lg shadow-[#25D366]/20 font-bold hover:bg-[#20bd5a] transition-all hover:scale-105 active:scale-95"
+                                    >
+                                        <MessageCircle size={18} fill="white" stroke="none" />
+                                        WhatsApp
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 className="font-outfit font-bold text-lg mb-6 uppercase tracking-widest text-[var(--app-text)]">Descargar App</h4>
+                            <div className="space-y-4">
+                                <a href="#" className="flex items-center gap-3 px-5 py-3 rounded-2xl bg-black dark:bg-white/5 border border-white/10 hover:bg-zinc-900 transition-all group w-full lg:w-fit">
+                                    <div className="w-8 h-8 flex items-center justify-center">
+                                        <svg viewBox="0 0 24 24" className="w-full h-full fill-white" xmlns="http://www.w3.org/2000/svg"><path d="M17.523 15.3414c-.0661.1641-.1652.3218-.2898.4616-.5409.6053-1.071 1.2582-1.8491 1.7482-.6015.38-1.5714.8872-2.585.8872-1.1274 0-1.521-.7367-2.7303-.7367-1.229 0-1.6373.7142-2.7147.7142-.99 0-2.0396-.5492-2.723-.9845-1.4244-.9066-2.5936-2.7247-2.5936-4.524 0-2.7827 1.8028-4.2494 3.5133-4.2494.91 0 1.7616.634 2.3023.634.524 0 1.4883-.694 2.5028-.694 1.107 0 2.2282.5293 2.9463 1.3414-1.396.8415-1.165 2.7663.021 3.4019zm-4.708-8.835c-.114-1.2057 1.0264-2.28 2.1934-2.31 0 0 .211 1.35-.916 2.4-1.135 1.05-1.2774-.09-1.2774-.09z" /></svg>
+                                    </div>
+                                    <div className="flex flex-col text-white">
+                                        <span className="text-[10px] uppercase font-bold opacity-60 leading-none">Download on</span>
+                                        <span className="text-sm font-bold">App Store</span>
+                                    </div>
+                                </a>
+                                <a href="#" className="flex items-center gap-3 px-5 py-3 rounded-2xl bg-black dark:bg-white/5 border border-white/10 hover:bg-zinc-900 transition-all group w-full lg:w-fit">
+                                    <div className="w-8 h-8 flex items-center justify-center">
+                                        <svg viewBox="0 0 24 24" className="w-full h-full fill-white" xmlns="http://www.w3.org/2000/svg"><path d="M3.609 1.814l12.441 7.15c.677.389 1.127 1.096 1.127 1.87 0 .773-.45 1.481-1.127 1.87L3.609 19.854c-.672.386-1.503.383-2.172-.01-.669-.392-1.077-1.092-1.077-1.861V3.684c0-.769.408-1.469 1.077-1.861.669-.393 1.5-.396 2.172-.009zM.364 2.8c.002 0 .002.001.002.002v15.933c0 .002-.002.003-.004.002-.012-.007-.024-.015-.035-.024l8.361-8.361-8.324-8.324h.364zM.918 2.164c.001 0 .002-.001.003-.001.123 0 .248.032.361.097l12.33 7.086c.012.007.012.023 0 .03L.918 16.51c.01 0-.012.015-.022.015-.001 0-.002.001-.004.001h-.001c-.126 0-.251-.035-.363-.102l8.324-8.324-8.361-8.361c.112-.067.237-.101.363-.101.022 0 .044.004.064.011zm.006 17.51c-.001 0-.001-.001-.002-.002V3.739c0-.001.001-.002.004-.002.009.006.018.013.028.021l8.361 8.361-8.361 8.361c-.01-.008-.02-.016-.03-.022v-.023z" /></svg>
+                                    </div>
+                                    <div className="flex flex-col text-white">
+                                        <span className="text-[10px] uppercase font-bold opacity-60 leading-none">Get it on</span>
+                                        <span className="text-sm font-bold">Google Play</span>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div className="max-w-7xl mx-auto pt-8 mt-8 flex flex-col md:flex-row justify-between items-center gap-8 border-t border-black/5 dark:border-white/5 transition-colors duration-500">
-                    <div className="flex flex-col items-center md:items-start gap-3">
-                        <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
-                        <p className="text-[var(--app-text-muted)] text-[10px] uppercase tracking-widest font-bold opacity-60 mt-1">
-                            &copy; 2026 Conexión Servicios. Todos los derechos reservados.
-                        </p>
-                    </div>
-                    <div className="flex gap-8 text-[11px] uppercase tracking-widest font-black text-[var(--app-text-muted)] opacity-70">
-                        <a href="https://conexionserviciosec.blogspot.com/p/terminos-y-condiciones-de-uso-de-la.html" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Términos</a>
-                        <a href="https://conexionserviciosec.blogspot.com/p/terminos-y-condiciones-de-uso-de-la.html" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Privacidad</a>
-                        <a href="https://conexionserviciosec.blogspot.com/p/terminos-y-condiciones-de-uso-de-la.html" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Cookies</a>
+                    <div className="pt-12 border-t border-black/5 dark:border-white/10 flex flex-col md:flex-row justify-between items-center gap-8">
+                        <div className="flex flex-col items-center md:items-start gap-2">
+                             <p className="text-[var(--app-text-muted)] text-[10px] uppercase tracking-[0.3em] font-black opacity-60">
+                                © 2026 CONEXIÓN SERVICIOS. TODOS LOS DERECHOS RESERVADOS.
+                            </p>
+                            <div className="flex gap-6 text-[9px] uppercase tracking-widest font-black text-[var(--app-text-muted)] opacity-50">
+                                <a href="#" className="hover:text-primary transition-all">Términos y Condiciones</a>
+                                <a href="#" className="hover:text-primary transition-all">Política de Privacidad</a>
+                            </div>
+                        </div>
+                        <div className="flex items-center gap-8">
+                            <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+                            <div className="flex items-center gap-3 pb-1">
+                                <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
+                                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[var(--app-text-muted)] opacity-70">Sistema Operativo</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </footer>
