@@ -427,24 +427,24 @@ const App: React.FC = () => {
                     </motion.a>
 
                     {/* Desktop Navigation */}
-                    <nav className="hidden lg:flex items-center gap-8 font-medium text-slate-400">
+                    <nav className="hidden lg:flex items-center gap-8 font-medium text-[var(--app-text-muted)]">
                         {[['Inicio', '#inicio'], ['Usuarios', '#usuarios'], ['Negocios', '#negocios'], ['Contacto', '#contacto']].map(([label, href]) => (
-                            <a key={label} href={href} className="hover:text-white transition-colors relative group text-sm">
+                            <a key={label} href={href} className="hover:text-[var(--app-text)] transition-colors relative group text-sm font-semibold">
                                 {label}
                                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all group-hover:w-full" />
                             </a>
                         ))}
                         <div className="flex items-center gap-2">
                             <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer"
-                                className="w-9 h-9 rounded-xl border border-white/10 bg-white/5 flex items-center justify-center text-slate-400 hover:text-pink-400 hover:border-pink-400/30 transition-all" aria-label="Instagram">
+                                className="w-9 h-9 rounded-xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5 flex items-center justify-center text-[var(--app-text-muted)] hover:text-pink-500 hover:border-pink-500/30 transition-all font-bold" aria-label="Instagram">
                                 <Instagram size={16} />
                             </a>
                             <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer"
-                                className="w-9 h-9 rounded-xl border border-white/10 bg-white/5 flex items-center justify-center text-slate-400 hover:text-blue-400 hover:border-blue-400/30 transition-all" aria-label="Facebook">
+                                className="w-9 h-9 rounded-xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5 flex items-center justify-center text-[var(--app-text-muted)] hover:text-blue-500 hover:border-blue-500/30 transition-all font-bold" aria-label="Facebook">
                                 <Facebook size={16} />
                             </a>
                             <a href={SOCIAL_LINKS.tiktok} target="_blank" rel="noopener noreferrer"
-                                className="w-9 h-9 rounded-xl border border-white/10 bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:border-white/30 transition-all" aria-label="TikTok">
+                                className="w-9 h-9 rounded-xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5 flex items-center justify-center text-[var(--app-text-muted)] hover:text-[var(--app-text)] hover:border-black/30 dark:hover:border-white/30 transition-all font-bold" aria-label="TikTok">
                                 <TikTokIcon size={15} />
                             </a>
                             <a href="#descargar">
@@ -617,10 +617,10 @@ const App: React.FC = () => {
                     {/* Header: Centered & Compact to ensure visibility */}
                     <div className="max-w-7xl mx-auto px-6 relative z-10 mb-0">
                         <motion.div {...fadeIn} className="text-center">
-                            <span className="inline-block px-4 py-1 rounded-full text-[13px] font-bold tracking-widest uppercase bg-violet-500/10 border border-violet-500/20 text-violet-400 mb-2">
+                            <span className="inline-block px-4 py-1 rounded-full text-[13px] font-black tracking-widest uppercase bg-violet-500/10 border border-violet-500/30 dark:border-violet-500/20 text-violet-600 dark:text-violet-400 mb-2 transition-colors duration-500">
                                 Para Usuarios
                             </span>
-                            <h2 className="text-3xl md:text-5xl lg:text-6xl font-outfit font-black text-white mb-3 leading-tight max-w-[280px] sm:max-w-none mx-auto">
+                            <h2 className="text-3xl md:text-5xl lg:text-6xl font-outfit font-black text-[var(--app-text)] mb-3 leading-tight max-w-[280px] sm:max-w-none mx-auto transition-colors duration-500">
                                 Encuentra fácilmente el <br className="hidden md:block" />
                                 <span className="text-gradient">servicio que necesitas</span>
                             </h2>
@@ -631,7 +631,7 @@ const App: React.FC = () => {
                                     animate={{ opacity: 1, y: 0 }}
                                     exit={{ opacity: 0, y: -10 }}
                                     transition={{ duration: 0.3 }}
-                                    className="text-slate-200 mx-auto text-base md:text-xl font-bold italic h-8 whitespace-nowrap"
+                                    className="text-[var(--app-text-muted)] mx-auto text-base md:text-xl font-bold italic h-8 whitespace-nowrap opacity-80"
                                 >
                                     {activeIndex < SERVICE_CATEGORIES.length 
                                         ? SERVICE_CATEGORIES[activeIndex].slogan 
@@ -882,9 +882,9 @@ const App: React.FC = () => {
                             {/* CENTER COLUMN: Text, Buttons, Socials */}
                             <div className="flex-[1.5] w-full flex flex-col items-center justify-center text-center z-20 px-4 shrink-0 mt-8 mb-8 lg:mt-0 order-1 lg:order-2 transform -translate-y-0 lg:-translate-y-28">
                                 
-                                <h3 className="text-3xl xl:text-4xl font-bold text-white mb-8">
-                                    Conecta con lo <span className="text-primary drop-shadow-[0_0_10px_rgba(14,165,233,0.5)]">Mejor</span>
-                                </h3>
+                            <h3 className="text-3xl xl:text-4xl font-bold text-[var(--app-text)] mb-8 transition-colors duration-500">
+                                Conecta con lo <span className="text-primary drop-shadow-[0_0_10px_rgba(14,165,233,0.3)] dark:drop-shadow-[0_0_10px_rgba(14,165,233,0.5)]">Mejor</span>
+                            </h3>
 
                                 <div className="flex flex-col sm:flex-row gap-5 mb-10">
                                     <a href="#" className="transform transition-all hover:scale-105 active:scale-95 duration-300 drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:drop-shadow-[0_10px_40px_rgba(255,255,255,0.1)] bg-black px-1 rounded-xl flex items-center border border-white/5">
@@ -907,13 +907,13 @@ const App: React.FC = () => {
                                 <div className="w-full max-w-sm pt-8 border-t border-white/10 flex flex-col items-center gap-4">
                                     <p className="text-[10px] xl:text-xs font-bold text-slate-500 uppercase tracking-widest">Síguenos en nuestras redes</p>
                                     <div className="flex gap-6">
-                                        <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-pink-400 transition-colors">
+                                        <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" className="text-[var(--app-text-muted)] hover:text-pink-500 transition-colors">
                                             <Instagram size={22} />
                                         </a>
-                                        <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-400 transition-colors">
+                                        <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer" className="text-[var(--app-text-muted)] hover:text-blue-500 transition-colors">
                                             <Facebook size={22} />
                                         </a>
-                                        <a href={SOCIAL_LINKS.tiktok} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors">
+                                        <a href={SOCIAL_LINKS.tiktok} target="_blank" rel="noopener noreferrer" className="text-[var(--app-text-muted)] hover:text-[var(--app-text)] transition-colors">
                                             <TikTokIcon size={22} />
                                         </a>
                                     </div>

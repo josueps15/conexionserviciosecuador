@@ -79,7 +79,7 @@
 @utility text-gradient {
     background-clip: text;
     color: transparent;
-    background-image: linear-gradient(to bottom right, white, var(--color-secondary));
+    background-image: linear-gradient(to bottom right, var(--app-text), var(--color-secondary));
 }
 
 @utility text-gradient-blue {
@@ -116,7 +116,7 @@ body {
   --app-bg-soft: #f8fafc;
   --app-bg-elevated: rgba(255, 255, 255, 0.8);
   --app-text: #0f172a;
-  --app-text-muted: #475569;
+  --app-text-muted: #334155;
   --card-bg: rgba(255, 255, 255, 0.7);
   --card-border: rgba(0, 0, 0, 0.05);
   --nav-bg: rgba(255, 255, 255, 0.8);

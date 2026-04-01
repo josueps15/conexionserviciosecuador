@@ -22,7 +22,7 @@ export const MobileHero: React.FC = () => {
                     animate={{ opacity: 1, y: 0 }}
                     className="flex justify-center"
                 >
-                    <span className="px-4 py-1.5 rounded-full text-[11px] font-bold tracking-[0.2em] uppercase bg-primary/10 border border-primary/20 text-primary shadow-[0_0_15px_rgba(14,165,233,0.2)]">
+                    <span className="px-4 py-1.5 rounded-full text-[11px] font-black tracking-[0.2em] uppercase bg-primary/10 border border-primary/30 dark:border-primary/20 text-primary shadow-[0_0_15px_rgba(14,165,233,0.15)] transition-colors duration-500">
                         Plataforma Lista
                     </span>
                 </motion.div>
