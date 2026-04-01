@@ -190,17 +190,25 @@ const CategoryCard = ({ cat, isFocused, onSelect }: { cat: any, isFocused: boole
     return (
         <motion.div
             onClick={onSelect}
+            initial={false}
             animate={{ 
-                scale: isFocused ? 1.15 : 1,
-                zIndex: isFocused ? 20 : 1
+                scale: isFocused ? 1.12 : 0.98,
+                zIndex: isFocused ? 20 : 1,
+                filter: isFocused ? "brightness(1) contrast(1.1)" : "brightness(0.7) contrast(1)",
             }}
-            transition={{ type: "spring", stiffness: 300, damping: 25 }}
-            className="min-w-[72vw] md:min-w-[29vw] snap-center flex-shrink-0"
+            transition={{ type: "spring", stiffness: 350, damping: 25 }}
+            className="min-w-[72vw] md:min-w-[29vw] snap-center flex-shrink-0 py-8"
         >
             <motion.div
+                animate={{
+                    boxShadow: isFocused 
+                        ? `0 40px 100px -20px rgba(0,0,0,0.8), 0 0 50px -10px ${cat.color}40` 
+                        : "0 20px 40px -12px rgba(0,0,0,0.4)"
+                }}
                 className={cn(
-                    "group relative h-[400px] md:h-[420px] rounded-[3rem] overflow-hidden border border-white/10 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] cursor-pointer bg-slate-900 transition-all duration-500",
-                    cat.isMega && "bg-white/5 border-dashed border-2 border-white/20"
+                    "group relative h-[400px] md:h-[420px] rounded-[3rem] overflow-hidden border cursor-pointer bg-slate-900 transition-all duration-700",
+                    cat.isMega && "bg-white/5 border-dashed border-2 border-white/20",
+                    isFocused ? "border-white/30" : "border-white/10"
                 )}
             >
                 {cat.isMega ? (
@@ -210,7 +218,7 @@ const CategoryCard = ({ cat, isFocused, onSelect }: { cat: any, isFocused: boole
                         <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent z-[2]" />
                         
                         <motion.div 
-                            animate={{ scale: isFocused ? 1.2 : 1 }}
+                            animate={{ scale: isFocused ? 1.15 : 1 }}
                             className="w-20 h-20 rounded-full bg-primary/20 backdrop-blur-xl border border-white/20 flex items-center justify-center mb-6 relative z-10"
                         >
                             <ArrowRight size={50} className="text-white drop-shadow-[0_0_15px_rgba(34,211,238,0.8)]" />
@@ -231,19 +239,20 @@ const CategoryCard = ({ cat, isFocused, onSelect }: { cat: any, isFocused: boole
                     <>
                         <div className="absolute inset-0 z-0 text-white/0">
                             {cat.img && (
-                                <img 
+                                <motion.img 
                                     src={cat.img} 
                                     alt={cat.label} 
-                                    className="w-full h-full object-cover transition-transform duration-[2000ms]"
+                                    animate={{ scale: isFocused ? 1.1 : 1.05 }}
+                                    transition={{ duration: 0.8 }}
+                                    className="w-full h-full object-cover"
                                 />
                             )}
-                            {/* Dynamic overlay: clearer on focus */}
                             <div className={cn(
-                                "absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent transition-opacity duration-700",
+                                "absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent transition-all duration-700",
                                 isFocused ? "opacity-30" : "opacity-80"
                             )} />
                             <div className={cn(
-                                "absolute inset-0 bg-gradient-to-br transition-opacity duration-700",
+                                "absolute inset-0 bg-gradient-to-br transition-all duration-700",
                                 isFocused ? "opacity-20" : "opacity-40"
                             )}
                                  style={{ backgroundImage: `linear-gradient(to bottom right, ${cat.color}, transparent)` }} />
@@ -254,17 +263,19 @@ const CategoryCard = ({ cat, isFocused, onSelect }: { cat: any, isFocused: boole
                                 <motion.div 
                                     className="w-14 h-14 rounded-2xl flex items-center justify-center backdrop-blur-3xl border border-white/30"
                                     style={{ background: `${cat.color}40` }}
-                                    animate={{ scale: isFocused ? 1.25 : 1 }}
+                                    animate={{ 
+                                        scale: isFocused ? 1.2 : 1,
+                                        boxShadow: isFocused ? `0 0 25px ${cat.color}80` : "none"
+                                    }}
                                 >
                                     <cat.icon size={30} style={{ color: cat.color }} />
                                 </motion.div>
                                 <h3 className="text-2xl lg:text-3xl font-black text-white drop-shadow-lg leading-tight">{cat.label}</h3>
                             </div>
 
-                            {/* Specialties: Visible on center focus automatically */}
                             <div className={cn(
                                 "space-y-1.5 mb-5 transition-all duration-700 transform",
-                                isFocused ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0"
+                                isFocused ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                             )}>
                                 {cat.specialties.slice(0, 3).map((spec: string) => (
                                     <div key={spec} className="flex items-center gap-3 text-slate-200 text-sm font-semibold">
@@ -274,9 +285,18 @@ const CategoryCard = ({ cat, isFocused, onSelect }: { cat: any, isFocused: boole
                                 ))}
                             </div>
                             
-                            <div className="mt-2 flex items-center gap-3 text-white/40 group-hover:text-white transition-all text-[9px] font-black uppercase tracking-widest">
-                                Ver Profesionales <ArrowRight size={16} />
-                            </div>
+                            <a 
+                                href="#descargar"
+                                onClick={(e) => {
+                                    if (isFocused) e.stopPropagation();
+                                }}
+                                className={cn(
+                                    "mt-2 flex items-center gap-3 transition-all duration-500 font-bold uppercase tracking-widest",
+                                    isFocused ? "text-primary text-[11px]" : "text-white/40 text-[9px]"
+                                )}
+                            >
+                                Ver Profesionales <ArrowRight size={isFocused ? 18 : 16} />
+                            </a>
                         </div>
                     </>
                 )}
