@@ -453,7 +453,7 @@ const App: React.FC = () => {
                             <a href="#descargar">
                                 <InteractiveHoverButton 
                                     text="Descargar App" 
-                                    className="bg-black/10 dark:bg-white/10 border-black/30 dark:border-white/20 text-[var(--app-text)] dark:text-white text-[13px] font-bold shadow-sm" 
+                                    className="bg-primary dark:bg-white/10 border-primary dark:border-white/20 text-white dark:text-white text-[13px] font-bold shadow-md shadow-primary/20" 
                                 />
                             </a>
                         </div>
