@@ -430,30 +430,30 @@ const App: React.FC = () => {
                     </motion.a>
 
                     {/* Desktop Navigation */}
-                    <nav className="hidden lg:flex items-center gap-8 font-medium text-[var(--app-text-muted)]">
+                    <nav className="hidden lg:flex items-center gap-8">
                         {[['Inicio', '#inicio'], ['Usuarios', '#usuarios'], ['Negocios', '#negocios'], ['Contacto', '#contacto']].map(([label, href]) => (
-                            <a key={label} href={href} className="hover:text-[var(--app-text)] transition-colors relative group text-sm font-semibold">
+                            <a key={label} href={href} className="text-[var(--app-text)] hover:text-primary transition-colors relative group text-sm font-bold tracking-tight">
                                 {label}
-                                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all group-hover:w-full" />
+                                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
                             </a>
                         ))}
                         <div className="flex items-center gap-2">
                             <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer"
-                                className="w-9 h-9 rounded-xl border border-black/15 dark:border-white/10 bg-black/10 dark:bg-white/5 flex items-center justify-center text-[var(--app-text-muted)] hover:text-pink-500 hover:border-pink-500/30 transition-all font-bold" aria-label="Instagram">
-                                <Instagram size={16} />
+                                className="w-9 h-9 rounded-xl border border-black/20 dark:border-white/10 bg-black/10 dark:bg-white/5 flex items-center justify-center text-[var(--app-text)] hover:text-pink-500 hover:border-pink-500/40 transition-all font-bold" aria-label="Instagram">
+                                <Instagram size={17} />
                             </a>
                             <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer"
-                                className="w-9 h-9 rounded-xl border border-black/15 dark:border-white/10 bg-black/10 dark:bg-white/5 flex items-center justify-center text-[var(--app-text-muted)] hover:text-blue-500 hover:border-blue-500/30 transition-all font-bold" aria-label="Facebook">
-                                <Facebook size={16} />
+                                className="w-9 h-9 rounded-xl border border-black/20 dark:border-white/10 bg-black/10 dark:bg-white/5 flex items-center justify-center text-[var(--app-text)] hover:text-blue-500 hover:border-blue-500/40 transition-all font-bold" aria-label="Facebook">
+                                <Facebook size={17} />
                             </a>
                             <a href={SOCIAL_LINKS.tiktok} target="_blank" rel="noopener noreferrer"
-                                className="w-9 h-9 rounded-xl border border-black/15 dark:border-white/10 bg-black/10 dark:bg-white/5 flex items-center justify-center text-[var(--app-text-muted)] hover:text-[var(--app-text)] hover:border-black/30 dark:hover:border-white/30 transition-all font-bold" aria-label="TikTok">
-                                <TikTokIcon size={15} />
+                                className="w-9 h-9 rounded-xl border border-black/20 dark:border-white/10 bg-black/10 dark:bg-white/5 flex items-center justify-center text-[var(--app-text)] hover:text-primary hover:border-primary/40 transition-all font-bold" aria-label="TikTok">
+                                <TikTokIcon size={16} />
                             </a>
                             <a href="#descargar">
                                 <InteractiveHoverButton 
                                     text="Descargar App" 
-                                    className="bg-black/10 dark:bg-white/5 border-black/20 dark:border-white/10 text-[var(--app-text)] dark:text-white text-sm font-bold shadow-sm" 
+                                    className="bg-black/10 dark:bg-white/10 border-black/30 dark:border-white/20 text-[var(--app-text)] dark:text-white text-[13px] font-bold shadow-sm" 
                                 />
                             </a>
                         </div>
