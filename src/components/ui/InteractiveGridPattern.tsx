@@ -53,7 +53,7 @@ export function InteractiveGridPattern({
             </defs>
             <rect width="100%" height="100%" fill={`url(#${id})`} />
             <svg x="-1" y="-1" className="overflow-visible">
-                {Array.from({ length: horizontal * vertical }).map((_, index) => {
+                {[...Array(horizontal * vertical)].map((_, index) => {
                     const x = (index % horizontal) * width;
                     const y = Math.floor(index / horizontal) * height;
                     return (

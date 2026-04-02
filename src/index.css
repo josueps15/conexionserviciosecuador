@@ -112,35 +112,54 @@ body {
 }
 
 :root {
-  --app-bg: #ffffff;
-  --app-bg-soft: #f8fafc;
+  /* Brand Colors */
+  --primary: #0088ff;
+  --primary-hover: #0077ee;
+  --secondary: #00c2ff;
+  
+  /* Light Theme (Reference Image) */
+  --app-bg: #f8fafc;
+  --app-bg-soft: #ffffff;
   --app-bg-elevated: rgba(255, 255, 255, 0.8);
   --app-text: #0f172a;
-  --app-text-muted: #334155;
-  --card-bg: rgba(255, 255, 255, 0.7);
+  --app-text-muted: #475569;
+  --card-bg: #ffffff;
   --card-border: rgba(0, 0, 0, 0.05);
-  --nav-bg: rgba(255, 255, 255, 0.8);
-  --header-bg: rgba(255, 255, 255, 0.8);
-  --footer-bg: #f8fafc;
-  --footer-text: #0f172a;
-  --glow-opacity: 0.1;
-  --grid-opacity: 0.05;
+  --nav-bg: rgba(255, 255, 255, 0.85);
+  --header-bg: rgba(255, 255, 255, 0.85);
+  --footer-bg: #f1f5f9;
+  --footer-text: #1e293b;
+  --glow-opacity: 0.08;
+  --grid-opacity: 0.04;
 }
 
 .dark {
+  /* Dark Theme */
   --app-bg: #030712;
   --app-bg-soft: #0a0f1c;
   --app-bg-elevated: rgba(10, 15, 28, 0.6);
-  --app-text: #ffffff;
+  --app-text: #f8fafc;
   --app-text-muted: #94a3b8;
   --card-bg: rgba(15, 23, 42, 0.6);
   --card-border: rgba(255, 255, 255, 0.1);
-  --nav-bg: rgba(3, 7, 18, 0.8);
-  --header-bg: rgba(3, 7, 18, 0.8);
+  --nav-bg: rgba(3, 7, 18, 0.85);
+  --header-bg: rgba(3, 7, 18, 0.85);
   --footer-bg: #0a0f1c;
-  --footer-text: #ffffff;
-  --glow-opacity: 0.3;
-  --grid-opacity: 0.02;
+  --footer-text: #f8fafc;
+  --glow-opacity: 0.2;
+  --grid-opacity: 0.06;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-none;
+  }
+  body {
+    @apply bg-[var(--app-bg)] text-[var(--app-text)] font-inter antialiased transition-colors duration-500;
+  }
+  h1, h2, h3, h4, .font-outfit {
+    font-family: 'Outfit', sans-serif;
+  }
 }
 
 html {

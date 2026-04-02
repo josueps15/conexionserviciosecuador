@@ -1,52 +1,97 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { SERVICE_CATEGORIES } from '../../constants/services';
-import { ArrowRight } from 'lucide-react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { SERVICES_DATA } from '../../constants/services';
+import { ChevronRight } from 'lucide-react';
+import { cn } from '../../lib/utils';
 
 export const MobileCategories: React.FC = () => {
-    // Show only the first 6 for mobile to keep it clean, or all if preferred.
-    // Let's show all but in a nice grid.
+    const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
+
     return (
-        <section className="px-6 space-y-6">
-            <div className="flex items-end justify-between">
-                <div className="space-y-1">
-                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">Explora</span>
-                    <h2 className="text-2xl font-black font-outfit uppercase tracking-tight text-[var(--app-text)] leading-none transition-colors duration-500">
-                        Servicios <span className="text-gradient">Disponibles</span>
-                    </h2>
-                </div>
+        <section className="px-6 space-y-8">
+            <div className="space-y-2">
+                <span className="text-[10px] font-black uppercase tracking-[0.25em] text-[var(--primary)] font-outfit">Explora</span>
+                <h2 className="text-3xl font-bold font-outfit text-[var(--app-text)] leading-tight">
+                    Nuestros <span className="text-[var(--primary)]">Servicios</span>
+                </h2>
+                <p className="text-sm text-[var(--app-text-muted)] font-medium">
+                    Toca una categoría para ver todas las especialidades disponibles.
+                </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
-                {SERVICE_CATEGORIES.map((cat, i) => (
+            <div className="grid grid-cols-1 gap-4">
+                {SERVICES_DATA.map((cat, i) => (
                     <motion.div
-                        key={cat.label}
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
+                        key={cat.id}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ delay: i * 0.05 }}
-                        className="relative group active:scale-95 transition-all"
+                        transition={{ delay: i * 0.02 }}
+                        className={cn(
+                            "relative overflow-hidden rounded-[2rem] border transition-all duration-300",
+                            expandedCategory === cat.id 
+                                ? "bg-[var(--app-bg-soft)] border-[var(--primary)] shadow-xl shadow-[var(--primary)]/10" 
+                                : "bg-[var(--app-bg-soft)]/50 border-[var(--card-border)]"
+                        )}
                     >
-                        <div className={`absolute inset-0 bg-gradient-to-br ${cat.bg} rounded-3xl border border-black/5 dark:${cat.border} opacity-50 dark:opacity-50 group-active:opacity-100 transition-opacity`} />
-                        <div className="relative p-5 flex flex-col items-center text-center space-y-3">
-                            <div 
-                                className="w-12 h-12 rounded-2xl flex items-center justify-center shadow-lg transition-transform group-hover:scale-110"
-                                style={{ backgroundColor: `${cat.color}20`, color: cat.color }}
-                            >
-                                <cat.icon size={24} strokeWidth={2.5} />
+                        <button 
+                            onClick={() => setExpandedCategory(expandedCategory === cat.id ? null : cat.id)}
+                            className="w-full p-6 flex items-center justify-between text-left"
+                        >
+                            <div className="flex items-center gap-5">
+                                <div className={cn(
+                                    "w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-500",
+                                    expandedCategory === cat.id ? "bg-[var(--primary)] text-white" : "bg-[var(--primary)]/10 text-[var(--primary)]"
+                                )}>
+                                    <cat.icon size={28} />
+                                </div>
+                                <div>
+                                    <h3 className="text-lg font-bold font-outfit text-[var(--app-text)]">{cat.title}</h3>
+                                    <p className="text-xs text-[var(--app-text-muted)] font-medium">{cat.subcategories.length} especialistas</p>
+                                </div>
                             </div>
-                            <span className="text-xs font-black uppercase tracking-widest text-[var(--app-text)] opacity-90 transition-colors duration-500">
-                                {cat.label}
-                            </span>
-                        </div>
+                            <ChevronRight 
+                                size={20} 
+                                className={cn(
+                                    "text-[var(--app-text-muted)] transition-transform duration-300",
+                                    expandedCategory === cat.id && "rotate-90 text-[var(--primary)]"
+                                )} 
+                            />
+                        </button>
+
+                        <AnimatePresence>
+                            {expandedCategory === cat.id && (
+                                <motion.div
+                                    initial={{ height: 0, opacity: 0 }}
+                                    animate={{ height: 'auto', opacity: 1 }}
+                                    exit={{ height: 0, opacity: 0 }}
+                                    className="overflow-hidden"
+                                >
+                                    <div className="px-6 pb-6 pt-2">
+                                        <p className="text-sm text-[var(--app-text-muted)] mb-5 italic border-l-2 border-[var(--primary)]/30 pl-3">
+                                            {cat.description}
+                                        </p>
+                                        <div className="flex flex-wrap gap-2 mb-6">
+                                            {cat.subcategories.map((sub, idx) => (
+                                                <span 
+                                                    key={idx}
+                                                    className="px-3 py-1.5 bg-[var(--app-bg)] text-[var(--app-text)] text-[11px] rounded-xl border border-[var(--card-border)] font-bold shadow-sm"
+                                                >
+                                                    {sub}
+                                                </span>
+                                            ))}
+                                        </div>
+                                        <button className="w-full py-4 bg-[var(--primary)] text-white rounded-2xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-[var(--primary)]/20 active:scale-95 transition-all">
+                                            <ChevronRight size={18} />
+                                            Descargar App
+                                        </button>
+                                    </div>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
                     </motion.div>
                 ))}
             </div>
-
-            <button className="w-full py-4 bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/10 rounded-2xl text-[var(--app-text-muted)] font-bold uppercase tracking-widest text-[10px] flex items-center justify-center gap-2 active:bg-black/10 dark:active:bg-white/10 transition-all transition-colors duration-500">
-                Ver todas las subcategorías
-                <ArrowRight size={14} />
-            </button>
         </section>
     );
 };

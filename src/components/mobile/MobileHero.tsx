@@ -1,105 +1,96 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Download } from 'lucide-react';
+import { ArrowRight, Download, ShieldCheck } from 'lucide-react';
 
 export const MobileHero: React.FC = () => {
-    const heroImages = [
-        { src: '/plomeria_img.png', label: 'Plomería', color: 'sky' },
-        { src: '/medicos_img.png', label: 'Salud', color: 'rose' },
-        { src: '/grua_camion.png', label: 'Grúas', color: 'orange' },
-        { src: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=500&q=80', label: 'Limpieza', color: 'emerald' }
-    ];
-
     return (
-        <section className="relative pt-8 pb-12 overflow-hidden px-6">
-            {/* Background Ambient Glows */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-primary/20 blur-[80px] rounded-full pointer-events-none" />
+        <section className="relative pt-6 pb-12 overflow-hidden px-6">
+            {/* Background Light Glow */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-72 h-72 bg-[var(--primary)]/10 blur-[90px] rounded-full pointer-events-none transition-colors duration-500" />
             
-            <div className="relative z-10 space-y-10">
+            <div className="relative z-10 space-y-8">
                 {/* Badge */}
                 <motion.div 
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     className="flex justify-center"
                 >
-                    <span className="px-4 py-1.5 rounded-full text-[11px] font-black tracking-[0.2em] uppercase bg-primary/10 border border-primary/30 dark:border-primary/20 text-primary shadow-[0_0_15px_rgba(14,165,233,0.15)] transition-colors duration-500">
-                        Plataforma Lista
+                    <span className="px-4 py-1.5 rounded-full text-[10px] font-black tracking-[0.25em] uppercase bg-[var(--primary)]/10 text-[var(--primary)] font-outfit">
+                        Plataforma 2026
                     </span>
                 </motion.div>
-
+ 
                 {/* Slogan */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 }}
-                    className="text-center space-y-4"
+                    className="text-center space-y-5"
                 >
-                    <h1 className="text-[2.4rem] leading-[1.1] font-black font-outfit uppercase tracking-tight text-[var(--app-text)] drop-shadow-lg">
-                        ¿Buscas un <span className="text-primary italic">Mecánico</span>,<br />
-                        un <span className="text-secondary text-gradient">Electricista</span>,<br />
-                        una <span className="text-primary text-gradient">Grúa</span> o un <br />
-                        <span className="text-secondary text-gradient underline decoration-secondary/30 underline-offset-4">Centro Educativo</span>?
+                    <h1 className="text-[2.2rem] leading-[1.05] font-bold font-outfit text-[var(--app-text)] tracking-tight">
+                        ¿Buscas un <span className="text-[var(--primary)]">Mecánico</span>,<br />
+                        un <span className="text-[var(--primary)]">Electricista</span>, una <br />
+                        <span className="text-[var(--primary)]">Grúa</span> o un <br />
+                        <span className="text-[var(--secondary)]">Centro Educativo</span>?
                     </h1>
-                    <p className="text-[var(--app-text-muted)] text-base leading-relaxed max-w-[300px] mx-auto font-medium transition-colors duration-500">
-                        En la <strong className="text-[var(--app-text)]">APP Conexión Servicios</strong> encontrarás los mejores servicios profesionales.
+                    <p className="text-[var(--app-text-muted)] text-sm leading-relaxed max-w-[280px] mx-auto font-medium">
+                        En la APP **Conexión Servicios** encontrarás los mejores profesionales verificados.
                     </p>
+                </motion.div>
+
+                {/* Team Image / Visual */}
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.2 }}
+                    className="relative rounded-[2.5rem] overflow-hidden border-4 border-[var(--app-bg-soft)] shadow-2xl"
+                >
+                    <img 
+                        src="https://images.unsplash.com/photo-1522071823991-b99c224c0df7?q=80&w=2070&auto=format&fit=crop" 
+                        alt="Equipo Profesional" 
+                        className="w-full h-auto aspect-video object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[var(--app-bg)]/40 to-transparent" />
+                    
+                    {/* Floating Trust Badge */}
+                    <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-3 rounded-xl border border-white/20 shadow-lg flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-full bg-[var(--primary)] flex items-center justify-center text-white shrink-0">
+                            <ShieldCheck size={16} />
+                        </div>
+                        <p className="text-[10px] font-bold text-slate-800 leading-tight">Profesionales 100% Verificados</p>
+                    </div>
                 </motion.div>
 
                 {/* CTAs */}
                 <motion.div 
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2 }}
-                    className="flex flex-col gap-4 pt-2"
+                    transition={{ delay: 0.3 }}
+                    className="flex flex-col gap-3 pt-2"
                 >
-                    <button className="w-full h-16 bg-blue-600 text-white font-black rounded-2xl shadow-2xl shadow-blue-600/30 flex items-center justify-center gap-3 active:scale-95 transition-all text-lg uppercase tracking-wider group relative overflow-hidden">
-                        <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
-                        <Download size={22} className="relative z-10" />
-                        <span className="relative z-10 font-outfit text-white">Descargar App</span>
+                    <button className="w-full h-14 bg-[var(--primary)] text-white font-bold rounded-2xl shadow-lg shadow-[var(--primary)]/20 flex items-center justify-center gap-3 active:scale-95 transition-all text-base uppercase tracking-wider font-outfit">
+                        <Download size={18} />
+                        Descargar App
                     </button>
                     
-                    <button className="w-full h-16 bg-black/5 dark:bg-slate-900/50 border-2 border-black/5 dark:border-white/10 text-[var(--app-text)] font-black rounded-2xl flex items-center justify-center gap-2 active:scale-95 transition-all text-lg uppercase tracking-wider backdrop-blur-md font-outfit transition-colors duration-500">
+                    <button className="w-full h-14 bg-[var(--app-bg-soft)] border border-[var(--card-border)] text-[var(--app-text)] font-bold rounded-2xl flex items-center justify-center gap-2 active:scale-95 transition-all text-base uppercase tracking-wider font-outfit">
                         Explorar Servicios
-                        <ArrowRight size={20} className="opacity-50" />
+                        <ArrowRight size={18} className="opacity-50" />
                     </button>
                 </motion.div>
 
-                {/* Visual Showcase (Horizontal Scroll) - Creative Solution */}
-                <div className="pt-4 overflow-hidden -mx-6">
-                    <div className="flex gap-4 overflow-x-auto px-6 pb-6 no-scrollbar snap-x">
-                        {heroImages.map((img, i) => (
-                            <motion.div
-                                key={img.label}
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ delay: 0.3 + i * 0.1 }}
-                                className="flex-shrink-0 w-[180px] aspect-[4/5] relative rounded-3xl overflow-hidden border border-black/5 dark:border-white/10 shadow-2xl snap-center"
-                            >
-                                <img src={img.src} alt={img.label} className="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 transition-all duration-500" />
-                                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent flex items-end p-4">
-                                    <span className="text-[11px] font-black uppercase tracking-widest text-white">
-                                        {img.label}
-                                    </span>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Stats Row */}
-                <div className="grid grid-cols-3 gap-2 pt-4 border-t border-black/5 dark:border-white/5 w-full transition-colors duration-500">
+                {/* Mini Stats Row */}
+                <div className="grid grid-cols-3 gap-2 pt-6 border-t border-[var(--card-border)] w-full">
                     {[
                         { value: '50+', label: 'Categorías' },
-                        { value: '100%', label: 'Verificados' },
+                        { value: '100%', label: 'Seguro' },
                         { value: '24', label: 'Provincias' },
                     ].map((s) => (
-                        <div key={s.label} className="text-center space-y-1">
-                            <p className="text-2xl font-black font-outfit text-[var(--app-text)]">{s.value}</p>
-                            <p className="text-[9px] font-black uppercase tracking-widest text-[var(--app-text-muted)]">{s.label}</p>
+                        <div key={s.label} className="text-center space-y-0.5">
+                            <p className="text-xl font-bold font-outfit text-[var(--app-text)]">{s.value}</p>
+                            <p className="text-[8px] font-black uppercase tracking-[0.15em] text-[var(--app-text-muted)]">{s.label}</p>
                         </div>
                     ))}
                 </div>
-
             </div>
         </section>
     );

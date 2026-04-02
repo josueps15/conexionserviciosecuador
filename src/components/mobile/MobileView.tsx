@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef, useState, RefObject } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
     Users, 
@@ -28,13 +28,13 @@ const SOCIAL_LINKS = {
     tiktok: 'https://www.tiktok.com/@conexinservicios1',
 };
 
-export const MobileView: React.FC<MobileViewProps> = ({ onOpenModal, theme, toggleTheme }) => {
-    const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+export const MobileView = ({ onOpenModal, theme, toggleTheme }: MobileViewProps) => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const heroRef = useRef<HTMLDivElement>(null);
     const categoriesRef = useRef<HTMLDivElement>(null);
     const businessRef = useRef<HTMLDivElement>(null);
 
-    const scrollToRef = (ref: React.RefObject<HTMLDivElement | null>) => {
+    const scrollToRef = (ref: RefObject<HTMLDivElement | null>) => {
         setIsMenuOpen(false);
         ref.current?.scrollIntoView({ behavior: 'smooth' });
     };
