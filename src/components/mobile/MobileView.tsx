@@ -14,6 +14,7 @@ import {
 import { MobileHero } from './MobileHero';
 import { MobileCategories } from './MobileCategories';
 import { MobileBusinessBenefits } from './MobileBusinessBenefits';
+import { DownloadApp } from '../DownloadApp';
 import { MobileFooter } from './MobileFooter';
 
 interface MobileViewProps {
@@ -33,6 +34,7 @@ export const MobileView = ({ onOpenModal, theme, toggleTheme }: MobileViewProps)
     const heroRef = useRef<HTMLDivElement>(null);
     const categoriesRef = useRef<HTMLDivElement>(null);
     const businessRef = useRef<HTMLDivElement>(null);
+    const downloadRef = useRef<HTMLDivElement>(null);
 
     const scrollToRef = (ref: RefObject<HTMLDivElement | null>) => {
         setIsMenuOpen(false);
@@ -84,7 +86,8 @@ export const MobileView = ({ onOpenModal, theme, toggleTheme }: MobileViewProps)
                             {[
                                 { label: 'Inicio', icon: Home, ref: heroRef },
                                 { label: 'Servicios', icon: LayoutGrid, ref: categoriesRef },
-                                { label: 'Negocios', icon: Building2, ref: businessRef }
+                                { label: 'Negocios', icon: Building2, ref: businessRef },
+                                { label: 'Descarga', icon: MessageCircle, ref: downloadRef }
                             ].map((item) => (
                                 <button
                                     key={item.label}
@@ -128,6 +131,8 @@ export const MobileView = ({ onOpenModal, theme, toggleTheme }: MobileViewProps)
                 <div ref={categoriesRef}><MobileCategories /></div>
 
                 <div ref={businessRef}><MobileBusinessBenefits onOpenModal={onOpenModal} /></div>
+
+                <div ref={downloadRef}><DownloadApp /></div>
 
                 {/* WhatsApp Floating-like CTA for Mobile */}
                 <section className="px-6">

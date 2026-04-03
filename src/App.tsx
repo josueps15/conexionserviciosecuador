@@ -19,6 +19,7 @@ import { SERVICES_DATA } from './constants/services';
 import { InteractiveGridPattern } from './components/ui/InteractiveGridPattern';
 import { InteractiveHoverButton } from './components/ui/InteractiveHoverButton';
 import { AnimatedCursor } from './components/ui/AnimatedCursor';
+import { DownloadApp } from './components/DownloadApp';
 
 // TikTok SVG Icon
 const TikTokIcon = ({ size = 20 }: { size?: number }) => (
@@ -115,7 +116,11 @@ export default function App() {
                         </a>
                     </div>
                     <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
-                    <InteractiveHoverButton text="Descargar App" className="bg-[var(--primary)] border-[var(--primary)] text-white text-[13px] font-bold shadow-lg shadow-[var(--primary)]/20" />
+                    <InteractiveHoverButton 
+                        text="Descargar App" 
+                        onClick={() => document.getElementById('descarga')?.scrollIntoView({ behavior: 'smooth' })}
+                        className="bg-[var(--primary)] border-[var(--primary)] text-white text-[13px] font-bold shadow-lg shadow-[var(--primary)]/20" 
+                    />
                 </div>
             </nav>
 
@@ -306,6 +311,8 @@ export default function App() {
                 </div>
             </section>
 
+            <DownloadApp />
+            
             {/* ─── Footer ────────────────────────────────────────────────────────────── */}
             <footer className="bg-[var(--app-bg-soft)] pt-24 pb-12 border-t border-[var(--card-border)]">
                 <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
