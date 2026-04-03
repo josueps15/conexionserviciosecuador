@@ -61,7 +61,7 @@ export const DownloadApp = () => {
                     >
                         <div className="absolute inset-0 bg-blue-500/10 blur-[100px] rounded-full" />
                         <AndroidMockup 
-                            src="/screen_home.png" 
+                            src="/app_shot_ios.jpg" 
                             className="w-[320px] h-auto drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]" 
                         />
                     </motion.div>
@@ -180,7 +180,7 @@ export const DownloadApp = () => {
                     >
                         <div className="absolute inset-0 bg-blue-500/10 blur-[100px] rounded-full" />
                         <IPhoneMockup className="w-[280px] h-[580px] drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-                            <img src="/screen_splash.png" alt="Vista iOS" className="w-full h-full object-cover" />
+                            <img src="/app_shot_android.jpg" alt="Vista iOS" className="w-full h-full object-cover" />
                         </IPhoneMockup>
                     </motion.div>
 
@@ -191,7 +191,7 @@ export const DownloadApp = () => {
                             whileInView={{ opacity: 1, y: 0, rotate: -8 }}
                             className="w-1/2 scale-75 origin-top"
                         >
-                            <AndroidMockup src="/screen_home.png" className="w-full h-auto" />
+                            <AndroidMockup src="/app_shot_ios.jpg" className="w-full h-auto" />
                         </motion.div>
                         <motion.div 
                             initial={{ opacity: 0, y: 50, rotate: 5 }}
@@ -199,7 +199,7 @@ export const DownloadApp = () => {
                             className="w-1/2 scale-75 origin-top"
                         >
                             <IPhoneMockup className="w-full h-auto">
-                                <img src="/screen_splash.png" alt="Mobile iOS" className="w-full h-full object-cover" />
+                                <img src="/app_shot_android.jpg" alt="Mobile iOS" className="w-full h-full object-cover" />
                             </IPhoneMockup>
                         </motion.div>
                     </div>
