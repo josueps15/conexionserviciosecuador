@@ -8,7 +8,7 @@ import {
     Briefcase, Building2
 } from 'lucide-react';
 
-import logoCS from './assets/logo-cs.png';
+
 import { RegistrationModal } from './components/RegistrationModal';
 import { cn } from './lib/utils';
 import { useMediaQuery } from './hooks/useMediaQuery';
@@ -84,7 +84,7 @@ export default function App() {
                     : "bg-transparent border-transparent"
             )}>
                 <div className="flex items-center gap-2">
-                    <img src={logoCS} alt="CS Logo" className="h-8 md:h-10 w-auto" />
+                    <img src="/logo-cs.png" alt="CS Logo" className="h-8 md:h-10 w-auto" />
                     <span className="font-outfit font-black text-xl md:text-2xl tracking-tighter uppercase text-[var(--app-text)]">
                         Conexión <span className="text-[var(--primary)]">Servicios</span>
                     </span>
@@ -312,7 +312,7 @@ export default function App() {
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
                         <div className="col-span-1 lg:col-span-1">
                             <div className="flex items-center gap-2 mb-8">
-                                <img src={logoCS} alt="CS Logo" className="h-8" />
+                                <img src="/logo-cs.png" alt="CS Logo" className="h-8" />
                                 <span className="font-outfit font-black text-xl tracking-tight uppercase text-[var(--app-text)]">
                                     Conexión <span className="text-[var(--primary)]">Servicios</span>
                                 </span>

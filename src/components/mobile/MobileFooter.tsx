@@ -1,5 +1,4 @@
 import { Instagram, Facebook, Mail, MapPin } from 'lucide-react';
-import logoCS from '../../assets/logo-cs.png';
 import { ThemeToggle } from '../ThemeToggle';
 
 interface MobileFooterProps {
@@ -25,7 +24,7 @@ export const MobileFooter = ({ theme, toggleTheme }: MobileFooterProps) => {
         <footer className="px-6 pt-16 pb-32 space-y-12 bg-[var(--footer-bg)] text-[var(--footer-text)] transition-colors duration-500 border-t border-[var(--card-border)] mt-12 rounded-t-[3rem]">
             <div className="pt-8 text-center">
                 <div className="flex items-center justify-center gap-3 mb-4">
-                    <img src={logoCS} alt="CS Logo" className="h-8 w-auto" />
+                    <img src="/logo-cs.png" alt="CS Logo" className="h-8 w-auto" />
                     <span className="font-outfit font-bold text-xl tracking-tight text-[var(--app-text)] transition-colors duration-500">
                         Conexión <span className="text-[var(--primary)]">Servicios</span>
                     </span>

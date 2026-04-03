@@ -32,8 +32,8 @@ export const MobileHero: React.FC = () => {
                         <span className="text-[var(--primary)]">Grúa</span> o un <br />
                         <span className="text-[var(--secondary)]">Centro Educativo</span>?
                     </h1>
-                    <p className="text-[var(--app-text-muted)] text-sm leading-relaxed max-w-[280px] mx-auto font-medium">
-                        En la APP **Conexión Servicios** encontrarás los mejores profesionales verificados.
+                    <p className="text-[var(--app-text-muted)] text-sm leading-relaxed max-w-[280px] mx-auto font-medium transition-colors duration-500">
+                        En la APP <span className="font-bold text-[var(--app-text)]">Conexión Servicios</span> encontrarás los mejores profesionales verificados.
                     </p>
                 </motion.div>
 
@@ -45,7 +45,7 @@ export const MobileHero: React.FC = () => {
                     className="relative rounded-[2.5rem] overflow-hidden border-4 border-[var(--app-bg-soft)] shadow-2xl"
                 >
                     <img 
-                        src="https://images.unsplash.com/photo-1522071823991-b99c224c0df7?q=80&w=2070&auto=format&fit=crop" 
+                        src="/profesional_wide.png" 
                         alt="Equipo Profesional" 
                         className="w-full h-auto aspect-video object-cover"
                     />

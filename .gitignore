@@ -21,4 +21,11 @@ dist-ssr
 *.ntvs*
 *.njsproj
 *.sln
-*.sw?
+# Temp build logs and scripts
+build_*.txt
+build_*.log
+ts_*.txt
+ts_*.log
+tsc_*.txt
+*.py
+build_output_utf8.txt
