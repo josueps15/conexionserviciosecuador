@@ -153,7 +153,8 @@ body {
 
 @layer base {
   * {
-    @apply border-border outline-none;
+    border-color: var(--card-border);
+    outline: none;
   }
   body {
     @apply bg-[var(--app-bg)] text-[var(--app-text)] font-inter antialiased transition-colors duration-500;
