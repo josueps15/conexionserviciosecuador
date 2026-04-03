@@ -62,7 +62,7 @@ export const DownloadApp = () => {
                         <div className="absolute inset-0 bg-blue-500/10 blur-[100px] rounded-full" />
                         <AndroidMockup 
                             src="/screen_home.png" 
-                            className="w-[340px] h-auto drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] transform -scale-x-100" 
+                            className="w-[320px] h-auto drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]" 
                         />
                     </motion.div>
 
@@ -179,7 +179,7 @@ export const DownloadApp = () => {
                         className="hidden lg:block relative"
                     >
                         <div className="absolute inset-0 bg-blue-500/10 blur-[100px] rounded-full" />
-                        <IPhoneMockup className="w-[300px] h-[620px] drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+                        <IPhoneMockup className="w-[280px] h-[580px] drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
                             <img src="/screen_splash.png" alt="Vista iOS" className="w-full h-full object-cover" />
                         </IPhoneMockup>
                     </motion.div>
