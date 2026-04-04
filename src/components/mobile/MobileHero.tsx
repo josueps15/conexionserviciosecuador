@@ -41,21 +41,27 @@ export const MobileHero: React.FC = () => {
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.2 }}
-                    className="relative rounded-[2.5rem] overflow-hidden border-4 border-[var(--app-bg-soft)] shadow-2xl"
+                    className="relative group"
                 >
-                    <img 
-                        src="/professionals_collage.png" 
-                        alt="Equipo Profesional" 
-                        className="w-full h-auto aspect-video object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[var(--app-bg)]/40 to-transparent" />
-                    
-                    {/* Floating Trust Badge */}
-                    <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-3 rounded-xl border border-white/20 shadow-lg flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-full bg-[var(--primary)] flex items-center justify-center text-white shrink-0">
-                            <ShieldCheck size={16} />
+                    <div className="absolute -inset-2 bg-gradient-to-br from-[var(--tertiary)]/20 to-[var(--primary)]/20 blur-2xl rounded-[2.5rem] opacity-50" />
+                    <div className="relative rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl">
+                        <img 
+                            src="/professionals_collage.png" 
+                            alt="Equipo Profesional" 
+                            className="w-full h-auto aspect-square object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-base)]/80 via-transparent to-transparent" />
+                        
+                        {/* Floating Trust Badge */}
+                        <div className="absolute bottom-4 left-4 right-4 bg-white/10 backdrop-blur-xl p-4 rounded-2xl border border-white/10 shadow-2xl flex items-center gap-3">
+                            <div className="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center text-emerald-400 shrink-0">
+                                <ShieldCheck size={20} />
+                            </div>
+                            <div>
+                                <p className="text-[11px] font-black uppercase tracking-widest text-[#F1F5F9]">Profesionales Verificados</p>
+                                <p className="text-[9px] font-bold text-slate-300">Calidad Grantizada 2026</p>
+                            </div>
                         </div>
-                        <p className="text-[10px] font-bold text-slate-800 leading-tight">Profesionales 100% Verificados</p>
                     </div>
                 </motion.div>
 

@@ -138,9 +138,9 @@ export default function App() {
                             Profesionales 100% Verificados
                         </div>
                         
-                        <h1 className="text-6xl md:text-7xl lg:text-8xl font-black font-outfit text-[var(--app-text)] leading-[0.9] tracking-tight mb-8">
+                        <h1 className="text-6xl md:text-7xl lg:text-8xl font-black font-outfit text-[var(--text-high)] leading-[0.9] tracking-tighter mb-8 italic">
                             CONEXIÓN <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary)] to-blue-500 uppercase">Servicios</span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary)] via-[var(--tertiary)] to-blue-400 uppercase italic">Servicios</span>
                         </h1>
                         
                         <p className="text-xl md:text-2xl text-[var(--app-text-muted)] leading-relaxed mb-10 max-w-xl font-medium">
@@ -182,15 +182,36 @@ export default function App() {
                                 height={60} 
                                 className="opacity-40"
                             />
-                            <div className="relative mt-10 perspective-1000">
-                                <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[var(--app-bg)] to-transparent z-10 pointer-events-none" />
+                            <div className="relative mt-10 perspective-1000 group">
+                                <div className="absolute -inset-4 bg-gradient-to-tr from-[var(--tertiary)]/20 to-[var(--primary)]/20 blur-3xl rounded-[3rem] opacity-50 group-hover:opacity-80 transition-opacity" />
+                                <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[var(--bg-base)] to-transparent z-10 pointer-events-none" />
                                 <img 
                                     src="/professionals_collage.png" 
                                     alt="Profesionales de Conexión Servicios" 
-                                    className="w-full h-auto object-cover rounded-[3rem] shadow-2xl border-4 border-[var(--card-border)] relative z-0 transform hover:scale-[1.02] hover:-rotate-1 transition-all duration-700" 
+                                    className="w-full h-auto object-cover rounded-[3rem] shadow-[0_30px_80px_rgba(0,0,0,0.6)] border border-white/5 relative z-0 transform hover:scale-[1.03] hover:-rotate-1 transition-all duration-700" 
                                 />
-                                <div className="absolute -top-10 -right-10 w-40 h-40 bg-[var(--primary)]/10 blur-3xl rounded-full" />
-                                <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-blue-500/10 blur-3xl rounded-full" />
+                                {/* Floating verified indicator */}
+                                <motion.div 
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ 
+                                        opacity: 1, 
+                                        y: [0, -10, 0],
+                                    }}
+                                    transition={{ 
+                                        duration: 4, 
+                                        repeat: Infinity,
+                                        ease: "easeInOut"
+                                    }}
+                                    className="absolute -bottom-6 -right-6 bg-[var(--bg-surface)] backdrop-blur-xl border border-white/10 p-5 rounded-3xl shadow-2xl z-20 flex items-center gap-4"
+                                >
+                                    <div className="w-12 h-12 rounded-2xl bg-emerald-500/20 flex items-center justify-center text-emerald-400">
+                                        <ShieldCheck size={28} />
+                                    </div>
+                                    <div>
+                                        <p className="text-xs font-black uppercase tracking-widest text-[var(--text-high)]">Seguridad Total</p>
+                                        <p className="text-[10px] font-bold text-[var(--text-medium)]">Expertos Verificados</p>
+                                    </div>
+                                </motion.div>
                             </div>
                         </motion.div>
                     </div>
