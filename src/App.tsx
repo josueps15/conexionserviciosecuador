@@ -5,7 +5,7 @@ import {
     Users,
     Instagram, Facebook,
     Search, MapPin, CheckCircle2,
-    Briefcase, Building2
+    Briefcase
 } from 'lucide-react';
 
 
@@ -139,12 +139,12 @@ export default function App() {
                         </div>
                         
                         <h1 className="text-6xl md:text-7xl lg:text-8xl font-black font-outfit text-[var(--app-text)] leading-[0.9] tracking-tight mb-8">
-                            SALUD Y <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary)] to-blue-500">BIENESTAR</span>
+                            CONEXIÓN <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary)] to-blue-500 uppercase">Servicios</span>
                         </h1>
                         
                         <p className="text-xl md:text-2xl text-[var(--app-text-muted)] leading-relaxed mb-10 max-w-xl font-medium">
-                            Encuentra servicios médicos y profesionales de confianza en todo el Ecuador desde tu celular.
+                            ¿Necesitas un mecánico, una grúa o cualquier otro servicio? Encuentra profesionales de confianza en todo el Ecuador.
                         </p>
 
                         <div className="flex flex-wrap gap-5">
@@ -172,19 +172,25 @@ export default function App() {
                     <div className="relative hidden lg:block">
                         <div className="absolute inset-0 bg-gradient-to-tr from-[var(--primary)]/20 to-transparent blur-3xl rounded-full" />
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 1 }}
-                            className="relative"
+                            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            transition={{ duration: 1.2, ease: "easeOut" }}
+                            className="relative z-10"
                         >
                             <InteractiveGridPattern 
                                 width={60} 
                                 height={60} 
                                 className="opacity-40"
                             />
-                            <div className="relative mt-20">
-                                <Building2 size={400} className="text-[var(--primary)] opacity-5 mx-auto" />
-                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-[var(--primary)]/10 blur-3xl rounded-full" />
+                            <div className="relative mt-10 perspective-1000">
+                                <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[var(--app-bg)] to-transparent z-10 pointer-events-none" />
+                                <img 
+                                    src="/professionals_collage.png" 
+                                    alt="Profesionales de Conexión Servicios" 
+                                    className="w-full h-auto object-cover rounded-[3rem] shadow-2xl border-4 border-[var(--card-border)] relative z-0 transform hover:scale-[1.02] hover:-rotate-1 transition-all duration-700" 
+                                />
+                                <div className="absolute -top-10 -right-10 w-40 h-40 bg-[var(--primary)]/10 blur-3xl rounded-full" />
+                                <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-blue-500/10 blur-3xl rounded-full" />
                             </div>
                         </motion.div>
                     </div>
@@ -206,7 +212,7 @@ export default function App() {
                     <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
                         <div className="max-w-2xl">
                             <h2 className="text-4xl md:text-5xl font-black font-outfit text-[var(--app-text)] mb-4 tracking-tight leading-none uppercase">
-                                Explora <span className="text-[var(--primary)]">Categorías</span>
+                                Nuestros <span className="text-[var(--primary)]">Servicios</span>
                             </h2>
                             <p className="text-lg text-[var(--app-text-muted)] font-medium">
                                 Descubre los 26 sectores de servicios que tenemos para ti.

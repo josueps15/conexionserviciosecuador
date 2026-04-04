@@ -120,29 +120,28 @@ export const DownloadApp = () => {
                             transition={{ delay: 0.3 }}
                             className="flex flex-col sm:flex-row justify-center gap-4 w-full max-w-md"
                         >
-                            {/* Play Store */}
-                            <a href="#" className="flex-1 group relative flex items-center gap-3 px-6 py-4 bg-black border border-white/10 rounded-2xl hover:border-blue-500/50 transition-all duration-300">
-                                <div className="text-white/80 group-hover:text-white transition-colors">
-                                    <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
-                                        <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L18.81,16.27C19.46,16.65 19.46,17.35 18.81,17.73L15.11,19.86L14.4,12.71L16.81,15.12M15.11,4.14L18.81,6.27C19.46,6.65 19.46,7.35 18.81,7.73L16.81,8.88L14.4,11.29L15.11,4.14M13,12.71L12.29,13.42L4.54,21.17C4.65,21.19 4.77,21.21 4.9,21.21C5.23,21.21 5.54,21.1 5.8,20.95L14.4,15.98L13,12.71M12.29,10.58L13,11.29L14.4,8.02L5.8,3.05C5.54,2.9 5.23,2.79 4.9,2.79C4.77,2.79 4.65,2.81 4.54,2.83L12.29,10.58Z" />
-                                    </svg>
-                                </div>
+                            {/* Play Store Original Badge Style */}
+                            <a href="#" className="flex-1 group relative flex items-center gap-3 px-5 py-3 bg-black border border-white/10 rounded-xl hover:border-blue-500/50 transition-all duration-300">
+                                <svg viewBox="0 0 512 512" width="24" height="24" className="mr-1">
+                                    <path fill="#4db6ac" d="M10.1,23.3C9.4,24,9,25,9,26.2v459.7c0,1.2,0.4,2.2,1.1,2.9l1.4,1.4L259.9,256L11.5,21.9L10.1,23.3z" />
+                                    <path fill="#dce775" d="M341.6,337.8L259.9,256L11.5,504.1c1.2,1.2,3.1,1.4,5.2,0.2l324.9-185.3L341.6,337.8z" />
+                                    <path fill="#ff8a65" d="M486.2,243.3L341.6,174.2L259.9,256l81.7,81.8L486.2,268.7C493.5,264.5,493.5,257.5,486.2,243.3z" />
+                                    <path fill="#f06292" d="M341.6,174.2L16.7,7.7C14.6,6.5,12.7,6.6,11.5,7.9l248.4,248.1L341.6,174.2z" />
+                                </svg>
                                 <div className="text-left">
-                                    <p className="text-[8px] uppercase font-bold text-slate-500 tracking-[0.2em] mb-0.1">Get it on</p>
-                                    <p className="text-sm font-bold text-white tracking-tight">Google Play</p>
+                                    <p className="text-[10px] sm:text-[8px] uppercase font-bold text-slate-400 tracking-wider mb-0.5">Get it on</p>
+                                    <p className="text-sm sm:text-base font-bold text-white tracking-tight -mt-1">Google Play</p>
                                 </div>
                             </a>
 
-                            {/* App Store */}
-                            <a href="#" className="flex-1 group relative flex items-center gap-3 px-6 py-4 bg-black border border-white/10 rounded-2xl hover:border-blue-500/50 transition-all duration-300">
-                                <div className="text-white/80 group-hover:text-white transition-colors">
-                                    <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
-                                        <path d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.1,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.87 18.39,7.1 19.56,8.82C19.47,8.88 17.39,10.1 17.41,12.63C17.44,15.65 20.06,16.66 20.09,16.67C20.06,16.74 19.67,18.11 18.71,19.5M13,3.5C13.73,2.67 14.94,2.04 15.94,2C16.07,3.17 15.6,4.35 14.9,5.19C14.21,6.04 13.07,6.7 11.95,6.61C11.8,5.46 12.36,4.26 13,3.5Z" />
-                                    </svg>
-                                </div>
+                            {/* App Store Original Badge Style */}
+                            <a href="#" className="flex-1 group relative flex items-center gap-3 px-5 py-3 bg-black border border-white/10 rounded-xl hover:border-blue-500/50 transition-all duration-300">
+                                <svg viewBox="0 0 384 512" width="22" height="22" fill="white" className="mr-1">
+                                    <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5c0 39.3 14.4 81.2 36.4 115.6 20.9 31.8 51 64.9 84.4 64.9 31.5-1.2 42.6-21.7 87.5-21.7 44.9 0 54.4 20.7 88.5 20.7 34.6 0 62.4-30.8 84.4-64.9 14.2-20.7 21.5-41.4 21.9-42.5-1.2-.5-65.7-25-66.5-76.9zM224 81c19.1-23.1 31.9-55.2 28.4-87.1-28.3 1.1-62.7 18.9-83 42.4-18.2 21-33.9 53.6-29.6 84.5 31.3 2.4 62.2-16.7 84.2-40.2z" />
+                                </svg>
                                 <div className="text-left">
-                                    <p className="text-[8px] uppercase font-bold text-slate-500 tracking-[0.2em] mb-0.1">Download on the</p>
-                                    <p className="text-sm font-bold text-white tracking-tight">App Store</p>
+                                    <p className="text-[10px] sm:text-[8px] uppercase font-bold text-slate-400 tracking-wider mb-0.5">Download on the</p>
+                                    <p className="text-sm sm:text-base font-bold text-white tracking-tight -mt-1">App Store</p>
                                 </div>
                             </a>
                         </motion.div>

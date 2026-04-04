@@ -27,13 +27,12 @@ export const MobileHero: React.FC = () => {
                     className="text-center space-y-5"
                 >
                     <h1 className="text-[2.2rem] leading-[1.05] font-bold font-outfit text-[var(--app-text)] tracking-tight">
-                        ¿Buscas un <span className="text-[var(--primary)]">Mecánico</span>,<br />
-                        un <span className="text-[var(--primary)]">Electricista</span>, una <br />
-                        <span className="text-[var(--primary)]">Grúa</span> o un <br />
-                        <span className="text-[var(--secondary)]">Centro Educativo</span>?
+                        ¿Necesitas un <span className="text-[var(--primary)]">Mecánico</span>,<br />
+                        una <span className="text-[var(--primary)]">Grúa</span> o cualquier <br />
+                        otro <span className="text-[var(--primary)]">Servicio</span>?
                     </h1>
                     <p className="text-[var(--app-text-muted)] text-sm leading-relaxed max-w-[280px] mx-auto font-medium transition-colors duration-500">
-                        En la APP <span className="font-bold text-[var(--app-text)]">Conexión Servicios</span> encontrarás los mejores profesionales verificados.
+                        Encuentra profesionales de confianza en todo el Ecuador con <span className="font-bold text-[var(--app-text)] uppercase tracking-tight">Conexión <span className="text-[var(--primary)]">Servicios</span></span>.
                     </p>
                 </motion.div>
 
@@ -45,7 +44,7 @@ export const MobileHero: React.FC = () => {
                     className="relative rounded-[2.5rem] overflow-hidden border-4 border-[var(--app-bg-soft)] shadow-2xl"
                 >
                     <img 
-                        src="/profesional_wide.png" 
+                        src="/professionals_collage.png" 
                         alt="Equipo Profesional" 
                         className="w-full h-auto aspect-video object-cover"
                     />

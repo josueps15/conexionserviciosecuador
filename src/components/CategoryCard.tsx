@@ -26,8 +26,8 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({
       )}
     >
       <div className="flex items-start justify-between mb-4">
-        <div className="w-14 h-14 rounded-2xl bg-[var(--primary)]/10 flex items-center justify-center text-[var(--primary)] group-hover:scale-110 transition-transform duration-500">
-          <Icon size={28} />
+        <div className="w-16 h-16 rounded-2xl bg-[var(--primary)]/10 flex items-center justify-center text-[var(--primary)] group-hover:bg-[var(--primary)] group-hover:text-white transition-all duration-500 shadow-inner">
+          <Icon size={32} />
         </div>
       </div>
 
@@ -42,10 +42,10 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({
       <div className="mt-auto space-y-4">
         <button 
           onClick={() => setIsExpanded(!isExpanded)}
-          className="flex items-center gap-2 text-[var(--primary)] font-bold text-sm hover:gap-3 transition-all"
+          className="w-full py-3 px-6 bg-[var(--primary)]/10 text-[var(--primary)] font-bold text-sm rounded-xl hover:bg-[var(--primary)] hover:text-white transition-all duration-300 flex items-center justify-center gap-2 group/btn"
         >
-          {isExpanded ? 'Ver menos' : 'Ver especialidades'}
-          <ChevronRight size={16} className={cn(isExpanded && "rotate-90")} />
+          {isExpanded ? 'Ver menos' : 'Ver más'}
+          <ChevronRight size={16} className={cn("transition-transform duration-300", isExpanded ? "rotate-90" : "group-hover/btn:translate-x-1")} />
         </button>
 
         <AnimatePresence>

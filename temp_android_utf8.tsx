@@ -1,4 +1,4 @@
-import React, { SVGProps } from "react"
+﻿import React, { SVGProps } from "react"
 import { cn } from "../../lib/utils"
 
 export interface AndroidProps extends SVGProps<SVGSVGElement> {
@@ -72,7 +72,6 @@ export function Android({
                     className="size-full object-cover"
                     preserveAspectRatio="xMidYMid slice"
                     clipPath="url(#clip0_514_20855)"
-                    transform="translate(9 14)"
                 />
             )}
             {videoSrc && (
