@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { 
     Stethoscope, 
@@ -12,11 +11,8 @@ import { InteractiveGridPattern } from './ui/InteractiveGridPattern';
 import { Android as AndroidMockup } from './ui/AndroidMockup';
 import { IPhoneMockup } from './ui/IPhoneMockup';
 
-// Usando URL directa para asegurar que Vite las procese correctamente
 import appIPhone from '../assets/app_iphone.png';
 import appAndroid from '../assets/app_android.png';
-import playBadge from '../assets/play_badge.png';
-import appleBadge from '../assets/apple_badge.png';
 
 const SOCIAL_LINKS = {
     facebook: 'https://www.facebook.com/share/17dGTfCQBY/',

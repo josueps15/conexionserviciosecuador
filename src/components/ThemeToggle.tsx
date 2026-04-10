@@ -1,6 +1,5 @@
 import { Sun, Moon } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { cn } from '../lib/utils';
 
 interface ThemeToggleProps {
     theme: 'light' | 'dark';

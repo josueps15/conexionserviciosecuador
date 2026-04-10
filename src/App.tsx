@@ -4,7 +4,7 @@ import {
     ShieldCheck, 
     Users,
     Instagram, Facebook,
-    Search, MapPin, CheckCircle2,
+    Search, MapPin,
     Briefcase, ChevronRight,
     LayoutGrid, Building2
 } from 'lucide-react';
