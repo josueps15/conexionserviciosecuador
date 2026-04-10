@@ -1,12 +1,13 @@
 @import "tailwindcss";
-
+@custom-variant dark (&:where(.dark, .dark *));
 @theme {
-    --color-primary: #0066FF;
-    --color-primary-glow: rgba(0, 102, 255, 0.4);
-    --color-secondary: #00E5FF;
-    --color-slate-850: #151e2e;
-    --color-slate-900: #0F172A;
-    --color-slate-950: #020617;
+    --color-primary: #0891b2; /* Turquesa Oscuro */
+    --color-primary-glow: rgba(8, 145, 178, 0.4);
+    --color-secondary: #F97316; /* Naranja */
+    --color-tertiary: #FB923C; /* Naranja Brillante */
+    --color-slate-850: #0c1119;
+    --color-slate-900: #06090e;
+    --color-slate-950: #04060a;
     --color-border: var(--card-border);
 
     --font-inter: "Inter", sans-serif;
@@ -114,41 +115,51 @@ body {
 
 :root {
   /* Brand Colors */
-  --primary: #0088ff;
-  --primary-hover: #0077ee;
-  --secondary: #00c2ff;
+  --primary: #0891b2;
+  --primary-hover: #0e7490;
+  --secondary: #F97316;
+  --tertiary: #FB923C;
   
-  /* Light Theme (Reference Image) */
-  --app-bg: #f8fafc;
+  /* ─── Light Theme — Rich & Premium ─────────────────────────── */
+  --app-bg: #f0f6ff;              /* Azul muy suave, no gris */
   --app-bg-soft: #ffffff;
-  --app-bg-elevated: rgba(255, 255, 255, 0.8);
-  --app-text: #0f172a;
-  --app-text-muted: #475569;
+  --app-bg-elevated: rgba(255, 255, 255, 0.95);
+  --app-text: #0c1a2e;            /* Azul marino oscuro — más premium que #0f172a */
+  --app-text-muted: #4a6080;      /* Azul-gris — mejor contraste en fondo azul suave */
   --card-bg: #ffffff;
-  --card-border: rgba(0, 0, 0, 0.05);
-  --nav-bg: rgba(255, 255, 255, 0.85);
-  --header-bg: rgba(255, 255, 255, 0.85);
-  --footer-bg: #f1f5f9;
-  --footer-text: #1e293b;
-  --glow-opacity: 0.08;
+  --card-border: rgba(8, 145, 178, 0.1); /* Border con tono primario suave */
+  --card-shadow: 0 4px 24px rgba(8, 145, 178, 0.08);
+  --nav-bg: rgba(255, 255, 255, 0.9);
+  --header-bg: rgba(255, 255, 255, 0.9);
+  --footer-bg: #0c1a2e;           /* Footer oscuro siempre */
+  --footer-text: #f0f6ff;
+  --glow-opacity: 0.15;
   --grid-opacity: 0.04;
+
+  /* Section backgrounds */
+  --section-alt-bg: #eaf4fb;      /* Sections alternadas - azul más intenso */
+  --section-dark-bg: #0c1a2e;     /* Sección oscura de contraste */
 }
 
 .dark {
-  /* Dark Theme */
-  --app-bg: #030712;
-  --app-bg-soft: #0a0f1c;
-  --app-bg-elevated: rgba(10, 15, 28, 0.6);
-  --app-text: #f8fafc;
-  --app-text-muted: #94a3b8;
-  --card-bg: rgba(15, 23, 42, 0.6);
-  --card-border: rgba(255, 255, 255, 0.1);
-  --nav-bg: rgba(3, 7, 18, 0.85);
-  --header-bg: rgba(3, 7, 18, 0.85);
-  --footer-bg: #0a0f1c;
-  --footer-text: #f8fafc;
-  --glow-opacity: 0.2;
-  --grid-opacity: 0.06;
+  /* ─── Dark Theme ─────────────────────────────────────────── */
+  --app-bg: #06090e;
+  --app-bg-soft: #0c1119;
+  --app-bg-elevated: rgba(12, 17, 25, 0.6);
+  --app-text: #F8FAFC;
+  --app-text-muted: #94A3B8;
+  --card-bg: rgba(17, 24, 35, 0.6);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --card-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  --nav-bg: rgba(6, 9, 14, 0.85);
+  --header-bg: rgba(6, 9, 14, 0.85);
+  --footer-bg: #020407;
+  --footer-text: #F8FAFC;
+  --glow-opacity: 0.25;
+  --grid-opacity: 0.1;
+
+  --section-alt-bg: #0c1119;
+  --section-dark-bg: #04060a;
 }
 
 @layer base {
@@ -163,6 +174,7 @@ body {
     font-family: 'Outfit', sans-serif;
   }
 }
+
 
 html {
     overflow-x: hidden;

@@ -1,5 +1,6 @@
 import { Sun, Moon } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { cn } from '../lib/utils';
 
 interface ThemeToggleProps {
     theme: 'light' | 'dark';
@@ -37,8 +38,8 @@ export const ThemeToggle = ({ theme, toggleTheme }: ThemeToggleProps) => {
                     <Moon className="text-blue-400" size={20} />
                 </motion.div>
             </div>
-            <span className="text-sm font-bold tracking-tight text-slate-700 dark:text-slate-200">
-                {theme === 'light' ? 'Tema Claro' : 'Tema Oscuro'}
+            <span className="relative z-10 text-[13px] font-black uppercase tracking-wider text-primary transition-colors duration-300">
+                {theme === 'light' ? 'Modo Claro' : 'Modo Oscuro'}
             </span>
             
             {/* Hover Effect */}

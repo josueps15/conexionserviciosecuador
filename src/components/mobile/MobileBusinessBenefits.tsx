@@ -52,7 +52,7 @@ export const MobileBusinessBenefits = ({ onOpenModal }: { onOpenModal: () => voi
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: i * 0.1 }}
-                        className="bg-[var(--app-bg)] p-5 rounded-3xl border border-[var(--card-border)] shadow-sm flex flex-col items-center text-center space-y-3 transition-colors duration-500"
+                        className="bg-[var(--app-bg-soft)] p-5 rounded-3xl border border-[var(--card-border)] shadow-[0_15px_30px_-5px_rgba(8,145,178,0.15)] dark:shadow-none flex flex-col items-center text-center space-y-3 transition-colors duration-500"
                     >
                         <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${benefit.color}`}>
                             <benefit.icon size={22} />

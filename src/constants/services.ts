@@ -11,6 +11,7 @@ export const SERVICES_DATA = [
     id: 'automotriz',
     title: 'Automotriz',
     icon: Car,
+    image: '/category_automotive.png',
     description: 'Mantenimiento y cuidado para tu vehículo.',
     subcategories: ['Mecánica', 'Mecánica de motos', 'Rectificadora de motores/aros', 'Torno', 'Repuestos', 'Llantas', 'Parabrisas', 'Tapicería', 'Audio', 'Autolujos', 'Lavadora y lubricadora', 'Vulcanizadora', 'Alineación', 'Frenos', 'Enderezada y pintura', 'Electricidad/Electrónico', 'Venta autos/motos', 'Grúa']
   },
@@ -18,6 +19,7 @@ export const SERVICES_DATA = [
     id: 'salud',
     title: 'Salud',
     icon: HeartPulse,
+    image: '/category_health.png',
     description: 'Atención médica especializada y bienestar.',
     subcategories: ['Medicina general', 'Endocrinología', 'Odontología', 'Lab. dental/clínico', 'Traumatología', 'Reumatología', 'Ginecología', 'Oftalmología', 'Neurología', 'Podología', 'Dermatología', 'Urología', 'Cirugía plástica', 'Cosmetología', 'Rayos X', 'Farmacia 24h', 'Geriatría', 'Ambulancia', 'Psiquiatría', 'Pediatría', 'Gastroenterología', 'Psicología']
   },
@@ -25,6 +27,7 @@ export const SERVICES_DATA = [
     id: 'mascotas',
     title: 'Mascotas',
     icon: Dog,
+    image: '/category_pets.png',
     description: 'Todo para el cuidado de tus mejores amigos.',
     subcategories: ['Hospital', 'Veterinaria', 'Peluquería canina', 'Adiestramiento canino']
   },
@@ -32,6 +35,7 @@ export const SERVICES_DATA = [
     id: 'deportes',
     title: 'Deportes',
     icon: Dumbbell,
+    image: '/category_sports.png',
     description: 'Actividad física y entrenamiento profesional.',
     subcategories: ['Gym', 'Escuelas deportivas', 'Parapente', 'Indoor Cycling', 'Canchas deportivas']
   },

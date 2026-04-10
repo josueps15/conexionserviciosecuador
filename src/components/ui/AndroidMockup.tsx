@@ -1,121 +1,50 @@
-import React, { SVGProps } from "react"
-import { cn } from "../../lib/utils"
+import React from "react";
+import { cn } from "../../lib/utils";
 
-export interface AndroidProps extends SVGProps<SVGSVGElement> {
-    width?: number
-    height?: number
-    src?: string
-    videoSrc?: string
-    className?: string
-    children?: React.ReactNode
+export interface AndroidProps {
+    src?: string;
+    className?: string;
+    children?: React.ReactNode;
 }
 
 export function Android({
-    width = 433,
-    height = 882,
     src,
-    videoSrc,
     className,
     children,
-    ...props
 }: AndroidProps) {
     return (
-        <svg
-            width={width}
-            height={height}
-            viewBox={`0 0 ${width} ${height}`}
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className={cn("mx-auto", className)}
-            {...props}
+        <div
+            className={cn(
+                "relative mx-auto h-[641px] w-[310px] rounded-[3rem] border-[8px] border-[#1a1a1a] bg-black shadow-2xl ring-1 ring-white/10",
+                className,
+            )}
         >
-            <path
-                d="M376 153H378C379.105 153 380 153.895 380 155V249C380 250.105 379.105 251 378 251H376V153Z"
-                className="fill-[#E5E5E5] dark:fill-[#404040]"
-            />
-            <path
-                d="M376 301H378C379.105 301 380 301.895 380 303V351C380 352.105 379.105 353 378 353H376V301Z"
-                className="fill-[#E5E5E5] dark:fill-[#404040]"
-            />
-            <path
-                d="M0 42C0 18.8041 18.804 0 42 0H336C359.196 0 378 18.804 378 42V788C378 811.196 359.196 830 336 830H42C18.804 830 0 811.196 0 788V42Z"
-                className="fill-[#E5E5E5] dark:fill-[#404040]"
-            />
-            <path
-                d="M2 43C2 22.0132 19.0132 5 40 5H338C358.987 5 376 22.0132 376 43V787C376 807.987 358.987 825 338 825H40C19.0132 825 2 807.987 2 787V43Z"
-                className="fill-white dark:fill-[#262626]"
-            />
+            {/* Top Speaker/Camera Center Notch */}
+            <div className="absolute left-1/2 top-3 h-2 w-16 -translate-x-1/2 rounded-full bg-[#1a1a1a] z-20"></div>
+            <div className="absolute left-1/2 top-4 h-2 w-2 -translate-x-1/2 -translate-x-[40px] rounded-full bg-[#0d0d0d] z-20 border border-white/5"></div>
 
-            <g clipPath="url(#clip0_514_20855)">
-                <path
-                    d="M9.25 48C9.25 29.3604 24.3604 14.25 43 14.25H335C353.64 14.25 368.75 29.3604 368.75 48V780C368.75 798.64 353.64 813.75 335 813.75H43C24.3604 813.75 9.25 798.64 9.25 780V48Z"
-                    className="fill-[#E5E5E5] stroke-[#E5E5E5] stroke-[0.5] dark:fill-[#404040] dark:stroke-[#404040]"
-                />
-            </g>
-            <circle
-                cx="189"
-                cy="28"
-                r="9"
-                className="fill-white dark:fill-[#262626]"
-            />
-            <circle
-                cx="189"
-                cy="28"
-                r="4"
-                className="fill-[#E5E5E5] dark:fill-[#404040]"
-            />
-            {src && (
-                <image
-                    href={src}
-                    width="360"
-                    height="800"
-                    className="size-full object-cover"
-                    preserveAspectRatio="xMidYMid slice"
-                    clipPath="url(#clip0_514_20855)"
-                    transform="translate(9 14)"
-                />
-            )}
-            {videoSrc && (
-                <foreignObject
-                    width="380"
-                    height="820"
-                    clipPath="url(#clip0_514_20855)"
-                    preserveAspectRatio="xMidYMid slice"
-                >
-                    <video
-                        className="size-full object-cover"
-                        src={videoSrc}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
+            <div className="absolute inset-[1px] overflow-hidden rounded-[2.5rem] bg-[#0c1119] flex items-center justify-center">
+                {src ? (
+                    <img 
+                        src={src} 
+                        alt="Android App Screenshot" 
+                        className="w-full h-full object-cover select-none pointer-events-none" 
+                        loading="eager"
+                        decoding="async"
                     />
-                </foreignObject>
-            )}
-            {children && (
-                <foreignObject
-                    width="360"
-                    height="800"
-                    transform="translate(9 14)"
-                    clipPath="url(#clip0_514_20855)"
-                >
-                    {children}
-                </foreignObject>
-            )}
-            <defs>
-                <clipPath id="clip0_514_20855">
-                    <rect
-                        width="360"
-                        height="800"
-                        rx="33"
-                        ry="25"
-                        className="fill-white dark:fill-[#262626]"
-                        transform="translate(9 14)"
-                    />
-                </clipPath>
-            </defs>
-        </svg>
-    )
+                ) : (
+                    children
+                )}
+            </div>
+
+            {/* Realistic buttons for Android (usually Volume on left, Power on right) */}
+            <div className="absolute -left-2 top-32 h-16 w-1 rounded-l-md bg-[#2a2a2a] border-r border-white/5"></div>
+            <div className="absolute -right-2 top-40 h-20 w-1 rounded-r-md bg-[#2a2a2a] border-l border-white/5"></div>
+            
+            {/* Bottom Charging Port indication */}
+            <div className="absolute left-1/2 bottom-3 h-1 w-8 -translate-x-1/2 rounded-full bg-[#1a1a1a]"></div>
+        </div>
+    );
 }
 
 export default Android;

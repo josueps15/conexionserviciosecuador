@@ -114,16 +114,20 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, on
 
                     {/* Modal Container */}
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                        initial={{ opacity: 0, scale: 0.9, y: 30 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
-                        exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                        transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                        className="relative w-full max-w-5xl bg-[var(--app-bg)] border border-black/5 dark:border-white/10 rounded-3xl sm:rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col md:flex-row max-h-[90vh] transition-colors duration-500"
+                        exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                        transition={{ type: "spring", damping: 22, stiffness: 350, mass: 0.8 }}
+                        className="relative w-full max-w-5xl bg-[var(--app-bg-soft)] border border-[var(--card-border)] rounded-3xl sm:rounded-[2.5rem] shadow-[0_30px_60px_-15px_rgba(8,145,178,0.25)] dark:shadow-2xl overflow-hidden flex flex-col md:flex-row max-h-[90vh] transition-colors duration-500"
                     >
                         {/* Left Panel - Benefits Info */}
-                        <div className="hidden md:flex flex-col flex-1 p-10 lg:p-14 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 relative overflow-hidden">
-                            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 blur-[100px] rounded-full" />
-                            <div className="absolute bottom-0 left-0 w-64 h-64 bg-secondary/20 blur-[100px] rounded-full" />
+                        <div className="hidden md:flex flex-col flex-1 p-10 lg:p-14 relative overflow-hidden bg-[var(--app-bg)]">
+                            <div className="absolute inset-0 z-0">
+                                <img src="/bg-business-join.png" alt="Crecimiento y Conexión" className="w-full h-full object-cover opacity-60 dark:opacity-30 mix-blend-overlay hover:scale-105 transition-transform duration-[10s]" />
+                                <div className="absolute inset-0 bg-gradient-to-br from-[var(--app-bg)]/90 via-[var(--app-bg)]/70 to-[var(--primary)]/20 dark:from-[var(--app-bg)]/95 dark:to-[var(--primary)]/10"></div>
+                            </div>
+                            <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--primary)]/20 blur-[100px] rounded-full z-0" />
+                            <div className="absolute bottom-0 left-0 w-64 h-64 bg-[var(--secondary)]/20 blur-[100px] rounded-full z-0" />
 
                             <div className="relative z-10 flex flex-col h-full">
                                 <h3 className="text-3xl lg:text-4xl font-outfit font-black text-[var(--app-text)] mb-6 leading-tight transition-colors duration-500">
@@ -156,7 +160,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, on
                         </div>
 
                         {/* Right Panel - Form */}
-                        <div className="flex-1 p-6 sm:p-10 lg:p-14 overflow-y-auto custom-scrollbar relative bg-[var(--app-bg)] transition-colors duration-500">
+                        <div className="flex-1 p-6 sm:p-10 lg:p-14 overflow-y-auto custom-scrollbar relative bg-[var(--app-bg-soft)] transition-colors duration-500 z-10">
                             {!isSuccess && (
                                 <button
                                     onClick={onClose}
@@ -207,7 +211,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, on
                                                     <User size={18} className="text-[var(--app-text-muted)] opacity-50" />
                                                 </div>
                                                 <input required type="text" name="name" value={formData.name} onChange={handleInputChange}
-                                                    className="w-full pl-11 pr-4 py-3.5 bg-black/5 dark:bg-slate-900/50 border border-black/5 dark:border-white/10 rounded-xl text-[var(--app-text)] outline-none focus:border-primary/50 focus:bg-white dark:focus:bg-slate-900/80 transition-all font-medium placeholder:text-[var(--app-text-muted)] placeholder:opacity-30"
+                                                    className="w-full pl-11 pr-4 py-3.5 bg-white dark:bg-slate-900 border border-[var(--card-border)] rounded-xl text-[var(--app-text)] outline-none focus:border-[var(--primary)] focus:ring-4 focus:ring-[var(--primary)]/10 transition-all font-medium placeholder:text-[var(--app-text-muted)] placeholder:opacity-40 shadow-sm dark:shadow-none"
                                                     placeholder="Ej: Juan Pérez" />
                                             </div>
                                         </div>
@@ -219,7 +223,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, on
                                                     <Phone size={18} className="text-[var(--app-text-muted)] opacity-50" />
                                                 </div>
                                                 <input required type="tel" name="phone" value={formData.phone} onChange={handleInputChange}
-                                                    className="w-full pl-11 pr-4 py-3.5 bg-black/5 dark:bg-slate-900/50 border border-black/5 dark:border-white/10 rounded-xl text-[var(--app-text)] outline-none focus:border-primary/50 focus:bg-white dark:focus:bg-slate-900/80 transition-all font-medium placeholder:text-[var(--app-text-muted)] placeholder:opacity-30"
+                                                    className="w-full pl-11 pr-4 py-3.5 bg-white dark:bg-slate-900 border border-[var(--card-border)] rounded-xl text-[var(--app-text)] outline-none focus:border-[var(--primary)] focus:ring-4 focus:ring-[var(--primary)]/10 transition-all font-medium placeholder:text-[var(--app-text-muted)] placeholder:opacity-40 shadow-sm dark:shadow-none"
                                                     placeholder="Ej: 0991234567" />
                                             </div>
                                         </div>
@@ -231,7 +235,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, on
                                                     <Building2 size={18} className="text-[var(--app-text-muted)] opacity-50" />
                                                 </div>
                                                 <input required type="text" name="service" value={formData.service} onChange={handleInputChange}
-                                                    className="w-full pl-11 pr-4 py-3.5 bg-black/5 dark:bg-slate-900/50 border border-black/5 dark:border-white/10 rounded-xl text-[var(--app-text)] outline-none focus:border-primary/50 focus:bg-white dark:focus:bg-slate-900/80 transition-all font-medium placeholder:text-[var(--app-text-muted)] placeholder:opacity-30"
+                                                    className="w-full pl-11 pr-4 py-3.5 bg-white dark:bg-slate-900 border border-[var(--card-border)] rounded-xl text-[var(--app-text)] outline-none focus:border-[var(--primary)] focus:ring-4 focus:ring-[var(--primary)]/10 transition-all font-medium placeholder:text-[var(--app-text-muted)] placeholder:opacity-40 shadow-sm dark:shadow-none"
                                                     placeholder="Ej: Plomería Express o Ferretería Central" />
                                             </div>
                                         </div>
@@ -250,7 +254,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, on
                                                     <MapPin size={18} className="text-[var(--app-text-muted)] opacity-50" />
                                                 </div>
                                                 <input required type="text" name="location" value={formData.location} onChange={handleInputChange}
-                                                    className="w-full pl-11 pr-4 py-3.5 bg-black/5 dark:bg-slate-900/50 border border-black/5 dark:border-white/10 rounded-xl text-[var(--app-text)] outline-none focus:border-primary/50 focus:bg-white dark:focus:bg-slate-900/80 transition-all font-medium placeholder:text-[var(--app-text-muted)] placeholder:opacity-30"
+                                                    className="w-full pl-11 pr-4 py-3.5 bg-white dark:bg-slate-900 border border-[var(--card-border)] rounded-xl text-[var(--app-text)] outline-none focus:border-[var(--primary)] focus:ring-4 focus:ring-[var(--primary)]/10 transition-all font-medium placeholder:text-[var(--app-text-muted)] placeholder:opacity-40 shadow-sm dark:shadow-none"
                                                     placeholder="Sector, calle o ciudad" />
                                             </div>
                                         </div>
@@ -262,7 +266,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, on
                                                     <AlignLeft size={18} className="text-[var(--app-text-muted)] opacity-50" />
                                                 </div>
                                                 <textarea required name="details" value={formData.details} onChange={handleInputChange} rows={3}
-                                                    className="w-full pl-11 pr-4 py-3.5 bg-black/5 dark:bg-slate-900/50 border border-black/5 dark:border-white/10 rounded-xl text-[var(--app-text)] outline-none focus:border-primary/50 focus:bg-white dark:focus:bg-slate-900/80 transition-all font-medium placeholder:text-[var(--app-text-muted)] placeholder:opacity-30 resize-none"
+                                                    className="w-full pl-11 pr-4 py-3.5 bg-white dark:bg-slate-900 border border-[var(--card-border)] rounded-xl text-[var(--app-text)] outline-none focus:border-[var(--primary)] focus:ring-4 focus:ring-[var(--primary)]/10 transition-all font-medium placeholder:text-[var(--app-text-muted)] placeholder:opacity-40 resize-none shadow-sm dark:shadow-none"
                                                     placeholder="Cuéntanos un poco más sobre lo que ofreces..." />
                                             </div>
                                         </div>
