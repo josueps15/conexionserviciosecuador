@@ -4,9 +4,48 @@ import { motion } from 'framer-motion';
 interface ThemeToggleProps {
     theme: 'light' | 'dark';
     toggleTheme: () => void;
+    isCircular?: boolean;
 }
 
-export const ThemeToggle = ({ theme, toggleTheme }: ThemeToggleProps) => {
+export const ThemeToggle = ({ theme, toggleTheme, isCircular = false }: ThemeToggleProps) => {
+    if (isCircular) {
+        return (
+            <button
+                onClick={toggleTheme}
+                className="w-9 h-9 relative flex-shrink-0 rounded-full bg-[var(--app-bg-soft)] border border-[var(--card-border)] flex items-center justify-center text-[var(--app-text)] hover:text-cyan-500 transition-all shadow-sm group overflow-hidden"
+                aria-label="Cambiar tema"
+            >
+                <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors" />
+                <motion.div
+                    initial={false}
+                    animate={{ 
+                        scale: theme === 'light' ? 1 : 0.4,
+                        rotate: theme === 'light' ? 0 : 180,
+                        opacity: theme === 'light' ? 1 : 0,
+                        y: theme === 'light' ? 0 : -20
+                    }}
+                    transition={{ type: "spring", stiffness: 200, damping: 10 }}
+                    className="absolute flex items-center justify-center"
+                >
+                    <Sun size={17} className="text-amber-500 group-hover:scale-110 transition-transform" />
+                </motion.div>
+                <motion.div
+                    initial={false}
+                    animate={{ 
+                        scale: theme === 'dark' ? 1 : 0.4,
+                        rotate: theme === 'dark' ? 0 : -180,
+                        opacity: theme === 'dark' ? 1 : 0,
+                        y: theme === 'dark' ? 0 : 20
+                    }}
+                    transition={{ type: "spring", stiffness: 200, damping: 10 }}
+                    className="absolute flex items-center justify-center"
+                >
+                    <Moon size={17} className="text-blue-400 group-hover:scale-110 transition-transform" />
+                </motion.div>
+            </button>
+        );
+    }
+
     return (
         <button
             onClick={toggleTheme}

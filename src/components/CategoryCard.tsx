@@ -55,7 +55,7 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({
             {title}
           </h3>
         )}
-        <p className="text-[var(--app-text-muted)] text-sm mb-6 flex-grow leading-relaxed">
+        <p className="text-slate-700 dark:text-slate-300 font-medium text-sm mb-6 flex-grow leading-relaxed">
           {description}
         </p>
       </div>

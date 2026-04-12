@@ -64,7 +64,6 @@ export const DownloadApp = () => {
                         transition={{ duration: 1.2, ease: "easeOut" }}
                         className="hidden lg:block relative origin-bottom-right"
                     >
-                        <div className="absolute inset-[-15%] bg-[var(--primary)]/30 blur-[120px] rounded-full transition-all duration-700" />
                         <div className="relative transform hover:scale-[1.02] transition-transform duration-500 drop-shadow-[0_45px_70px_rgba(0,0,0,0.5)]">
                             <AndroidMockup src={appAndroid} />
                         </div>
@@ -153,7 +152,7 @@ export const DownloadApp = () => {
 
                         <div className="flex flex-col items-center gap-8 pt-10">
                             <p className="text-3xl font-black font-outfit italic text-[var(--app-text)]">
-                                Conecta con lo <span className="text-[var(--primary)] uppercase text-4xl not-italic">MEJOR</span>
+                                Conecta con lo <span className="text-orange-500 uppercase text-4xl">MEJOR</span>
                             </p>
                             
                             <div className="flex gap-10">
@@ -184,7 +183,6 @@ export const DownloadApp = () => {
                         transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
                         className="hidden lg:block relative origin-bottom-left"
                     >
-                        <div className="absolute inset-[-20%] bg-cyan-400/20 blur-[120px] rounded-full transition-all duration-700" />
                         <div className="relative transform hover:scale-[1.02] transition-transform duration-500 drop-shadow-[0_45px_70px_rgba(0,0,0,0.5)]">
                             <IPhoneMockup>
                                 <img src={appIPhone} alt="Vista iOS App" className="w-full h-full object-cover" />

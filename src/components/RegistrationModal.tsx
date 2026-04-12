@@ -121,7 +121,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, on
                         className="relative w-full max-w-5xl bg-[var(--app-bg-soft)] border border-[var(--card-border)] rounded-3xl sm:rounded-[2.5rem] shadow-[0_30px_60px_-15px_rgba(8,145,178,0.25)] dark:shadow-2xl overflow-hidden flex flex-col md:flex-row max-h-[90vh] transition-colors duration-500"
                     >
                         {/* Left Panel - Benefits Info */}
-                        <div className="hidden md:flex flex-col flex-1 p-10 lg:p-14 relative overflow-hidden bg-[var(--app-bg)]">
+                        <div className="hidden md:flex flex-col flex-1 p-8 lg:p-10 relative overflow-hidden bg-[var(--app-bg)]">
                             <div className="absolute inset-0 z-0">
                                 <img src="/bg-business-join.png" alt="Crecimiento y Conexión" className="w-full h-full object-cover opacity-60 dark:opacity-30 mix-blend-overlay hover:scale-105 transition-transform duration-[10s]" />
                                 <div className="absolute inset-0 bg-gradient-to-br from-[var(--app-bg)]/90 via-[var(--app-bg)]/70 to-[var(--primary)]/20 dark:from-[var(--app-bg)]/95 dark:to-[var(--primary)]/10"></div>
@@ -130,16 +130,16 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, on
                             <div className="absolute bottom-0 left-0 w-64 h-64 bg-[var(--secondary)]/20 blur-[100px] rounded-full z-0" />
 
                             <div className="relative z-10 flex flex-col h-full">
-                                <h3 className="text-3xl lg:text-4xl font-outfit font-black text-[var(--app-text)] mb-6 leading-tight transition-colors duration-500">
-                                    ¡Publícalo <span className="text-emerald-500">GRATIS</span> en la
-                                    <br/> APP de <span className="text-gradient">Conexión Servicios!</span>
+                                <h3 className="text-3xl lg:text-4xl font-outfit font-black text-[var(--app-text)] mb-4 leading-tight transition-colors duration-500">
+                                    ¡Publícalo <span className="text-cyan-500">GRATIS</span> en la
+                                    <br/> APP de <span className="text-orange-500">Conexión Servicios!</span>
                                 </h3>
 
-                                <p className="text-[var(--app-text-muted)] mb-10 text-lg font-medium transition-colors duration-500">
+                                <p className="text-[var(--app-text-muted)] mb-6 text-[15px] font-medium transition-colors duration-500">
                                     ¿Tienes un negocio en crecimiento? Regístrate hoy y llega a miles de clientes activos de manera instantánea.
                                 </p>
 
-                                <div className="space-y-6 flex-1">
+                                <div className="space-y-4 flex-1">
                                     {[
                                         { title: "Visibilidad Total", desc: "¡Tu perfil ante miles de clientes! Aparece en los primeros resultados." },
                                         { title: "Contacto Directo", desc: "Trato directo, resultados inmediatos. Conexión sin intermediarios ni comisiones ocultas." },
@@ -160,11 +160,11 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, on
                         </div>
 
                         {/* Right Panel - Form */}
-                        <div className="flex-1 p-6 sm:p-10 lg:p-14 overflow-y-auto custom-scrollbar relative bg-[var(--app-bg-soft)] transition-colors duration-500 z-10">
+                        <div className="flex-1 p-6 sm:p-8 lg:p-8 overflow-y-auto no-scrollbar relative bg-[var(--app-bg-soft)] transition-colors duration-500 z-10">
                             {!isSuccess && (
                                 <button
                                     onClick={onClose}
-                                    className="absolute top-6 right-6 w-10 h-10 bg-black/5 dark:bg-slate-900 rounded-full border border-black/5 dark:border-white/10 text-[var(--app-text-muted)] hover:text-[var(--app-text)] flex items-center justify-center transition-all z-20"
+                                    className="absolute top-4 right-4 w-10 h-10 bg-black/5 dark:bg-slate-900 rounded-full border border-black/5 dark:border-white/10 text-[var(--app-text-muted)] hover:text-[var(--app-text)] flex items-center justify-center transition-all z-20"
                                 >
                                     <X size={20} />
                                 </button>
@@ -182,100 +182,100 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, on
                                     <h3 className="text-3xl font-outfit font-black text-[var(--app-text)] mb-4 transition-colors duration-500">
                                         ¡Gracias por sumarte al cambio!
                                     </h3>
-                                    <p className="text-[var(--app-text-muted)] text-lg mb-8 max-w-sm transition-colors duration-500">
+                                    <p className="text-[var(--app-text-muted)] text-[15px] mb-8 max-w-sm transition-colors duration-500">
                                         Tus datos han sido enviados exitosamente. Por favor, espera a que <strong className="text-[var(--app-text)]">Administración Matriz</strong> se ponga en contacto contigo muy pronto para activar tu perfil profesional.
                                     </p>
                                     <button
                                         onClick={resetAndClose}
-                                        className="px-8 py-4 bg-primary text-white dark:bg-white dark:text-slate-950 font-bold rounded-xl hover:opacity-90 transition-all w-full sm:w-auto"
+                                        className="px-8 py-3 bg-[var(--primary)] text-white font-bold rounded-xl hover:opacity-90 transition-all w-full sm:w-auto"
                                     >
                                         Volver al inicio
                                     </button>
                                 </motion.div>
                             ) : (
                                 <>
-                                    <div className="mb-8">
-                                        <h2 className="text-2xl sm:text-3xl font-outfit font-black text-[var(--app-text)] mb-2 transition-colors duration-500">
+                                    <div className="mb-4">
+                                        <h2 className="text-2xl sm:text-3xl font-outfit font-black text-[var(--app-text)] mb-0.5 transition-colors duration-500">
                                             Crear Perfil Gratis
                                         </h2>
-                                        <p className="text-emerald-600 dark:text-emerald-400 text-sm font-bold transition-colors duration-500">
+                                        <p className="text-emerald-600 dark:text-emerald-400 text-[13px] font-bold transition-colors duration-500">
                                             ¡Publica tu negocio sin costo alguno!
                                         </p>
                                     </div>
 
-                                    <form onSubmit={handleSubmit} className="space-y-5">
-                                        <div className="space-y-1.5">
-                                            <label className="text-xs font-bold text-[var(--app-text-muted)] uppercase tracking-wider pl-1 transition-colors duration-500">Nombre Completo</label>
+                                    <form onSubmit={handleSubmit} className="space-y-3.5">
+                                        <div className="space-y-1">
+                                            <label className="text-[11px] font-bold text-[var(--app-text-muted)] uppercase tracking-wider pl-1 transition-colors duration-500">Nombre Completo</label>
                                             <div className="relative">
                                                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                                    <User size={18} className="text-[var(--app-text-muted)] opacity-50" />
+                                                    <User size={16} className="text-[var(--app-text-muted)] opacity-50" />
                                                 </div>
                                                 <input required type="text" name="name" value={formData.name} onChange={handleInputChange}
-                                                    className="w-full pl-11 pr-4 py-3.5 bg-white dark:bg-slate-900 border border-[var(--card-border)] rounded-xl text-[var(--app-text)] outline-none focus:border-[var(--primary)] focus:ring-4 focus:ring-[var(--primary)]/10 transition-all font-medium placeholder:text-[var(--app-text-muted)] placeholder:opacity-40 shadow-sm dark:shadow-none"
+                                                    className="w-full pl-10 pr-4 py-2.5 bg-white dark:bg-slate-900 border border-[var(--card-border)] rounded-xl text-[var(--app-text)] text-sm outline-none focus:border-[var(--primary)] focus:ring-4 focus:ring-[var(--primary)]/10 transition-all font-medium placeholder:text-[var(--app-text-muted)] placeholder:opacity-40 shadow-sm dark:shadow-none"
                                                     placeholder="Ej: Juan Pérez" />
                                             </div>
                                         </div>
 
-                                        <div className="space-y-1.5">
-                                            <label className="text-xs font-bold text-[var(--app-text-muted)] uppercase tracking-wider pl-1 transition-colors duration-500">Teléfono Célular</label>
+                                        <div className="space-y-1">
+                                            <label className="text-[11px] font-bold text-[var(--app-text-muted)] uppercase tracking-wider pl-1 transition-colors duration-500">Teléfono Célular</label>
                                             <div className="relative">
                                                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                                    <Phone size={18} className="text-[var(--app-text-muted)] opacity-50" />
+                                                    <Phone size={16} className="text-[var(--app-text-muted)] opacity-50" />
                                                 </div>
                                                 <input required type="tel" name="phone" value={formData.phone} onChange={handleInputChange}
-                                                    className="w-full pl-11 pr-4 py-3.5 bg-white dark:bg-slate-900 border border-[var(--card-border)] rounded-xl text-[var(--app-text)] outline-none focus:border-[var(--primary)] focus:ring-4 focus:ring-[var(--primary)]/10 transition-all font-medium placeholder:text-[var(--app-text-muted)] placeholder:opacity-40 shadow-sm dark:shadow-none"
+                                                    className="w-full pl-10 pr-4 py-2.5 bg-white dark:bg-slate-900 border border-[var(--card-border)] rounded-xl text-[var(--app-text)] text-sm outline-none focus:border-[var(--primary)] focus:ring-4 focus:ring-[var(--primary)]/10 transition-all font-medium placeholder:text-[var(--app-text-muted)] placeholder:opacity-40 shadow-sm dark:shadow-none"
                                                     placeholder="Ej: 0991234567" />
                                             </div>
                                         </div>
 
-                                        <div className="space-y-1.5">
-                                            <label className="text-xs font-bold text-[var(--app-text-muted)] uppercase tracking-wider pl-1 transition-colors duration-500">Servicio / Negocio</label>
+                                        <div className="space-y-1">
+                                            <label className="text-[11px] font-bold text-[var(--app-text-muted)] uppercase tracking-wider pl-1 transition-colors duration-500">Servicio / Negocio</label>
                                             <div className="relative">
                                                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                                    <Building2 size={18} className="text-[var(--app-text-muted)] opacity-50" />
+                                                    <Building2 size={16} className="text-[var(--app-text-muted)] opacity-50" />
                                                 </div>
                                                 <input required type="text" name="service" value={formData.service} onChange={handleInputChange}
-                                                    className="w-full pl-11 pr-4 py-3.5 bg-white dark:bg-slate-900 border border-[var(--card-border)] rounded-xl text-[var(--app-text)] outline-none focus:border-[var(--primary)] focus:ring-4 focus:ring-[var(--primary)]/10 transition-all font-medium placeholder:text-[var(--app-text-muted)] placeholder:opacity-40 shadow-sm dark:shadow-none"
+                                                    className="w-full pl-10 pr-4 py-2.5 bg-white dark:bg-slate-900 border border-[var(--card-border)] rounded-xl text-[var(--app-text)] text-sm outline-none focus:border-[var(--primary)] focus:ring-4 focus:ring-[var(--primary)]/10 transition-all font-medium placeholder:text-[var(--app-text-muted)] placeholder:opacity-40 shadow-sm dark:shadow-none"
                                                     placeholder="Ej: Plomería Express o Ferretería Central" />
                                             </div>
                                         </div>
 
-                                        <div className="space-y-1.5">
+                                        <div className="space-y-1">
                                             <div className="flex justify-between items-end">
-                                                <label className="text-xs font-bold text-[var(--app-text-muted)] uppercase tracking-wider pl-1 transition-colors duration-500">Ubicación</label>
+                                                <label className="text-[11px] font-bold text-[var(--app-text-muted)] uppercase tracking-wider pl-1 transition-colors duration-500">Ubicación</label>
                                                 <button type="button" onClick={handleGetLocation} disabled={isLocating}
-                                                    className="text-xs font-bold text-primary hover:text-cyan-400 transition-colors flex items-center gap-1">
-                                                    {isLocating ? <Loader2 size={14} className="animate-spin" /> : <MapPin size={14} />}
-                                                    Usar mi ubicación actual
+                                                    className="text-[11px] font-bold text-primary hover:text-cyan-400 transition-colors flex items-center gap-1">
+                                                    {isLocating ? <Loader2 size={12} className="animate-spin" /> : <MapPin size={12} />}
+                                                    Usar ubicación
                                                 </button>
                                             </div>
                                             <div className="relative">
                                                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                                    <MapPin size={18} className="text-[var(--app-text-muted)] opacity-50" />
+                                                    <MapPin size={16} className="text-[var(--app-text-muted)] opacity-50" />
                                                 </div>
                                                 <input required type="text" name="location" value={formData.location} onChange={handleInputChange}
-                                                    className="w-full pl-11 pr-4 py-3.5 bg-white dark:bg-slate-900 border border-[var(--card-border)] rounded-xl text-[var(--app-text)] outline-none focus:border-[var(--primary)] focus:ring-4 focus:ring-[var(--primary)]/10 transition-all font-medium placeholder:text-[var(--app-text-muted)] placeholder:opacity-40 shadow-sm dark:shadow-none"
+                                                    className="w-full pl-10 pr-4 py-2.5 bg-white dark:bg-slate-900 border border-[var(--card-border)] rounded-xl text-[var(--app-text)] text-sm outline-none focus:border-[var(--primary)] focus:ring-4 focus:ring-[var(--primary)]/10 transition-all font-medium placeholder:text-[var(--app-text-muted)] placeholder:opacity-40 shadow-sm dark:shadow-none"
                                                     placeholder="Sector, calle o ciudad" />
                                             </div>
                                         </div>
 
-                                        <div className="space-y-1.5">
-                                            <label className="text-xs font-bold text-[var(--app-text-muted)] uppercase tracking-wider pl-1 transition-colors duration-500">Detalles Adicionales</label>
+                                        <div className="space-y-1">
+                                            <label className="text-[11px] font-bold text-[var(--app-text-muted)] uppercase tracking-wider pl-1 transition-colors duration-500">Detalles Adicionales</label>
                                             <div className="relative">
-                                                <div className="absolute top-4 left-4 pointer-events-none">
-                                                    <AlignLeft size={18} className="text-[var(--app-text-muted)] opacity-50" />
+                                                <div className="absolute top-3 left-4 pointer-events-none">
+                                                    <AlignLeft size={16} className="text-[var(--app-text-muted)] opacity-50" />
                                                 </div>
-                                                <textarea required name="details" value={formData.details} onChange={handleInputChange} rows={3}
-                                                    className="w-full pl-11 pr-4 py-3.5 bg-white dark:bg-slate-900 border border-[var(--card-border)] rounded-xl text-[var(--app-text)] outline-none focus:border-[var(--primary)] focus:ring-4 focus:ring-[var(--primary)]/10 transition-all font-medium placeholder:text-[var(--app-text-muted)] placeholder:opacity-40 resize-none shadow-sm dark:shadow-none"
+                                                <textarea required name="details" value={formData.details} onChange={handleInputChange} rows={2}
+                                                    className="w-full pl-10 pr-4 py-2.5 bg-white dark:bg-slate-900 border border-[var(--card-border)] rounded-xl text-[var(--app-text)] text-sm outline-none focus:border-[var(--primary)] focus:ring-4 focus:ring-[var(--primary)]/10 transition-all font-medium placeholder:text-[var(--app-text-muted)] placeholder:opacity-40 resize-none shadow-sm dark:shadow-none"
                                                     placeholder="Cuéntanos un poco más sobre lo que ofreces..." />
                                             </div>
                                         </div>
 
-                                        <div className="pt-4">
+                                        <div className="pt-2">
                                             <button
                                                 type="submit"
                                                 disabled={isSubmitting}
-                                                className="w-full py-4 rounded-xl bg-gradient-to-r from-primary to-secondary text-white font-black text-lg flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-50"
+                                                className="w-full py-3.5 rounded-xl bg-gradient-to-r from-orange-400 to-orange-500 text-white font-black text-[15px] flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-50"
                                             >
                                                 {isSubmitting ? (
                                                     <>
