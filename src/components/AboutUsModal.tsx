@@ -40,7 +40,7 @@ export const AboutUsModal: React.FC<AboutUsModalProps> = ({ isOpen, onClose }) =
                         <div className="absolute bottom-0 left-0 w-64 h-64 bg-[var(--secondary)]/20 blur-[100px] rounded-full z-0" />
 
                         {/* Content */}
-                        <div className="relative z-10 p-6 sm:p-12 lg:p-16 pb-12 flex flex-col items-center text-center max-h-[85vh] overflow-y-auto hide-scrollbar">
+                        <div className="relative z-10 p-6 sm:p-12 lg:p-16 pb-12 flex flex-col items-center text-center max-h-[85vh] overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                             <button
                                 onClick={onClose}
                                 className="absolute top-6 right-6 p-2 rounded-full bg-[var(--app-bg)]/50 hover:bg-[var(--app-bg)] text-[var(--app-text-muted)] hover:text-[var(--app-text)] transition-colors border border-[var(--card-border)] backdrop-blur-md"
