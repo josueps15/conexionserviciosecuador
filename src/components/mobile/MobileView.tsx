@@ -175,12 +175,15 @@ export const MobileView = ({ theme, toggleTheme }: MobileViewProps) => {
                             </div>
 
                             {/* CTA: Registrar Negocio */}
-                            <button
-                                onClick={() => { setIsMenuOpen(false); setIsRegistrationOpen(true); }}
-                                className="w-full h-16 bg-gradient-to-r from-[var(--primary)] to-cyan-500 text-white font-black rounded-2xl uppercase tracking-[0.15em] shadow-2xl shadow-[var(--primary)]/30 active:scale-95 transition-all text-sm"
-                            >
-                                Registrar mi Negocio
-                            </button>
+                            <div className="pt-2 pb-2">
+                                <button
+                                    onClick={() => { setIsMenuOpen(false); setIsRegistrationOpen(true); }}
+                                    className="w-full py-5 px-6 bg-gradient-to-r from-[var(--primary)] to-cyan-500 text-white font-black rounded-2xl uppercase tracking-[0.12em] shadow-2xl shadow-[var(--primary)]/30 active:scale-95 transition-all text-base flex items-center justify-center gap-3"
+                                >
+                                    <Building2 size={20} />
+                                    Registrar mi Negocio
+                                </button>
+                            </div>
                         </div>
                     </motion.div>
                 )}

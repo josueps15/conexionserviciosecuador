@@ -40,7 +40,7 @@ export const AboutUsModal: React.FC<AboutUsModalProps> = ({ isOpen, onClose }) =
                         <div className="absolute bottom-0 left-0 w-64 h-64 bg-[var(--secondary)]/20 blur-[100px] rounded-full z-0" />
 
                         {/* Content */}
-                        <div className="relative z-10 p-8 sm:p-12 lg:p-16 flex flex-col items-center text-center h-full overflow-y-auto hide-scrollbar">
+                        <div className="relative z-10 p-6 sm:p-12 lg:p-16 pb-12 flex flex-col items-center text-center max-h-[85vh] overflow-y-auto hide-scrollbar">
                             <button 
                                 onClick={onClose}
                                 className="absolute top-6 right-6 p-2 rounded-full bg-[var(--app-bg)]/50 hover:bg-[var(--app-bg)] text-[var(--app-text-muted)] hover:text-[var(--app-text)] transition-colors border border-[var(--card-border)] backdrop-blur-md"
@@ -56,16 +56,16 @@ export const AboutUsModal: React.FC<AboutUsModalProps> = ({ isOpen, onClose }) =
                                 ¿Quiénes <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Somos?</span>
                             </h2>
 
-                            <div className="max-w-2xl mx-auto space-y-6 mb-12">
-                                <p className="text-lg sm:text-xl md:text-2xl text-[var(--app-text)] font-semibold leading-relaxed transition-colors duration-500">
+                            <div className="max-w-2xl mx-auto space-y-4 mb-8">
+                                <p className="text-base sm:text-xl md:text-2xl text-[var(--app-text)] font-semibold leading-relaxed transition-colors duration-500">
                                     Somos una empresa Publicitaria dedicada a solucionar los problemas cotidianos del día a día.
                                 </p>
-                                <p className="text-lg md:text-xl text-[var(--app-text-muted)] font-medium leading-relaxed transition-colors duration-500">
+                                <p className="text-base md:text-xl text-[var(--app-text-muted)] font-medium leading-relaxed transition-colors duration-500">
                                     Conexión Servicios es una plataforma líder en todo el Ecuador que conecta personas con servicios de calidad, impulsando el desarrollo de Miles de negocios.
                                 </p>
                             </div>
 
-                            <div className="bg-gradient-to-br from-[var(--app-bg)] via-[var(--app-bg-soft)] to-[var(--primary)]/10 p-8 rounded-3xl border border-[var(--card-border)] shadow-lg w-full max-w-3xl transform hover:-translate-y-1 transition-transform">
+                            <div className="bg-gradient-to-br from-[var(--app-bg)] via-[var(--app-bg-soft)] to-[var(--primary)]/10 p-6 sm:p-8 rounded-3xl border border-[var(--card-border)] shadow-lg w-full max-w-3xl transform hover:-translate-y-1 transition-transform mb-4">
                                 <p className="text-xl md:text-2xl font-black text-[var(--app-text)] mb-6 tracking-tight">
                                     ¡Únete a la evolución de los servicios en Ecuador! <span className="text-orange-500">Descarga nuestra app hoy mismo.</span>
                                 </p>

@@ -3,7 +3,7 @@ import { ShieldCheck, Download, ChevronRight } from 'lucide-react';
 
 export const MobileHero: React.FC = () => {
     return (
-        <section className="relative pt-24 pb-16 overflow-hidden px-4 bg-[var(--app-bg)] transition-colors duration-500">
+        <section className="relative pt-20 pb-16 overflow-hidden px-4 bg-[var(--app-bg)] transition-colors duration-500">
             {/* Atmospheric Glows */}
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-[-20%] left-[-15%] w-[70%] h-[70%] bg-cyan-400/15 dark:bg-cyan-900/20 blur-[120px] rounded-full opacity-70" />
@@ -47,7 +47,7 @@ export const MobileHero: React.FC = () => {
                 <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="flex justify-center pt-4"
+                    className="flex justify-center pt-2"
                 >
                     <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[10px] font-black tracking-[0.18em] uppercase bg-[var(--primary)]/10 text-[var(--primary)] border border-[var(--primary)]/20 font-outfit">
                         <ShieldCheck size={12} />
@@ -85,7 +85,7 @@ export const MobileHero: React.FC = () => {
                     <img
                         src="/professionals_studio.png"
                         alt="Expertos Profesionales de Conexión Servicios"
-                        className="w-full h-auto object-contain max-h-[320px] drop-shadow-2xl"
+                        className="w-full h-auto object-contain max-h-[320px] drop-shadow-2xl rounded-[2rem]"
                         loading="lazy"
                     />
 

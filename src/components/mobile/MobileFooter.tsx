@@ -1,4 +1,4 @@
-import { Instagram, Facebook, Mail, MapPin } from 'lucide-react';
+import { Instagram, Facebook, Mail, MapPin, Phone, Clock } from 'lucide-react';
 import { ThemeToggle } from '../ThemeToggle';
 
 interface MobileFooterProps {
@@ -88,8 +88,8 @@ export const MobileFooter = ({ theme, toggleTheme, onOpenAboutUs, onOpenRegistra
 
                 {/* Contacto */}
                 <div className="space-y-4">
-                    <h4 className="font-black font-outfit text-xs uppercase tracking-[0.2em] text-[var(--app-text)]">Contacto</h4>
-                    <ul className="space-y-3 text-[var(--app-text-muted)] font-bold">
+                    <h4 className="font-black font-outfit text-xs uppercase tracking-[0.2em] text-[var(--app-text)]">Ayuda y Contacto</h4>
+                    <ul className="space-y-4 text-[var(--app-text-muted)] font-bold">
                         <li>
                             <div className="flex items-center gap-2">
                                 <MapPin size={15} className="text-[var(--primary)] shrink-0" />
@@ -97,11 +97,24 @@ export const MobileFooter = ({ theme, toggleTheme, onOpenAboutUs, onOpenRegistra
                             </div>
                         </li>
                         <li>
-                            <a href="mailto:info@conexionserviciosecuador.com"
+                            <a href="mailto:conexionserviciosec@gmail.com"
                                 className="flex items-start gap-2 hover:text-[var(--primary)] transition-colors active:scale-95">
                                 <Mail size={15} className="text-[var(--primary)] shrink-0 mt-0.5" />
-                                <span className="break-all text-xs leading-relaxed">info@conexionserviciosecuador.com</span>
+                                <span className="break-all text-xs leading-relaxed">conexionserviciosec@gmail.com</span>
                             </a>
+                        </li>
+                        <li>
+                            <a href="tel:+593979783184"
+                                className="flex items-center gap-2 hover:text-[var(--primary)] transition-colors active:scale-95">
+                                <Phone size={15} className="text-[var(--primary)] shrink-0" />
+                                <span>+593 97 978 3184</span>
+                            </a>
+                        </li>
+                        <li>
+                            <div className="flex items-start gap-2">
+                                <Clock size={15} className="text-[var(--primary)] shrink-0 mt-0.5" />
+                                <span className="text-xs leading-relaxed uppercase tracking-tight">Lunes - Viernes<br/>8:00 AM - 6:00 PM</span>
+                            </div>
                         </li>
                     </ul>
                 </div>
