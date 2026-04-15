@@ -9,7 +9,9 @@ import {
     LayoutGrid, Building2,
     Eye, Handshake, TrendingUp, CheckCircle2,
     Stethoscope, Zap, Truck, GraduationCap,
-    Wrench, Home, Briefcase, Scissors
+    Wrench, Home, Briefcase, Scissors,
+    Car, Heart, PawPrint, Dumbbell,
+    Paintbrush, Hammer, Wifi, UtensilsCrossed
 } from 'lucide-react';
 
 
@@ -298,18 +300,32 @@ export default function App() {
                     <div className="absolute -bottom-[10%] -right-[10%] w-[50%] h-[50%] bg-cyan-400/10 blur-[150px] rounded-full opacity-60 dark:opacity-100 transition-opacity duration-700" />
                 </div>
 
-                {/* Decorative Floating Icons */}
-                <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-30 dark:opacity-50 z-0">
-                    {/* Left Side */}
-                    <motion.div animate={{ y: [0, 40, 0] }} transition={{ repeat: Infinity, duration: 12 }} className="absolute top-[10%] left-[5%] text-cyan-500"><Stethoscope size={52} /></motion.div>
-                    <motion.div animate={{ y: [0, -45, 0] }} transition={{ repeat: Infinity, duration: 14 }} className="absolute top-[45%] left-[3%] text-green-500"><Wrench size={44} /></motion.div>
-                    <motion.div animate={{ y: [0, 50, 0] }} transition={{ repeat: Infinity, duration: 15 }} className="absolute bottom-[20%] left-[8%] text-blue-600"><Truck size={60} /></motion.div>
-                    <motion.div animate={{ y: [0, 30, 0] }} transition={{ repeat: Infinity, duration: 10 }} className="absolute bottom-[48%] left-[14%] text-purple-500"><Home size={38} /></motion.div>
-                    {/* Right Side */}
-                    <motion.div animate={{ y: [0, -35, 0] }} transition={{ repeat: Infinity, duration: 9 }} className="absolute top-[15%] right-[8%] text-orange-500"><Zap size={38} /></motion.div>
-                    <motion.div animate={{ y: [0, 60, 0] }} transition={{ repeat: Infinity, duration: 16 }} className="absolute top-[48%] right-[5%] text-yellow-500"><Briefcase size={50} /></motion.div>
-                    <motion.div animate={{ y: [0, -40, 0] }} transition={{ repeat: Infinity, duration: 11 }} className="absolute bottom-[10%] right-[7%] text-pink-500"><GraduationCap size={68} /></motion.div>
-                    <motion.div animate={{ y: [0, -25, 0] }} transition={{ repeat: Infinity, duration: 13 }} className="absolute bottom-[42%] right-[12%] text-teal-400"><Scissors size={42} /></motion.div>
+                {/* Decorative Floating Icons - Full Background Distribution */}
+                <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-25 dark:opacity-40 z-0">
+                    {/* ── Far Left (0-12%) ── */}
+                    <motion.div animate={{ y: [0, 40, 0] }}   transition={{ repeat: Infinity, duration: 12 }} className="absolute top-[8%]   left-[4%]  text-cyan-500">   <Stethoscope size={50} /></motion.div>
+                    <motion.div animate={{ y: [0, -45, 0] }}  transition={{ repeat: Infinity, duration: 14 }} className="absolute top-[50%]  left-[3%]  text-green-500">  <Wrench size={42} /></motion.div>
+                    <motion.div animate={{ y: [0, 50, 0] }}   transition={{ repeat: Infinity, duration: 17 }} className="absolute bottom-[8%]  left-[7%]  text-blue-500">   <Truck size={58} /></motion.div>
+
+                    {/* ── Center-Left (20-30%) ── */}
+                    <motion.div animate={{ y: [0, 30, 0] }}   transition={{ repeat: Infinity, duration: 10 }} className="absolute top-[5%]   left-[22%] text-purple-500"> <Home size={36} /></motion.div>
+                    <motion.div animate={{ y: [0, -30, 0] }}  transition={{ repeat: Infinity, duration: 13 }} className="absolute top-[55%]  left-[18%] text-orange-400">  <Car size={44} /></motion.div>
+                    <motion.div animate={{ y: [0, 35, 0] }}   transition={{ repeat: Infinity, duration: 16 }} className="absolute bottom-[6%]  left-[25%] text-red-400">    <Heart size={38} /></motion.div>
+
+                    {/* ── Center (40-60%) ── */}
+                    <motion.div animate={{ y: [0, -20, 0] }}  transition={{ repeat: Infinity, duration: 11 }} className="absolute top-[3%]   left-[42%] text-teal-400">   <Wifi size={40} /></motion.div>
+                    <motion.div animate={{ y: [0, 25, 0] }}   transition={{ repeat: Infinity, duration: 18 }} className="absolute bottom-[5%]  left-[50%] text-amber-500">  <UtensilsCrossed size={46} /></motion.div>
+                    <motion.div animate={{ y: [0, -35, 0] }}  transition={{ repeat: Infinity, duration: 9  }} className="absolute top-[60%]  left-[55%] text-indigo-400"> <Paintbrush size={40} /></motion.div>
+
+                    {/* ── Center-Right (65-80%) ── */}
+                    <motion.div animate={{ y: [0, 40, 0] }}   transition={{ repeat: Infinity, duration: 15 }} className="absolute top-[7%]   right-[20%] text-pink-400">   <PawPrint size={44} /></motion.div>
+                    <motion.div animate={{ y: [0, -50, 0] }}  transition={{ repeat: Infinity, duration: 12 }} className="absolute top-[52%]  right-[22%] text-yellow-500"> <Dumbbell size={48} /></motion.div>
+                    <motion.div animate={{ y: [0, 30, 0] }}   transition={{ repeat: Infinity, duration: 19 }} className="absolute bottom-[7%]  right-[18%] text-emerald-500"><Hammer size={42} /></motion.div>
+
+                    {/* ── Far Right (0-12% from right) ── */}
+                    <motion.div animate={{ y: [0, -35, 0] }}  transition={{ repeat: Infinity, duration: 9  }} className="absolute top-[12%]  right-[5%]  text-orange-500"> <Zap size={36} /></motion.div>
+                    <motion.div animate={{ y: [0, 60, 0] }}   transition={{ repeat: Infinity, duration: 16 }} className="absolute top-[48%]  right-[4%]  text-yellow-500"> <Briefcase size={50} /></motion.div>
+                    <motion.div animate={{ y: [0, -40, 0] }}  transition={{ repeat: Infinity, duration: 11 }} className="absolute bottom-[8%]  right-[6%]  text-pink-500">   <GraduationCap size={64} /></motion.div>
                 </div>
 
                 <div className="max-w-7xl mx-auto relative z-10">
