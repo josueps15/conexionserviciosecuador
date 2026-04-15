@@ -190,7 +190,7 @@ export const MobileView = ({ theme, toggleTheme }: MobileViewProps) => {
             </AnimatePresence>
 
             {/* ─── Main Content ─── */}
-            <main className="flex-1 pt-[72px] pb-8 space-y-0">
+            <main className="flex-1 pt-[64px] pb-8 space-y-0">
                 <div ref={heroRef}><MobileHero /></div>
 
                 <div ref={categoriesRef}><MobileCategories /></div>

@@ -41,7 +41,7 @@ export const AboutUsModal: React.FC<AboutUsModalProps> = ({ isOpen, onClose }) =
 
                         {/* Content */}
                         <div className="relative z-10 p-6 sm:p-12 lg:p-16 pb-12 flex flex-col items-center text-center max-h-[85vh] overflow-y-auto hide-scrollbar">
-                            <button 
+                            <button
                                 onClick={onClose}
                                 className="absolute top-6 right-6 p-2 rounded-full bg-[var(--app-bg)]/50 hover:bg-[var(--app-bg)] text-[var(--app-text-muted)] hover:text-[var(--app-text)] transition-colors border border-[var(--card-border)] backdrop-blur-md"
                             >
@@ -58,10 +58,10 @@ export const AboutUsModal: React.FC<AboutUsModalProps> = ({ isOpen, onClose }) =
 
                             <div className="max-w-2xl mx-auto space-y-4 mb-8">
                                 <p className="text-base sm:text-xl md:text-2xl text-[var(--app-text)] font-semibold leading-relaxed transition-colors duration-500">
-                                    Somos una empresa Publicitaria dedicada a solucionar los problemas cotidianos del día a día.
+                                    Somos una empresa publicitaria dedicada a solucionar los problemas cotidianos del día a día.
                                 </p>
                                 <p className="text-base md:text-xl text-[var(--app-text-muted)] font-medium leading-relaxed transition-colors duration-500">
-                                    Conexión Servicios es una plataforma líder en todo el Ecuador que conecta personas con servicios de calidad, impulsando el desarrollo de Miles de negocios.
+                                    Conexión Servicios es una plataforma líder en todo el Ecuador que conecta personas con servicios de calidad, impulsando el desarrollo de miles de negocios.
                                 </p>
                             </div>
 
@@ -69,8 +69,8 @@ export const AboutUsModal: React.FC<AboutUsModalProps> = ({ isOpen, onClose }) =
                                 <p className="text-xl md:text-2xl font-black text-[var(--app-text)] mb-6 tracking-tight">
                                     ¡Únete a la evolución de los servicios en Ecuador! <span className="text-orange-500">Descarga nuestra app hoy mismo.</span>
                                 </p>
-                                <InteractiveHoverButton 
-                                    text="DESCARGAR APP" 
+                                <InteractiveHoverButton
+                                    text="DESCARGAR APP"
                                     onClick={() => {
                                         onClose();
                                         setTimeout(() => {

@@ -17,6 +17,7 @@ import { IPhoneMockup } from './ui/IPhoneMockup';
 
 import appIPhone from '../assets/app_iphone.png';
 import appAndroid from '../assets/app_android.png';
+import appThird from '../assets/app_third.jpeg';
 
 const SOCIAL_LINKS = {
     facebook: 'https://www.facebook.com/share/17dGTfCQBY/',
@@ -129,17 +130,17 @@ export const DownloadApp = () => {
                         >
                             {/* Google Play Button */}
                             <a href="#" className="flex-1 group transition-all hover:scale-[1.02] active:scale-95">
-                                <div className="bg-black rounded-[10px] border border-[#a6a6a6] p-[2px] shadow-xl">
-                                    <div className="flex items-center gap-3 px-3 py-1.5 bg-black rounded-[8px]">
-                                        <svg viewBox="0 0 512 512" className="w-7 h-7 flex-shrink-0">
+                                <div className="bg-black rounded-[10px] border border-[#a6a6a6] p-[2px] shadow-xl h-full">
+                                    <div className="flex items-center justify-center gap-4 px-3 py-2.5 bg-black rounded-[8px] h-full">
+                                        <svg viewBox="0 0 512 512" className="w-8 h-8 flex-shrink-0">
                                             <path d="M10.1,23.3C9.4,24,9,25,9,26.2v459.7c0,1.2,0.4,2.2,1.1,2.9l1.4,1.4L259.9,256L11.5,21.9L10.1,23.3z" fill="#00e676"/>
                                             <path d="M341.6,337.8L259.9,256L11.5,504.1c1.2,1.2,3.1,1.4,5.2,0.2l324.9-185.3L341.6,337.8z" fill="#ffeb3b"/>
                                             <path d="M486.2,243.3L341.6,174.2L259.9,256l81.7,81.8L486.2,268.7C493.5,264.5,493.5,257.5,486.2,243.3z" fill="#f44336"/>
                                             <path d="M341.6,174.2L16.7,7.7C14.6,6.5,12.7,6.6,11.5,7.9l248.4,248.1L341.6,174.2z" fill="#2196f3"/>
                                         </svg>
-                                        <div className="flex flex-col leading-tight">
-                                            <span className="text-[9px] text-white font-bold tracking-tight opacity-90">GET IT ON</span>
-                                            <span className="text-[17px] text-white font-bold -mt-0.5 tracking-tight">Google Play</span>
+                                        <div className="flex flex-col leading-tight text-left">
+                                            <span className="text-[10px] text-white font-bold tracking-tight opacity-90">GET IT ON</span>
+                                            <span className="text-[18px] text-white font-bold -mt-0.5 tracking-tight">Google Play</span>
                                         </div>
                                     </div>
                                 </div>
@@ -147,14 +148,14 @@ export const DownloadApp = () => {
 
                             {/* App Store Button */}
                             <a href="#" className="flex-1 group transition-all hover:scale-[1.02] active:scale-95">
-                                <div className="bg-black rounded-[10px] border border-[#a6a6a6] p-[2px] shadow-xl">
-                                    <div className="flex items-center gap-3 px-3 py-1.5 bg-black rounded-[8px]">
-                                        <svg viewBox="0 0 384 512" className="w-7 h-7 flex-shrink-0" fill="white">
+                                <div className="bg-black rounded-[10px] border border-[#a6a6a6] p-[2px] shadow-xl h-full">
+                                    <div className="flex items-center justify-center gap-4 px-3 py-2.5 bg-black rounded-[8px] h-full">
+                                        <svg viewBox="0 0 384 512" className="w-8 h-8 flex-shrink-0" fill="white">
                                             <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5c0 39.3 14.4 81.2 36.4 115.6 20.9 31.8 51 64.9 84.4 64.9 31.5-1.2 42.6-21.7 87.5-21.7 44.9 0 54.4 20.7 88.5 20.7 34.6 0 62.4-30.8 84.4-64.9 14.2-20.7 21.5-41.4 21.9-42.5-1.2-.5-65.7-25-66.5-76.9zM224 81c19.1-23.1 31.9-55.2 28.4-87.1-28.3 1.1-62.7 18.9-83 42.4-18.2 21-33.9 53.6-29.6 84.5 31.3 2.4 62.2-16.7 84.2-40.2z" />
                                         </svg>
-                                        <div className="flex flex-col leading-tight">
-                                            <span className="text-[9px] text-white font-medium tracking-tight opacity-95">Download on the</span>
-                                            <span className="text-[17px] text-white font-semibold -mt-0.5 tracking-tight">App Store</span>
+                                        <div className="flex flex-col leading-tight text-left">
+                                            <span className="text-[10px] text-white font-medium tracking-tight opacity-95">Download on the</span>
+                                            <span className="text-[18px] text-white font-semibold -mt-0.5 tracking-tight">App Store</span>
                                         </div>
                                     </div>
                                 </div>
@@ -201,16 +202,55 @@ export const DownloadApp = () => {
                         </div>
                     </motion.div>
 
-                    {/* Mobile View */}
-                    <div className="lg:hidden flex flex-col items-center gap-12 pt-16 overflow-hidden pb-10">
-                        <div className="flex gap-6">
-                            <motion.div initial={{ y: 50, rotate: -5, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} className="w-[180px]">
-                                <AndroidMockup src={appAndroid} />
+                    {/* Mobile View: High-End 3-Mockup Animation */}
+                    <div className="lg:hidden w-full flex flex-col items-center pt-8 pb-12 relative overflow-visible mt-2">
+                        {/* Ambient Glows */}
+                        <div className="absolute top-[20%] w-[90%] h-[80%] bg-[var(--primary)]/10 blur-[60px] rounded-full animate-pulse pointer-events-none" />
+                        <div className="absolute top-[10%] w-[60%] h-[70%] bg-orange-500/10 blur-[60px] rounded-full animate-pulse delay-700 pointer-events-none" />
+                        
+                        <div className="relative w-full h-[330px] flex justify-center items-center mt-4">
+                            
+                            {/* Left Mockup (Back) */}
+                            <motion.div 
+                                initial={{ x: -40, y: 30, rotate: -15, opacity: 0 }}
+                                whileInView={{ x: -80, y: 15, rotate: -12, opacity: 1 }}
+                                viewport={{ once: true, amount: 0.1 }}
+                                transition={{ duration: 1.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                                className="absolute z-10 w-[140px] h-[290px] shrink-0"
+                            >
+                                <div className="absolute top-0 left-0 origin-top-left scale-[0.45] drop-shadow-[0_15px_35px_rgba(0,0,0,0.35)]">
+                                    <AndroidMockup src={appAndroid} />
+                                </div>
                             </motion.div>
-                            <motion.div initial={{ y: 80, rotate: 5, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} className="w-[180px] translate-y-12">
-                                <IPhoneMockup>
-                                    <img src={appIPhone} alt="Mobile Screen" className="w-full h-full object-cover" />
-                                </IPhoneMockup>
+
+                            {/* Right Mockup (Back) */}
+                            <motion.div 
+                                initial={{ x: 40, y: 30, rotate: 15, opacity: 0 }}
+                                whileInView={{ x: 80, y: 15, rotate: 12, opacity: 1 }}
+                                viewport={{ once: true, amount: 0.1 }}
+                                transition={{ duration: 1.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                                className="absolute z-10 w-[140px] h-[290px] shrink-0"
+                            >
+                                <div className="absolute top-0 left-0 origin-top-left scale-[0.45] drop-shadow-[0_15px_35px_rgba(0,0,0,0.35)]">
+                                    <IPhoneMockup>
+                                        <img src={appThird} alt="Mobile Screen Third" className="w-full h-full object-cover" />
+                                    </IPhoneMockup>
+                                </div>
+                            </motion.div>
+
+                            {/* Center Mockup (Front) */}
+                            <motion.div 
+                                initial={{ y: 60, opacity: 0 }}
+                                whileInView={{ x: 0, y: 0, rotate: 0, opacity: 1 }}
+                                viewport={{ once: true, amount: 0.1 }}
+                                transition={{ duration: 1.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                                className="absolute z-20 w-[150px] h-[310px] shrink-0"
+                            >
+                                <div className="absolute top-0 left-0 origin-top-left scale-[0.48] drop-shadow-[0_25px_55px_rgba(0,0,0,0.6)]">
+                                    <IPhoneMockup>
+                                        <img src={appIPhone} alt="Mobile Screen Main" className="w-full h-full object-cover" />
+                                    </IPhoneMockup>
+                                </div>
                             </motion.div>
                         </div>
                     </div>

@@ -3,7 +3,7 @@ import { ShieldCheck, Download, ChevronRight } from 'lucide-react';
 
 export const MobileHero: React.FC = () => {
     return (
-        <section className="relative pt-20 pb-16 overflow-hidden px-4 bg-[var(--app-bg)] transition-colors duration-500">
+        <section className="relative pt-8 pb-16 overflow-hidden px-4 bg-[var(--app-bg)] transition-colors duration-500">
             {/* Atmospheric Glows */}
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-[-20%] left-[-15%] w-[70%] h-[70%] bg-cyan-400/15 dark:bg-cyan-900/20 blur-[120px] rounded-full opacity-70" />
@@ -42,7 +42,7 @@ export const MobileHero: React.FC = () => {
                 ))}
             </div>
 
-            <div className="relative z-10 space-y-7 px-1">
+            <div className="relative z-10 space-y-6 px-1">
                 {/* Badge */}
                 <motion.div
                     initial={{ opacity: 0, y: -10 }}
