@@ -87,7 +87,10 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({
                   </span>
                 ))}
               </div>
-              <button className="w-full mt-6 py-3 bg-[var(--primary)] text-white rounded-xl font-bold text-sm hover:bg-[var(--primary-hover)] transition-colors">
+              <button 
+                onClick={() => document.getElementById('descarga')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+                className="w-full mt-6 py-3 bg-[var(--primary)] text-white rounded-xl font-bold text-sm hover:bg-[var(--primary-hover)] transition-colors"
+              >
                 Descargar App
               </button>
             </motion.div>

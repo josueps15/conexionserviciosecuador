@@ -4,6 +4,10 @@ import {
     Zap, 
     Truck, 
     GraduationCap, 
+    Wrench,
+    Home,
+    Briefcase,
+    Scissors,
     Instagram,
     Facebook
 } from 'lucide-react';
@@ -47,10 +51,17 @@ export const DownloadApp = () => {
 
             {/* Decorative Floating Icons */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-30 dark:opacity-50">
+                {/* Left Side */}
                 <motion.div animate={{ y: [0, 40, 0] }} transition={{ repeat: Infinity, duration: 12 }} className="absolute top-[10%] left-[10%] text-cyan-500"><Stethoscope size={56} /></motion.div>
-                <motion.div animate={{ y: [0, -35, 0] }} transition={{ repeat: Infinity, duration: 9 }} className="absolute top-[18%] right-[12%] text-orange-500"><Zap size={40} /></motion.div>
+                <motion.div animate={{ y: [0, -45, 0] }} transition={{ repeat: Infinity, duration: 14 }} className="absolute top-[45%] left-[6%] text-green-500"><Wrench size={48} /></motion.div>
                 <motion.div animate={{ y: [0, 50, 0] }} transition={{ repeat: Infinity, duration: 15 }} className="absolute bottom-[25%] left-[12%] text-blue-600"><Truck size={64} /></motion.div>
+                <motion.div animate={{ y: [0, 30, 0] }} transition={{ repeat: Infinity, duration: 10 }} className="absolute bottom-[45%] left-[18%] text-purple-500"><Home size={40} /></motion.div>
+                
+                {/* Right Side */}
+                <motion.div animate={{ y: [0, -35, 0] }} transition={{ repeat: Infinity, duration: 9 }} className="absolute top-[18%] right-[12%] text-orange-500"><Zap size={40} /></motion.div>
+                <motion.div animate={{ y: [0, 60, 0] }} transition={{ repeat: Infinity, duration: 16 }} className="absolute top-[50%] right-[8%] text-yellow-500"><Briefcase size={54} /></motion.div>
                 <motion.div animate={{ y: [0, -40, 0] }} transition={{ repeat: Infinity, duration: 11 }} className="absolute bottom-[12%] right-[10%] text-pink-500"><GraduationCap size={72} /></motion.div>
+                <motion.div animate={{ y: [0, -25, 0] }} transition={{ repeat: Infinity, duration: 13 }} className="absolute bottom-[40%] right-[15%] text-teal-400"><Scissors size={46} /></motion.div>
             </div>
 
             <div className="max-w-7xl mx-auto px-6 relative z-10">

@@ -1,17 +1,20 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
-    ShieldCheck, 
+    ShieldCheck,
     Users,
     Instagram, Facebook,
     Search,
     ChevronRight,
     LayoutGrid, Building2,
-    Eye, Handshake, TrendingUp, CheckCircle2
+    Eye, Handshake, TrendingUp, CheckCircle2,
+    Stethoscope, Zap, Truck, GraduationCap,
+    Wrench, Home, Briefcase, Scissors
 } from 'lucide-react';
 
 
 import { RegistrationModal } from './components/RegistrationModal';
+import { AboutUsModal } from './components/AboutUsModal';
 import { cn } from './lib/utils';
 import { useMediaQuery } from './hooks/useMediaQuery';
 import { ThemeToggle } from './components/ThemeToggle';
@@ -46,6 +49,7 @@ export default function App() {
 
     const [isScrolled, setIsScrolled] = useState(false);
     const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
+    const [isAboutUsOpen, setIsAboutUsOpen] = useState(false);
     const isMobile = useMediaQuery('(max-width: 768px)');
     const [searchQuery, setSearchQuery] = useState('');
     const [showAllCategories, setShowAllCategories] = useState(false);
@@ -71,9 +75,9 @@ export default function App() {
         return <MobileView onOpenModal={() => setIsRegistrationOpen(true)} theme={theme} toggleTheme={toggleTheme} />;
     }
 
-    const filteredServices = SERVICES_DATA.filter(service => 
-      service.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      service.subcategories.some(sub => sub.toLowerCase().includes(searchQuery.toLowerCase()))
+    const filteredServices = SERVICES_DATA.filter(service =>
+        service.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        service.subcategories.some(sub => sub.toLowerCase().includes(searchQuery.toLowerCase()))
     );
 
     const displayedServices = searchQuery ? filteredServices : (showAllCategories ? filteredServices : filteredServices.slice(0, 4));
@@ -81,7 +85,7 @@ export default function App() {
     return (
         <div className="min-h-screen font-inter bg-[var(--app-bg)] relative overflow-x-hidden transition-colors duration-500">
             <AnimatedCursor />
-            
+
             {/* ─── Navigation ────────────────────────────────────────────────────────── */}
             <nav className={cn(
                 "fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-3 flex justify-center border-b bg-[var(--nav-bg)] backdrop-blur-xl border-[var(--card-border)] shadow-sm",
@@ -97,15 +101,15 @@ export default function App() {
 
                     <div className="hidden lg:flex items-center gap-8 absolute left-1/2 transform -translate-x-1/2">
                         {['Inicio', 'Servicios', 'Negocios'].map((item) => (
-                            <a 
-                                key={item} 
+                            <a
+                                key={item}
                                 href={`#${item.toLowerCase()}`}
                                 className="text-sm font-bold text-[var(--app-text-muted)] hover:text-[var(--primary)] uppercase tracking-widest transition-colors font-outfit"
                             >
                                 {item}
                             </a>
                         ))}
-                        <a 
+                        <a
                             href="#contacto"
                             onClick={(e) => {
                                 e.preventDefault();
@@ -128,12 +132,12 @@ export default function App() {
                             <div className="group-hover:scale-110 transition-transform"><TikTokIcon size={16} /></div>
                         </a>
                         <ThemeToggle theme={theme} toggleTheme={toggleTheme} isCircular={true} />
-                        
+
                         <div className="pl-3 sm:pl-4 ml-1 sm:ml-2 border-l border-[var(--card-border)] hidden sm:block">
-                            <InteractiveHoverButton 
-                                text="Descargar App" 
+                            <InteractiveHoverButton
+                                text="Descargar App"
                                 onClick={() => document.getElementById('descarga')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
-                                className="bg-[var(--primary)] border-[var(--primary)] text-white text-[12px] py-1.5 px-4 sm:py-2 sm:px-5 font-bold shadow-lg shadow-[var(--primary)]/20 hover:shadow-[var(--primary)]/40 transition-all duration-300" 
+                                className="bg-[var(--primary)] border-[var(--primary)] text-white text-[12px] py-1.5 px-4 sm:py-2 sm:px-5 font-bold shadow-lg shadow-[var(--primary)]/20 hover:shadow-[var(--primary)]/40 transition-all duration-300"
                             />
                         </div>
                     </div>
@@ -147,45 +151,31 @@ export default function App() {
                     <div className="absolute top-[-15%] left-[-10%] w-[60%] h-[60%] bg-cyan-400/15 dark:bg-cyan-900/20 blur-[150px] rounded-full opacity-70" />
                     <div className="absolute bottom-[-15%] right-[-10%] w-[60%] h-[60%] bg-blue-300/10 dark:bg-blue-900/10 blur-[150px] rounded-full opacity-50" />
                     
-                    {/* Glass blocks */}
+                    {/* Floating Geometric Shapes (Ordered like original layout) */}
                     {[
-                        // Top Left pattern
-                        { w: 320, h: 220, x: -8, y: -2, r: 24 },
-                        { w: 200, h: 200, x: 14, y: 16, r: 24 },
-                        { w: 260, h: 160, x: -2, y: 38, r: 24 },
-                        
-                        // Bottom Left pattern
-                        { w: 280, h: 280, x: 8, y: 72, r: 24 },
-                        { w: 180, h: 180, x: 28, y: 88, r: 24 },
-                        
-                        // Top Right pattern
-                        { w: 280, h: 220, x: 74, y: -5, r: 24 },
-                        { w: 220, h: 260, x: 88, y: 22, r: 24 },
-                        
-                        // Bottom Right pattern
-                        { w: 300, h: 200, x: 68, y: 68, r: 24 },
-                        { w: 240, h: 280, x: 86, y: 84, r: 24 },
-
-                        // Center soft accents
-                        { w: 350, h: 200, x: 42, y: 8, r: 24 },
-                        { w: 200, h: 200, x: 45, y: 80, r: 24 },
+                        { w: 320, h: 320, x: 2, y: 5, r: 12 },     // Top left
+                        { w: 400, h: 400, x: 75, y: 60, r: -15 },  // Bottom right
+                        { w: 280, h: 280, x: 8, y: 75, r: 25 },    // Bottom left
+                        { w: 350, h: 350, x: 70, y: 8, r: -12 },   // Top right
+                        { w: 200, h: 200, x: 45, y: 25, r: 45 },   // Center top
+                        { w: 250, h: 250, x: 40, y: 80, r: -20 },  // Center bottom
                     ].map((block, i) => (
                         <motion.div
                             key={i}
-                            className="absolute rounded-[3rem] border border-cyan-400/60 dark:border-cyan-400/50 shadow-[0_20px_40px_rgba(8,145,178,0.4)] dark:shadow-[0_20px_40px_rgba(8,145,178,0.2)] bg-gradient-to-br from-cyan-400/50 to-blue-400/20 dark:from-cyan-600/50 dark:to-transparent backdrop-blur-2xl p-4"
+                            className="absolute rounded-[4rem] bg-[#00D1FF]/20 dark:bg-[#00D1FF]/10 shadow-[0_15px_40px_rgba(0,209,255,0.15)] dark:shadow-none hidden lg:block"
                             initial={{ opacity: 0, scale: 0.95, rotate: block.r }}
                             animate={{ 
-                                opacity: [0, 0.9, 0.9, 0],
-                                y: [-15, i % 2 === 0 ? -35 : 25, i % 2 === 0 ? -20 : 10, -15],
-                                x: [-10, i % 3 === 0 ? 40 : -30, i % 2 === 0 ? 30 : -40, -10],
-                                rotate: [block.r, block.r + (i % 2 === 0 ? 15 : -15), block.r + (i % 2 === 0 ? 30 : -30), block.r]
+                                opacity: [0, 1, 1, 0,    0, 1, 1, 0],
+                                x:       [0, 20, -20, 0,       i%2===0?250:-250, i%2===0?230:-270, i%2===0?270:-230, i%2===0?250:-250],
+                                y:       [0, -20, 20, 0,       i%2===0?-150:150, i%2===0?-130:130, i%2===0?-170:170, i%2===0?-150:150],
+                                rotate:  [block.r, block.r+15, block.r-15, block.r,    block.r+45, block.r+60, block.r+30, block.r+45]
                             }}
                             transition={{ 
-                                duration: 60, 
+                                duration: 120, // 2 minutes total to allow two 1-minute phases
                                 repeat: Infinity, 
                                 ease: "easeInOut",
-                                times: [0, 0.05, 0.95, 1],
-                                delay: (i % 4) * 15 
+                                times: [0, 0.02, 0.48, 0.5,    0.501, 0.52, 0.98, 1],
+                                delay: i * 2 
                             }}
                             style={{
                                 width: block.w,
@@ -196,17 +186,17 @@ export default function App() {
                             }}
                         />
                     ))}
-
-                    <InteractiveGridPattern 
-                        width={100} 
-                        height={100} 
+                    
+                    <InteractiveGridPattern
+                        width={100}
+                        height={100}
                         className="opacity-[0.04] dark:opacity-[0.02] relative z-20"
                     />
                 </div>
 
                 <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center w-full relative z-10 px-12">
                     {/* Left Column: Text & CTAs */}
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -215,24 +205,24 @@ export default function App() {
                             <ShieldCheck size={14} />
                             La Red de Confianza del Ecuador
                         </div>
-                        
+
                         <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-outfit text-[var(--app-text)] leading-[1.05] tracking-tight mb-8">
                             Encuentra el servicio <br /> que necesitas,<br />
                             con la <span className="text-[var(--primary)] font-black">confianza</span><br />
                             que <span className="text-[var(--secondary)] font-black">mereces.</span>
                         </h1>
-                        
+
                         <p className="text-xl md:text-2xl text-[var(--app-text-muted)] leading-relaxed mb-12 max-w-xl font-medium">
                             Conectamos a miles de familias y empresas ecuatorianas con <span className="text-[var(--app-text)] font-bold">profesionales verificados</span> en todo el país.
                         </p>
 
                         <div className="flex flex-wrap gap-5">
-                            <InteractiveHoverButton 
+                            <InteractiveHoverButton
                                 text="Descargar la App"
                                 onClick={() => document.getElementById('descarga')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
                                 className="h-16 px-10 bg-[var(--primary)] border-[var(--primary)] text-white shadow-2xl shadow-[var(--primary)]/20 font-bold"
                             />
-                            <button 
+                            <button
                                 onClick={() => document.getElementById('servicios')?.scrollIntoView({ behavior: 'smooth' })}
                                 className="h-16 px-10 rounded-2xl bg-[var(--app-bg-soft)] border border-[var(--card-border)] text-[var(--app-text)] font-bold hover:bg-[var(--primary)]/5 transition-all flex items-center gap-3 shadow-[0_15px_30px_-5px_rgba(8,145,178,0.15)] dark:shadow-none"
                             >
@@ -252,10 +242,10 @@ export default function App() {
                             transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
                             className="relative z-10"
                         >
-                            <img 
-                                src="/professionals_studio.png" 
-                                alt="Expertos Profesionales de Conexión Servicios" 
-                                className="w-full h-auto object-contain max-h-[750px] drop-shadow-2xl rounded-[3rem]" 
+                            <img
+                                src="/professionals_studio.png"
+                                alt="Expertos Profesionales de Conexión Servicios"
+                                className="w-full h-auto object-contain max-h-[750px] drop-shadow-2xl rounded-[3rem]"
                             />
                             {/* Glassmorphism trust card floating on image */}
                             <motion.div
@@ -291,14 +281,40 @@ export default function App() {
             </section>
 
             {/* ─── Search & Categories ────────────────────────────────────────────────── */}
-            <section id="servicios" className="py-32 px-6 md:px-12 lg:px-24 relative overflow-hidden bg-[var(--section-alt-bg)] transition-colors duration-500">
-                {/* Section Decorations */}
-                <div className="absolute top-0 right-0 w-[40%] h-[40%] bg-[var(--primary)]/10 blur-[120px] rounded-full pointer-events-none translate-x-1/2 -translate-y-1/2" />
-                <div className="absolute bottom-0 left-0 w-[30%] h-[30%] bg-blue-400/10 blur-[100px] rounded-full pointer-events-none -translate-x-1/2 translate-y-1/2" />
+            <section id="servicios" className="py-32 px-6 md:px-12 lg:px-24 relative overflow-hidden bg-[var(--app-bg)] transition-colors duration-500">
+                {/* Background pattern */}
+                <div className="absolute inset-0 pointer-events-none z-0">
+                    <InteractiveGridPattern 
+                        width={80} 
+                        height={80} 
+                        className="opacity-20 text-[var(--primary)]/20"
+                        squaresClassName="hover:fill-[var(--primary)]/10"
+                    />
+                </div>
+                
+                {/* Ambient Glows */}
+                <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
+                    <div className="absolute -top-[10%] -left-[10%] w-[50%] h-[50%] bg-[var(--primary)]/10 blur-[150px] rounded-full opacity-60 dark:opacity-100 transition-opacity duration-700" />
+                    <div className="absolute -bottom-[10%] -right-[10%] w-[50%] h-[50%] bg-cyan-400/10 blur-[150px] rounded-full opacity-60 dark:opacity-100 transition-opacity duration-700" />
+                </div>
+
+                {/* Decorative Floating Icons */}
+                <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-30 dark:opacity-50 z-0">
+                    {/* Left Side */}
+                    <motion.div animate={{ y: [0, 40, 0] }} transition={{ repeat: Infinity, duration: 12 }} className="absolute top-[10%] left-[5%] text-cyan-500"><Stethoscope size={52} /></motion.div>
+                    <motion.div animate={{ y: [0, -45, 0] }} transition={{ repeat: Infinity, duration: 14 }} className="absolute top-[45%] left-[3%] text-green-500"><Wrench size={44} /></motion.div>
+                    <motion.div animate={{ y: [0, 50, 0] }} transition={{ repeat: Infinity, duration: 15 }} className="absolute bottom-[20%] left-[8%] text-blue-600"><Truck size={60} /></motion.div>
+                    <motion.div animate={{ y: [0, 30, 0] }} transition={{ repeat: Infinity, duration: 10 }} className="absolute bottom-[48%] left-[14%] text-purple-500"><Home size={38} /></motion.div>
+                    {/* Right Side */}
+                    <motion.div animate={{ y: [0, -35, 0] }} transition={{ repeat: Infinity, duration: 9 }} className="absolute top-[15%] right-[8%] text-orange-500"><Zap size={38} /></motion.div>
+                    <motion.div animate={{ y: [0, 60, 0] }} transition={{ repeat: Infinity, duration: 16 }} className="absolute top-[48%] right-[5%] text-yellow-500"><Briefcase size={50} /></motion.div>
+                    <motion.div animate={{ y: [0, -40, 0] }} transition={{ repeat: Infinity, duration: 11 }} className="absolute bottom-[10%] right-[7%] text-pink-500"><GraduationCap size={68} /></motion.div>
+                    <motion.div animate={{ y: [0, -25, 0] }} transition={{ repeat: Infinity, duration: 13 }} className="absolute bottom-[42%] right-[12%] text-teal-400"><Scissors size={42} /></motion.div>
+                </div>
 
                 <div className="max-w-7xl mx-auto relative z-10">
-                    <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20">
-                        <div className="max-w-2xl">
+                    <div className="flex flex-col items-center justify-center text-center gap-8 mb-20 max-w-3xl mx-auto">
+                        <div>
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
@@ -310,32 +326,18 @@ export default function App() {
                             </motion.div>
                             <h2 className="text-4xl md:text-6xl font-black font-outfit text-[var(--app-text)] mb-6 tracking-tight leading-none uppercase">
                                 Explora nuestros <br />
-                                <span className="text-[var(--primary)]">Servicios</span>
+                                <span className="text-[var(--primary)]">Servicios Disponibles en</span> <span className="text-orange-500">la APP</span>
                             </h2>
-                            <p className="text-xl text-[var(--app-text-muted)] font-medium max-w-lg">
+                            <p className="text-xl text-[var(--app-text-muted)] font-medium max-w-lg mx-auto">
                                 Conectamos con más de <span className="text-[var(--app-text)] font-black">26 categorías</span> de servicios profesionales para el hogar y la empresa.
                             </p>
-                        </div>
-                        
-                        <div className="relative w-full md:w-[450px] group">
-                            <div className="absolute inset-0 bg-[var(--primary)]/5 blur-xl group-focus-within:bg-[var(--primary)]/10 transition-all" />
-                            <div className="relative">
-                                <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-[var(--app-text-muted)] transition-colors group-focus-within:text-[var(--primary)]" size={22} />
-                                <input 
-                                    type="text"
-                                    placeholder="¿Qué servicio necesitas hoy?..."
-                                    value={searchQuery}
-                                    onChange={(e) => setSearchQuery(e.target.value)}
-                                    className="w-full pl-16 pr-8 py-6 bg-[var(--app-bg-soft)] border border-[var(--card-border)] rounded-3xl text-[var(--app-text)] focus:ring-4 focus:ring-[var(--primary)]/10 focus:border-[var(--primary)] outline-none transition-all font-bold text-base shadow-[0_20px_50px_-10px_rgba(8,145,178,0.15)] dark:shadow-none"
-                                />
-                            </div>
                         </div>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                         {displayedServices.map((service) => (
-                            <CategoryCard 
-                                key={service.id} 
+                            <CategoryCard
+                                key={service.id}
                                 title={service.title}
                                 icon={service.icon}
                                 image={(service as any).image}
@@ -348,7 +350,7 @@ export default function App() {
                     {!searchQuery && (
                         <div className="mt-16 text-center">
                             {showAllCategories ? (
-                                <motion.button 
+                                <motion.button
                                     onClick={() => {
                                         setShowAllCategories(false);
                                         document.getElementById('servicios')?.scrollIntoView({ behavior: 'smooth' });
@@ -361,7 +363,7 @@ export default function App() {
                                     <ChevronRight size={18} className="-rotate-90 group-hover:-translate-y-1 transition-transform" />
                                 </motion.button>
                             ) : (
-                                <motion.button 
+                                <motion.button
                                     onClick={() => setShowAllCategories(true)}
                                     whileTap={{ scale: 0.95 }}
                                     whileHover={{ scale: 1.02 }}
@@ -377,7 +379,7 @@ export default function App() {
                     {filteredServices.length === 0 && (
                         <div className="py-20 text-center">
                             <p className="text-xl text-[var(--app-text-muted)] font-medium">No encontramos servicios que coincidan con tu búsqueda.</p>
-                            <button 
+                            <button
                                 onClick={() => setSearchQuery('')}
                                 className="mt-4 text-[var(--primary)] font-black uppercase tracking-widest text-sm hover:underline"
                             >
@@ -392,14 +394,14 @@ export default function App() {
             <section id="negocios" className="py-20 md:py-24 px-6 md:px-12 lg:px-24 relative overflow-hidden bg-[var(--app-bg)] transition-colors duration-500 min-h-screen flex items-center">
                 {/* Background skewed element */}
                 <div className="absolute top-0 right-0 w-2/3 h-full bg-[var(--primary)]/[0.03] -skew-x-12 translate-x-1/4 pointer-events-none" />
-                
+
                 {/* Floating animated blobs */}
-                <motion.div 
+                <motion.div
                     animate={{ y: [0, 60, 0], scale: [1, 1.2, 1], rotate: [0, 90, 0] }}
                     transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
                     className="absolute top-1/4 -right-20 w-[600px] h-[600px] bg-orange-400/10 dark:bg-orange-600/5 blur-[120px] rounded-full pointer-events-none"
                 />
-                <motion.div 
+                <motion.div
                     animate={{ x: [0, -40, 0], scale: [1, 1.1, 1] }}
                     transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
                     className="absolute bottom-0 -left-20 w-[400px] h-[400px] bg-cyan-400/10 blur-[100px] rounded-full pointer-events-none"
@@ -410,7 +412,7 @@ export default function App() {
                         {/* Visual Side: Modern Grid with Generated Images */}
                         <div className="order-2 lg:order-1 relative">
                             <div className="grid grid-cols-2 gap-6 relative z-10">
-                                <motion.div 
+                                <motion.div
                                     initial={{ opacity: 0, y: 30 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
@@ -432,7 +434,7 @@ export default function App() {
                                         </div>
                                     </div>
                                 </motion.div>
-                                <motion.div 
+                                <motion.div
                                     initial={{ opacity: 0, y: -30 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
@@ -455,7 +457,7 @@ export default function App() {
                                     </div>
                                 </motion.div>
                             </div>
-                            
+
                             {/* Decorative accent behind images */}
                             <div className="absolute -inset-10 bg-gradient-to-tr from-[var(--primary)]/20 to-transparent blur-[120px] -z-0 rounded-[4rem]" />
                         </div>
@@ -489,7 +491,7 @@ export default function App() {
                                                 <CheckCircle2 size={16} />
                                             </div>
                                             <span className="text-sm md:text-base font-medium text-[var(--app-text-muted)] leading-snug">
-                                                <strong className="text-[var(--app-text)] font-black uppercase">Beneficios:</strong> Publícalo 100% gratis durante tres meses, sin contratos.
+                                                <strong className="text-[var(--app-text)] font-black uppercase">Beneficios:</strong> Publicalo 100% gratis, durante 6 meses sin contratos de permanencia.
                                             </span>
                                         </li>
                                         <li className="flex items-start gap-4">
@@ -511,8 +513,8 @@ export default function App() {
                                     </ul>
                                 </div>
                             </motion.div>
-                            
-                            <motion.div 
+
+                            <motion.div
                                 initial={{ opacity: 0 }}
                                 whileInView={{ opacity: 1 }}
                                 viewport={{ once: true }}
@@ -536,7 +538,7 @@ export default function App() {
                             </motion.div>
 
                             <div className="relative z-20">
-                                <InteractiveHoverButton 
+                                <InteractiveHoverButton
                                     text="UNIRME AHORA"
                                     onClick={() => setIsRegistrationOpen(true)}
                                     className="h-16 px-10 bg-gradient-to-r from-[var(--primary)] to-cyan-500 border-none text-white shadow-2xl shadow-[var(--primary)]/40 text-lg font-black rounded-2xl w-full sm:w-auto"
@@ -549,7 +551,7 @@ export default function App() {
 
 
             <DownloadApp />
-            
+
             {/* ─── Footer ────────────────────────────────────────────────────────────── */}
             <footer className="bg-[var(--app-bg-soft)] pt-24 pb-12 border-t border-[var(--card-border)]">
                 <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
@@ -569,7 +571,11 @@ export default function App() {
                         <div className="col-span-1">
                             <h4 className="text-[var(--app-text)] font-black uppercase text-xs tracking-[0.2em] mb-8 font-outfit">Compañía</h4>
                             <ul className="space-y-4 text-sm font-bold text-[var(--app-text-muted)]">
-                                <li><a href="#inicio" className="hover:text-[var(--primary)] transition-colors">Nosotros</a></li>
+                                <li>
+                                    <button onClick={() => setIsAboutUsOpen(true)} className="hover:text-[var(--primary)] transition-colors tracking-wide outline-none">
+                                        Nosotros
+                                    </button>
+                                </li>
                                 <li><a href="#servicios" className="hover:text-[var(--primary)] transition-colors">Categorías</a></li>
                                 <li><a href="#negocios" className="hover:text-[var(--primary)] transition-colors">Registro de Negocios</a></li>
                             </ul>
@@ -595,13 +601,13 @@ export default function App() {
                                 </li>
                                 <li className="pt-2">
                                     <a href="mailto:info@conexionserviciosecuador.com" className="inline-flex items-center gap-3 hover:text-[var(--primary)] transition-colors">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> Correo Electrónico
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg> Correo Electrónico
                                     </a>
                                 </li>
                                 <li className="pt-2">
                                     <a href="https://wa.me/593000000000" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 rounded-lg hover:bg-emerald-500 hover:text-white transition-all">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                            <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+                                            <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
                                         </svg>
                                         WhatsApp
                                     </a>
@@ -617,10 +623,10 @@ export default function App() {
                                     <div className="bg-black rounded-[8px] border border-[#a6a6a6] p-[1.5px] h-full">
                                         <div className="flex items-center justify-center gap-3 px-2 py-1.5 bg-black rounded-[6.5px]">
                                             <svg viewBox="0 0 512 512" className="w-5 h-5 flex-shrink-0">
-                                                <path d="M10.1,23.3C9.4,24,9,25,9,26.2v459.7c0,1.2,0.4,2.2,1.1,2.9l1.4,1.4L259.9,256L11.5,21.9L10.1,23.3z" fill="#00e676"/>
-                                                <path d="M341.6,337.8L259.9,256L11.5,504.1c1.2,1.2,3.1,1.4,5.2,0.2l324.9-185.3L341.6,337.8z" fill="#ffeb3b"/>
-                                                <path d="M486.2,243.3L341.6,174.2L259.9,256l81.7,81.8L486.2,268.7C493.5,264.5,493.5,257.5,486.2,243.3z" fill="#f44336"/>
-                                                <path d="M341.6,174.2L16.7,7.7C14.6,6.5,12.7,6.6,11.5,7.9l248.4,248.1L341.6,174.2z" fill="#2196f3"/>
+                                                <path d="M10.1,23.3C9.4,24,9,25,9,26.2v459.7c0,1.2,0.4,2.2,1.1,2.9l1.4,1.4L259.9,256L11.5,21.9L10.1,23.3z" fill="#00e676" />
+                                                <path d="M341.6,337.8L259.9,256L11.5,504.1c1.2,1.2,3.1,1.4,5.2,0.2l324.9-185.3L341.6,337.8z" fill="#ffeb3b" />
+                                                <path d="M486.2,243.3L341.6,174.2L259.9,256l81.7,81.8L486.2,268.7C493.5,264.5,493.5,257.5,486.2,243.3z" fill="#f44336" />
+                                                <path d="M341.6,174.2L16.7,7.7C14.6,6.5,12.7,6.6,11.5,7.9l248.4,248.1L341.6,174.2z" fill="#2196f3" />
                                             </svg>
                                             <div className="flex flex-col leading-tight items-start pr-1">
                                                 <span className="text-[7px] text-white font-bold tracking-tight opacity-90">GET IT ON</span>
@@ -647,7 +653,7 @@ export default function App() {
                             </div>
                         </div>
                     </div>
-                    
+
                     <div className="pt-10 border-t border-[var(--card-border)] flex flex-col md:flex-row justify-between items-center gap-6">
                         <p className="text-xs text-[var(--app-text-muted)] font-bold opacity-70">© 2026 CONEXIÓN SERVICIOS. TODOS LOS DERECHOS RESERVADOS.</p>
                         <div className="flex items-center gap-8">
@@ -659,9 +665,14 @@ export default function App() {
                 </div>
             </footer>
 
-            <RegistrationModal 
-                isOpen={isRegistrationOpen} 
-                onClose={() => setIsRegistrationOpen(false)} 
+            <RegistrationModal
+                isOpen={isRegistrationOpen}
+                onClose={() => setIsRegistrationOpen(false)}
+            />
+            
+            <AboutUsModal
+                isOpen={isAboutUsOpen}
+                onClose={() => setIsAboutUsOpen(false)}
             />
         </div>
     );

@@ -136,7 +136,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, on
                                 </h3>
 
                                 <p className="text-[var(--app-text-muted)] mb-6 text-[15px] font-medium transition-colors duration-500">
-                                    ¿Tienes un negocio en crecimiento? Regístrate hoy y llega a miles de clientes activos de manera instantánea.
+                                    ¿Tienes un negocio? Regístrate hoy y obten un bono de 6 meses Gratis.
                                 </p>
 
                                 <div className="space-y-4 flex-1">
