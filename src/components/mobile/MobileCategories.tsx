@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SERVICES_DATA } from '../../constants/services';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, LayoutGrid, Download,
+    Stethoscope, Zap, Truck, GraduationCap,
+    Wrench, Home, Briefcase, Scissors } from 'lucide-react';
 import { cn } from '../../lib/utils';
 
 export const MobileCategories: React.FC = () => {
@@ -11,112 +13,164 @@ export const MobileCategories: React.FC = () => {
     const displayed = showAll ? SERVICES_DATA : SERVICES_DATA.slice(0, 4);
 
     return (
-        <section className="px-6 space-y-8">
-            <div className="space-y-2">
-                <span className="text-[10px] font-black uppercase tracking-[0.25em] text-[var(--primary)] font-outfit">Explora</span>
-                <h2 className="text-3xl font-bold font-outfit text-[var(--app-text)] leading-tight">
-                    Nuestros <span className="text-[var(--primary)]">Servicios</span>
-                </h2>
-                <p className="text-sm text-[var(--app-text-muted)] font-medium">
-                    Toca una categoría para ver todas las especialidades disponibles.
-                </p>
+        <section id="servicios" className="relative overflow-hidden bg-[var(--app-bg)] transition-colors duration-500 px-4 py-12">
+            {/* Ambient Glows */}
+            <div className="absolute inset-0 pointer-events-none z-0">
+                <div className="absolute -top-[10%] -left-[10%] w-[60%] h-[60%] bg-[var(--primary)]/10 blur-[120px] rounded-full opacity-60 dark:opacity-100" />
+                <div className="absolute -bottom-[10%] -right-[10%] w-[60%] h-[60%] bg-cyan-400/10 blur-[120px] rounded-full opacity-60 dark:opacity-100" />
             </div>
 
-            <div className="grid grid-cols-1 gap-4">
-                {displayed.map((cat, i) => (
+            {/* Floating Icon Decorations */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-20 dark:opacity-35 z-0">
+                <motion.div animate={{ y: [0, 30, 0] }} transition={{ repeat: Infinity, duration: 10 }} className="absolute top-[5%]  left-[3%]  text-cyan-500"><Stethoscope size={36} /></motion.div>
+                <motion.div animate={{ y: [0, -25, 0] }} transition={{ repeat: Infinity, duration: 12 }} className="absolute top-[40%] left-[2%]  text-green-500"><Wrench size={30} /></motion.div>
+                <motion.div animate={{ y: [0, 35, 0] }} transition={{ repeat: Infinity, duration: 14 }} className="absolute bottom-[8%] left-[5%]  text-blue-500"><Truck size={38} /></motion.div>
+                <motion.div animate={{ y: [0, -20, 0] }} transition={{ repeat: Infinity, duration: 9  }} className="absolute top-[3%]  right-[4%] text-orange-500"><Zap size={28} /></motion.div>
+                <motion.div animate={{ y: [0, 40, 0] }} transition={{ repeat: Infinity, duration: 15 }} className="absolute top-[45%] right-[2%] text-pink-500"><GraduationCap size={40} /></motion.div>
+                <motion.div animate={{ y: [0, -30, 0] }} transition={{ repeat: Infinity, duration: 11 }} className="absolute bottom-[5%] right-[4%] text-yellow-500"><Briefcase size={34} /></motion.div>
+                <motion.div animate={{ y: [0, 20, 0] }} transition={{ repeat: Infinity, duration: 13 }} className="absolute top-[22%] left-[6%]  text-purple-500"><Home size={26} /></motion.div>
+                <motion.div animate={{ y: [0, -35, 0] }} transition={{ repeat: Infinity, duration: 16 }} className="absolute top-[20%] right-[5%] text-teal-400"><Scissors size={30} /></motion.div>
+            </div>
+
+            <div className="relative z-10 space-y-8">
+                {/* Section Header */}
+                <div className="text-center space-y-3">
                     <motion.div
-                        key={cat.id}
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ delay: i * 0.05 }}
-                        className={cn(
-                            "relative overflow-hidden rounded-[2rem] border transition-all duration-300",
-                            expandedCategory === cat.id 
-                                ? "bg-[var(--app-bg-soft)] border-[var(--primary)] shadow-[0_20px_40px_-5px_rgba(8,145,178,0.2)] dark:shadow-none" 
-                                : "bg-[var(--app-bg-soft)]/50 border-[var(--card-border)] shadow-[0_10px_20px_-5px_rgba(8,145,178,0.1)] dark:shadow-none"
-                        )}
+                        className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--primary)]/10 text-[var(--primary)] text-[10px] font-black uppercase tracking-widest"
                     >
-                        {(cat as any).image && (
-                            <div className="h-32 w-full overflow-hidden relative">
-                                <img src={(cat as any).image} className="w-full h-full object-cover" alt={cat.title} />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                            </div>
-                        )}
-                        
-                        <button 
-                            onClick={() => setExpandedCategory(expandedCategory === cat.id ? null : cat.id)}
-                            className="w-full p-6 flex items-center justify-between text-left"
-                        >
-                            <div className="flex items-center gap-5">
-                                {!(cat as any).image && (
-                                    <div className={cn(
-                                        "w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-500",
-                                        expandedCategory === cat.id ? "bg-[var(--primary)] text-white" : "bg-[var(--primary)]/10 text-[var(--primary)]"
-                                    )}>
-                                        <cat.icon size={28} />
-                                    </div>
-                                )}
-                                <div>
-                                    <h3 className="text-lg font-bold font-outfit text-[var(--app-text)]">{cat.title}</h3>
-                                    <p className="text-xs text-[var(--app-text-muted)] font-medium">{cat.subcategories.length} especialistas</p>
-                                </div>
-                            </div>
-                            <ChevronRight 
-                                size={20} 
-                                className={cn(
-                                    "text-[var(--app-text-muted)] transition-transform duration-300",
-                                    expandedCategory === cat.id && "rotate-90 text-[var(--primary)]"
-                                )} 
-                            />
-                        </button>
-                        
-                        {/* ... rest of the code is same or updated ... */}
-                        <AnimatePresence>
-                            {expandedCategory === cat.id && (
-                                <motion.div
-                                    initial={{ height: 0, opacity: 0 }}
-                                    animate={{ height: 'auto', opacity: 1 }}
-                                    exit={{ height: 0, opacity: 0 }}
-                                    className="overflow-hidden"
-                                >
-                                    <div className="px-6 pb-6 pt-2">
-                                        <p className="text-sm text-[var(--app-text-muted)] mb-5 italic border-l-2 border-[var(--primary)]/30 pl-3">
-                                            {cat.description}
-                                        </p>
-                                        <div className="flex flex-wrap gap-2 mb-6">
-                                            {cat.subcategories.map((sub, idx) => (
-                                                <span 
-                                                    key={idx}
-                                                    className="px-3 py-1.5 bg-[var(--app-bg)] text-[var(--app-text)] text-[11px] rounded-xl border border-[var(--card-border)] font-bold shadow-sm"
-                                                >
-                                                    {sub}
-                                                </span>
-                                            ))}
-                                        </div>
-                                        <button className="w-full py-4 bg-[var(--primary)] text-white rounded-2xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-[var(--primary)]/20 active:scale-95 transition-all">
-                                            <ChevronRight size={18} />
-                                            Descargar App
-                                        </button>
-                                    </div>
-                                </motion.div>
-                            )}
-                        </AnimatePresence>
+                        <LayoutGrid size={11} />
+                        Directorio Profesional
                     </motion.div>
-                ))}
-            </div>
+                    <h2 className="text-[1.7rem] font-black font-outfit text-[var(--app-text)] leading-tight uppercase tracking-tight">
+                        Explora nuestros<br />
+                        <span className="text-[var(--primary)]">Servicios Disponibles en</span>{' '}
+                        <span className="text-orange-500">la APP</span>
+                    </h2>
+                    <p className="text-sm text-[var(--app-text-muted)] font-medium max-w-xs mx-auto">
+                        Conectamos con más de{' '}
+                        <strong className="text-[var(--app-text)] font-black">26 categorías</strong>{' '}
+                        de servicios profesionales para el hogar y la empresa.
+                    </p>
+                </div>
 
-            {!showAll && (
-                <div className="pt-4">
-                    <button 
-                        onClick={() => setShowAll(true)}
-                        className="w-full py-5 bg-[var(--app-bg-soft)] border border-[var(--card-border)] text-[var(--app-text)] font-bold rounded-2xl shadow-[0_15px_30px_-5px_rgba(8,145,178,0.15)] dark:shadow-none flex items-center justify-center gap-3 active:scale-95 transition-all"
+                {/* Category Cards */}
+                <div className="space-y-4">
+                    {displayed.map((cat, i) => (
+                        <motion.div
+                            key={cat.id}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: i * 0.05 }}
+                            className={cn(
+                                "relative overflow-hidden rounded-[2rem] border transition-all duration-300",
+                                expandedCategory === cat.id
+                                    ? "bg-[var(--app-bg-soft)] border-[var(--primary)] shadow-[0_20px_40px_-5px_rgba(0,209,255,0.2)]"
+                                    : "bg-[var(--app-bg-soft)]/60 border-[var(--card-border)] shadow-[0_8px_20px_-5px_rgba(8,145,178,0.08)]"
+                            )}
+                        >
+                            {/* Category Image */}
+                            {(cat as any).image && (
+                                <div className="h-36 w-full overflow-hidden relative">
+                                    <img
+                                        src={(cat as any).image}
+                                        className="w-full h-full object-cover transition-transform duration-500"
+                                        alt={cat.title}
+                                        loading="lazy"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                                    <span className="absolute bottom-3 left-4 text-white font-black text-base font-outfit uppercase">
+                                        {cat.title}
+                                    </span>
+                                </div>
+                            )}
+
+                            <button
+                                onClick={() => setExpandedCategory(expandedCategory === cat.id ? null : cat.id)}
+                                className="w-full p-5 flex items-center justify-between text-left min-h-[64px]"
+                            >
+                                <div className="flex items-center gap-4">
+                                    {!(cat as any).image && (
+                                        <div className={cn(
+                                            "w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-300",
+                                            expandedCategory === cat.id ? "bg-[var(--primary)] text-white" : "bg-[var(--primary)]/10 text-[var(--primary)]"
+                                        )}>
+                                            <cat.icon size={24} />
+                                        </div>
+                                    )}
+                                    <div>
+                                        {!(cat as any).image && (
+                                            <h3 className="text-base font-black font-outfit text-[var(--app-text)]">{cat.title}</h3>
+                                        )}
+                                        <p className="text-xs text-[var(--app-text-muted)] font-medium">{cat.subcategories.length} especialidades</p>
+                                    </div>
+                                </div>
+                                <ChevronRight
+                                    size={20}
+                                    className={cn(
+                                        "text-[var(--app-text-muted)] transition-transform duration-300 shrink-0",
+                                        expandedCategory === cat.id && "rotate-90 text-[var(--primary)]"
+                                    )}
+                                />
+                            </button>
+
+                            <AnimatePresence>
+                                {expandedCategory === cat.id && (
+                                    <motion.div
+                                        initial={{ height: 0, opacity: 0 }}
+                                        animate={{ height: 'auto', opacity: 1 }}
+                                        exit={{ height: 0, opacity: 0 }}
+                                        transition={{ duration: 0.25 }}
+                                        className="overflow-hidden"
+                                    >
+                                        <div className="px-5 pb-6 pt-1 space-y-4">
+                                            <p className="text-sm text-[var(--app-text-muted)] italic border-l-2 border-[var(--primary)]/30 pl-3 leading-relaxed">
+                                                {cat.description}
+                                            </p>
+                                            <div className="flex flex-wrap gap-2">
+                                                {cat.subcategories.map((sub, idx) => (
+                                                    <span
+                                                        key={idx}
+                                                        className="px-3 py-1.5 bg-[var(--app-bg)] text-[var(--app-text)] text-[11px] rounded-xl border border-[var(--card-border)] font-bold"
+                                                    >
+                                                        {sub}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                            <button
+                                                onClick={() => document.getElementById('descarga')?.scrollIntoView({ behavior: 'smooth' })}
+                                                className="w-full py-4 bg-[var(--primary)] text-white rounded-2xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-[var(--primary)]/25 active:scale-95 transition-all text-sm"
+                                            >
+                                                <Download size={16} />
+                                                Descargar App
+                                            </button>
+                                        </div>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+                        </motion.div>
+                    ))}
+                </div>
+
+                {/* Ver Más / Ver Menos */}
+                <div>
+                    <button
+                        onClick={() => {
+                            setShowAll(prev => {
+                                if (prev) document.getElementById('servicios')?.scrollIntoView({ behavior: 'smooth' });
+                                return !prev;
+                            });
+                        }}
+                        className="w-full py-5 bg-[var(--app-bg-soft)] border border-[var(--card-border)] text-[var(--app-text)] font-bold rounded-2xl flex items-center justify-center gap-3 active:scale-95 transition-all text-sm"
                     >
-                        Ver Todas las Categorías
-                        <ChevronRight size={20} />
+                        {showAll ? 'Ver Menos' : 'Ver Todas las Categorías'}
+                        <ChevronRight size={18} className={cn("transition-transform", showAll && "-rotate-90")} />
                     </button>
                 </div>
-            )}
+            </div>
         </section>
     );
 };

@@ -4,12 +4,11 @@ import {
     ShieldCheck,
     Users,
     Instagram, Facebook,
-    Search,
     ChevronRight,
     LayoutGrid, Building2,
     Eye, Handshake, TrendingUp, CheckCircle2,
     Stethoscope, Zap, Truck, GraduationCap,
-    Wrench, Home, Briefcase, Scissors,
+    Wrench, Home, Briefcase,
     Car, Heart, PawPrint, Dumbbell,
     Paintbrush, Hammer, Wifi, UtensilsCrossed
 } from 'lucide-react';

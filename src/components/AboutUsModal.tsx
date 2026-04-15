@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Sparkles, DownloadCloud } from 'lucide-react';
+import { X } from 'lucide-react';
 import { InteractiveHoverButton } from './ui/InteractiveHoverButton';
 
 interface AboutUsModalProps {
