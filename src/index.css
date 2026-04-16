@@ -199,7 +199,10 @@ body {
     top: 0;
     left: 0;
     width: 100vw;
+    /* Safari iOS fix: 100vh doesn't account for the browser toolbar.
+       Use 100dvh (dynamic viewport height) with 100vh as fallback. */
     height: 100vh;
+    height: 100dvh;
     z-index: -2;
     background: 
         radial-gradient(circle at 15% 50%, rgba(0, 102, 255, var(--glow-opacity)) 0%, transparent 50%),
@@ -213,15 +216,17 @@ body {
     top: 0;
     left: 0;
     width: 100vw;
+    /* Safari iOS fix: 100vh doesn't account for the browser toolbar. */
     height: 100vh;
+    height: 100dvh;
     z-index: -1;
     background-image:
         linear-gradient(to right, currentColor 1px, transparent 1px),
         linear-gradient(to bottom, currentColor 1px, transparent 1px);
     background-size: 60px 60px;
     opacity: var(--grid-opacity);
-    mask-image: linear-gradient(to bottom, black 20%, transparent 80%);
     -webkit-mask-image: linear-gradient(to bottom, black 20%, transparent 80%);
+    mask-image: linear-gradient(to bottom, black 20%, transparent 80%);
     pointer-events: none;
 }
 
@@ -242,9 +247,10 @@ footer,
 }
 
 /* Contain layout for major section blocks to prevent reflow cascade */
-section {
-    contain: layout style;
-}
+/* NOTE: contain: layout style is NOT applied here because Safari iOS has a
+   known bug where CSS `contain` on ancestor elements breaks `position: fixed`
+   and `position: sticky` on descendant elements, causing the entire page to
+   visually collapse. Per MDN: avoid `contain` on scrollable ancestors in Safari. */
 
 /* Prevent blurry text during transforms */
 * {
@@ -262,6 +268,10 @@ section {
 }
 
 /* Optimize image rendering */
+/* NOTE: content-visibility: auto is intentionally omitted here.
+   It has a documented WebKit/Safari bug that causes images to not
+   render and can freeze scroll on iOS Safari. */
 img {
-    content-visibility: auto;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
