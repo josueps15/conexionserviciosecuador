@@ -151,7 +151,7 @@ export default function App() {
                 <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
                     <div className="absolute top-[-15%] left-[-10%] w-[60%] h-[60%] bg-cyan-400/15 dark:bg-cyan-900/20 blur-[150px] rounded-full opacity-70" />
                     <div className="absolute bottom-[-15%] right-[-10%] w-[60%] h-[60%] bg-blue-300/10 dark:bg-blue-900/10 blur-[150px] rounded-full opacity-50" />
-                    
+
                     {/* Floating Geometric Shapes (Ordered like original layout) */}
                     {[
                         { w: 320, h: 320, x: 2, y: 5, r: 12 },     // Top left
@@ -165,18 +165,18 @@ export default function App() {
                             key={i}
                             className="absolute rounded-[4rem] bg-[#00D1FF]/20 dark:bg-[#00D1FF]/10 shadow-[0_15px_40px_rgba(0,209,255,0.15)] dark:shadow-none hidden lg:block"
                             initial={{ opacity: 0, scale: 0.95, rotate: block.r }}
-                            animate={{ 
-                                opacity: [0, 1, 1, 0,    0, 1, 1, 0],
-                                x:       [0, 20, -20, 0,       i%2===0?250:-250, i%2===0?230:-270, i%2===0?270:-230, i%2===0?250:-250],
-                                y:       [0, -20, 20, 0,       i%2===0?-150:150, i%2===0?-130:130, i%2===0?-170:170, i%2===0?-150:150],
-                                rotate:  [block.r, block.r+15, block.r-15, block.r,    block.r+45, block.r+60, block.r+30, block.r+45]
+                            animate={{
+                                opacity: [0, 1, 1, 0, 0, 1, 1, 0],
+                                x: [0, 20, -20, 0, i % 2 === 0 ? 250 : -250, i % 2 === 0 ? 230 : -270, i % 2 === 0 ? 270 : -230, i % 2 === 0 ? 250 : -250],
+                                y: [0, -20, 20, 0, i % 2 === 0 ? -150 : 150, i % 2 === 0 ? -130 : 130, i % 2 === 0 ? -170 : 170, i % 2 === 0 ? -150 : 150],
+                                rotate: [block.r, block.r + 15, block.r - 15, block.r, block.r + 45, block.r + 60, block.r + 30, block.r + 45]
                             }}
-                            transition={{ 
+                            transition={{
                                 duration: 120, // 2 minutes total to allow two 1-minute phases
-                                repeat: Infinity, 
+                                repeat: Infinity,
                                 ease: "easeInOut",
-                                times: [0, 0.02, 0.48, 0.5,    0.501, 0.52, 0.98, 1],
-                                delay: i * 2 
+                                times: [0, 0.02, 0.48, 0.5, 0.501, 0.52, 0.98, 1],
+                                delay: i * 2
                             }}
                             style={{
                                 width: block.w,
@@ -187,7 +187,7 @@ export default function App() {
                             }}
                         />
                     ))}
-                    
+
                     <InteractiveGridPattern
                         width={100}
                         height={100}
@@ -285,14 +285,14 @@ export default function App() {
             <section id="servicios" className="py-32 px-6 md:px-12 lg:px-24 relative overflow-hidden bg-[var(--app-bg)] transition-colors duration-500">
                 {/* Background pattern */}
                 <div className="absolute inset-0 pointer-events-none z-0">
-                    <InteractiveGridPattern 
-                        width={80} 
-                        height={80} 
+                    <InteractiveGridPattern
+                        width={80}
+                        height={80}
                         className="opacity-20 text-[var(--primary)]/20"
                         squaresClassName="hover:fill-[var(--primary)]/10"
                     />
                 </div>
-                
+
                 {/* Ambient Glows */}
                 <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
                     <div className="absolute -top-[10%] -left-[10%] w-[50%] h-[50%] bg-[var(--primary)]/10 blur-[150px] rounded-full opacity-60 dark:opacity-100 transition-opacity duration-700" />
@@ -302,29 +302,29 @@ export default function App() {
                 {/* Decorative Floating Icons - Full Background Distribution */}
                 <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-25 dark:opacity-40 z-0">
                     {/* ── Far Left (0-12%) ── */}
-                    <motion.div animate={{ y: [0, 40, 0] }}   transition={{ repeat: Infinity, duration: 12 }} className="absolute top-[8%]   left-[4%]  text-cyan-500">   <Stethoscope size={50} /></motion.div>
-                    <motion.div animate={{ y: [0, -45, 0] }}  transition={{ repeat: Infinity, duration: 14 }} className="absolute top-[50%]  left-[3%]  text-green-500">  <Wrench size={42} /></motion.div>
-                    <motion.div animate={{ y: [0, 50, 0] }}   transition={{ repeat: Infinity, duration: 17 }} className="absolute bottom-[8%]  left-[7%]  text-blue-500">   <Truck size={58} /></motion.div>
+                    <motion.div animate={{ y: [0, 40, 0] }} transition={{ repeat: Infinity, duration: 12 }} className="absolute top-[8%]   left-[4%]  text-cyan-500">   <Stethoscope size={50} /></motion.div>
+                    <motion.div animate={{ y: [0, -45, 0] }} transition={{ repeat: Infinity, duration: 14 }} className="absolute top-[50%]  left-[3%]  text-green-500">  <Wrench size={42} /></motion.div>
+                    <motion.div animate={{ y: [0, 50, 0] }} transition={{ repeat: Infinity, duration: 17 }} className="absolute bottom-[8%]  left-[7%]  text-blue-500">   <Truck size={58} /></motion.div>
 
                     {/* ── Center-Left (20-30%) ── */}
-                    <motion.div animate={{ y: [0, 30, 0] }}   transition={{ repeat: Infinity, duration: 10 }} className="absolute top-[5%]   left-[22%] text-purple-500"> <Home size={36} /></motion.div>
-                    <motion.div animate={{ y: [0, -30, 0] }}  transition={{ repeat: Infinity, duration: 13 }} className="absolute top-[55%]  left-[18%] text-orange-400">  <Car size={44} /></motion.div>
-                    <motion.div animate={{ y: [0, 35, 0] }}   transition={{ repeat: Infinity, duration: 16 }} className="absolute bottom-[6%]  left-[25%] text-red-400">    <Heart size={38} /></motion.div>
+                    <motion.div animate={{ y: [0, 30, 0] }} transition={{ repeat: Infinity, duration: 10 }} className="absolute top-[5%]   left-[22%] text-purple-500"> <Home size={36} /></motion.div>
+                    <motion.div animate={{ y: [0, -30, 0] }} transition={{ repeat: Infinity, duration: 13 }} className="absolute top-[55%]  left-[18%] text-orange-400">  <Car size={44} /></motion.div>
+                    <motion.div animate={{ y: [0, 35, 0] }} transition={{ repeat: Infinity, duration: 16 }} className="absolute bottom-[6%]  left-[25%] text-red-400">    <Heart size={38} /></motion.div>
 
                     {/* ── Center (40-60%) ── */}
-                    <motion.div animate={{ y: [0, -20, 0] }}  transition={{ repeat: Infinity, duration: 11 }} className="absolute top-[3%]   left-[42%] text-teal-400">   <Wifi size={40} /></motion.div>
-                    <motion.div animate={{ y: [0, 25, 0] }}   transition={{ repeat: Infinity, duration: 18 }} className="absolute bottom-[5%]  left-[50%] text-amber-500">  <UtensilsCrossed size={46} /></motion.div>
-                    <motion.div animate={{ y: [0, -35, 0] }}  transition={{ repeat: Infinity, duration: 9  }} className="absolute top-[60%]  left-[55%] text-indigo-400"> <Paintbrush size={40} /></motion.div>
+                    <motion.div animate={{ y: [0, -20, 0] }} transition={{ repeat: Infinity, duration: 11 }} className="absolute top-[3%]   left-[42%] text-teal-400">   <Wifi size={40} /></motion.div>
+                    <motion.div animate={{ y: [0, 25, 0] }} transition={{ repeat: Infinity, duration: 18 }} className="absolute bottom-[5%]  left-[50%] text-amber-500">  <UtensilsCrossed size={46} /></motion.div>
+                    <motion.div animate={{ y: [0, -35, 0] }} transition={{ repeat: Infinity, duration: 9 }} className="absolute top-[60%]  left-[55%] text-indigo-400"> <Paintbrush size={40} /></motion.div>
 
                     {/* ── Center-Right (65-80%) ── */}
-                    <motion.div animate={{ y: [0, 40, 0] }}   transition={{ repeat: Infinity, duration: 15 }} className="absolute top-[7%]   right-[20%] text-pink-400">   <PawPrint size={44} /></motion.div>
-                    <motion.div animate={{ y: [0, -50, 0] }}  transition={{ repeat: Infinity, duration: 12 }} className="absolute top-[52%]  right-[22%] text-yellow-500"> <Dumbbell size={48} /></motion.div>
-                    <motion.div animate={{ y: [0, 30, 0] }}   transition={{ repeat: Infinity, duration: 19 }} className="absolute bottom-[7%]  right-[18%] text-emerald-500"><Hammer size={42} /></motion.div>
+                    <motion.div animate={{ y: [0, 40, 0] }} transition={{ repeat: Infinity, duration: 15 }} className="absolute top-[7%]   right-[20%] text-pink-400">   <PawPrint size={44} /></motion.div>
+                    <motion.div animate={{ y: [0, -50, 0] }} transition={{ repeat: Infinity, duration: 12 }} className="absolute top-[52%]  right-[22%] text-yellow-500"> <Dumbbell size={48} /></motion.div>
+                    <motion.div animate={{ y: [0, 30, 0] }} transition={{ repeat: Infinity, duration: 19 }} className="absolute bottom-[7%]  right-[18%] text-emerald-500"><Hammer size={42} /></motion.div>
 
                     {/* ── Far Right (0-12% from right) ── */}
-                    <motion.div animate={{ y: [0, -35, 0] }}  transition={{ repeat: Infinity, duration: 9  }} className="absolute top-[12%]  right-[5%]  text-orange-500"> <Zap size={36} /></motion.div>
-                    <motion.div animate={{ y: [0, 60, 0] }}   transition={{ repeat: Infinity, duration: 16 }} className="absolute top-[48%]  right-[4%]  text-yellow-500"> <Briefcase size={50} /></motion.div>
-                    <motion.div animate={{ y: [0, -40, 0] }}  transition={{ repeat: Infinity, duration: 11 }} className="absolute bottom-[8%]  right-[6%]  text-pink-500">   <GraduationCap size={64} /></motion.div>
+                    <motion.div animate={{ y: [0, -35, 0] }} transition={{ repeat: Infinity, duration: 9 }} className="absolute top-[12%]  right-[5%]  text-orange-500"> <Zap size={36} /></motion.div>
+                    <motion.div animate={{ y: [0, 60, 0] }} transition={{ repeat: Infinity, duration: 16 }} className="absolute top-[48%]  right-[4%]  text-yellow-500"> <Briefcase size={50} /></motion.div>
+                    <motion.div animate={{ y: [0, -40, 0] }} transition={{ repeat: Infinity, duration: 11 }} className="absolute bottom-[8%]  right-[6%]  text-pink-500">   <GraduationCap size={64} /></motion.div>
                 </div>
 
                 <div className="max-w-7xl mx-auto relative z-10">
@@ -620,7 +620,7 @@ export default function App() {
                                     </a>
                                 </li>
                                 <li className="pt-2">
-                                    <a href="https://wa.me/593000000000" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 rounded-lg hover:bg-emerald-500 hover:text-white transition-all">
+                                    <a href="https://wa.me/593979783184" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 rounded-lg hover:bg-emerald-500 hover:text-white transition-all">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                                             <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
                                         </svg>
@@ -684,7 +684,7 @@ export default function App() {
                 isOpen={isRegistrationOpen}
                 onClose={() => setIsRegistrationOpen(false)}
             />
-            
+
             <AboutUsModal
                 isOpen={isAboutUsOpen}
                 onClose={() => setIsAboutUsOpen(false)}

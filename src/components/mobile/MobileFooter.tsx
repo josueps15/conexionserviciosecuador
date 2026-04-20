@@ -93,7 +93,7 @@ export const MobileFooter = ({ theme, toggleTheme, onOpenAboutUs, onOpenRegistra
                         <li>
                             <div className="flex items-center gap-2">
                                 <MapPin size={15} className="text-[var(--primary)] shrink-0" />
-                                <span>Quito, Ecuador</span>
+                                <span>Ibarra, Ecuador</span>
                             </div>
                         </li>
                         <li>
