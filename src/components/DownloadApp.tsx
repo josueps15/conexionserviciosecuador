@@ -129,7 +129,7 @@ export const DownloadApp = () => {
                             className="flex flex-col sm:flex-row justify-center gap-4 w-full max-w-[480px]"
                         >
                             {/* Google Play Button */}
-                            <a href="#" className="flex-1 group transition-all hover:scale-[1.02] active:scale-95">
+                            <a href="https://play.google.com/store/apps/details?id=com.services.ecuador" target="_blank" rel="noreferrer" className="flex-1 group transition-all hover:scale-[1.02] active:scale-95">
                                 <div className="bg-black rounded-[10px] border border-[#a6a6a6] p-[2px] shadow-xl h-full">
                                     <div className="flex items-center justify-center gap-4 px-3 py-2.5 bg-black rounded-[8px] h-full">
                                         <svg viewBox="0 0 512 512" className="w-8 h-8 flex-shrink-0">
@@ -147,7 +147,7 @@ export const DownloadApp = () => {
                             </a>
 
                             {/* App Store Button */}
-                            <a href="#" className="flex-1 group transition-all hover:scale-[1.02] active:scale-95">
+                            <a href="https://apps.apple.com/ec/app/conexi%C3%B3n-servicios/id6761937673" target="_blank" rel="noreferrer" className="flex-1 group transition-all hover:scale-[1.02] active:scale-95">
                                 <div className="bg-black rounded-[10px] border border-[#a6a6a6] p-[2px] shadow-xl h-full">
                                     <div className="flex items-center justify-center gap-4 px-3 py-2.5 bg-black rounded-[8px] h-full">
                                         <svg viewBox="0 0 384 512" className="w-8 h-8 flex-shrink-0" fill="white">

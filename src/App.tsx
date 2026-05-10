@@ -634,7 +634,7 @@ export default function App() {
                             <h4 className="text-[var(--app-text)] font-black uppercase text-xs tracking-[0.2em] mb-8 font-outfit">Descarga</h4>
                             <div className="flex flex-col gap-3 items-start">
                                 {/* Google Play Footer Button */}
-                                <a href="#" className="group transition-all hover:scale-[1.02] active:scale-95 w-44">
+                                <a href="https://play.google.com/store/apps/details?id=com.services.ecuador" target="_blank" rel="noreferrer" className="group transition-all hover:scale-[1.02] active:scale-95 w-44">
                                     <div className="bg-black rounded-[8px] border border-[#a6a6a6] p-[1.5px] h-full">
                                         <div className="flex items-center justify-center gap-3 px-2 py-1.5 bg-black rounded-[6.5px]">
                                             <svg viewBox="0 0 512 512" className="w-5 h-5 flex-shrink-0">
@@ -652,7 +652,7 @@ export default function App() {
                                 </a>
 
                                 {/* App Store Footer Button */}
-                                <a href="#" className="group transition-all hover:scale-[1.02] active:scale-95 w-44">
+                                <a href="https://apps.apple.com/ec/app/conexi%C3%B3n-servicios/id6761937673" target="_blank" rel="noreferrer" className="group transition-all hover:scale-[1.02] active:scale-95 w-44">
                                     <div className="bg-black rounded-[8px] border border-[#a6a6a6] p-[1.5px] h-full">
                                         <div className="flex items-center justify-center gap-3 px-2 py-1.5 bg-black rounded-[6.5px]">
                                             <svg viewBox="0 0 384 512" className="w-5 h-5 flex-shrink-0" fill="white">
